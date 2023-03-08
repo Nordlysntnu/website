@@ -1,0 +1,17 @@
+.container {
+    text-align: center;
+}
+
+.imageContainer {
+    height: 150px;
+    margin-bottom: 1em;
+}
+
+.image {
+    height: 100%;
+    margin: 0 auto;
+}
+
+.textContainer {
+    max-width: 250px;
+}

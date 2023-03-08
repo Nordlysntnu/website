@@ -1,0 +1,178 @@
+.container {
+    width: 100%;
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.error {
+    width: 100%;
+    font-size: 0.8em;
+    margin-top: 2em;
+    padding: 0.5em 1.5em;
+    font-family: inherit;
+    border-radius: 1000px;
+    border: none;
+    color: white;
+    background-color: rgba(255, 16, 83, 0.4);
+}
+
+.success {
+    width: 100%;
+    font-size: 0.8em;
+    margin-top: 2em;
+    padding: 0.5em 1.5em;
+    font-family: inherit;
+    border-radius: 1000px;
+    border: none;
+    color: white;
+    background-color: rgba(45, 176, 54, 0.5);
+}
+
+.icon {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.textContainer {
+    width: 200px;
+    text-align: center;
+    padding-right: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.vertLine {
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: scaleY(0.8);
+}
+
+.formContainer {
+    flex-grow: 1;
+    padding-left: 2em;
+}
+
+.label {
+    display: block;
+    color: #444;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+    font-family: inherit;
+}
+
+.label:first-of-type {
+    margin-top: 0;
+}
+
+.input {
+    padding: 0.1em 0.5em;
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    font-family: inherit;
+}
+
+.input:focus {
+    border: 2px solid rgba(255, 16, 83, 0.4);
+}
+
+#from {
+    width: 30%;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#first {
+    width: calc(20% - 5px);
+    margin-right: 5px;
+}
+
+#last {
+    width: 40%;
+}
+
+#topic {
+    width: 50%;
+}
+
+#message {
+    width: 100%;
+    height: 7em;
+    display: block;
+    font-family: inherit;
+    resize: none;
+}
+
+.submit {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 2em;
+    padding: 0.5em 1em;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 1000px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: rgba(255, 16, 83, 0.7);
+    transition: 250ms ease all;
+}
+
+.submit:hover {
+    background-color: rgba(255, 16, 83, 1);
+}
+
+@media (max-width: 1000px) {
+    #from {
+        width: 60%;
+    }
+
+    #first {
+        width: calc(40% - 5px);
+    }
+
+    #last {
+        width: 40%;
+    }
+}
+
+@media (max-width: 750px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .textContainer {
+        padding: 0;
+        width: 100%;
+        margin-bottom: 1em;
+        text-align: left;
+    }
+
+    .formContainer {
+        padding: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    #from {
+        width: 100%;
+    }
+
+    #first {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    #last {
+        width: 100%;
+    }
+
+    #topic {
+        width: 100%;
+    }
+}

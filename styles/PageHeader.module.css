@@ -1,0 +1,148 @@
+.container {
+    width: 100%;
+    padding-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+}
+
+.innerContainer {
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
+
+.innerContainer::after {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    display: inline-block;
+    height: 0.3em;
+    width: 0;
+    background-color: #3a486a;
+    border-radius: 100px;
+    opacity: 0;
+    animation: loading 500ms ease;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+    box-sizing: content-box;
+    border: 2px solid #e8e9ec;
+    filter: drop-shadow(-5px 2px 0 #ff1053);
+    transition: 250ms ease all;
+}
+
+@keyframes loading {
+    0% {
+      opacity: 0;
+      width: 0
+    }
+    100% {
+      opacity: 1;
+      width: 8em;
+    }
+}
+
+.svg {
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    cursor: default;
+}
+
+.text {
+    stroke-linejoin: round;
+    white-space: pre;
+    font-family: 'Khand';
+    font-size: 400px;
+    font-weight: bold;
+    letter-spacing: 0;
+    transition: 250ms ease all;
+}
+
+.front {
+    fill: #152242;
+    stroke: #152242;
+    stroke-width: 14;
+}
+
+.middle {   
+    fill: #e8e9ec;
+    stroke: #e8e9ec;
+    stroke-width: 28;
+
+}
+
+.back {
+    fill: #ff1053;
+    stroke: #ff1053;
+    stroke-width: 14;
+}
+
+.svg:hover .back {
+    transform: translate(-4px, 6px);
+}
+
+.svg:hover .middle {
+    transform: translate(2px, -3px);
+}
+
+.svg:hover .front {
+    transform: translate(2px, -3px);
+}
+
+@media (max-width: 1000px) {
+    .innerContainer {
+        height: 250px;
+    }
+}
+
+@media (max-width: 800px) {
+    .innerContainer {
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .innerContainer {
+        height: 180px;
+    }
+
+    .innerContainer::after {
+        border-width: 2px;
+        filter: drop-shadow(-2px 1px 0 #FF5182);
+    }
+}
+
+@media (max-width: 400px) {
+    .innerContainer {
+        height: 120px;
+    }
+
+    .innerContainer::after {
+        bottom: 0.5em;
+    }
+}
+
+@media (max-width: 300px) {
+    .innerContainer {
+        height: 100px;
+    }
+
+    .innerContainer::after {
+        height: 0.2em;
+    }
+
+    @keyframes loading {
+        0% {
+            opacity: 0;
+            width: 0
+        }
+        100% {
+            opacity: 1;
+            width: 5em;
+        }
+    }
+}

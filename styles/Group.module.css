@@ -1,0 +1,79 @@
+.group {
+    padding: 0 1em;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer
+}
+
+.fillContainer {
+    flex-grow: 1;
+}
+
+.icon {
+    height: 0.5em;
+    transform: translateY(-10%);
+    min-height: 0.7em;
+    padding: 0 0.5em;
+}
+
+.openIcon {
+    d: path("M 0 0 L 150 130 L 300 0 V 50 L 150 180 L 0 50 Z");
+    transition: 250ms ease all;
+}
+
+.closeIcon {
+    d: path("M 0 130 L 150 0 L 300 130 V 180 L 150 50 L 0 180 Z");
+    transition: 250ms ease all;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1em;
+    padding: 1em 0;
+}
+
+.titleImage {
+    height: 50px;
+}
+
+.thesesContainer {
+    overflow: hidden;
+    transition: 250ms ease all;
+}
+
+.thesis {
+    padding: 0.5em 0 1em 1em;
+    position: relative;
+}
+
+.thesis:last-of-type {
+    padding-bottom: 2em;
+}
+
+.thesis::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 30%;
+    width: 0.3em;
+    background-color: #ff5182;
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+    border-radius: 100px;
+}
+
+.thesisTitle {
+    font-weight: bold;
+    margin-right: 0.3em;
+}
+
+.thesisTitle::after {
+    content: ':'
+}
+
+.thesisDescription {
+
+}

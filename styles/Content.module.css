@@ -1,0 +1,28 @@
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    padding: 4em 6em;
+    overflow: hidden;
+}
+
+.darkContainer {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.innerContainer {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media (max-width: 750px) {
+    .container {
+        padding: 4em;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 3em;
+    }
+}

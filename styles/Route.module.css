@@ -1,0 +1,111 @@
+.container {
+    border: 5px solid rgb(58, 72, 106);
+    border-radius: 1em;
+    padding: 2em 3em;
+    overflow: hidden;
+}
+
+.svgContainer {
+    position: relative;
+}
+
+.svg {
+    transition: 250ms ease all;
+    margin-bottom: 2em;
+}
+
+.path {
+    stroke-dasharray: 5000;
+    stroke-dashoffset: 5000;
+    pointer-events: none;
+}
+
+.pathAnimation {
+    animation: loadPath 4s ease forwards;
+}
+
+@keyframes loadPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.pointStyleOne {
+    opacity: 0;
+}
+
+.pointStyleTwo {
+    opacity: 0;
+}
+
+.pointStyleThree {
+    opacity: 0;
+}
+
+.pointAnimationOne {
+    animation: pointAnimation 250ms 600ms ease forwards;
+}
+
+.pointAnimationTwo {
+    animation: pointAnimation 250ms 1200ms ease forwards;
+}
+
+.pointAnimationThree {
+    animation: pointAnimation 250ms 2300ms ease forwards;
+}
+
+@keyframes pointAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.step {
+    padding: 0.2em 0.7em;
+    opacity: 0;
+    transform: translateY(100%);
+    position: absolute; 
+    background-color: rgb(255, 16, 83, 0.8);
+    border-radius: 1em;
+    color: white;
+}
+
+.stepAnimationOne {
+    animation: stepAnimation 500ms 600ms ease forwards;
+}
+
+.stepAnimationTwo {
+    animation: stepAnimation 500ms 1200ms ease forwards;
+}
+
+.stepAnimationThree {
+    animation: stepAnimation 500ms 2300ms ease forwards;
+}
+
+@keyframes stepAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.textContainer {
+    margin-bottom: 1em;
+}
+
+@media (max-width: 600px) {
+    .container {
+        border: none;
+        border-radius: 1em;
+        padding: 0;
+    }
+}

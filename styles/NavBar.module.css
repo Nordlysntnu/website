@@ -1,0 +1,144 @@
+.navbar {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    position: sticky;
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(21, 34, 66, 0.8);
+}
+
+.innerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.logoContainer {
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.logo {
+    height: 100%;
+    margin-right: 0.4em;
+}
+
+.menuLink {
+    padding: 0 0.6em;
+    text-decoration: none;
+    transition: 250ms all ease;
+    text-transform: capitalize;
+}
+
+.menuLink:hover {
+    color: rgb(255, 16, 83);
+}
+
+.currentLink {
+    color: rgb(255, 16, 83);
+}
+
+.joinLink {
+    margin-left: 2em;
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    text-transform: u;
+    border: 2px solid white;
+}
+
+.joinLink:hover {
+    color: white;
+    background-color: rgb(255, 16, 83, 0.7);
+    font-weight: normal;
+}
+
+.hamburgerContainer {
+    height: 1.5em;
+    cursor: pointer;
+    padding: 0 0.6rem;
+    display: none;
+    opacity: 0.8;
+    transition: 250ms all ease;
+}
+
+.hamburger {
+    height: 1.5em;
+}
+
+.hamburgerContainer:hover {
+    opacity: 1;
+}
+
+.topLine {
+    transition: 250ms all ease;
+    transform: translateY(30px);
+}
+
+.midLine {
+    transition: 250ms all ease;
+}
+
+.botLine {
+    transition: 250ms all ease;
+    transform: translateY(-30px);
+}
+
+.hamburgerContainer:hover .topLine{
+    transform: none;
+}
+
+.hamburgerContainer:hover .botLine{
+    transform: none;
+}
+
+.crossTopLine {
+    transition: 250ms all ease;
+    transform: rotate(45deg) translateY(45%);
+}
+
+.crossMidLine {
+    transition: 250ms all ease;
+    opacity: 0;
+}
+
+.crossBotLine {
+    transition: 250ms all ease;
+    transform: rotate(-45deg) translateY(-45%);
+}
+
+.smallMenu {
+    position: absolute;
+    top: 100%;
+    right: 1em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    background-color: rgb(21, 34, 66, 0.8);
+}
+
+@media screen and (max-width: 750px) {
+    .menuLink {
+        display: none;
+    }
+
+    .hamburgerContainer {
+        display: block;
+    }
+
+    .joinLink {
+        margin-left: 0;
+        margin-top: 1em;
+    }
+}

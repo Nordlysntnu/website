@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    color: rgb(178, 11, 58);
+    transition: 250ms ease all;
+}
+
+.link::before {
+    content: '< ';
+    margin-left: 0;
+    transition: 250ms ease all;
+}
+
+.link:hover {
+    color: rgb(255, 16, 83);
+}
+
+.link:hover.link::before {
+    margin-right: 0.2em;
+}

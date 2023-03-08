@@ -1,0 +1,14 @@
+.container {
+    text-align: left;
+}
+
+.textContainer {
+    margin-bottom: 2em;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 2em;
+}
