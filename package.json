@@ -8,7 +8,6 @@
   "dependencies": {
     "@react-google-maps/api": "^2.18.1",
     "animate.css": "^4.1.1",
-    "google-maps-react": "^2.0.6",
     "next": "latest",
     "react": "18.2.0",
     "react-animate-on-scroll": "^2.1.5",
