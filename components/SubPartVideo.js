@@ -3,13 +3,13 @@ import styles from '../styles/SubPart1.module.css';
 import Content from './Content';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 
-export default function SubPartVideo({ dark, video, title, text, link, linkText }) {
+export default function SubPartVideo({ dark, video, poster, title, text, link, linkText }) {
     return (
         <Content dark={dark}>
             <div className={styles.container}>
                 <div className={styles.imageContainer}>
                     <AnimationOnScroll animateIn='animate__fadeIn' animateOnce>
-                        <video autoPlay muted loop poster="Ribbon.png" className={styles.image}>
+                        <video autoPlay muted loop poster={poster} className={styles.image}>
                             <source src={video} type="video/mp4" />
                         </video>
                     </AnimationOnScroll>

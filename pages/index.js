@@ -24,7 +24,7 @@ export default function Home() {
         <SubPart1 dark={false} image={LandingImage.src} title="The impact of creating" text={text1} link="/about" linkText="About us" />
         <MemberPresentation dark={true} />
         <Disciplines dark={false} />
-        <SubPartVideo dark={true} video="SolarVideo.mp4" title="Solar Technology" text={text2} link="/about" linkText="About us" />
+        <SubPartVideo dark={true} video="SolarVideo.mp4" poster="SolarPanels.png" title="Solar Technology" text={text2} link="/about" linkText="About us" />
       </Layout>
     </>
   )

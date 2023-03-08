@@ -16,7 +16,7 @@ export default function About() {
         <></>
         <PageHeader title="About us" />
         <Mission dark={true} />
-        <SubPartVideo dark={false} video="AboutVideo.mp4" title="Solar Racing" text="To solve the problems of tomorrow, nothing is more important than thinking new. Solar racing pushes the limit of technology and solar energy innovation through competition. Who can drive the fastest and get to the finish line before running out of energy?" />
+        <SubPartVideo dark={false} video="AboutVideo.mp4" poster="AboutVideo.png" title="Solar Racing" text="To solve the problems of tomorrow, nothing is more important than thinking new. Solar racing pushes the limit of technology and solar energy innovation through competition. Who can drive the fastest and get to the finish line before running out of energy?" />
         <Route dark={true} />
       </Layout>
     </>

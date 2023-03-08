@@ -13,7 +13,7 @@ export default function PageNotFound() {
           <title>Nordlys</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Layout current="Home">
+        <Layout current="">
             <PageLanding title="Page not found :/" text="This website is not finished, and the page you searched for may be under development" image={LandingImage.src} />
             <Content dark={true}>
                 <div className={styles.container}>
