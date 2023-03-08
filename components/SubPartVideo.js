@@ -9,7 +9,7 @@ export default function SubPartVideo({ dark, video, poster, title, text, link, l
             <div className={styles.container}>
                 <div className={styles.imageContainer}>
                     <AnimationOnScroll animateIn='animate__fadeIn' animateOnce>
-                        <video autoPlay muted loop poster={poster} className={styles.image}>
+                        <video autoPlay muted loop playsInline poster={poster} className={styles.image}>
                             <source src={video} type="video/mp4" />
                         </video>
                     </AnimationOnScroll>

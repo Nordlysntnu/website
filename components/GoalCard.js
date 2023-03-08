@@ -4,7 +4,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 export default function GoalCard({ title, text, image, delay }) {
     return (
-        <AnimationOnScroll animateIn="animate__fadeInUp" offset={50} animateOnce delay={delay? delay : 0} >
+        <AnimationOnScroll animateIn="animate__fadeInUp" offset={0} animateOnce delay={delay? delay : 0} >
             <div className={styles.container}>
                 <div className={styles.imageContainer}>
                     <img className={styles.image} src={image} />

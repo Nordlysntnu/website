@@ -23,7 +23,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+    opacity: 0;
     padding: 2em;
+    animation: textContainer 1s 500ms ease forwards;
+}
+
+@keyframes textContainer {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
 }
 
 .title {
