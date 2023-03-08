@@ -1,12 +1,17 @@
 import styles from '../styles/Landing.module.css';
 import Link from 'next/Link';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { useRef, useState } from 'react';
 
 export default function Landing() {
+    const videoRef = useRef(null)
+    const [videoSpeed, setVideoSpeed] = useState(1)
+
+    
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
-                <video autoPlay muted loop poster="Ribbon.png" className={styles.ribbon}>
+                <video autoPlay muted loop poster="Ribbon.png" className={styles.ribbon} ref={videoRef}>
                     <source src="RibbonWStars.mp4" type="video/mp4" />
                 </video>
             </div>
