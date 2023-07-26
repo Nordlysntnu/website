@@ -6,12 +6,12 @@ export default function JoinForm({ groups }) {
 
     const [show, setShow] = useState("form")
 
-    const [isThesis, setIsThesis] = useState(true);
-    const [normalStyle, setNormalStyle] = useState(styles.choice);
-    const [thesisStyle, setThesisStyle] = useState(`${styles.choice} ${styles.chosen}`);
+    const [isThesis, setIsThesis] = useState(false);
+    const [normalStyle, setNormalStyle] = useState(`${styles.choice} ${styles.chosen}`);
+    const [thesisStyle, setThesisStyle] = useState(styles.choice);
 
-    const [normalDisplay, setNormalDisplay] = useState("none")
-    const [thesisDisplay, setThesisDisplay] = useState("block")
+    const [normalDisplay, setNormalDisplay] = useState("block")
+    const [thesisDisplay, setThesisDisplay] = useState("none    ")
 
     const [chosen1, setChosen1] = useState("none")
     const [chosen2, setChosen2] = useState("none")
@@ -169,9 +169,9 @@ export default function JoinForm({ groups }) {
             position2: formRef.current.position2.value,
             group3: formRef.current.group3.value,
             position3: formRef.current.position3.value,
-            group4: formRef.current.group4.value,
-            position4: formRef.current.position4.value,
-            thesis: formRef.current.thesis.value,
+            // group4: formRef.current.group4.value,
+            // position4: formRef.current.position4.value,
+            // thesis: formRef.current.thesis.value,
             description: formRef.current.description.value
         }
 
@@ -218,7 +218,7 @@ export default function JoinForm({ groups }) {
                             </select>
                         </div>
                         <div className={styles.subForm}>
-                            <div className={styles.chooseContainer}>
+                            {/* <div className={styles.chooseContainer}>
                                 <div>
                                     <div className={normalStyle} onClick={chooseNormal}>
                                         Normal
@@ -262,7 +262,31 @@ export default function JoinForm({ groups }) {
                                         </select>
                                         <textarea className={styles.input} ref={thesisTextArea} disabled={!thesisEditable} id={styles.thesis} name="thesis" placeholder='Suggest thesis' />
                                     </div>
+
                                 </div>
+                            </div> */}
+                            <div style={{display: normalDisplay}}>
+                                <label className={styles.label} htmlFor="field">First choice:</label>
+                                <select className={styles.input} name="group1" onChange={(e) => {setChosen1(e.target.value)}} id={styles.group}>
+                                    {getGroups()}
+                                </select>
+                                <select className={styles.input} name="position1" id={styles.position}>
+                                    {getChoices(chosen1)}
+                                </select>
+                                <label className={styles.label} htmlFor="field">Second choice:</label>
+                                <select className={styles.input} name="group2" onChange={(e) => {setChosen2(e.target.value)}} id={styles.group}>
+                                    {getGroups()}
+                                </select>
+                                <select className={styles.input} name="position2" id={styles.position}>
+                                    {getChoices(chosen2)}
+                                </select>
+                                <label className={styles.label} htmlFor="field">Third choice:</label>
+                                <select className={styles.input} name="group3" onChange={(e) => {setChosen3(e.target.value)}} id={styles.group}>
+                                    {getGroups()}
+                                </select>
+                                <select className={styles.input} name="position3" id={styles.position}>
+                                    {getChoices(chosen3)}
+                                </select>
                             </div>
                         </div>
                         <div className={styles.subForm}>

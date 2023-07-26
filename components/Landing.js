@@ -12,7 +12,7 @@ export default function Landing() {
             </div>
             <div className={styles.textContainer}>
                 <h1 className={styles.title}>A New Era is Here</h1>
-                <div className={styles.text}>Push the limits of technology with the largest interdisciplinary bachelor's and master's project ever at NTNU</div>
+                <div className={styles.text}>Push the limits of technology with the first ever solar racing team from Norway.</div>
                 <Link href="/join" className={styles.button}>Join</Link>
             </div>
         </div>
