@@ -10,7 +10,7 @@ export default function Footer() {
         <>
         <div className={styles.topRibbon}>
             <button className={styles.innerContainer} onClick={toTop}>
-                To the top
+                <span>To the top</span>
             </button>
         </div>
         <Content dark={true}>
@@ -19,19 +19,19 @@ export default function Footer() {
             <div className={styles.container}>
                 <div className={styles.textContainer}>
                     <p>Post address:</p>
-                    <p>S.P. Andersens veg 11</p>
-                    <p>7031</p>
+                    <p>Herman Krags veg 31</p>
+                    <p>7050</p>
                     <p>Trondheim</p>
                 </div>
                 <div className={styles.textContainer}>
                     <p>Visitor address:</p>
-                    <p>S.P. Andersens veg 11</p>
-                    <p>7031</p>
+                    <p>Herman Krags vei 31</p>
+                    <p>7050</p>
                     <p>Trondheim</p>
                 </div>
                 <div className={styles.textContainer}>
                     <p>Contact information:</p>
-                    <Link href="mailto:siverskv@stud.ntnu.no">siverskv@stud.ntnu.no</Link>
+                    <Link href="mailto:sivert.kverme@nordlysntnu.no">sivert.kverme@nordlysntnu.no</Link>
                     <p><Link href="tel:004790252412">+47 902 52 412</Link></p>
                 </div>
             </div>

@@ -17,7 +17,17 @@
     color: white;
     cursor: pointer;
     font-size: inherit;
+    border: none;
     background-color: rgba(21, 34, 66, 1);
+}
+
+.innerContainer span {
+    transform: scale(0.9);
+    transition: 250ms ease all;
+}
+
+.innerContainer:hover span {
+    transform: scale(1);
 }
 
 .header {

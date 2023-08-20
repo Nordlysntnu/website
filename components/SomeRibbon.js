@@ -8,13 +8,13 @@ export default function SomeRibbon() {
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
-                <Link className={styles.icon} href="#">
+                <Link className={styles.icon} target="_blank" href="https://www.instagram.com/nordlysntnu/">
                     <img src={Instagram.src} />
                 </Link>
-                <Link className={styles.icon} href="#">
+                <Link className={styles.icon} target="_blank" href="https://www.linkedin.com/company/nordlysntnu/">
                     <img src={Linkedin.src} />
                 </Link>
-                <Link className={styles.icon} href="#">
+                <Link className={styles.icon} target="_blank" href="https://www.facebook.com/nordlysntnu">
                     <img src={Facebook.src} />
                 </Link>
             </div>

@@ -4,7 +4,7 @@ import Group from "./Group";
 
 export default function({ dark, groups }) {
     return (
-        <Content dark={dark}>
+        <Content id="groups" dark={dark}>
             <div className={styles.container}>
                 {
                     Object.keys(groups).map((groupName, i) => (
