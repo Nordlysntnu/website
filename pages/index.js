@@ -7,6 +7,7 @@ import GoalPane from '../components/GoalPane';
 import Disciplines from '../components/Disciplines';
 import MemberPresentation from '../components/MemberPresentation';
 import SubPartVideo from '../components/SubPartVideo';
+import AlertPane from '../components/AlertPane';
 
 export default function Home() {
   const text1 = "Theres nothing more valuable than creating something new. Through developing solar powered cars and competing in some of the worlds biggest solar racing competitions, Nordlys NTNU aims to educate the best engineers in Norway, and showcase optimism and innovation in a world in dire need of sustainable energies."
@@ -20,6 +21,7 @@ export default function Home() {
       </Head>
       <Layout current="Home">
         <Landing />
+        <AlertPane />
         <GoalPane dark={true} />
         <SubPart1 dark={false} image={LandingImage.src} title="The impact of creating" text={text1} link="/about" linkText="About us" />
         <MemberPresentation dark={true} />
