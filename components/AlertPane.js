@@ -13,13 +13,16 @@ export default function AlertPane() {
             linkText: 'See event'
         }
     }
-    return (
-        <Content dark={false}>
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
-                <div className={styles.container}>
-                    <Alert alert={alerts.infoMeeting}></Alert>
-                </div>
-            </AnimationOnScroll>
-        </Content>
-    )
+
+    if (alerts) {
+        return (
+            <Content dark={false}>
+                <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
+                    <div className={styles.container}>
+                        <Alert alert={alerts.infoMeeting}></Alert>
+                    </div>
+                </AnimationOnScroll>
+            </Content>
+        )
+    } else return (<></>)
 }
