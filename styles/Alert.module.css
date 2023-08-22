@@ -1,9 +1,9 @@
 .container {
     background-color: rgb(255, 16, 83, 0.7);
     color: white;
-    padding: 1em 2em;
+    padding: 1.5em 2em;
     border-radius: 1em;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .title {
@@ -16,6 +16,7 @@
 
 .titleText {
     margin-right: 0.5em;
+    font-size: 2em;
 }
 
 .info {
@@ -26,12 +27,11 @@
 
 .description {
     font-size: 0.8em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.5em;
 }
 
 .link {
     color: rgb(21, 34, 66);
-    font-size: 0.8em;
     transition: 250ms ease all;
     cursor: pointer;
 }
