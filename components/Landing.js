@@ -11,7 +11,7 @@ export default function Landing() {
                 </video>
             </div>
             <div className={styles.textContainer}>
-                <h1 className={styles.title}>Apply by 31. August</h1>
+                <h1 className={styles.title}>Apply tonight!</h1>
                 <div className={styles.text}>Push the limits of technology with the first ever solar racing team from Norway.</div>
                 <Link href="/join" className={styles.button}>Join</Link>
             </div>
