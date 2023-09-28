@@ -10,7 +10,7 @@ export default function Join() {
   const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>
   const groups = {
     'electrical': {
-      'name': 'Eletcrical',
+      'name': 'Electrical',
       'image': 'EmbeddedElectronics.png',
       'groupLeader': {name: 'Group Leader Electrical', text: 'The group leader is the leader of the electrical members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
       'sensorNetwork': {name: 'Sensor Network', text: 'Gathering data is crucial to drive fast while preserving energy. The sensor network is responsible for gathering a lot of data and sending it to the central telemetry system.', supervisor: 'Not Decided'},

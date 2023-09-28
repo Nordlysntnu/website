@@ -21,12 +21,12 @@ export default function Home() {
       </Head>
       <Layout current="Home">
         <Landing />
-        <AlertPane />
-        <GoalPane dark={true} />
-        <SubPart1 dark={false} image={LandingImage.src} title="The impact of creating" text={text1} link="/about" linkText="About us" />
-        <MemberPresentation dark={true} />
-        <Disciplines dark={false} />
-        <SubPartVideo dark={true} video="SolarVideo.mp4" poster="SolarPanels.png" title="Solar Technology" text={text2} link="/about" linkText="About us" />
+        {/* <AlertPane />*/}
+        <GoalPane dark={false} />
+        <SubPart1 dark={true} image={LandingImage.src} title="The impact of creating" text={text1} link="/about" linkText="About us" />
+        <MemberPresentation dark={false} />
+        <Disciplines dark={true} />
+        <SubPartVideo dark={false} video="SolarVideo.mp4" poster="SolarPanels.png" title="Solar Technology" text={text2} link="/about" linkText="About us" />
       </Layout>
     </>
   )

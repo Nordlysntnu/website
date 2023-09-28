@@ -9,7 +9,7 @@ import Management from '../public/Management.png';
 import Content from './Content';
 
 export default function Disciplines({ dark }) {return (
-        <Content>
+        <Content dark={dark}>
             <div className={styles.container}>
                 <div className={styles.innerContainer}>
                     <h1 className={styles.title}>Our groups</h1>
