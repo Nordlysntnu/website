@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import styles from '../styles/ContactPane.module.css';
 
 export default function ContactPane() {
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbwIkv--LsHWBpT1hfDRYx64V45o49gOR_iFYaQHJgdbRxGkKiAM7Wa6rnYgwhmd8vK8/exec"
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbzyycGbOVZH4fypAoCzVYLhGT3YFcYidSFkc2sQMMBzyJUJW3T60_1XdspOeuqY5a-HmA/exec"
     const [loading, setLoading] = useState(false)
     const formRef = useRef(null)
 
@@ -13,12 +13,25 @@ export default function ContactPane() {
         setLoading(true)
         setShow("none")
 
+        const today = new Date()
+
+        const year = today.getFullYear()
+        const month = today.getMonth() + 1
+        const date = today.getDate()
+        const hours = today.getHours()
+        const minutes = today.getMinutes()
+
+        const currentDate = date + "." + month + "." + year
+        const currentTime = "kl. " + hours + "." + minutes
+        const currentDateTime = currentDate + " " + currentTime
+
         const rawData = {
             from: formRef.current.from.value,
             first: formRef.current.first.value,
             last: formRef.current.last.value,
             topic: formRef.current.topic.value,
-            message: formRef.current.message.value
+            message: formRef.current.message.value,
+            time: currentDateTime
         }
 
         console.log(rawData)

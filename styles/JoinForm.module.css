@@ -90,6 +90,10 @@
     transform: translateX(-200%);
 }
 
+.subForm4 {
+    transform: translateX(-300%);
+}
+
 .subForm {
     padding: 0 2em;
     width: 100%;
@@ -275,4 +279,67 @@
 
 .current {
     background-color: rgba(154, 177, 195, 1);
+}
+
+.marketingContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.marketingOption {
+    width: calc(50% - 5px);
+    position: relative;
+    height: 2em;
+    cursor: pointer;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.marketingInput {
+    margin-right: 1em;
+    height: 100%;
+    width: 100%;
+    appearance: none;
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.marketingInput:checked {
+    background-color: rgb(255, 16, 83, 0.3);
+}
+
+.marketingInput:hover {
+    background-color: rgb(255, 16, 83, 0.2);
+}
+
+.marketingLabel {
+    position: absolute;
+    vertical-align: center;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    cursor: pointer;
+}
+
+.otherText {
+    margin-right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    position: absolute;    
+    padding: 0.1em 0.5em;
+    border: none;
+    font-size: 1em;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    font-family: inherit;
+}
+
+.otherText:focus {
+    border: 2px solid rgba(255, 16, 83, 0.4);
 }

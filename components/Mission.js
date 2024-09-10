@@ -10,13 +10,13 @@ export default function Mission({ dark }) {
         <Content dark={dark}>
             <div className={styles.container}>
                 <div className={styles.textContainer}>
-                    <h1 className={styles.title}>The Mission</h1>
-                    <p className={styles.text}>Theres nothing more valuable than creating something new. <em>Nordlys NTNU</em> is a student technical organisation at the Norwegian University of Science and Technology, aiming to <em>drive across Norway</em> completely on Solar energy. Through the project, we wish to set focus on <em>solutions to sustainability</em>, showcase the <em>growing Norwegian solar industry</em>, and give members the <em>greatest possible education</em> required to tackle the problems of the future.</p>
+                    <h1 className={styles.title}>Our values</h1>
+                    <p className={styles.text}>Theres nothing more valuable than creating something new. Nordlys NTNU is a student technical organisation at the Norwegian University of Science and Technology, aiming to drive across Norway completely on Solar energy. Through the project, we wish to set focus on <em>solutions to sustainability</em>, facilitate for multidisciplinary <em>teamwork</em>, and drive a <em>passion</em> for innovation and technology through enthusiasm and dedication.</p>
                 </div>
                 <div className={styles.imageContainer}>
-                    <GoalCard delay={200} image={Sustainability.src} text="Sustainable solutions" />
-                    <GoalCard delay={400} image={Solar.src} text="Solar industry" />
-                    <GoalCard delay={600} image={Education.src} text="Quality education" />
+                    <GoalCard delay={200} image={Sustainability.src} title="Sustainability" text="Nordlys believes that a sustainable society is a prerequisite for a prosperous future. Our generation's way of life should not come at the cost of future generations’ welfare. We support the UNs sustainable development goals, and directly work towards 8 of them." />
+                    <GoalCard delay={400} image={Education.src} title="Teamwork" text="Teamwork is necessary to achieve change and innovation. To work together in a fellowship will provide inspiration, safety and engagement. Nordlys wishes to facilitate multidisciplinary collaboration, comfort in a team-setting and that all team members feel that they are contributing to the project." />
+                    <GoalCard delay={600} image={Solar.src} title="Passion" text="Passion signifies that our members are deeply committed to Nordlys’ mission, goals and the tasks they themselves perform. Nordlys’ encourages its members to approach their work with dedication and enthusiasm, and believe that this will be the driving factor in our innovation and problem solving." />
                 </div>
             </div>
         </Content>

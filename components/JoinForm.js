@@ -11,7 +11,7 @@ export default function JoinForm({ groups }) {
     const [thesisStyle, setThesisStyle] = useState(styles.choice);
 
     const [normalDisplay, setNormalDisplay] = useState("block")
-    const [thesisDisplay, setThesisDisplay] = useState("none    ")
+    const [thesisDisplay, setThesisDisplay] = useState("none")
 
     const [chosen1, setChosen1] = useState("none")
     const [chosen2, setChosen2] = useState("none")
@@ -23,12 +23,18 @@ export default function JoinForm({ groups }) {
     const thesisChoiceArea = useRef(null);
 
     const [currentPage, setCurrentPage] = useState(0);
-    const pageStyles = [`${styles.innerContainer} ${styles.subForm1}`, `${styles.innerContainer} ${styles.subForm2}`, `${styles.innerContainer} ${styles.subForm3}`]
+    const pageStyles = [`${styles.innerContainer} ${styles.subForm1}`, `${styles.innerContainer} ${styles.subForm2}`, `${styles.innerContainer} ${styles.subForm3}`, `${styles.innerContainer} ${styles.subForm4}`]
     const [backButton, setBackButton] = useState(`${styles.disButton} ${styles.button}`)
     const [forwardButton, setForwardButton] = useState(`${styles.actButton} ${styles.button}`)
     const [lightOne, setLightOne] = useState(`${styles.light} ${styles.current}`)
     const [lightTwo, setLightTwo] = useState(`${styles.light}`)
     const [lightThree, setLightThree] = useState(`${styles.light}`)
+    const [lightFour, setLightFour] = useState(`${styles.light}`)
+
+    const [selectOther, setSelectOther] = useState(false)
+    const activeOtherRef = useRef(null)
+    const [otherValue, setOtherValue] = useState("")
+    const [marketing, setMarketing] = useState("On stand")
 
     function getGroups() {
         return (
@@ -55,7 +61,7 @@ export default function JoinForm({ groups }) {
                 <option value="any">Any</option>
                 {
                     Object.keys(theses).map((thesisName, i) => {
-                        if (thesisName != 'image' && thesisName != 'name') {
+                        if (thesisName != 'image' && thesisName != 'name' && thesisName != 'description') {
                             return <option value={thesisName}>{theses[thesisName].name}</option>
                         }
                     })
@@ -110,12 +116,12 @@ export default function JoinForm({ groups }) {
     }
 
     function handleForward() {
-        if (currentPage != 2) {
+        if (currentPage != 3) {
             setCurrentPage(currentPage + 1)
             setBackButton(`${styles.actButton} ${styles.button}`)
         }
 
-        if (currentPage + 1 == 2) {
+        if (currentPage + 1 == 3) {
             setForwardButton(`${styles.disButton} ${styles.button}`)
         }
 
@@ -127,14 +133,22 @@ export default function JoinForm({ groups }) {
             setLightOne(`${styles.light} ${styles.current}`)
             setLightTwo(`${styles.light}`)
             setLightThree(`${styles.light}`)
+            setLightFour(`${styles.light}`)
         } else if (index == 1) {
             setLightTwo(`${styles.light} ${styles.current}`)
             setLightOne(`${styles.light}`)
             setLightThree(`${styles.light}`)
+            setLightFour(`${styles.light}`)
         } else if (index == 2) {
             setLightThree(`${styles.light} ${styles.current}`)
             setLightOne(`${styles.light}`)
             setLightTwo(`${styles.light}`)
+            setLightFour(`${styles.light}`)
+        } else if (index == 3) {
+            setLightFour(`${styles.light} ${styles.current}`)
+            setLightOne(`${styles.light}`)
+            setLightTwo(`${styles.light}`)
+            setLightThree(`${styles.light}`)
         }
     }
 
@@ -143,17 +157,30 @@ export default function JoinForm({ groups }) {
         setLightOne(`${styles.light} ${styles.current}`)
         setLightTwo(`${styles.light}`)
         setLightThree(`${styles.light}`)
+        setLightFour(`${styles.light}`)
         setForwardButton(`${styles.actButton} ${styles.button}`)
         setBackButton(`${styles.disButton} ${styles.button}`)
         setCurrentPage(0)
     }
 
     const [loading, setLoading] = useState(false)
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbwJFqPV2HZmQLryKuMnC_zBm6OjtUO6lZzQVkj1V9fPARKxPrL8fi5y8P2T3k_B6T1F/exec"
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbzm0Ryc5dT9xYkFd-MVEz2a2YugQOfV9UVGm3n9UjxTSEZMK2iJiIXnqt0YRlLKhBxHUA/exec"
 
     const handleSubmit = (e) => {
         e.preventDefault()
         setLoading(true)
+
+        const today = new Date()
+
+        const year = today.getFullYear()
+        const month = today.getMonth() + 1
+        const date = today.getDate()
+        const hours = today.getHours()
+        const minutes = today.getMinutes()
+
+        const currentDate = date + "." + month + "." + year
+        const currentTime = "kl. " + hours + "." + minutes
+        const currentDateTime = currentDate + " " + currentTime
 
         const rawData = {
             first: formRef.current.first.value,
@@ -172,7 +199,9 @@ export default function JoinForm({ groups }) {
             // group4: formRef.current.group4.value,
             // position4: formRef.current.position4.value,
             // thesis: formRef.current.thesis.value,
-            description: formRef.current.description.value
+            marketing: formRef.current.marketing.value,
+            description: formRef.current.description.value,
+            time: currentDateTime
         }
 
         const formData = new FormData()
@@ -183,6 +212,7 @@ export default function JoinForm({ groups }) {
         .then(res => res.json()).then(data => {
             console.log("Successfully submitted")
             formRef.current.reset()
+            setMarketing("Stand")
             setLoading(false)
             setShow('success')
         })
@@ -290,6 +320,35 @@ export default function JoinForm({ groups }) {
                             </div>
                         </div>
                         <div className={styles.subForm}>
+                            <label className={styles.label} htmlFor="field">Were did you here about us? Choose the field you most relate to.</label>
+                            <div className={styles.marketingContainer}>
+                                <div className={styles.marketingOption}>
+                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("On Stand") }} defaultChecked type="radio" id="stand" name="marketing" value="On stand"/>
+                                    <label className={styles.marketingLabel} for="stand">On stand</label>
+                                </div>
+                                <div className={styles.marketingOption}>
+                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("Posters") }} type="radio" id="posters" name="marketing" value="Posters"/>
+                                    <label className={styles.marketingLabel} for="posters">Posters</label>
+                                </div>
+                                <div className={styles.marketingOption}>
+                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("Social Media") }} type="radio" id="socialmedia" name="marketing" value="Social Media"/>
+                                    <label className={styles.marketingLabel} for="socialmedia">Social Media</label>
+                                </div>
+                                <div className={styles.marketingOption}>
+                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("Through friends") }} type="radio" id="friends" name="marketing" value="Through friends"/>
+                                    <label className={styles.marketingLabel} for="friends">Through friends</label>
+                                </div>
+                                <div className={styles.marketingOption}>
+                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("At a lecture") }} type="radio" id="lecture" name="marketing" value="At a lecture"/>
+                                    <label className={styles.marketingLabel} for="lecture">At a lecture</label>
+                                </div>
+                                <div className={styles.marketingOption}>
+                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(true); activeOtherRef.current.focus(); setMarketing(otherValue) }} type="radio" id="other" checked={selectOther} name="marketing" value={ otherValue }/>
+                                    <input className={styles.otherText} onClick={() => { setSelectOther(true); activeOtherRef.current.focus() }} onChange={() => {setOtherValue(activeOtherRef.current.value); setMarketing(otherValue)}} ref={activeOtherRef} type="text" id="other" name="marketing" placeholder='Other' />
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.subForm}>
                             <label className={styles.label} htmlFor="field">Tell us about yourself in a few words:</label>
                             <textarea className={styles.input} id={styles.description} name="description" placeholder="Something about yourself" />
                             <center><button className={styles.submit}>{loading ? "Loading..." : "Submit"}</button></center>
@@ -302,7 +361,8 @@ export default function JoinForm({ groups }) {
                             </div>
                             <div className={lightOne}></div>
                             <div className={lightTwo}></div>
-                            <div className={lightThree}> </div>
+                            <div className={lightThree}></div>
+                            <div className={lightFour}></div>
                             <div className={forwardButton} onClick={handleForward}>
                                 &#62;
                             </div>

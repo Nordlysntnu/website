@@ -15,3 +15,7 @@
 .textContainer {
     max-width: 250px;
 }
+
+.text {
+    font-style: italic;
+}

@@ -8,7 +8,7 @@ export default function({ dark, groups }) {
             <div className={styles.container}>
                 {
                     Object.keys(groups).map((groupName, i) => (
-                        <Group image={groups[groupName]['image']} groupName={groups[groupName].name} theses={groups[groupName]} />
+                        <Group image={groups[groupName]['image']} groupName={groups[groupName].name} description={groups[groupName]['description']} theses={groups[groupName]} />
                     ))
                 }
             </div>

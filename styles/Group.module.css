@@ -38,6 +38,11 @@
     height: 50px;
 }
 
+.groupDescription {
+    margin-bottom: 1em;
+    display: inline-block;
+}
+
 .thesesContainer {
     overflow: hidden;
     transition: 250ms ease all;

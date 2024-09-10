@@ -10,6 +10,7 @@ import ImageBackSmall from '../public/Group-photo-SOME-1.jpg';
 import Link from 'next/Link';
 import styles from '../styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
+import TeamOverview from "../components/TeamOverview";
 
 export default function Team() {
     const [size, setSize] = useState('big');
@@ -44,12 +45,14 @@ export default function Team() {
                 In September of 2023 the first ever full Solar Racing team from Norway was finally formed. The team consists of a highly multi-disciplinary team, distributed between the groups of Mechanical, Electrical, Strategy, Brand and the Board. This marks an outstanding achievement in Norwegian Solar racing history!
                 <br />
                 <br />
-                <DoubleImage imageFront={imageFront} imageBack={imageBack} />
-                <br />
                 Do you want to become part of the team? Read more about our groups and apply!
                 <br />
                 <br />
                 <Link href="/join" className={styles.link}>Read more</Link>
+            </Content>
+            <TeamOverview />
+            <Content dark={true}>
+                <DoubleImage imageFront={imageFront} imageBack={imageBack} />
             </Content>
         </Layout>
         </>

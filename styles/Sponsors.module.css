@@ -1,0 +1,19 @@
+.platinumContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3em;
+    flex-wrap: wrap;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.title {
+    padding-bottom: 1em;
+}

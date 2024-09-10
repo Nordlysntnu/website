@@ -3,9 +3,9 @@ import { useState, useRef, useEffect } from "react";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";
 
-export default function Group({ image, groupName, theses }) {
-    const [path, setPath] = useState(styles.openIcon)
-    const [open, setOpen] = useState(false)
+export default function Group({ image, groupName, theses, description }) {
+    const [path, setPath] = useState(styles.closeIcon)
+    const [open, setOpen] = useState(true)
     const [elementHeight, setElementHeight] = useState(0)
     const [bottom, setBottom] = useState(0)
     const ref = useRef(null)
@@ -46,9 +46,10 @@ export default function Group({ image, groupName, theses }) {
                 </svg>  
             </h2>
             <div className={styles.thesesContainer} ref={ref} style={{ height: bottom }}>
+                <div className={styles.groupDescription}>{description}</div>
                 {
                     Object.keys(theses).map((thesisName, j) => (
-                        (thesisName != 'image' && thesisName != 'name')? (
+                        (thesisName != 'image' && thesisName != 'name' && thesisName != 'description')? (
                             <div className={styles.thesis}>
                                 <span className={styles.thesisTitle}>{theses[thesisName].name}</span>
                                 <span className={styles.thesisDescription}>{theses[thesisName].text}</span>

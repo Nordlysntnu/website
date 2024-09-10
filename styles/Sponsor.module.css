@@ -1,0 +1,43 @@
+.platinumContainer {
+    width: 400px;
+    max-width: 400px;
+    cursor: pointer;
+    transition: 250ms all ease;
+    border-radius: 1em;
+}
+
+.container {
+    width: 300px;
+    max-width: 300px;
+    cursor: pointer;
+    transition: 250ms all ease;
+    border-radius: 1em;
+}
+
+.image {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    padding: 1em;
+}
+
+.textContainer {
+    padding: 1em;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.platinumContainer:hover {
+    transform: scale(1.01);
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.container:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.03);
+}
