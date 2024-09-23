@@ -11,7 +11,7 @@ export default function Sponsor({ name, platinum, description, link, image }) {
                 </div> 
             :
                 <></>
-            }
+            }   
         </Link>
     )
 }

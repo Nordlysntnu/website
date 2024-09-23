@@ -11,6 +11,8 @@ import Rejlers from '../public/Partners/Rejlers.png';
 import Freber from '../public/Partners/Freber.png';
 import Biesterfeld from '../public/Partners/Biesterfeld.png';
 import Hydro from '../public/Partners/Hydro.png';
+import Prototal from '../public/Partners/Prototal.png';
+import Easyform from '../public/Partners/Easyform.png';
 import Link from 'next/Link';
 import styles from '../styles/partners.module.css';
 
@@ -25,6 +27,11 @@ export default function About() {
       link: 'https://baa.no/',
       image: BrynAarflot.src,
       description: <>Bryn Aarflot specializes in creating value through intellectual property (IP) law in Norway, featuring a team of top-tier patent attorneys and specialized IP lawyers. Recognized as a leading IP firm, they provide full-scale support from the initial ideation to the enforcement of IP rights. <br/><br/>The firm distinguishes itself by offering a comprehensive range of IP services. As platinum sponsors of Nordlys, Bryn Aarflot extends its commitment to IP value creation through educational workshops, equipping NTNU students with vital skills for their solar race project and professional futures.</>
+    },
+    'Easyform': {
+      link: 'http://easyform.no/',
+      image: Easyform.src,
+      description: <>Easy Form AS was established in 2005 and has developed into a complete advisor and design provider, offering everything from design and engineering services to finished composite products. Easy Form has two of Europe's largest 5-axis CNC milling machines for machining large complex surfaces. Among other things, Easy Form is known for having built the first all-electric ferry made of composite materials, capable of transporting hazardous cargo, 'MF Barmøy.'</>
     }
   }
   const goldSponsors = {
@@ -43,6 +50,11 @@ export default function About() {
     'Freber': {
       link: "https://www.freber.no/",
       image: Freber.src,
+      description: ""
+    },
+    'Prototal': {
+      link: "https://www.prototal.no/",
+      image: Prototal.src,
       description: ""
     }
 
