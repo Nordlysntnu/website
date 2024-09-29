@@ -13,7 +13,7 @@ import Biesterfeld from '../public/Partners/Biesterfeld.png';
 import Hydro from '../public/Partners/Hydro.png';
 import Prototal from '../public/Partners/Prototal.png';
 import Easyform from '../public/Partners/Easyform.png';
-import Link from 'next/Link';
+import Link from 'next/link';
 import styles from '../styles/partners.module.css';
 import Renergy from '../public/Partners/Renergy.png';
 import IFE from '../public/Partners/IFE.png';

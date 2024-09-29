@@ -1,5 +1,5 @@
 import styles from '../styles/Footer.module.css';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Content from './Content';
 import ContactPane from './ContactPane';
 

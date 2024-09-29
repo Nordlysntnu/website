@@ -4,7 +4,7 @@ import Hans from '../public/Members/HansDreyerHysing.jpg';
 import Wilhelm from '../public/Members/WilhelmBorgersen.jpg';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Image from 'next/image'
-import Link from 'next/Link';
+import Link from 'next/link';
 
 export default function MemberPresentation({ dark }) {
     return (

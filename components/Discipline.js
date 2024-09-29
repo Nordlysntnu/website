@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import styles from '../styles/Discipline.module.css';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 export default function Discipline({ title, image, delay }) {
     return (

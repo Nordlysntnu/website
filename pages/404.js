@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Content from '../components/Content';
 import Layout from '../components/Layout';
 import PageLanding from '../components/PageLanding';

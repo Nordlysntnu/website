@@ -1,5 +1,5 @@
 import styles from '../styles/Landing.module.css';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { useRef, useState } from 'react';
 
 export default function Landing() {    

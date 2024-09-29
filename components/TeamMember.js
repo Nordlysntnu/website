@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import styles from '../styles/TeamMember.module.css';
 
 export default function TeamMember({ name, position, image, email }) {

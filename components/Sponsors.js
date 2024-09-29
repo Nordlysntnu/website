@@ -1,7 +1,7 @@
 import styles from '../styles/Sponsors.module.css';
 import Content from './Content';
 import Sponsor from './Sponsor';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 export default function Sponsors({ sponsors, title, dark, platinum }) {
     return (

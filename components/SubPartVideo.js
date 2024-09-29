@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import styles from '../styles/SubPart1.module.css';
 import Content from './Content';
 import { AnimationOnScroll } from 'react-animation-on-scroll';

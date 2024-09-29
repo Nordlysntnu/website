@@ -1,6 +1,6 @@
 import styles from '../styles/NavBar.module.css';
 import Logo from '../public/Logo.png';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function NavBar({ current }) {

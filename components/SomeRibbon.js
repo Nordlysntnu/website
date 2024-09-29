@@ -1,4 +1,4 @@
-import Link from 'next/Link';
+import Link from 'next/link';
 import styles from '../styles/SomeRibbon.module.css';
 import Instagram from '../public/Instagram.svg';
 import Facebook from '../public/Facebook.svg';

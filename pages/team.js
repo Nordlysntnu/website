@@ -7,7 +7,7 @@ import ImageFrontBig from '../public/Group-photo-2.jpg';
 import ImageBackBig from '../public/Group-photo-1.jpg';
 import ImageFrontSmall from '../public/Group-photo-SOME-2.jpg';
 import ImageBackSmall from '../public/Group-photo-SOME-1.jpg';
-import Link from 'next/Link';
+import Link from 'next/link';
 import styles from '../styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
 import TeamOverview from "../components/TeamOverview";
