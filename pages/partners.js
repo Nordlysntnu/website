@@ -15,6 +15,8 @@ import Prototal from '../public/Partners/Prototal.png';
 import Easyform from '../public/Partners/Easyform.png';
 import Link from 'next/Link';
 import styles from '../styles/partners.module.css';
+import Renergy from '../public/Partners/Renergy.png';
+import IFE from '../public/Partners/IFE.png';
 
 export default function About() {
   const platinumSponsors = {
@@ -35,11 +37,6 @@ export default function About() {
     }
   }
   const goldSponsors = {
-    'Equinor': {
-        link: 'http://www.Equinor.com',
-        image: Equinor.src,
-        description: ""
-    },
     'Rejlers': {
       link: "https://rejlers.no/",
       image: Rejlers.src,
@@ -76,6 +73,23 @@ export default function About() {
       description: ""
     }
   }
+  const OtherCollaborationPartners = {
+    'Equinor': {
+        link: 'http://www.Equinor.com',
+        image: Equinor.src,
+        description: ""
+    },
+    'Renergy': {
+      link: 'https://renergycluster.no',
+      image: Renergy.src,
+      description: ""
+    },
+    'IFE': {
+      link: 'https://ife.no',
+      image: IFE.src,
+      description: ""
+    }
+  }
   return (
       <>
       <Head>
@@ -95,6 +109,7 @@ export default function About() {
             <Sponsors sponsors={goldSponsors} title="Gold Sponsors" dark={true} platinum={false} />
             <Sponsors sponsors={silverSponsors} title="Silver Sponsors" dark={true} platinum={false} />
             <Sponsors sponsors={bronzeSponsors} title="Bronze Sponsors" dark={true} platinum={false} />
+            <Sponsors sponsors={OtherCollaborationPartners} title="Other Collaboration Partners" dark={true} platinum={false} />
       </Layout>
     </>
   )
