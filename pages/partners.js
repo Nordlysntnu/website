@@ -79,11 +79,6 @@ export default function About() {
         image: Equinor.src,
         description: ""
     },
-    'Renergy': {
-      link: 'https://renergycluster.no',
-      image: Renergy.src,
-      description: ""
-    },
     'IFE': {
       link: 'https://ife.no',
       image: IFE.src,
