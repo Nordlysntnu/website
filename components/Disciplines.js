@@ -16,7 +16,7 @@ export default function Disciplines({ dark }) {return (
                     <div className={styles.contentContainer}>
                         <Discipline delay={100} image={EmbeddedElectronics.src} title="Electrical" />
                         <Discipline delay={150} image={Software.src} title="Strategy" />
-                        <Discipline delay={50} image={Design.src} title="Design" />
+                        <Discipline delay={50} image={Design.src} title="Logistics" />
                         <Discipline delay={150} image={Mechanical.src} title="Mechanical" />
                         <Discipline delay={100} image={Brand.src} title="Brand" />
                         <Discipline delay={100} image={Management.src} title="Board" />

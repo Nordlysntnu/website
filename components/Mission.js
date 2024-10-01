@@ -10,8 +10,13 @@ export default function Mission({ dark }) {
         <Content dark={dark}>
             <div className={styles.container}>
                 <div className={styles.textContainer}>
+                    <h1 className={styles.title}>What we do</h1>
+                    <p className={styles.text}><b>Nordlys NTNU</b> is Norway`s first ever solar racing team. We are a student technical organisation at the Norwegian University of Science and Technology, aiming, in the long term, to drive across Norway exclusively fueled by solar energy. We are currently in the development process, aiming to complete our first race; the <em>Brigdestone World Solar Challenge</em> in Australia summer of 2025. 47 students, through our six different groups; <em>electrical, strategy, logistics, mechanical, brand</em> and <em>board</em>, are working closely together to create the perfect environment for growth. Both as a team and as individuals.</p>
+                    <p className={styles.text}><b>The car</b> will be running on pure solar energy feeded directly from the car`s solar panels into the electrical engine, using possebly game changing technology.</p>
+                    <br />
+                    <br />
                     <h1 className={styles.title}>Our values</h1>
-                    <p className={styles.text}>Theres nothing more valuable than creating something new. Nordlys NTNU is a student technical organisation at the Norwegian University of Science and Technology, aiming to drive across Norway completely on Solar energy. Through the project, we wish to set focus on <em>solutions to sustainability</em>, facilitate for multidisciplinary <em>teamwork</em>, and drive a <em>passion</em> for innovation and technology through enthusiasm and dedication.</p>
+                    <p className={styles.text}>Theres nothing more valuable than creating something new. Through the project, we wish to set focus on <em>solutions to sustainability</em>, facilitate for multidisciplinary <em>teamwork</em>, and drive a <em>passion</em> for innovation and technology through enthusiasm and dedication.</p>
                 </div>
                 <div className={styles.imageContainer}>
                     <GoalCard delay={200} image={Sustainability.src} title="Sustainability" text="Nordlys believes that a sustainable society is a prerequisite for a prosperous future. Our generation's way of life should not come at the cost of future generations’ welfare. We support the UNs sustainable development goals, and directly work towards 8 of them." />
