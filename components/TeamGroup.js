@@ -11,6 +11,7 @@ export default function TeamGroup({ groupName, members, text }) {
                 <h1><u>{groupName}</u></h1>
                 <h4 className={styles.position}>{text}</h4>
                 </center>
+                <br></br>
             <div className={styles.memberContainer}>
                 {members.map(function(member) {
                     return (
