@@ -4,6 +4,7 @@ import GoalCard from "./GoalCard";
 import Education from '../public/Education.png';
 import Solar from '../public/Solar.png';
 import Sustainability from '../public/Sustainability.png';
+import Link from "next/link";
 
 
 
@@ -15,7 +16,7 @@ export default function Mission({ dark }) {
                 <div className={styles.textContainer}>
                     <h1 className={styles.title}>What we do</h1>
                     <p className={styles.text}><b>Nordlys NTNU</b> is Norway`s first ever solar racing team. We are a student technical organisation at the Norwegian University of Science and Technology, aiming, in the long term, to drive across Norway exclusively fueled by solar energy. We are currently in the development process, aiming to complete our first race; the <em>Brigdestone World Solar Challenge</em> in Australia summer of 2025. 47 students, through our six different groups; <em>electrical, strategy, logistics, mechanical, brand</em> and <em>board</em>, are working closely together to create the perfect environment for growth. Both as a team and as individuals.</p>
-                    <p>To read more about the <em>team</em> and their respective groups <a href="https://www.nordlysntnu.no/team.html" style={{ color: 'red' }}><em><u>click here</u></em></a>.</p>
+                    <p>To read more about the <em>team</em> and their respective groups <Link href="/team"className={styles.link}>click here</Link></p> 
                     <br />
                     <p className={styles.text}><b>The car</b> will be running exclusively on solar energy. The highly technological solar panels inbeded in the chassis catches sunrays, coverts them to electrical energy, before it's fed directly into the electrical engine, using possibly gamechanging technology.</p>
                     <br />

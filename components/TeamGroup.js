@@ -8,8 +8,8 @@ export default function TeamGroup({ groupName, members, text }) {
     return (
         <div className={styles.container}>
             <center>
-                <h1><u>{groupName}</u></h1>
-                <h4 className={styles.position}>{text}</h4>
+                <h1>{groupName}</h1>
+                <p1 className={styles.position}>{text}</p1>
                 </center>
                 <br></br>
             <div className={styles.memberContainer}>

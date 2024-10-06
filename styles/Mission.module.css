@@ -12,3 +12,22 @@
     flex-wrap: wrap;
     gap: 2em;
 }
+
+.link {
+    color: rgb(178, 11, 58);
+    transition: 250ms ease all;
+}
+
+.link::after {
+    content: ' >';
+    margin-left: 0;
+    transition: 250ms ease all;
+}
+
+.link:hover {
+    color: rgb(255, 16, 83);
+}
+
+.link:hover.link::after {
+    margin-left: 0.2em;
+}
