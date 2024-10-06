@@ -10,7 +10,7 @@ export default function TeamOverview() {
                 position: "Co-founder and Team Leader",
                 image: "SivertKverme.jpg",
                 email: "sivert.kverme@nordlysntnu.no"
-            },,
+            },
             {
                 name: "Aare Hoholm",
                 position: "Technical Leader",
