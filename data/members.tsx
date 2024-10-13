@@ -70,7 +70,7 @@ const Members = {
             {
                 name: "Julian Boerakker",
                 position: "Mechanical Engineer",
-                image: "",
+                image: "JulianBoerakker.jpg",
                 email: "julian.boerakker@nordlysntnu.no"
             },
             {
@@ -106,19 +106,19 @@ const Members = {
             {
                 name: "Aslak Aarflot Jønsson",
                 position: "Mechanical Engineer",
-                image: "",
+                image: "AslakJønsson.jpg",
                 email: "aslak.jonsson@nordlysntnu.no"
             },
             {
                 name: "Joachim Gulliksen",
                 position: "Mechanical Engineer",
-                image: "",
+                image: "JoachimGulliksen.jpg",
                 email: "joachim.gulliksen@nordlysntnu.no"
             },
             {
                 name: "Sjur Weider",
                 position: "Mechanical Engineer",
-                image: "",
+                image: "SjurWeider.jpg",
                 email: "sjur.weider@nordlysntnu.no"
             }
         ],
@@ -165,13 +165,13 @@ const Members = {
             {
                 name: "Sander Mikkelhaug",
                 position: "Electrical Engineer",
-                image: "",
+                image: "SanderMikkelhaug.jpg",
                 email: "sander.mikkelhaug@nordlysntnu.no"
             },
             {
                 name: "Natalia Chwiejczak",
                 position: "Electrical Engineer",
-                image: "",
+                image: "NataliaChwiejczak.jpg",
                 email: "natalia.chwiejczak@nordlysntnu.no"
             },
             {
@@ -207,7 +207,7 @@ const Members = {
             {
                 name: "Ivar Hansgård",
                 position: "Electrical Engineer",
-                image: "",
+                image: "IvarHansgård.jpg",
                 email: "ivar.hansgard@nordlysntnu.no"
             }
         ],
@@ -236,7 +236,7 @@ const Members = {
             {
                 name: "Nicolai Nome Sommervold",
                 position: "Software Developer",
-                image: "",
+                image: "NicolaiSommervold.jpg",
                 email: "nicolai.sommervold@nordlysntnu.no"
             },
             {
@@ -248,7 +248,7 @@ const Members = {
             {
                 name: "Rasmus Nummelin",
                 position: "Software Developer",
-                image: "",
+                image: "RasmusNummelin.jpg",
                 email: "rasmus.nummelin@nordlysntnu.no"
             },
             {
@@ -312,17 +312,28 @@ const Members = {
             {
                 name: "Sven Amberg",
                 position: "Logistics Engineer",
-                image: "",
+                image: "SvenAmberg.jpg",
                 email: "sven.amberg@nordlysntnu.no"
             },
             {
                 name: "Sigve Isaksen",
                 position: "logistics Engineer",
-                image: "",
+                image: "SigveIsaksen.jpg",
                 email: "sigve.isaksen@nordlysntnu.no"
             }
         ],
         text: "The logistics group is responsible for all the planning and logistics of future competitions.",
+    },
+    "Technical advisor": {
+        members: [
+            {
+                name: "Shivaraj Chandrakant Patil",
+                position: "Technical Advisor",
+                image: "ShivarajPatil.jpg",
+                email: "shivaraj.c.patil@ntnu.no"
+            }
+        ],
+        text: "Our technical advisor is responsible for guiding our technical groups. ",
     },
     "Alumni": {
         members: [
