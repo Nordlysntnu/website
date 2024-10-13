@@ -333,7 +333,7 @@ const Members = {
                 email: "shivaraj.c.patil@ntnu.no"
             }
         ],
-        text: "Our technical advisor is responsible for guiding our technical groups. ",
+        text: "",
     },
     "Alumni": {
         members: [
@@ -428,7 +428,7 @@ const Members = {
                 email: "hilmi.yasik@nordlytnu.no"
             },
         ],
-        text: "Previous nordlys members"
+        text: ""
     }
 }
 
