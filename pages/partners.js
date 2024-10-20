@@ -41,14 +41,14 @@ export default function About() {
       link: "https://rejlers.no/",
       image: Rejlers.src,
       description: ""
-    }
-  }
-  const silverSponsors = {
+    },
     'Freber': {
       link: "https://www.freber.no/",
       image: Freber.src,
       description: ""
-    },
+    }
+  }
+  const silverSponsors = {
     'Prototal': {
       link: "https://www.prototal.no/",
       image: Prototal.src,
