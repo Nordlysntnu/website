@@ -34,7 +34,7 @@ const Members = {
             },
             {
                 name: "Paul Våge",
-                position: "Head of Finance",
+                position: "Head of Finance and HR",
                 image: "PaulVåge.jpg",
                 email: "paul.vaage@nordlysntnu.no"
             }
