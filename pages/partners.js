@@ -13,6 +13,7 @@ import Biesterfeld from '../public/Partners/Biesterfeld.png';
 import Hydro from '../public/Partners/Hydro.png';
 import Prototal from '../public/Partners/Prototal.png';
 import Easyform from '../public/Partners/Easyform.png';
+import Trainor from '../public/Partners/Trainor.png';
 import Link from 'next/link';
 import styles from '../styles/partners.module.css';
 import Renergy from '../public/Partners/Renergy.png';
@@ -53,8 +54,12 @@ export default function About() {
       link: "https://www.prototal.no/",
       image: Prototal.src,
       description: ""
+    },
+    'Trainor': {
+      link: 'https://www.trainor.no/',
+      image: Trainor.src,
+      description: ""
     }
-
   }
   const bronzeSponsors = {
     'InterPersonell': {
