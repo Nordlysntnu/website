@@ -18,6 +18,7 @@ import Link from 'next/link';
 import styles from '../styles/partners.module.css';
 import Renergy from '../public/Partners/Renergy.png';
 import IFE from '../public/Partners/IFE.png';
+import Bredengen from '../public/Partners/Bredengen.png';
 
 export default function About() {
   const platinumSponsors = {
@@ -75,6 +76,11 @@ export default function About() {
     'Hydro': {
       link: 'https://www.hydro.com/no/no/',
       image: Hydro.src,
+      description: ""
+    },
+    'Bredengen': {
+      link: 'https://www.bredengen.no/',
+      image: Bredengen.src,
       description: ""
     }
   }

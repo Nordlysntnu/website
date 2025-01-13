@@ -4,8 +4,8 @@ import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";
 
 export default function Group({ image, groupName, theses, description }) {
-    const [path, setPath] = useState(styles.closeIcon)
-    const [open, setOpen] = useState(true)
+    const [path, setPath] = useState(styles.openIcon)
+    const [open, setOpen] = useState(false)
     const [elementHeight, setElementHeight] = useState(0)
     const [bottom, setBottom] = useState(0)
     const ref = useRef(null)

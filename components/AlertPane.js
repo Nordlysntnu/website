@@ -6,11 +6,11 @@ import styles from '../styles/AlertPane.module.css';
 export default function AlertPane() {
     const alerts = {
         infoMeeting: {
-            name: "Info Meeting 2023",
-            info: "28. Aug | S1, Gløs | 17:15",
-            description: "Learn more about the project, Solar Racing and what positions you can apply for in Nordlys. There will be pizza, popcorn and soda, and we will be showing the documentary series Light Speed from 2019.",
-            url: 'https://fb.me/e/2LpjqhSdJ',
-            linkText: 'See event'
+            name: "Spring Recruitment",
+            info: "Deadline January 24th 23:59",
+            description: "Join us building Norway's first ever solar racing car this semester! We have available positions in the Mechnical group, Strategy group and Brand group.",
+            url: '/join',
+            linkText: 'Apply'
         }
     }
 
