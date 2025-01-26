@@ -3,9 +3,11 @@
     max-width: 200px;
     cursor: pointer;
     transition: 250ms all ease;
-    padding: 0.5em;
+    padding: 1.5em;
     border-radius: 1em;
     position: relative;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5em;
 }
 
 .image {
@@ -25,7 +27,6 @@
 .name {
     font-weight: bold;
     margin-bottom: 0.2em;
-    text-align: center;
     color: #3a486a;
 }
 

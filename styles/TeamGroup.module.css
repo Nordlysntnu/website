@@ -1,13 +1,6 @@
 .container {
-    margin-bottom: 5em;
-}
-
-.container:last-of-type {
-    margin-bottom: 0;
-}
-
-.title {
-    padding-bottom: 1em;
+    margin-bottom: 0em;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .memberContainer {
@@ -15,4 +8,10 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
 }
