@@ -1,18 +1,23 @@
-import Link from 'next/link';
+import React from 'react';
 import styles from '../styles/TeamMember.module.css';
 
-export default function TeamMember({ name, position, image, email }) {
-    const baseURL = image ? image : "Unknown.png"
-    const imageURL = '/Members/2025/' + baseURL
-    const emailLink = email ? "mailto:" + email : "#"
-    return(
-        <Link href={emailLink} className={styles.container}>
-            <img className={styles.image} src={imageURL} />
+const TeamMember = ({ name, title, image, email }) => {
+    return (
+        <div className={styles.container}>
+            <img className={styles.image} src={image} alt={`${name}'s profile`} />
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
-                <p className={styles.position}>{position}</p>
+                <p className={styles.position}>{title}</p>
+                <a href={`mailto:${email}`} className={styles.link}>Contact</a>
             </div>
-            {email ? <div className={styles.link}>{"Contact"}</div> : <></>}
-        </Link>
-    )
-}
+        </div>
+    );
+};
+
+export default TeamMember;
+
+
+
+
+
+

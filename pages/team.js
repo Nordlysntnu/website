@@ -5,8 +5,8 @@ import Content from "../components/Content";
 import DoubleImage from "../components/DoubleImage";
 import ImageFrontBig from '../public/Group-photo-2.jpg';
 import ImageBackBig from '../public/Group-photo-1.jpg';
-import ImageFrontSmall from '../public/Group-photo-SOME-2.jpg';
-import ImageBackSmall from '../public/Group-photo-SOME-1.jpg';
+import ImageFrontSmall from '../public/Group-photo-2.jpg';
+import ImageBackSmall from '../public/Group-photo-1.jpg';
 import Link from 'next/link';
 import styles from '../styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
@@ -42,16 +42,16 @@ export default function Team() {
             <></>
             <PageHeader title="Team" />
             <Content dark={true}>
-                In September of 2023 the first ever full Solar Racing team from Norway was finally formed. The team consists of a highly multi-disciplinary team, distributed between the groups of Mechanical, Electrical, Strategy, Brand and the Board. This marks an outstanding achievement in Norwegian Solar racing history!
+                In September of 2023 the first ever full Solar Racing team from Norway was finally formed. The team consists of a highly multi-disciplinary team, distributed between the groups of Mechanical, Electrical, Strategy, Brand, Logistics and the Board. This marks an outstanding achievement in Norwegian Solar racing history!
                 <br />
                 <br />
-                Do you want to become part of the team? Read more about our groups and apply!
+                Do you want to become part of the team?
                 <br />
                 <br />
-                <Link href="/join" className={styles.link}>Read more</Link>
+                <Link href="/join" className={styles.link}>Apply here</Link>
             </Content>
             <TeamOverview />
-            <Content dark={true}>
+            <Content dark={false}>
                 <DoubleImage imageFront={imageFront} imageBack={imageBack} />
             </Content>
         </Layout>

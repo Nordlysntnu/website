@@ -1,435 +1,130 @@
+export const members = [
+    { id: 1, name: 'Sivert Sande Kverme', title: 'Co-founder and Team Leader', image: 'Members/2025/SivertKverme.jpg', group: 'Board', email: 'sivert.kverme@nordlysntnu.no' },
+    { id: 2, name: 'Aare Hoholm', title: 'Technical Leader', image: 'Members/2025/AareHoholm.jpg', group: 'Board', email: 'aare.hoholm@nordlysntnu.no' },
+    { id: 3, name: 'Sebastian Jacobsen', title: 'Co-founder and Head of Competition', image: 'Members/2025/SebastianJacobsen.jpg', group: 'Board', email: 'sebastian.jacobsen@nordlysntnu.no' },
+    { id: 4, name: 'Maren Henæs Sand', title: 'Head of Brand', image: 'Members/2025/MarenSand.jpg', group: 'Board', email: 'maren.sand@nordlysntnu.no' },
+    { id: 5, name: 'Erik Fougner Arnesen', title: 'Head of Production', image: 'Members/2025/ErikArnesen.jpg', group: 'Board', email: 'erik.arnesen@nordlysntnu.no' },
+    { id: 6, name: 'Paul Våge', title: 'Head of Finance', image: 'Members/2025/PaulVåge.jpg', group: 'Board', email: 'paul.våge@nordlysntnu.no' },
 
-const Members = {
-    "Board": {
-        members: [
-            {
-                name: "Sivert Sande Kverme",
-                position: "Co-founder and Team Leader",
-                image: "SivertKverme.jpg",
-                email: "sivert.kverme@nordlysntnu.no"
-            }, ,
-            {
-                name: "Aare Hoholm",
-                position: "Technical Leader",
-                image: "AareHoholm.jpg",
-                email: "aare.hoholm@nordlysntnu.no"
-            },
-            {
-                name: "Sebastian Jacobsen",
-                position: "Co-founder and Head of Competition",
-                image: "SebastianJacobsen.jpg",
-                email: "sebastian.jacobsen@nordlysntnu.no"
-            },
-            {
-                name: "Maren Henæs Sand",
-                position: "Head of Brand",
-                image: "MarenSand.jpg",
-                email: "maren.sand@nordlysntnu.no"
-            },
-            {
-                name: "Erik Fougner Arnesen",
-                position: "Head of Production",
-                image: "ErikArnesen.jpg",
-                email: "erik.arnesen@nordlysntnu.no"
-            },
-            {
-                name: "Paul Våge",
-                position: "Head of Finance",
-                image: "PaulVåge.jpg",
-                email: "paul.vaage@nordlysntnu.no"
-            }
-        ],
-        text: "The front figures of Nordlys, working together to steer the organisation in the right direction.",
-    },
-    "Mechanical": {
-        members: [
-            {
-                name: "Daniel Nicolai Grønn",
-                position: "Group Leader Mechanical",
-                image: "DanielGrønn.jpg",
-                email: "daniel.gronn@nordlysntnu.no"
-            },
-            {
-                name: "Tord Østmo",
-                position: "Designer",
-                image: "TordØstmo.jpg",
-                email: "tord.ostmo@nordlysntnu.no"
-            },
-            {
-                name: "Mats Ørbekk",
-                position: "Mechanical Engineer",
-                image: "MatsØrbekk.jpg",
-                email: "mats.ordbekk@nordlysntnu.no"
-            },
-            {
-                name: "Anders Nyhus Røsbjørgen",
-                position: "Mechanical Engineer",
-                image: "AndersRøsbjørgen.jpg",
-                email: "anders.rosbjorgen@nordlysntnu.no"
-            },
-            {
-                name: "Julian Boerakker",
-                position: "Mechanical Engineer",
-                image: "JulianBoerakker.jpg",
-                email: "julian.boerakker@nordlysntnu.no"
-            },
-            {
-                name: "Eléa Cervera",
-                position: "Mechanical Engineer",
-                image: "EléaCervera.jpg",
-                email: "elea.cervera@nordlysntnu.no"
-            },
-            {
-                name: "Cato Bergan",
-                position: "Mechanical Engineer",
-                image: "CatoBergan.jpg",
-                email: "cato.bergan@nordlysntnu.no"
-            },
-            {
-                name: "Paul Gustav Aparicio Lofsberg",
-                position: "Mechanical Engingeer",
-                image: "GustavLofsberg.jpg",
-                email: "gustav.lofsberg@nordlysntnu.no"
-            },
-            {
-                name: "Sander Ranbø",
-                position: "Mechanical Engineer",
-                image: "SanderRanbø.jpg",
-                email: "sander.ranbo@nordlysntnu.no"
-            },
-            {
-                name: "Oscar Skjelvik",
-                position: "Mechanical Engineer",
-                image: "OscarSkjelvik.jpg",
-                email: "oscar.skjelvik@nordlysntnu.no"
-            },
-            {
-                name: "Aslak Aarflot Jønsson",
-                position: "Mechanical Engineer",
-                image: "AslakJønsson.jpg",
-                email: "aslak.jonsson@nordlysntnu.no"
-            },
-            {
-                name: "Joachim Gulliksen",
-                position: "Mechanical Engineer",
-                image: "JoachimGulliksen.jpg",
-                email: "joachim.gulliksen@nordlysntnu.no"
-            },
-            {
-                name: "Sjur Weider",
-                position: "Mechanical Engineer",
-                image: "SjurWeider.jpg",
-                email: "sjur.weider@nordlysntnu.no"
-            }
-        ],
-        text: "The mechanical group designs and builds all the mechanical components of the solar car.",
-    },
-    "Electrical": {
-        members: [
-            {
-                name: "Kristian Sæberg",
-                position: "Group Leader Electrical",
-                image: "KristianSæberg.jpg",
-                email: "kristian.saeberg@nordlysntnu.no"
-            },
-            {
-                name: "Sukhman Singh Sidhu",
-                position: "Electrical Engineer",
-                image: "SukhmanSidhu.jpg",
-                email: "sukhman.sidhu@nordlysntnu.no"
-            },
-            {
-                name: "William Fosser",
-                position: "Electrical Engineer",
-                image: "WilliamFosser.jpg",
-                email: "william.fosser@nordlysntnu.no"
-            },
-            {
-                name: "Odin Sandlie Mellingsæter",
-                position: "Electrical Engineer",
-                image: "OdinMellingsæter.jpg",
-                email: "odin.mellingsæter@nordlysntnu.no"
-            },
-            {
-                name: "Øystein Økland",
-                position: "Electrical Engineer",
-                image: "ØysteinØkland.jpg",
-                email: "oystein.okland@nordlysntnu.no"
-            },
-            {
-                name: "Georg Hofstad",
-                position: "Electrical Engineer",
-                image: "GeorgHofstad.jpg",
-                email: "georg.hofstad@nordlysntnu.no"
-            },
-            {
-                name: "Sander Mikkelhaug",
-                position: "Electrical Engineer",
-                image: "SanderMikkelhaug.jpg",
-                email: "sander.mikkelhaug@nordlysntnu.no"
-            },
-            {
-                name: "Natalia Chwiejczak",
-                position: "Electrical Engineer",
-                image: "NataliaChwiejczak.jpg",
-                email: "natalia.chwiejczak@nordlysntnu.no"
-            },
-            {
-                name: "Elias Alsos",
-                position: "Electrical Engineer",
-                image: "EliasAlsos.jpg",
-                email: "elias.alsos@nordlysntnu.no"
-            },
-            {
-                name: "Simon Jaccard Buggeland",
-                position: "Electrical Engineer",
-                image: "SimonBuggeland.jpg",
-                email: "simon.buggeland@nordlysntnu.no"
-            },
-            {
-                name: "Vetle Vatnem",
-                position: "Electrical Engineer",
-                image: "VetleVatnem.jpg",
-                email: "vetle.vatnem@nordlysntnu.no"
-            },
-            {
-                name: "Johanne Mjøs Bertelsen",
-                position: "Electrical Engineer",
-                image: "JohanneBertelsen.jpg",
-                email: "johanne.bertelsen@nordlysntnu.no"
-            },
-            {
-                name: "Markus Emil Eriksson",
-                position: "Electrical Engineer",
-                image: "MarkusEriksson.jpg",
-                email: "markus.eriksson@nordlysntnu.no"
-            },
-            {
-                name: "Ivar Hansgård",
-                position: "Electrical Engineer",
-                image: "IvarHansgård.jpg",
-                email: "ivar.hansgard@nordlysntnu.no"
-            }
-        ],
-        text: "The electrical group is responsible for all the electricity on board the car. This includes both the high and low voltage systems."
-    },
-    "Strategy": {
-        members: [
-            {
-                name: "Jakob Behrens",
-                position: "Group Leader Strategy",
-                image: "JakobBehrens.jpg",
-                email: "jakob.behrens@nordlysntnu.no"
-            },
-            {
-                name: "Bjørn Vik Henriksen",
-                position: "Software Developer",
-                image: "BjørnHenriksen.jpg",
-                email: "bjorn.henriksen@nordlysntnu.no"
-            },
-            {
-                name: "Eirik Reiestad",
-                position: "Software Developer",
-                image: "EirikReiestad.jpg",
-                email: "eirik.reiestad@nordlysntnu.no"
-            },
-            {
-                name: "Nicolai Nome Sommervold",
-                position: "Software Developer",
-                image: "NicolaiSommervold.jpg",
-                email: "nicolai.sommervold@nordlysntnu.no"
-            },
-            {
-                name: "Natalie Vo",
-                position: "Software Developer",
-                image: "NatalieVo.jpg",
-                email: "natalie.vo@nordlysntnu.no"
-            },
-            {
-                name: "Rasmus Nummelin",
-                position: "Software Developer",
-                image: "RasmusNummelin.jpg",
-                email: "rasmus.nummelin@nordlysntnu.no"
-            },
-            {
-                name: "Mathias Sagerup",
-                position: "Software Developer",
-                image: "MathiasSagerup.jpg",
-                email: "mathias.sagerup@nordlysntnu.no"
-            }
-        ],
-        text: "The strategy group develops software analysis tools to calculate the solar cars optimal speed.",
-    },
-    "Brand": {
-        members: [
-            {
-                name: "Maren Henæs Sand",
-                position: "Head of Brand",
-                image: "MarenSand.jpg",
-                email: "maren.sand@nordlysntnu.no"
-            },
-            {
-                name: "Johannes Tunli Moe",
-                position: "Key Account Manager",
-                image: "JohannesMoe.jpg",
-                email: "johannes.moe@nordlysntnu.no"
-            },
-            {
-                name: "Stine Andreassen",
-                position: "Brand Developer",
-                image: "StineAndreassen.jpg",
-                email: "stine.andreassen@nordlysntnu.no"
-            },
-            {
-                name: "Leonardo Lind-Milekvist",
-                position: "Web Developer",
-                image: "LeonardoLind-Milekvist.jpg",
-                email: "leonardo.lind-milekvist@nordlysntnu.no"
-            },
-            {
-                name: "Emil Vellan",
-                position: "Web Developer",
-                image: "EmilVellan.jpg",
-                email: "emil.vellan@nordlysntnu.no"
-            }
-        ],
-        text: "The Brand group is responsible for the development of the overall Brand of Nordlys.",
-    },
-    "Logistics": {
-        members: [
-            {
-                name: "Sebastian Jacobsen",
-                position: "Co-founder and Head of Competition",
-                image: "SebastianJacobsen.jpg",
-                email: "sebastian.jacobsen@nordlysntnu.no"
-            },
-            {
-                name: "Hedda Christine Reinskou",
-                position: "Logistics Engineer",
-                image: "HeddaReinskou.jpg",
-                email: "hedda.reinskou@nordlysntnu.no"
-            },
-            {
-                name: "Sven Amberg",
-                position: "Logistics Engineer",
-                image: "SvenAmberg.jpg",
-                email: "sven.amberg@nordlysntnu.no"
-            },
-            {
-                name: "Sigve Isaksen",
-                position: "logistics Engineer",
-                image: "SigveIsaksen.jpg",
-                email: "sigve.isaksen@nordlysntnu.no"
-            }
-        ],
-        text: "The logistics group is responsible for all the planning and logistics of future competitions.",
-    },
-    "Technical advisor": {
-        members: [
-            {
-                name: "Shivaraj Chandrakant Patil",
-                position: "Technical Advisor",
-                image: "ShivarajPatil.jpg",
-                email: "shivaraj.c.patil@ntnu.no"
-            }
-        ],
-        text: "",
-    },
-    "Alumni": {
-        members: [
-            {
-                name: "Aurora Vinslid",
-                position: "Co-founder",
-                image: "AuroraVinslid.jpg",
-                email: "aurora.vinslid@nordlysntnu.no"
-            },
-            {
-                name: "Oliver Meijer Angerman",
-                position: "",
-                image: "OliverAngerman.jpg",
-                email: "oliver.angerman@nordlysntnu.no"
-            },
-            {
-                name: "Emil Blom Ørnes",
-                position: "",
-                image: "EmilØrnes.jpg",
-                email: "emil.ornes@nordlysntnu.no"
-            },
-            {
-                name: "Benjamin Tryggestad",
-                position: "",
-                image: "BenjaminTryggestad.jpg",
-                email: "benjamin.tryggestad@nordlysntnu.no"
-            },
-            {
-                name: "Immanuel Leps",
-                position: "",
-                image: "ImmanuelLeps.jpg",
-                email: "immanuel.leps@nordlysntnu.no"
-            },
-            {
-                name: "Mathieu Pelissier",
-                position: "",
-                image: "MathieuPelissier.jpg",
-                email: "mathieu.pelissier@nordlysntnu.no"
-            },
-            {
-                name: "Erik Kristoffer Øhlckers",
-                position: "",
-                image: "KristofferØhlckers.jpg",
-                email: "kristoffer.øhlckers@nordlysntnu.no"
-            },
-            {
-                name: "Kristian Østensen",
-                position: "",
-                image: "KristianØstensen.jpg",
-                email: "kristian.ostensen@nordlysntnu.no"
-            },
-            {
-                name: "Andrea Al Muktash",
-                position: "",
-                image: "AndreaAlMuktash.jpg",
-                email: "andrea.almuktash@nordlysntnu.no"
-            },
-            {
-                name: "Darius Salehi",
-                position: "",
-                image: "DariusSalehi.jpg",
-                email: "darius.salehi@nordlysntnu.no"
-            },
-            {
-                name: "Boris Bajla",
-                position: "",
-                image: "BorisBajla.jpg",
-                email: "boris.bajla@nordlysntnu.no"
-            },
-            {
-                name: "Mathilde Skaset-Haarr",
-                position: "",
-                image: "MathildeSkaset-Haarr.jpg",
-                email: "mathilde.skaset-haarr@nordlysntnu.no"
-            },
-            {
-                name: "Johan Storesund",
-                position: "",
-                image: "JohanStoresund.jpg",
-                email: "johan.storesund@nordlysntnu.no"
-            },
-            {
-                name: "Birger Christopher Stein Bjelke",
-                position: "",
-                image: "BirgerBjelke.jpg",
-                email: "birger.bjelke@nordlysntnu.no"
-            },
-            {
-                name: "Hilmi Furkan Yasik",
-                position: "",
-                image: "HilmiYasik.jpg",
-                email: "hilmi.yasik@nordlytnu.no"
-            },
-        ],
-        text: ""
-    }
-}
+    { id: 7, name: 'Daniel Nicolai Grønn', title: 'Group Leader Mechanical', image: 'Members/2025/DanielGrønn.jpg', group: 'Mechanical', email: 'daniel.grønn@nordlysntnu.no' },
+    { id: 8, name: 'Tord Østmo', title: 'Designer', image: 'Members/2025/TordØstmo.jpg', group: 'Mechanical', email: 'tord.østmo@nordlysntnu.no' },
+    { id: 9, name: 'Mats Ørbekk', title: 'Mechanical Engineer', image: 'Members/2025/MatsØrbekk.jpg', group: 'Mechanical', email: 'mats.ørbekk@nordlysntnu.no' },
+    { id: 10, name: 'Anders Nyhus Røsbjørgen', title: 'Mechanical Engineer', image: 'Members/2025/AndersRøsbjørgen.jpg', group: 'Mechanical', email: 'anders.røsbjørgen@nordlysntnu.no' },
+    { id: 11, name: 'Julian Boerakker', title: 'Mechanical Engineer', image: 'Members/2025/JulianBoerakker.jpg', group: 'Mechanical', email: 'julian.boerakker@nordlysntnu.no' },
+    { id: 12, name: 'Eléa Cervera', title: 'Mechanical Engineer', image: 'Members/2025/EléaCervera.jpg', group: 'Mechanical', email: 'eléa.cervera@nordlysntnu.no' },
+    { id: 13, name: 'Cato Bergan', title: 'Mechanical Engineer', image: 'Members/2025/CatoBergan.jpg', group: 'Mechanical', email: 'cato.bergan@nordlysntnu.no' },
+    { id: 14, name: 'Paul Gustav Aparicio Lofsberg', title: 'Mechanical Engineer', image: 'Members/2025/GustavLofsberg.jpg', group: 'Mechanical', email: 'paul.lofsberg@nordlysntnu.no' },
+    { id: 15, name: 'Sander Ranbø', title: 'Mechanical Engineer', image: 'Members/2025/SanderRanbø.jpg', group: 'Mechanical', email: 'sander.ranbø@nordlysntnu.no' },
+    { id: 16, name: 'Oscar Skjelvik', title: 'Mechanical Engineer', image: 'Members/2025/OscarSkjelvik.jpg', group: 'Mechanical', email: 'oscar.skjelvik@nordlysntnu.no' },
+    { id: 17, name: 'Aslak Aarflot Jønsson', title: 'Mechanical Engineer', image: 'Members/2025/AslakJønsson.jpg', group: 'Mechanical', email: 'aslak.jønsson@nordlysntnu.no' },
+    { id: 18, name: 'Joachim Gulliksen', title: 'Mechanical Engineer', image: 'Members/2025/JoachimGulliksen.jpg', group: 'Mechanical', email: 'joachim.gulliksen@nordlysntnu.no' },
+    { id: 19, name: 'Sjur Weider', title: 'Mechanical Engineer', image: 'Members/2025/SjurWeider.jpg', group: 'Mechanical', email: 'sjur.weider@nordlysntnu.no' },
 
-export default Members;
+    { id: 20, name: 'Kristian Sæberg', title: 'Group Leader Electrical', image: 'Members/2025/KristianSæberg.jpg', group: 'Electrical', email: 'kristian.sæberg@nordlysntnu.no' },
+    { id: 21, name: 'Sukhman Singh Sidhu', title: 'Electrical Engineer', image: 'Members/2025/SukhmanSidhu.jpg', group: 'Electrical', email: 'sukhman.sidhu@nordlysntnu.no' },
+    { id: 22, name: 'William Fosser', title: 'Electrical Engineer', image: 'Members/2025/WilliamFosser.jpg', group: 'Electrical', email: 'william.fosser@nordlysntnu.no' },
+    { id: 23, name: 'Odin Sandlie Mellingsæter', title: 'Electrical Engineer', image: 'Members/2025/OdinMellingsæter.jpg', group: 'Electrical', email: 'odin.mellingsæter@nordlysntnu.no' },
+    { id: 24, name: 'Øystein Økland', title: 'Electrical Engineer', image: 'Members/2025/ØysteinØkland.jpg', group: 'Electrical', email: 'øystein.økland@nordlysntnu.no' },
+    { id: 25, name: 'Georg Hofstad', title: 'Electrical Engineer', image: 'Members/2025/GeorgHofstad.jpg', group: 'Electrical', email: 'georg.hofstad@nordlysntnu.no' },
+    { id: 26, name: 'Sander Mikkelhaug', title: 'Electrical Engineer', image: 'Members/2025/SanderMikkelhaug.jpg', group: 'Electrical', email: 'sander.mikkelhaug@nordlysntnu.no' },
+    { id: 27, name: 'Natalia Chwiejczak', title: 'Electrical Engineer', image: 'Members/2025/NataliaChwiejczak.jpg', group: 'Electrical', email: 'natalia.chwiejczak@nordlysntnu.no' },
+    { id: 28, name: 'Elias Alsos', title: 'Electrical Engineer', image: 'Members/2025/EliasAlsos.jpg', group: 'Electrical', email: 'elias.alsos@nordlysntnu.no' },
+    { id: 29, name: 'Simon Jaccard Buggeland', title: 'Electrical Engineer', image: 'Members/2025/SimonBuggeland.jpg', group: 'Electrical', email: 'simon.buggeland@nordlysntnu.no' },
+    { id: 30, name: 'Vetle Vatnem', title: 'Electrical Engineer', image: 'Members/2025/VetleVatnem.jpg', group: 'Electrical', email: 'vetle.vatnem@nordlysntnu.no' },
+    { id: 31, name: 'Johanne Mjøs Bertelsen', title: 'Electrical Engineer', image: 'Members/2025/JohanneBertelsen.jpg', group: 'Electrical', email: 'johanne.bertelsen@nordlysntnu.no' },
+    { id: 32, name: 'Markus Emil Eriksson', title: 'Electrical Engineer', image: 'Members/2025/MarkusEriksson.jpg', group: 'Electrical', email: 'markus.eriksson@nordlysntnu.no' },
+    { id: 33, name: 'Ivar Hansgård', title: 'Electrical Engineer', image: 'Members/2025/IvarHansgård.jpg', group: 'Electrical', email: 'ivar.hansgård@nordlysntnu.no' },
+
+    { id: 34, name: 'Jakob Behrens', title: 'Group Leader Strategy', image: 'Members/2025/JakobBehrens.jpg', group: 'Strategy', email: 'jakob.behrens@nordlysntnu.no' },
+    { id: 35, name: 'Bjørn Vik Henriksen', title: 'Software Developer', image: 'Members/2025/BjørnHenriksen.jpg', group: 'Strategy', email: 'bjørn.henriksen@nordlysntnu.no' },
+    { id: 36, name: 'Eirik Reiestad', title: 'Software Developer', image: 'Members/2025/EirikReiestad.jpg', group: 'Strategy', email: 'eirik.reiestad@nordlysntnu.no' },
+    { id: 37, name: 'Nicolai Nome Sommervold', title: 'Software Developer', image: 'Members/2025/NicolaiSommervold.jpg', group: 'Strategy', email: 'nicolai.sommervold@nordlysntnu.no' },
+    { id: 38, name: 'Natalie Vo', title: 'Software Developer', image: 'Members/2025/NatalieVo.jpg', group: 'Strategy', email: 'natalie.vo@nordlysntnu.no' },
+    { id: 39, name: 'Rasmus Nummelin', title: 'Software Developer', image: 'Members/2025/RasmusNummelin.jpg', group: 'Strategy', email: 'rasmus.nummelin@nordlysntnu.no' },
+    { id: 40, name: 'Mathias Sagerup', title: 'Software Developer', image: 'Members/2025/MathiasSagerup.jpg', group: 'Strategy', email: 'mathias.sagerup@nordlysntnu.no' },
+
+    { id: 4, name: 'Maren Henæs Sand', title: 'Head of Brand', image: 'Members/2025/MarenSand.jpg', group: 'Brand', email: 'maren.sand@nordlysntnu.no' },
+    { id: 41, name: 'Johannes Tunli Moe', title: 'Key Account Manager', image: 'Members/2025/JohannesMoe.jpg', group: 'Brand', email: 'johannes.moe@nordlysntnu.no' },
+    { id: 42, name: 'Stine Andreassen', title: 'Brand Developer', image: 'Members/2025/StineAndreassen.jpg', group: 'Brand', email: 'stine.andreassen@nordlysntnu.no' },
+    { id: 43, name: 'Leonardo Lind-Milekvist', title: 'Web Developer', image: 'Members/2025/LeonardoLind-Milekvist.jpg', group: 'Brand', email: 'leonardo.lind-milekvist@nordlysntnu.no' },
+    { id: 44, name: 'Emil Vellan', title: 'Web Developer', image: 'Members/2025/EmilVellan.jpg', group: 'Brand', email: 'emil.vellan@nordlysntnu.no' },
+
+    { id: 3, name: 'Sebastian Jacobsen', title: 'Co-founder and Head of Competition', image: 'Members/2025/SebastianJacobsen.jpg', group: 'Logistics', email: 'sebastian.jacobsen@nordlysntnu.no' },
+    { id: 45, name: 'Hedda Christine Reinskou', title: 'Logistics Engineer', image: 'Members/2025/HeddaReinskou.jpg', group: 'Logistics', email: 'hedda.reinskou@nordlysntnu.no' },
+    { id: 46, name: 'Sven Amberg', title: 'Logistics Engineer', image: 'Members/2025/SvenAmberg.jpg', group: 'Logistics', email: 'sven.amberg@nordlysntnu.no' },
+    { id: 47, name: 'Sigve Isaksen', title: 'Logistics Engineer', image: 'Members/2025/SigveIsaksen.jpg', group: 'Logistics', email: 'sigve.isaksen@nordlysntnu.no' },
+
+    { id: 48, name: 'Shivaraj Chandrakant Patil', title: 'Technical Advisor', image: 'Members/2025/ShivarajPatil.jpg', group: 'Technical advisor', email: 'shivaraj.c.patil@ntnu.no' },
+
+    { id: 49, name: 'Aurora Vinslid', title: 'Co-founder', image: 'Members/2024/AuroraVinslid.jpg', group: 'Alumni', email: 'aurora.vinslid@nordlysntnu.no' },
+    { id: 50, name: 'Oliver Meijer Angerman', title: '', image: 'Members/2024/OliverAngerman.jpg', group: 'Alumni', email: 'oliver.angerman@nordlysntnu.no' },
+    { id: 51, name: 'Emil Blom Ørnes', title: '', image: 'Members/2024/EmilØrnes.jpg', group: 'Alumni', email: 'emil.ørnes@nordlysntnu.no' },
+    { id: 52, name: 'Benjamin Tryggestad', title: '', image: 'Members/2024/BenjaminTryggestad.jpg', group: 'Alumni', email: 'benjamin.tryggestad@nordlysntnu.no' },
+    { id: 53, name: 'Immanuel Leps', title: '', image: 'Members/2024/ImmanuelLeps.jpg', group: 'Alumni', email: 'immanuel.leps@nordlysntnu.no' },
+    { id: 54, name: 'Mathieu Pelissier', title: '', image: 'Members/2024/MathieuPelissier.jpg', group: 'Alumni', email: 'mathieu.pelissier@nordlysntnu.no' },
+    { id: 55, name: 'Erik Kristoffer Øhlckers', title: '', image: 'Members/2024/KristofferØhlckers.jpg', group: 'Alumni', email: 'erik.øhlckers@nordlysntnu.no' },
+    { id: 56, name: 'Kristian Østensen', title: '', image: 'Members/2024/KristianØstensen.jpg', group: 'Alumni', email: 'kristian.østensen@nordlysntnu.no' },
+    { id: 57, name: 'Andrea Al Muktash', title: '', image: 'Members/2024/AndreaAlMuktash.jpg', group: 'Alumni', email: 'andrea.almuktash@nordlysntnu.no' },
+    { id: 58, name: 'Darius Salehi', title: '', image: 'Members/2024/DariusSalehi.jpg', group: 'Alumni', email: 'darius.salehi@nordlysntnu.no' },
+    { id: 59, name: 'Boris Bajla', title: '', image: 'Members/2024/BorisBajla.jpg', group: 'Alumni', email: 'boris.bajla@nordlysntnu.no' },
+    { id: 60, name: 'Mathilde Skaset-Haarr', title: '', image: 'Members/2024/MathildeSkaset-Haarr.jpg', group: 'Alumni', email: 'mathilde.skaset-haarr@nordlysntnu.no' },
+    { id: 61, name: 'Johan Storesund', title: '', image: 'Members/2024/JohanStoresund.jpg', group: 'Alumni', email: 'johan.storesund@nordlysntnu.no' },
+    { id: 62, name: 'Birger Christopher Stein Bjelke', title: '', image: 'Members/2024/BirgerBjelke.jpg', group: 'Alumni', email: 'birger.bjelke@nordlysntnu.no' },
+    { id: 63, name: 'Hilmi Furkan Yasik', title: '', image: 'Members/2024/HilmiYasik.jpg', group: 'Alumni', email: 'hilmi.yasik@nordlysntnu.no' },
+
+
+    //All active members below
+    { id: 1, name: 'Sivert Sande Kverme', title: 'Co-founder and Team Leader', image: 'Members/2025/SivertKverme.jpg', group: 'All active members', email: 'sivert.kverme@nordlysntnu.no' },
+    { id: 2, name: 'Aare Hoholm', title: 'Technical Leader', image: 'Members/2025/AareHoholm.jpg', group: 'All active members', email: 'aare.hoholm@nordlysntnu.no' },
+    { id: 3, name: 'Sebastian Jacobsen', title: 'Co-founder and Head of Competition', image: 'Members/2025/SebastianJacobsen.jpg', group: 'All active members', email: 'sebastian.jacobsen@nordlysntnu.no' },
+    { id: 4, name: 'Maren Henæs Sand', title: 'Head of Brand', image: 'Members/2025/MarenSand.jpg', group: 'All active members', email: 'maren.sand@nordlysntnu.no' },
+    { id: 5, name: 'Erik Fougner Arnesen', title: 'Head of Production', image: 'Members/2025/ErikArnesen.jpg', group: 'All active members', email: 'erik.arnesen@nordlysntnu.no' },
+    { id: 6, name: 'Paul Våge', title: 'Head of Finance', image: 'Members/2025/PaulVåge.jpg', group: 'All active members', email: 'paul.våge@nordlysntnu.no' },
+    
+    { id: 7, name: 'Daniel Nicolai Grønn', title: 'Group Leader Mechanical', image: 'Members/2025/DanielGrønn.jpg', group: 'All active members', email: 'daniel.grønn@nordlysntnu.no' },
+    { id: 8, name: 'Tord Østmo', title: 'Designer', image: 'Members/2025/TordØstmo.jpg', group: 'All active members', email: 'tord.østmo@nordlysntnu.no' },
+    { id: 9, name: 'Mats Ørbekk', title: 'Mechanical Engineer', image: 'Members/2025/MatsØrbekk.jpg', group: 'All active members', email: 'mats.ørbekk@nordlysntnu.no' },
+    { id: 10, name: 'Anders Nyhus Røsbjørgen', title: 'Mechanical Engineer', image: 'Members/2025/AndersRøsbjørgen.jpg', group: 'All active members', email: 'anders.røsbjørgen@nordlysntnu.no' },
+    { id: 11, name: 'Julian Boerakker', title: 'Mechanical Engineer', image: 'Members/2025/JulianBoerakker.jpg', group: 'All active members', email: 'julian.boerakker@nordlysntnu.no' },
+    { id: 12, name: 'Eléa Cervera', title: 'Mechanical Engineer', image: 'Members/2025/EléaCervera.jpg', group: 'All active members', email: 'eléa.cervera@nordlysntnu.no' },
+    { id: 13, name: 'Cato Bergan', title: 'Mechanical Engineer', image: 'Members/2025/CatoBergan.jpg', group: 'All active members', email: 'cato.bergan@nordlysntnu.no' },
+    { id: 14, name: 'Paul Gustav Aparicio Lofsberg', title: 'Mechanical Engineer', image: 'Members/2025/GustavLofsberg.jpg', group: 'All active members', email: 'paul.lofsberg@nordlysntnu.no' },
+    { id: 15, name: 'Sander Ranbø', title: 'Mechanical Engineer', image: 'Members/2025/SanderRanbø.jpg', group: 'All active members', email: 'sander.ranbø@nordlysntnu.no' },
+    { id: 16, name: 'Oscar Skjelvik', title: 'Mechanical Engineer', image: 'Members/2025/OscarSkjelvik.jpg', group: 'All active members', email: 'oscar.skjelvik@nordlysntnu.no' },
+    { id: 17, name: 'Aslak Aarflot Jønsson', title: 'Mechanical Engineer', image: 'Members/2025/AslakJønsson.jpg', group: 'All active members', email: 'aslak.jønsson@nordlysntnu.no' },
+    { id: 18, name: 'Joachim Gulliksen', title: 'Mechanical Engineer', image: 'Members/2025/JoachimGulliksen.jpg', group: 'All active members', email: 'joachim.gulliksen@nordlysntnu.no' },
+    { id: 19, name: 'Sjur Weider', title: 'Mechanical Engineer', image: 'Members/2025/SjurWeider.jpg', group: 'All active members', email: 'sjur.weider@nordlysntnu.no' },
+    
+    { id: 20, name: 'Kristian Sæberg', title: 'Group Leader Electrical', image: 'Members/2025/KristianSæberg.jpg', group: 'All active members', email: 'kristian.sæberg@nordlysntnu.no' },
+    { id: 21, name: 'Sukhman Singh Sidhu', title: 'Electrical Engineer', image: 'Members/2025/SukhmanSidhu.jpg', group: 'All active members', email: 'sukhman.sidhu@nordlysntnu.no' },
+    { id: 22, name: 'William Fosser', title: 'Electrical Engineer', image: 'Members/2025/WilliamFosser.jpg', group: 'All active members', email: 'william.fosser@nordlysntnu.no' },
+    { id: 23, name: 'Odin Sandlie Mellingsæter', title: 'Electrical Engineer', image: 'Members/2025/OdinMellingsæter.jpg', group: 'All active members', email: 'odin.mellingsæter@nordlysntnu.no' },
+    { id: 24, name: 'Øystein Økland', title: 'Electrical Engineer', image: 'Members/2025/ØysteinØkland.jpg', group: 'All active members', email: 'øystein.økland@nordlysntnu.no' },
+    { id: 25, name: 'Georg Hofstad', title: 'Electrical Engineer', image: 'Members/2025/GeorgHofstad.jpg', group: 'All active members', email: 'georg.hofstad@nordlysntnu.no' },
+    { id: 26, name: 'Sander Mikkelhaug', title: 'Electrical Engineer', image: 'Members/2025/SanderMikkelhaug.jpg', group: 'All active members', email: 'sander.mikkelhaug@nordlysntnu.no' },
+    { id: 27, name: 'Natalia Chwiejczak', title: 'Electrical Engineer', image: 'Members/2025/NataliaChwiejczak.jpg', group: 'All active members', email: 'natalia.chwiejczak@nordlysntnu.no' },
+    { id: 28, name: 'Elias Alsos', title: 'Electrical Engineer', image: 'Members/2025/EliasAlsos.jpg', group: 'All active members', email: 'elias.alsos@nordlysntnu.no' },
+    { id: 29, name: 'Simon Jaccard Buggeland', title: 'Electrical Engineer', image: 'Members/2025/SimonBuggeland.jpg', group: 'All active members', email: 'simon.buggeland@nordlysntnu.no' },
+    { id: 30, name: 'Vetle Vatnem', title: 'Electrical Engineer', image: 'Members/2025/VetleVatnem.jpg', group: 'All active members', email: 'vetle.vatnem@nordlysntnu.no' },
+    { id: 31, name: 'Johanne Mjøs Bertelsen', title: 'Electrical Engineer', image: 'Members/2025/JohanneBertelsen.jpg', group: 'All active members', email: 'johanne.bertelsen@nordlysntnu.no' },
+    { id: 32, name: 'Markus Emil Eriksson', title: 'Electrical Engineer', image: 'Members/2025/MarkusEriksson.jpg', group: 'All active members', email: 'markus.eriksson@nordlysntnu.no' },
+    { id: 33, name: 'Ivar Hansgård', title: 'Electrical Engineer', image: 'Members/2025/IvarHansgård.jpg', group: 'All active members', email: 'ivar.hansgård@nordlysntnu.no' },
+    
+    { id: 34, name: 'Jakob Behrens', title: 'Group Leader Strategy', image: 'Members/2025/JakobBehrens.jpg', group: 'All active members', email: 'jakob.behrens@nordlysntnu.no' },
+    { id: 35, name: 'Bjørn Vik Henriksen', title: 'Software Developer', image: 'Members/2025/BjørnHenriksen.jpg', group: 'All active members', email: 'bjørn.henriksen@nordlysntnu.no' },
+    { id: 36, name: 'Eirik Reiestad', title: 'Software Developer', image: 'Members/2025/EirikReiestad.jpg', group: 'All active members', email: 'eirik.reiestad@nordlysntnu.no' },
+    { id: 37, name: 'Nicolai Nome Sommervold', title: 'Software Developer', image: 'Members/2025/NicolaiSommervold.jpg', group: 'All active members', email: 'nicolai.sommervold@nordlysntnu.no' },
+    { id: 38, name: 'Natalie Vo', title: 'Software Developer', image: 'Members/2025/NatalieVo.jpg', group: 'All active members', email: 'natalie.vo@nordlysntnu.no' },
+    { id: 39, name: 'Rasmus Nummelin', title: 'Software Developer', image: 'Members/2025/RasmusNummelin.jpg', group: 'All active members', email: 'rasmus.nummelin@nordlysntnu.no' },
+    { id: 40, name: 'Mathias Sagerup', title: 'Software Developer', image: 'Members/2025/MathiasSagerup.jpg', group: 'All active members', email: 'mathias.sagerup@nordlysntnu.no' },
+    
+    { id: 41, name: 'Johannes Tunli Moe', title: 'Key Account Manager', image: 'Members/2025/JohannesMoe.jpg', group: 'All active members', email: 'johannes.moe@nordlysntnu.no' },
+    { id: 42, name: 'Stine Andreassen', title: 'Brand Developer', image: 'Members/2025/StineAndreassen.jpg', group: 'All active members', email: 'stine.andreassen@nordlysntnu.no' },
+    { id: 43, name: 'Leonardo Lind-Milekvist', title: 'Web Developer', image: 'Members/2025/LeonardoLind-Milekvist.jpg', group: 'All active members', email: 'leonardo.lind-milekvist@nordlysntnu.no' },
+    { id: 44, name: 'Emil Vellan', title: 'Web Developer', image: 'Members/2025/EmilVellan.jpg', group: 'All active members', email: 'emil.vellan@nordlysntnu.no' },
+    
+    { id: 45, name: 'Hedda Christine Reinskou', title: 'Logistics Engineer', image: 'Members/2025/HeddaReinskou.jpg', group: 'All active members', email: 'hedda.reinskou@nordlysntnu.no' },
+    { id: 46, name: 'Sven Amberg', title: 'Logistics Engineer', image: 'Members/2025/SvenAmberg.jpg', group: 'All active members', email: 'sven.amberg@nordlysntnu.no' },
+    { id: 47, name: 'Sigve Isaksen', title: 'Logistics Engineer', image: 'Members/2025/SigveIsaksen.jpg', group: 'All active members', email: 'sigve.isaksen@nordlysntnu.no' }
+];
+    

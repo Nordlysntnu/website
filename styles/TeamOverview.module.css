@@ -1,0 +1,118 @@
+/* TeamOverview.module.css */
+
+.container {
+    margin-top: 15px;
+    margin-bottom: 3em auto;
+    width: 100%;
+}
+
+.navbar {
+    max-width: 80%; 
+    margin: 0 auto; 
+    margin-bottom: 1em; 
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 1em;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: #152242;
+}
+
+.navbar li {
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border-bottom: 2px solid transparent;
+    transition: border-color 250ms ease-in-out;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar li:hover, .navbar .active {
+    border-color: rgba(255, 255, 255, 0.9); 
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.groupInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 2em; 
+    margin-top: 0; 
+    gap: 1em; 
+}
+
+.description {
+    flex: 2;
+    padding-left: 1em; 
+    text-align: left;
+    color: black;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.images {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.images img {
+    max-width: 100%;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.body {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.groupTitle {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #3a486a;
+    margin: 0; 
+    padding: 0.5em; 
+    background-color: #ffffff;
+}
+
+@media (max-width: 1050px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+    }
+}
+
+
+@media (max-width: 1050px) {
+    .groupInfo {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start for a natural flow */
+    }
+
+    .description {
+        padding-bottom: 1em; /* Add spacing between text and image */
+    }
+
+    .images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Ensure the image container spans full width */
+    }
+
+    .images img {
+        max-width: 90%; /* Adjust the image width for smaller screens */
+        border-radius: 1em; /* Optional: make border-radius smaller */
+    }
+}
