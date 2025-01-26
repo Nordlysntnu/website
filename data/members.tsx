@@ -56,12 +56,6 @@ const Members = {
                 email: "tord.ostmo@nordlysntnu.no"
             },
             {
-                name: "Mats Ørbekk",
-                position: "Mechanical Engineer",
-                image: "MatsØrbekk.jpg",
-                email: "mats.ordbekk@nordlysntnu.no"
-            },
-            {
                 name: "Anders Nyhus Røsbjørgen",
                 position: "Mechanical Engineer",
                 image: "AndersRøsbjørgen.jpg",
@@ -72,12 +66,6 @@ const Members = {
                 position: "Mechanical Engineer",
                 image: "JulianBoerakker.jpg",
                 email: "julian.boerakker@nordlysntnu.no"
-            },
-            {
-                name: "Eléa Cervera",
-                position: "Mechanical Engineer",
-                image: "EléaCervera.jpg",
-                email: "elea.cervera@nordlysntnu.no"
             },
             {
                 name: "Cato Bergan",
@@ -234,12 +222,6 @@ const Members = {
                 email: "eirik.reiestad@nordlysntnu.no"
             },
             {
-                name: "Nicolai Nome Sommervold",
-                position: "Software Developer",
-                image: "NicolaiSommervold.jpg",
-                email: "nicolai.sommervold@nordlysntnu.no"
-            },
-            {
                 name: "Natalie Vo",
                 position: "Software Developer",
                 image: "NatalieVo.jpg",
@@ -273,12 +255,6 @@ const Members = {
                 position: "Key Account Manager",
                 image: "JohannesMoe.jpg",
                 email: "johannes.moe@nordlysntnu.no"
-            },
-            {
-                name: "Stine Andreassen",
-                position: "Brand Developer",
-                image: "StineAndreassen.jpg",
-                email: "stine.andreassen@nordlysntnu.no"
             },
             {
                 name: "Leonardo Lind-Milekvist",
@@ -426,6 +402,30 @@ const Members = {
                 position: "",
                 image: "HilmiYasik.jpg",
                 email: "hilmi.yasik@nordlytnu.no"
+            },
+            {
+                name: "Mats Ørbekk",
+                position: "Mechanical Engineer",
+                image: "MatsØrbekk.jpg",
+                email: "mats.ordbekk@nordlysntnu.no"
+            },
+            {
+                name: "Eléa Cervera",
+                position: "Mechanical Engineer",
+                image: "EléaCervera.jpg",
+                email: "elea.cervera@nordlysntnu.no"
+            },
+            {
+                name: "Nicolai Nome Sommervold",
+                position: "Software Developer",
+                image: "NicolaiSommervold.jpg",
+                email: "nicolai.sommervold@nordlysntnu.no"
+            },
+            {
+                name: "Stine Andreassen",
+                position: "Brand Developer",
+                image: "StineAndreassen.jpg",
+                email: "stine.andreassen@nordlysntnu.no"
             },
         ],
         text: ""
