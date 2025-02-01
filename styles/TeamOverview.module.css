@@ -1,5 +1,3 @@
-/* TeamOverview.module.css */
-
 .container {
     margin-top: 15px;
     margin-bottom: 3em auto;
@@ -9,20 +7,35 @@
 .navbar {
     max-width: 80%; 
     margin: 0 auto; 
-    margin-bottom: 1em; 
+    margin-bottom: 1em;
+    position: relative; 
+    background-color: #152242;
 }
 
-.navbar ul {
+
+.hamburger {
+    font-size: 2em;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.5em;
+    background-color: #152242;
+    border-radius: 0.3em;
+    display: none;
+}
+
+
+.navList {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 0;
+    margin: 0;
     gap: 1em;
     color: rgba(255, 255, 255, 0.9);
     background-color: #152242;
 }
 
-.navbar li {
+.navList li {
     cursor: pointer;
     padding: 0.5em 1em;
     border-bottom: 2px solid transparent;
@@ -30,7 +43,8 @@
     color: rgba(255, 255, 255, 0.9);
 }
 
-.navbar li:hover, .navbar .active {
+.navList li:hover,
+.navList .active {
     border-color: rgba(255, 255, 255, 0.9); 
 }
 
@@ -45,6 +59,8 @@
     align-items: center; 
     background-color: rgba(255, 255, 255, 0.9); 
     padding: 2em; 
+    padding-left: 10%;
+    padding-right: 10%;
     margin-top: 0; 
     gap: 1em; 
 }
@@ -86,33 +102,44 @@
 }
 
 @media (max-width: 1050px) {
-    .navbar ul {
+    .hamburger {
+        display: block;
+    }
+
+    .navList {
         flex-direction: column;
         align-items: center;
-        gap: 0.5em;
+        position: absolute;
+        top: 3em; 
+        left: 0;
+        right: 0;
+        background-color: #152242;
+        z-index: 10;
+        padding: 1em 0;
     }
-}
 
-
-@media (max-width: 1050px) {
     .groupInfo {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the start for a natural flow */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .description {
-        padding-bottom: 1em; /* Add spacing between text and image */
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 1em;
+        max-width: 80%;
     }
 
     .images {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%; /* Ensure the image container spans full width */
+        width: 100%;
     }
 
     .images img {
-        max-width: 90%; /* Adjust the image width for smaller screens */
-        border-radius: 1em; /* Optional: make border-radius smaller */
+        max-width: 80%;
+        border-radius: 1em;
     }
 }
