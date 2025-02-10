@@ -128,7 +128,12 @@
         justify-content: center;
         align-items: center;
         padding-bottom: 1em;
-        max-width: 80%;
+        width: 100%;
+        /*max-width: 80%;*/
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 4em;
+        padding-bottom: 4em;
     }
 
     .images {
@@ -136,6 +141,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        padding-bottom: 4em;
     }
 
     .images img {

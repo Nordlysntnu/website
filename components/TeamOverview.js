@@ -47,11 +47,11 @@ const groupDescriptions = {
     </p>
   ),
   //'Technical advisor': <p></p>,
-  'Alumni': (
+  /*'Alumni': (
     <p>
       <b>The Alumni</b> consists of former Nordlys members. We are proud to present our former members who all contributed to shaping Nordlys into the organization it is today.
     </p>
-  )
+  )*/
   //'All active members': <p> </p>
 };
 
