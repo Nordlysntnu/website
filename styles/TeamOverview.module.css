@@ -38,7 +38,7 @@
 .mobileToggle {
     text-align: center;
     font-size: 1.2em;
-    font-weight: bold;
+    /* font-weight: bold; */
     cursor: pointer;
     background-color: #152242;
     color: white;
@@ -70,9 +70,9 @@
     align-items: center;
     text-align: center;
     background-color: #152242;
-    padding: 0.5em 0;
+    padding: 0.5em;
     font-size: 1.2em;
-    font-weight: bold;
+    /*font-weight: bold; */
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -131,7 +131,7 @@
     .navbar ul {
         flex-direction: column;
         align-items: center;
-        gap: 0.5em;
+        gap: 0.1em;
     }
 
     .groupInfo {
