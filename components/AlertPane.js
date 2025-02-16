@@ -6,11 +6,11 @@ import styles from '../styles/AlertPane.module.css';
 export default function AlertPane() {
     const alerts = {
         infoMeeting: {
-            name: "Info Meeting 2023",
-            info: "28. Aug | S1, Gløs | 17:15",
-            description: "Learn more about the project, Solar Racing and what positions you can apply for in Nordlys. There will be pizza, popcorn and soda, and we will be showing the documentary series Light Speed from 2019.",
-            url: 'https://fb.me/e/2LpjqhSdJ',
-            linkText: 'See event'
+            name: "Announcement",
+            info: "",
+            description: "Nordlys NTNU has decided to withdraw from the Bridgestone World Solar Challenge 2025. It has not been an easy decision, however with the increased shipping-times from Europe to Australia we see that the best approach for the team is to move all our focus towards building a successful car, without cutting corners to meet the shipping deadlines.",
+            url: 'https://www.instagram.com/p/DF3Inb1NyqZ/',
+            linkText: 'See full announcement'
         }
     }
 

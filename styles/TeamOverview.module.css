@@ -3,149 +3,131 @@
     margin-bottom: 3em auto;
     width: 100%;
 }
-
 .navbar {
-    max-width: 80%; 
-    margin: 0 auto; 
+    max-width: 80%;
+    margin: 0 auto;
     margin-bottom: 1em;
-    position: relative; 
-    background-color: #152242;
 }
-
-
-.hamburger {
-    font-size: 2em;
-    cursor: pointer;
-    color: rgba(255, 255, 255, 0.9);
-    padding: 0.5em;
-    background-color: #152242;
-    border-radius: 0.3em;
-    display: none;
-}
-
-
-.navList {
+.navbar ul {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 0;
-    margin: 0;
     gap: 1em;
     color: rgba(255, 255, 255, 0.9);
     background-color: #152242;
 }
-
-.navList li {
+.navbar li {
     cursor: pointer;
     padding: 0.5em 1em;
     border-bottom: 2px solid transparent;
     transition: border-color 250ms ease-in-out;
     color: rgba(255, 255, 255, 0.9);
+    text-align: center;
 }
-
-.navList li:hover,
-.navList .active {
-    border-color: rgba(255, 255, 255, 0.9); 
+.navbar li:hover, .navbar .active {
+    border-color: rgba(255, 255, 255, 0.9);
 }
-
+.mobileToggle {
+    text-align: center;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #152242;
+    color: white;
+    padding: 0.1em;
+    border-radius: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mobileToggle span {
+    margin-left: 0.5em;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+.menuOpen .arrow {
+    transform: rotate(180deg);
+}
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #152242;
+    padding: 0.5em 0;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.9);
+}
 .title {
     text-align: center;
     margin-bottom: 2em;
 }
-
 .groupInfo {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-    background-color: rgba(255, 255, 255, 0.9); 
-    padding: 2em; 
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-top: 0; 
-    gap: 1em; 
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2em;
+    margin-top: 0;
+    gap: 1em;
 }
-
 .description {
     flex: 2;
-    padding-left: 1em; 
+    padding-left: 1em;
     text-align: left;
     color: black;
     font-size: 1em;
     line-height: 1.6;
 }
-
 .images {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
-
 .images img {
     max-width: 100%;
     border-radius: 1em;
     background-color: rgba(255, 255, 255, 0.9);
 }
-
 .body {
     background-color: rgba(255, 255, 255, 0.9);
 }
-
 .groupTitle {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-    color: #3a486a;
-    margin: 0; 
-    padding: 0.5em; 
-    background-color: #ffffff;
+    color: #3A486A;
+    margin: 0;
+    padding: 0.5em;
+    background-color: #FFFFFF;
 }
-
 @media (max-width: 1050px) {
-    .hamburger {
-        display: block;
-    }
-
-    .navList {
+    .navbar ul {
         flex-direction: column;
         align-items: center;
-        position: absolute;
-        top: 3em; 
-        left: 0;
-        right: 0;
-        background-color: #152242;
-        z-index: 10;
-        padding: 1em 0;
+        gap: 0.01em;
     }
-
     .groupInfo {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
     }
-
     .description {
-        justify-content: center;
-        align-items: center;
         padding-bottom: 1em;
-        width: 100%;
-        /*max-width: 80%;*/
-        padding-left: 1em;
-        padding-right: 1em;
-        padding-top: 4em;
-        padding-bottom: 4em;
     }
-
     .images {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding-bottom: 4em;
     }
-
     .images img {
-        max-width: 80%;
+        max-width: 90%;
         border-radius: 1em;
     }
 }
+

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TeamGroup from './TeamGroup';
 import { members } from '../data/members';
 import styles from '../styles/TeamOverview.module.css';
+import SubPart1 from '../components/SubPart1';
 
 const teamGroups = [
   'Board',
@@ -56,79 +57,74 @@ const groupDescriptions = {
 };
 
 const TeamOverview = () => {
-  const [selectedGroup, setSelectedGroup] = useState('Board');
-  const [isMobile, setIsMobile] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth <= 1050;
-      setIsMobile(mobile);
-      if (!mobile) {
-        setMenuOpen(false); 
-      }
+    const [selectedGroup, setSelectedGroup] = useState('Board');
+    const [isMobile, setIsMobile] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 1050);
+        if (typeof window !== 'undefined') {
+            handleResize();
+            window.addEventListener('resize', handleResize);
+        }
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('resize', handleResize);
+            }
+        };
+    }, []);
+    const handleGroupChange = (group) => {
+        setSelectedGroup(group);
+        setMenuOpen(false);
     };
-
-    if (typeof window !== 'undefined') {
-      handleResize();
-      window.addEventListener('resize', handleResize);
-    }
-
-    return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', handleResize);
-      }
-    };
-  }, []);
-
-  const handleGroupChange = (group) => {
-    setSelectedGroup(group);
-    if (isMobile) {
-      setMenuOpen(false); 
-    }
-  };
-
-  const groupMembers = members.filter(member => member.group === selectedGroup);
-
-  return (
-    <div className={styles.container}>
-      <nav className={styles.navbar}>
-        {isMobile && (
-          <div className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
-            &#9776;
-          </div>
-        )}
-        {(!isMobile || menuOpen) && (
-          <ul className={styles.navList}>
-            {teamGroups.map(group => (
-              <li
-                key={group}
-                onClick={() => handleGroupChange(group)}
-                className={selectedGroup === group ? styles.active : ''}
-              >
-                {group}
-              </li>
-            ))}
-          </ul>
-        )}
-      </nav>
-
-      <h2 className={styles.groupTitle}>{selectedGroup}</h2>
-
-      <TeamGroup members={groupMembers} />
-
-      {groupDescriptions[selectedGroup] && (
-        <div className={styles.groupInfo}>
-          <div className={styles.description}>
-            {groupDescriptions[selectedGroup]}
-          </div>
-          <div className={styles.images}>
-            <img src={`/${selectedGroup}team.png`} alt={`${selectedGroup}`} />
-          </div>
+    return (
+        <div className={styles.container}>
+            {/* Navigation bar */}
+            <nav className={styles.navbar}>
+                <div className={styles.mobileToggle} onClick={() => setMenuOpen(!menuOpen)}>
+                    {isMobile && (
+                        <span>
+                            {selectedGroup}
+                            <span className={styles.arrow} style={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>▼</span>
+                        </span>
+                    )}
+                </div>
+                {isMobile ? (
+                    menuOpen && (
+                        <ul className={styles.mobileNav}>
+                            {teamGroups.map(group => (
+                                <li key={group} onClick={() => handleGroupChange(group)} className={selectedGroup === group ? styles.active : ''}>
+                                    {group}
+                                </li>
+                            ))}
+                        </ul>
+                    )
+                ) : (
+                    <ul className={styles.navList}>
+                        {teamGroups.map(group => (
+                            <li key={group} onClick={() => handleGroupChange(group)} className={selectedGroup === group ? styles.active : ''}>
+                                {group}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </nav>
+            {/* Group name as title */}
+            <h2 className={styles.groupTitle}>{selectedGroup}</h2>
+            {/* Display group members */}
+            <TeamGroup members={members.filter(member => member.group === selectedGroup)} />
+            {/* Information section */}
+            {groupDescriptions[selectedGroup] && (
+                <SubPart1 
+                dark={true} 
+                image={`/${selectedGroup}team.png`} 
+                title={selectedGroup} 
+                text={groupDescriptions[selectedGroup]} 
+                link="" 
+                linkText="" 
+              />
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 };
-
 export default TeamOverview;
+
