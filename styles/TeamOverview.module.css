@@ -1,17 +1,13 @@
-/* TeamOverview.module.css */
-
 .container {
     margin-top: 15px;
     margin-bottom: 3em auto;
     width: 100%;
 }
-
 .navbar {
-    max-width: 80%; 
-    margin: 0 auto; 
-    margin-bottom: 1em; 
+    max-width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1em;
 }
-
 .navbar ul {
     display: flex;
     justify-content: center;
@@ -21,98 +17,117 @@
     color: rgba(255, 255, 255, 0.9);
     background-color: #152242;
 }
-
 .navbar li {
     cursor: pointer;
     padding: 0.5em 1em;
     border-bottom: 2px solid transparent;
     transition: border-color 250ms ease-in-out;
     color: rgba(255, 255, 255, 0.9);
+    text-align: center;
 }
-
 .navbar li:hover, .navbar .active {
-    border-color: rgba(255, 255, 255, 0.9); 
+    border-color: rgba(255, 255, 255, 0.9);
 }
-
+.mobileToggle {
+    text-align: center;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #152242;
+    color: white;
+    padding: 0.1em;
+    border-radius: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mobileToggle span {
+    margin-left: 0.5em;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+.menuOpen .arrow {
+    transform: rotate(180deg);
+}
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #152242;
+    padding: 0.5em 0;
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.9);
+}
 .title {
     text-align: center;
     margin-bottom: 2em;
 }
-
 .groupInfo {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
-    background-color: rgba(255, 255, 255, 0.9); 
-    padding: 2em; 
-    margin-top: 0; 
-    gap: 1em; 
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2em;
+    margin-top: 0;
+    gap: 1em;
 }
-
 .description {
     flex: 2;
-    padding-left: 1em; 
+    padding-left: 1em;
     text-align: left;
     color: black;
     font-size: 1em;
     line-height: 1.6;
 }
-
 .images {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
-
 .images img {
     max-width: 100%;
     border-radius: 1em;
     background-color: rgba(255, 255, 255, 0.9);
 }
-
 .body {
     background-color: rgba(255, 255, 255, 0.9);
 }
-
 .groupTitle {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-    color: #3a486a;
-    margin: 0; 
-    padding: 0.5em; 
-    background-color: #ffffff;
+    color: #3A486A;
+    margin: 0;
+    padding: 0.5em;
+    background-color: #FFFFFF;
 }
-
 @media (max-width: 1050px) {
     .navbar ul {
         flex-direction: column;
         align-items: center;
-        gap: 0.5em;
+        gap: 0.01em;
     }
-}
-
-
-@media (max-width: 1050px) {
     .groupInfo {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the start for a natural flow */
+        flex-direction: column;
+        align-items: flex-start;
     }
-
     .description {
-        padding-bottom: 1em; /* Add spacing between text and image */
+        padding-bottom: 1em;
     }
-
     .images {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%; /* Ensure the image container spans full width */
+        width: 100%;
     }
-
     .images img {
-        max-width: 90%; /* Adjust the image width for smaller screens */
-        border-radius: 1em; /* Optional: make border-radius smaller */
+        max-width: 90%;
+        border-radius: 1em;
     }
 }
+

@@ -6,11 +6,11 @@ import styles from '../styles/AlertPane.module.css';
 export default function AlertPane() {
     const alerts = {
         infoMeeting: {
-            name: "Spring Recruitment",
-            info: "Deadline January 24th 23:59",
-            description: "Join us building Norway's first ever solar racing car this semester! We have available positions in the Mechnical group, Strategy group and Brand group.",
-            url: '/join',
-            linkText: 'Apply'
+            name: "Announcement",
+            info: "",
+            description: "Nordlys NTNU has decided to withdraw from the Bridgestone World Solar Challenge 2025. It has not been an easy decision, however with the increased shipping-times from Europe to Australia we see that the best approach for the team is to move all our focus towards building a successful car, without cutting corners to meet the shipping deadlines.",
+            url: 'https://www.instagram.com/p/DF3Inb1NyqZ/',
+            linkText: 'See full announcement'
         }
     }
 
