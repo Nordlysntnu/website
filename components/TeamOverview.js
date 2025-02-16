@@ -111,7 +111,7 @@ const TeamOverview = () => {
             {/* Group name as title */}
             <h2 className={styles.groupTitle}>{selectedGroup}</h2>
             {/* Display group members */}
-            <TeamGroup members={members.filter(member => member.group === selectedGroup)} />
+            <TeamGroup members={members.filter(member => member.group.includes(selectedGroup))} />
             {/* Information section */}
             {groupDescriptions[selectedGroup] && (
                 <SubPart1 
