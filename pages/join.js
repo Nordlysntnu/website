@@ -9,6 +9,171 @@ import PartHeader from '../components/PartHeader';
 export default function Join() {
   const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>
   const groups = {
+    
+    'board': {
+      'name': 'Board',
+      'image': 'Management.png',
+      'projectManager': {name: 'Project Manager', text: <><br/>
+      The Project Manager is the leader of Nordlys NTNU and Project 2026. Your responsibility will be to set the overall direction of the organization and coordinate the technical and non-technical efforts of the project. Together with the rest of the Board you oversee the progress of the car, make sure that the organization is financially stable, and that the members is motivated. In addition, the project manager is the leader of the Board, both leading the board meetings and developing the Board as a well-functioning team.
+      <br/>
+      <br/>
+      <em>Areas of responsibility</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+        Organizational development
+        <br/>
+        Project planning and execution
+        <br/>
+        Team and personell development
+      </div>
+      <br/>
+      <em>What do you get out of being Project Manager in Nordlys NTNU?</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+        Experience of leading an interdisciplinary engineering project
+        <br/>
+        Experience with organizational development
+        <br/>
+        Experience of managing interpersonal relationships
+        <br/>
+        Possibility to set the path and strategic direction of Nordlys NTNU
+      </div>
+      </>,
+      },
+      'headOfProduction': {name: 'Head of Production', text: <><br/>
+      The Head of Production has a central role in Nordlys NTNU, and your job is crucial for the success of the project. You’ll have the main responsibility for ensuring that production is managed in such a way that the project's goals for economy, quality, and progress are achieved. The most important areas will be production planning, development and assembly of the car. As the head of production, you will be part of the board and you get a key role in deciding the production specifications and assembly of the car. 
+      <br/>
+      <br/>
+      <em>Areas of responsibility</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+        Production planning
+        <br/>
+        Responsible for the progression of the technical groups
+        <br/>
+        The assembly of the car
+      </div>
+      <br/>
+      <em>What do you get out of being Head of Production in Nordlys NTNU?</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+        Hands-on engineering experience 
+        <br/>
+        Experience with management in a start-up organization
+        <br/>
+        Experience of coordinating different groups in the same project
+        <br/>
+        Possibility to shape the organization and production manner
+      </div>
+      </>,
+      },
+      'headOfProduction': {name: 'Head of Production', text: <><br/>
+      The Head of Production has a central role in Nordlys NTNU, and your job is crucial for the success of the project. You’ll have the main responsibility for ensuring that production is managed in such a way that the project's goals for economy, quality, and progress are achieved. The most important areas will be production planning, development and assembly of the car. As the head of production, you will be part of the board and you get a key role in deciding the production specifications and assembly of the car. 
+      <br/>
+      <br/>
+      <em>Areas of responsibility</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+        Production planning
+        <br/>
+        Responsible for the progression of the technical groups
+        <br/>
+        The assembly of the car
+      </div>
+      <br/>
+      <em>What do you get out of being Head of Production in Nordlys NTNU?</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+        Hands-on engineering experience 
+        <br/>
+        Experience with management in a start-up organization
+        <br/>
+        Experience of coordinating different groups in the same project
+        <br/>
+        Possibility to shape the organization and production manner
+      </div>
+      </>,
+      },
+      'headOfFinance': {name: 'Head of Finance', text: <><br/>
+      As Head of Finance in Nordlys NTNU you get the opportunity to develop skills in management, economics and accounting at a high level in Norway’s first solar-racing team. In this position you are the main responsible for the budget, liquidity and accounting. You will also get the opportunity to explore financial analysis and financial projections to evaluate future revenue potential for the newl established organization.
+      <br/>
+      <br/>
+      <em>Areas of responsibility</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+        Economics and finance
+        <br/>
+        Budget and accounting
+        <br/>
+        Management
+        <br/>
+        Following up and teaching group leaders in economic procedures
+      </div>
+      <br/>
+      <em>What do you get out of being Head of Finance in Nordlys NTNU?</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+        Great skills in financial management
+        <br/>
+        Experience with management in a start-up organization
+        <br/>
+        Experience the interface between economics and technology in a professional arena
+        <br/>
+        Freedom to design your vision of the organization and economics
+      </div>
+      </>,
+      },
+      'headOfMarketing': {name: 'Head of Marketing', text: <><br/>
+      Head of Marketing is the person in charge of the marketing, sponsoring work, event planning, graphical design and general branding of Nordlys NTNU. You should not pass up this opportunity to help build our organizations external image, gain experience in management and being in touch with external partners. As a newly established organization, you have a great opportunity to put your mark on the organization, and help steer its direction for years to come!
+      <br/>
+      <br/>
+      <em>Areas of responsibility</em>
+      <br/>
+      <div style={{marginTop: "0.4em", lineHeight: "1.4em"}}>
+        Marketing
+        <br/>
+        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+          Developing a marketing plan/strategy
+          <br/>
+          Plan and conduct recruitment
+          <br/>
+          Plan and conduct events (external and internal)
+          <br/>
+          Control social media-accounts
+        </div>
+      </div>
+      <div style={{marginTop: "0.4em", lineHeight: "1.4em"}}>
+      Sponsors
+        <br/>
+        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+          Acquiring new partners and sponsors
+          <br/>
+          Follow up acquired partners and sponsors
+        </div>
+      </div>
+      <div style={{marginTop: "0.4em", lineHeight: "1.4em"}}>
+      Graphical design
+        <br/>
+        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+        Defining and maintaining graphical profile
+        </div>
+      </div>
+      <br/>
+      <em>What do you get out of being Head of Marketing in Nordlys NTNU?</em>
+      <br/>
+      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+      Great skills in financial management
+      <br/>
+      Experience with management in a start-up organization
+      <br/>
+      Experience the interface between economics and technology in a professional arena
+      <br/>
+      Freedom to design your vision of the organization and economics
+      </div>
+      </>,
+      },
+      'technicalLeader': {name: 'Technical Leader', text: "The technical leader keeps an overview of all the technical systems making sure that everything works together and is developed on time. The technical leader is part of the board, and gets a key role in deciding the projects technical directions.", supervisor: 'Nor Decided'}
+    },
     'electrical': {
       'name': 'Electrical',
       'image': 'EmbeddedElectronics.png',
@@ -26,9 +191,21 @@ export default function Join() {
     'mechanical': {
       'name': 'Mechanical',
       'image': 'Mechanical.png',
-      'description': 'The mechanical group designs and builds all the mechanical components of the solar car.',
+      'description': 'The mechanical group designs and builds all the dynamic mechanical systems of the solar car. Systems include braking, suspension and steering.',
       //'mechanicalEngineer': {name: 'Mechanical Engineer', text: 'All mechanical systems of the car, from the brakes to the chassis, has to be carefully chosen, designed and produced. Though a broad category, Nordlys needs members with skills or interest within many disciplines, including CAD and aerodynamics.', supervisor: 'Not decided'},
       'groupLeader': {name: 'Group Leader Mechanical', text: 'The group leader is the leader of the mechanical members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
+      //'braking': {name: 'Braking', text: 'Creating safe but lightweight brakes is a challenge, but one we must conquer to build a successful solar racing car. This system focuses on the design and building of the braking system.', supervisor: 'Not Decided'},
+      //'suspension': {name: 'Suspension', text: 'This system focuses on designing a lightweight suspension system. Without it, driving the car becomes both unstable and uncomfortable.', supervisor: 'Not Decided'},
+      //'steering': {name: 'Steering', text: 'The steering system needs to be precise and lightweight, as well as easy to manipulate by the driver. This subgroup designs, test and builds an efficient steering rig. ', supervisor: 'Not Decided'},
+      //'drivetrain': {name: 'Drivetrain', text: "The drivetrain connects to the electric motors to deliver mechanical power to the wheels. Either if the car uses inwheel motors or external, the drivetrain needs to be lightweight and delver sufficent amounts of torque withoiut loosing too much energy on the way.", supervisor: 'Not Decided'},
+      //'bearingStructure': {name: 'Bearing Structure', text: 'The car itself needs to carry both the driver and itself, while being lightweight and highly aerodynamic. This subgroup will be working on the design of the chassis and outer shell, testing and tweaking its aerodynamics and bearing characteristics until perfection.', supervisor: 'Not Decided'}
+    }, 
+    'chassis': {
+      'name': 'Chassis',
+      'image': 'Mechanical.png',
+      'description': 'The chassis group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.',
+      //'mechanicalEngineer': {name: 'Mechanical Engineer', text: 'All mechanical systems of the car, from the brakes to the chassis, has to be carefully chosen, designed and produced. Though a broad category, Nordlys needs members with skills or interest within many disciplines, including CAD and aerodynamics.', supervisor: 'Not decided'},
+      'groupLeader': {name: 'Group Leader Chassis', text: 'The group leader is the leader of the chassis members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
       //'braking': {name: 'Braking', text: 'Creating safe but lightweight brakes is a challenge, but one we must conquer to build a successful solar racing car. This system focuses on the design and building of the braking system.', supervisor: 'Not Decided'},
       //'suspension': {name: 'Suspension', text: 'This system focuses on designing a lightweight suspension system. Without it, driving the car becomes both unstable and uncomfortable.', supervisor: 'Not Decided'},
       //'steering': {name: 'Steering', text: 'The steering system needs to be precise and lightweight, as well as easy to manipulate by the driver. This subgroup designs, test and builds an efficient steering rig. ', supervisor: 'Not Decided'},
@@ -218,7 +395,7 @@ export default function Join() {
         </div>
       </div>
       <br/>
-      <em>What do you get out of being Head of Brand in Nordlys NTNU?</em>
+      <em>What do you get out of being Head of Marketing in Nordlys NTNU?</em>
       <br/>
       <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
       Great skills in financial management
