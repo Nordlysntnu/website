@@ -3,6 +3,7 @@ import TeamGroup from './TeamGroup';
 import { members } from '../data/members';
 import styles from '../styles/TeamOverview.module.css';
 import SubPart1 from '../components/SubPart1';
+import { useRouter } from 'next/router';
 
 const teamGroups = [
   'Board',
@@ -60,6 +61,19 @@ const TeamOverview = () => {
     const [selectedGroup, setSelectedGroup] = useState('Board');
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const router = useRouter(); // Bruker useRouter for å få tilgang til URL-query
+    const { group } = router.query; // Hent query-parameteren 'group'
+    // Når 'group' i URL-en endres, oppdater valgt gruppe
+    useEffect(() => {
+      if (group && teamGroups.includes(group.charAt(0).toUpperCase() + group.slice(1))) {
+          setSelectedGroup(group.charAt(0).toUpperCase() + group.slice(1)); // Oppdater valgt gruppe med riktig format
+      }
+  }, [group]); // Når 'group' endres i URL-en, oppdater 'selectedGroup'
+  const handleGroupChange = (group) => {
+      setSelectedGroup(group);
+      router.push(`/team?group=${group.toLowerCase()}`); // Oppdater URL-parameteren
+      setMenuOpen(false); // Lukk dropdown når et valg er gjort
+  };
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 1050);
         if (typeof window !== 'undefined') {
@@ -72,10 +86,6 @@ const TeamOverview = () => {
             }
         };
     }, []);
-    const handleGroupChange = (group) => {
-        setSelectedGroup(group);
-        setMenuOpen(false);
-    };
     return (
         <div className={styles.container}>
             {/* Navigation bar */}
