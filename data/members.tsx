@@ -517,5 +517,5 @@ export const members = [
         image: 'Members/2024/HilmiYasik.jpg', 
         group: ['Alumni'], 
         email: 'hilmi.yasik@nordlysntnu.no' 
-    },
+    }
 ]
