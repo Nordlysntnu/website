@@ -172,8 +172,42 @@ export default function Join() {
       </div>
       </>,
       },
-      'technicalLeader': {name: 'Technical Leader', text: "The technical leader keeps an overview of all the technical systems making sure that everything works together and is developed on time. The technical leader is part of the board, and gets a key role in deciding the projects technical directions.", supervisor: 'Nor Decided'}
-    },
+      'technicalLeader': {name: 'Technical Leader', text: <><br/>
+        The Technical Leader holds a central role in Nordlys NTNU, and your job is crucial for the technical progression of the project. You will have the main responsibility for ensuring that the technical groups work in accordance with competition regulations. As the Technical Leader, you will be part of the Board and play a crucial role in deciding the project's direction and execution.
+        <br/>
+        <br/>
+        <em>Areas of responsibility</em>
+        <br/>
+        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+          Responsible for project planning and the work methodology.
+          <br/>
+          Collaborate closely with the technical group leaders.
+          <br/>
+          Ensure the areas of responsibilities among the groups and ensure technical progress according to regulations.
+          <br/>
+          Coordination of the Concept and Design Phase.
+          <br/>
+          Organizes and arranges Concept and Design Reviews.
+          <br/>
+          Contact relevant technical sponsors or advisors, facilitating collaboration with external partners.
+          <br/>
+          Collaborate with the Board and develop the organization.
+        </div>
+        <br/>
+        <em>What do you get out of being Technical Leader in Nordlys NTNU?</em>
+        <br/>
+        <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+          Hands-on project management experience.
+          <br/>
+          Experience with leadership in a start-up organization.
+          <br/>
+          Experience in coordinating different groups within the same project.
+          <br/>
+          Technical experience with car development.
+        </div>
+        </>,
+        },
+      },
     'electrical': {
       'name': 'Electrical',
       'image': 'EmbeddedElectronics.png',
@@ -245,171 +279,7 @@ export default function Join() {
       //'image': 'Logistics.png',
       //'description': 'This completely new group is responsible for all the planning and logistics of the competition of 2025. Nordlys is going to Australia for the first time and need you to help us plan everything from the travel, the accommodations and the food.',
       //'logisticsEngineer': {name: 'Logistics Engineer', text: "As a logistics engineer you will be part of the small team responsible for the entire travel arrangements for the team going to Bridgestone World Solar Challenge 2025. This includes making sure we have enough food and water, that car is shipped on time and that all the members know where to be at what times. You will be working in a close group and no previous knowledge is needed.", supervisor: 'Not Decided'},
-    //},
-    'board': {
-      'name': 'Board',
-      'image': 'Management.png',
-      'projectManager': {name: 'Project Manager', text: <><br/>
-      The Project Manager is the leader of Nordlys NTNU and Project 2026. Your responsibility will be to set the overall direction of the organization and coordinate the technical and non-technical efforts of the project. Together with the rest of the Board you oversee the progress of the car, make sure that the organization is financially stable, and that the members is motivated. In addition, the project manager is the leader of the Board, both leading the board meetings and developing the Board as a well-functioning team.
-      <br/>
-      <br/>
-      <em>Areas of responsibility</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-        Organizational development
-        <br/>
-        Project planning and execution
-        <br/>
-        Team and personell development
-      </div>
-      <br/>
-      <em>What do you get out of being Project Manager in Nordlys NTNU?</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-        Experience of leading an interdisciplinary engineering project
-        <br/>
-        Experience with organizational development
-        <br/>
-        Experience of managing interpersonal relationships
-        <br/>
-        Possibility to set the path and strategic direction of Nordlys NTNU
-      </div>
-      </>,
-      },
-      'headOfProduction': {name: 'Head of Production', text: <><br/>
-      The Head of Production has a central role in Nordlys NTNU, and your job is crucial for the success of the project. You’ll have the main responsibility for ensuring that production is managed in such a way that the project's goals for economy, quality, and progress are achieved. The most important areas will be production planning, development and assembly of the car. As the head of production, you will be part of the board and you get a key role in deciding the production specifications and assembly of the car. 
-      <br/>
-      <br/>
-      <em>Areas of responsibility</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-        Production planning
-        <br/>
-        Responsible for the progression of the technical groups
-        <br/>
-        The assembly of the car
-      </div>
-      <br/>
-      <em>What do you get out of being Head of Production in Nordlys NTNU?</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-        Hands-on engineering experience 
-        <br/>
-        Experience with management in a start-up organization
-        <br/>
-        Experience of coordinating different groups in the same project
-        <br/>
-        Possibility to shape the organization and production manner
-      </div>
-      </>,
-      },
-      'headOfProduction': {name: 'Head of Production', text: <><br/>
-      The Head of Production has a central role in Nordlys NTNU, and your job is crucial for the success of the project. You’ll have the main responsibility for ensuring that production is managed in such a way that the project's goals for economy, quality, and progress are achieved. The most important areas will be production planning, development and assembly of the car. As the head of production, you will be part of the board and you get a key role in deciding the production specifications and assembly of the car. 
-      <br/>
-      <br/>
-      <em>Areas of responsibility</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-        Production planning
-        <br/>
-        Responsible for the progression of the technical groups
-        <br/>
-        The assembly of the car
-      </div>
-      <br/>
-      <em>What do you get out of being Head of Production in Nordlys NTNU?</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-        Hands-on engineering experience 
-        <br/>
-        Experience with management in a start-up organization
-        <br/>
-        Experience of coordinating different groups in the same project
-        <br/>
-        Possibility to shape the organization and production manner
-      </div>
-      </>,
-      },
-      'headOfFinance': {name: 'Head of Finance', text: <><br/>
-      As Head of Finance in Nordlys NTNU you get the opportunity to develop skills in management, economics and accounting at a high level in Norway’s first solar-racing team. In this position you are the main responsible for the budget, liquidity and accounting. You will also get the opportunity to explore financial analysis and financial projections to evaluate future revenue potential for the newl established organization.
-      <br/>
-      <br/>
-      <em>Areas of responsibility</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-        Economics and finance
-        <br/>
-        Budget and accounting
-        <br/>
-        Management
-        <br/>
-        Following up and teaching group leaders in economic procedures
-      </div>
-      <br/>
-      <em>What do you get out of being Head of Finance in Nordlys NTNU?</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-        Great skills in financial management
-        <br/>
-        Experience with management in a start-up organization
-        <br/>
-        Experience the interface between economics and technology in a professional arena
-        <br/>
-        Freedom to design your vision of the organization and economics
-      </div>
-      </>,
-      },
-      'headOfMarketing': {name: 'Head of Marketing', text: <><br/>
-      Head of Marketing is the person in charge of the marketing, sponsoring work, event planning, graphical design and general branding of Nordlys NTNU. You should not pass up this opportunity to help build our organizations external image, gain experience in management and being in touch with external partners. As a newly established organization, you have a great opportunity to put your mark on the organization, and help steer its direction for years to come!
-      <br/>
-      <br/>
-      <em>Areas of responsibility</em>
-      <br/>
-      <div style={{marginTop: "0.4em", lineHeight: "1.4em"}}>
-        Marketing
-        <br/>
-        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-          Developing a marketing plan/strategy
-          <br/>
-          Plan and conduct recruitment
-          <br/>
-          Plan and conduct events (external and internal)
-          <br/>
-          Control social media-accounts
-        </div>
-      </div>
-      <div style={{marginTop: "0.4em", lineHeight: "1.4em"}}>
-      Sponsors
-        <br/>
-        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-          Acquiring new partners and sponsors
-          <br/>
-          Follow up acquired partners and sponsors
-        </div>
-      </div>
-      <div style={{marginTop: "0.4em", lineHeight: "1.4em"}}>
-      Graphical design
-        <br/>
-        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-        Defining and maintaining graphical profile
-        </div>
-      </div>
-      <br/>
-      <em>What do you get out of being Head of Marketing in Nordlys NTNU?</em>
-      <br/>
-      <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-      Great skills in financial management
-      <br/>
-      Experience with management in a start-up organization
-      <br/>
-      Experience the interface between economics and technology in a professional arena
-      <br/>
-      Freedom to design your vision of the organization and economics
-      </div>
-      </>,
-      },
-      'technicalLeader': {name: 'Technical Leader', text: "The technical leader keeps an overview of all the technical systems making sure that everything works together and is developed on time. The technical leader is part of the board, and gets a key role in deciding the projects technical directions.", supervisor: 'Nor Decided'}
-    }
+    //}
   }
 
   return (
