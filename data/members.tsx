@@ -8,10 +8,10 @@ export const members = [
 
     { id: 7, name: 'Daniel Nicolai Grønn', title: 'Group Leader Mechanical', image: 'Members/2025/DanielGrønn.jpg', group: 'Mechanical', email: 'daniel.grønn@nordlysntnu.no' },
     { id: 8, name: 'Tord Østmo', title: 'Designer', image: 'Members/2025/TordØstmo.jpg', group: 'Mechanical', email: 'tord.østmo@nordlysntnu.no' },
-    { id: 9, name: 'Mats Ørbekk', title: 'Mechanical Engineer', image: 'Members/2025/MatsØrbekk.jpg', group: 'Mechanical', email: 'mats.ørbekk@nordlysntnu.no' },
+    //{ id: 9, name: 'Mats Ørbekk', title: 'Mechanical Engineer', image: 'Members/2025/MatsØrbekk.jpg', group: 'Mechanical', email: 'mats.ørbekk@nordlysntnu.no' },
     { id: 10, name: 'Anders Nyhus Røsbjørgen', title: 'Mechanical Engineer', image: 'Members/2025/AndersRøsbjørgen.jpg', group: 'Mechanical', email: 'anders.røsbjørgen@nordlysntnu.no' },
     { id: 11, name: 'Julian Boerakker', title: 'Mechanical Engineer', image: 'Members/2025/JulianBoerakker.jpg', group: 'Mechanical', email: 'julian.boerakker@nordlysntnu.no' },
-    { id: 12, name: 'Eléa Cervera', title: 'Mechanical Engineer', image: 'Members/2025/EléaCervera.jpg', group: 'Mechanical', email: 'eléa.cervera@nordlysntnu.no' },
+    //{ id: 12, name: 'Eléa Cervera', title: 'Mechanical Engineer', image: 'Members/2025/EléaCervera.jpg', group: 'Mechanical', email: 'eléa.cervera@nordlysntnu.no' },
     { id: 13, name: 'Cato Bergan', title: 'Mechanical Engineer', image: 'Members/2025/CatoBergan.jpg', group: 'Mechanical', email: 'cato.bergan@nordlysntnu.no' },
     { id: 14, name: 'Paul Gustav Aparicio Lofsberg', title: 'Mechanical Engineer', image: 'Members/2025/GustavLofsberg.jpg', group: 'Mechanical', email: 'paul.lofsberg@nordlysntnu.no' },
     { id: 15, name: 'Sander Ranbø', title: 'Mechanical Engineer', image: 'Members/2025/SanderRanbø.jpg', group: 'Mechanical', email: 'sander.ranbø@nordlysntnu.no' },
@@ -38,14 +38,14 @@ export const members = [
     { id: 34, name: 'Jakob Behrens', title: 'Group Leader Strategy', image: 'Members/2025/JakobBehrens.jpg', group: 'Strategy', email: 'jakob.behrens@nordlysntnu.no' },
     { id: 35, name: 'Bjørn Vik Henriksen', title: 'Software Developer', image: 'Members/2025/BjørnHenriksen.jpg', group: 'Strategy', email: 'bjørn.henriksen@nordlysntnu.no' },
     { id: 36, name: 'Eirik Reiestad', title: 'Software Developer', image: 'Members/2025/EirikReiestad.jpg', group: 'Strategy', email: 'eirik.reiestad@nordlysntnu.no' },
-    { id: 37, name: 'Nicolai Nome Sommervold', title: 'Software Developer', image: 'Members/2025/NicolaiSommervold.jpg', group: 'Strategy', email: 'nicolai.sommervold@nordlysntnu.no' },
+    //{ id: 37, name: 'Nicolai Nome Sommervold', title: 'Software Developer', image: 'Members/2025/NicolaiSommervold.jpg', group: 'Strategy', email: 'nicolai.sommervold@nordlysntnu.no' },
     { id: 38, name: 'Natalie Vo', title: 'Software Developer', image: 'Members/2025/NatalieVo.jpg', group: 'Strategy', email: 'natalie.vo@nordlysntnu.no' },
     { id: 39, name: 'Rasmus Nummelin', title: 'Software Developer', image: 'Members/2025/RasmusNummelin.jpg', group: 'Strategy', email: 'rasmus.nummelin@nordlysntnu.no' },
     { id: 40, name: 'Mathias Sagerup', title: 'Software Developer', image: 'Members/2025/MathiasSagerup.jpg', group: 'Strategy', email: 'mathias.sagerup@nordlysntnu.no' },
 
     { id: 4, name: 'Maren Henæs Sand', title: 'Head of Brand', image: 'Members/2025/MarenSand.jpg', group: 'Brand', email: 'maren.sand@nordlysntnu.no' },
     { id: 41, name: 'Johannes Tunli Moe', title: 'Key Account Manager', image: 'Members/2025/JohannesMoe.jpg', group: 'Brand', email: 'johannes.moe@nordlysntnu.no' },
-    { id: 42, name: 'Stine Andreassen', title: 'Brand Developer', image: 'Members/2025/StineAndreassen.jpg', group: 'Brand', email: 'stine.andreassen@nordlysntnu.no' },
+    //{ id: 42, name: 'Stine Andreassen', title: 'Brand Developer', image: 'Members/2025/StineAndreassen.jpg', group: 'Brand', email: 'stine.andreassen@nordlysntnu.no' },
     { id: 43, name: 'Leonardo Lind-Milekvist', title: 'Web Developer', image: 'Members/2025/LeonardoLind-Milekvist.jpg', group: 'Brand', email: 'leonardo.lind-milekvist@nordlysntnu.no' },
     { id: 44, name: 'Emil Vellan', title: 'Web Developer', image: 'Members/2025/EmilVellan.jpg', group: 'Brand', email: 'emil.vellan@nordlysntnu.no' },
 
@@ -83,10 +83,10 @@ export const members = [
     
     { id: 7, name: 'Daniel Nicolai Grønn', title: 'Group Leader Mechanical', image: 'Members/2025/DanielGrønn.jpg', group: 'All active members', email: 'daniel.grønn@nordlysntnu.no' },
     { id: 8, name: 'Tord Østmo', title: 'Designer', image: 'Members/2025/TordØstmo.jpg', group: 'All active members', email: 'tord.østmo@nordlysntnu.no' },
-    { id: 9, name: 'Mats Ørbekk', title: 'Mechanical Engineer', image: 'Members/2025/MatsØrbekk.jpg', group: 'All active members', email: 'mats.ørbekk@nordlysntnu.no' },
+    //{ id: 9, name: 'Mats Ørbekk', title: 'Mechanical Engineer', image: 'Members/2025/MatsØrbekk.jpg', group: 'All active members', email: 'mats.ørbekk@nordlysntnu.no' },
     { id: 10, name: 'Anders Nyhus Røsbjørgen', title: 'Mechanical Engineer', image: 'Members/2025/AndersRøsbjørgen.jpg', group: 'All active members', email: 'anders.røsbjørgen@nordlysntnu.no' },
     { id: 11, name: 'Julian Boerakker', title: 'Mechanical Engineer', image: 'Members/2025/JulianBoerakker.jpg', group: 'All active members', email: 'julian.boerakker@nordlysntnu.no' },
-    { id: 12, name: 'Eléa Cervera', title: 'Mechanical Engineer', image: 'Members/2025/EléaCervera.jpg', group: 'All active members', email: 'eléa.cervera@nordlysntnu.no' },
+    //{ id: 12, name: 'Eléa Cervera', title: 'Mechanical Engineer', image: 'Members/2025/EléaCervera.jpg', group: 'All active members', email: 'eléa.cervera@nordlysntnu.no' },
     { id: 13, name: 'Cato Bergan', title: 'Mechanical Engineer', image: 'Members/2025/CatoBergan.jpg', group: 'All active members', email: 'cato.bergan@nordlysntnu.no' },
     { id: 14, name: 'Paul Gustav Aparicio Lofsberg', title: 'Mechanical Engineer', image: 'Members/2025/GustavLofsberg.jpg', group: 'All active members', email: 'paul.lofsberg@nordlysntnu.no' },
     { id: 15, name: 'Sander Ranbø', title: 'Mechanical Engineer', image: 'Members/2025/SanderRanbø.jpg', group: 'All active members', email: 'sander.ranbø@nordlysntnu.no' },
@@ -119,7 +119,7 @@ export const members = [
     { id: 40, name: 'Mathias Sagerup', title: 'Software Developer', image: 'Members/2025/MathiasSagerup.jpg', group: 'All active members', email: 'mathias.sagerup@nordlysntnu.no' },
     
     { id: 41, name: 'Johannes Tunli Moe', title: 'Key Account Manager', image: 'Members/2025/JohannesMoe.jpg', group: 'All active members', email: 'johannes.moe@nordlysntnu.no' },
-    { id: 42, name: 'Stine Andreassen', title: 'Brand Developer', image: 'Members/2025/StineAndreassen.jpg', group: 'All active members', email: 'stine.andreassen@nordlysntnu.no' },
+    //{ id: 42, name: 'Stine Andreassen', title: 'Brand Developer', image: 'Members/2025/StineAndreassen.jpg', group: 'All active members', email: 'stine.andreassen@nordlysntnu.no' },
     { id: 43, name: 'Leonardo Lind-Milekvist', title: 'Web Developer', image: 'Members/2025/LeonardoLind-Milekvist.jpg', group: 'All active members', email: 'leonardo.lind-milekvist@nordlysntnu.no' },
     { id: 44, name: 'Emil Vellan', title: 'Web Developer', image: 'Members/2025/EmilVellan.jpg', group: 'All active members', email: 'emil.vellan@nordlysntnu.no' },
     
