@@ -40,30 +40,30 @@ export default function Join() {
       </div>
       </>,
       },
-      'headOfProduction': {name: 'Head of Production', text: <><br/>
-      The Head of Production has a central role in Nordlys NTNU, and your job is crucial for the success of the project. You’ll have the main responsibility for ensuring that production is managed in such a way that the project's goals for economy, quality, and progress are achieved. The most important areas will be production planning, development and assembly of the car. As the head of production, you will be part of the board and you get a key role in deciding the production specifications and assembly of the car. 
+      'heaadOfCompetition': {name: 'Head of Competition', text: <><br/>
+      The Head of Competition acts as a board member, and the group leader of the logistics group in Nordlys NTNU. Building a solar car is all well and good, but someone needs to make sure that it gets transported timely, and safely, to, through and back again from competitions. The Head of Competition leads the logistics group in their tasks regarding everything logistics-related when it comes to participate in competitions, from transportation and shipping, to planning where everyone should sleep, how electricity will be supplied, how food will be transported and stored, as well as safety-related activities and precautions. The challenge in this role is to weigh usefullness up against costs and safety, to perform the right amount of research, and to be organized in the work being done.
       <br/>
       <br/>
       <em>Areas of responsibility</em>
       <br/>
       <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-        Production planning
+        Everything logistics related to participation in solar races.
         <br/>
-        Responsible for the progression of the technical groups
+        Group leader responsibility for the logistics group.
         <br/>
-        The assembly of the car
+        Planning time schedules for participation in competitions.
       </div>
       <br/>
-      <em>What do you get out of being Head of Production in Nordlys NTNU?</em>
+      <em>What do you get out of being Head of Competition in Nordlys NTNU?</em>
       <br/>
       <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-        Hands-on engineering experience 
+        Experience with management in a start-up organization. 
         <br/>
-        Experience with management in a start-up organization
+        Direct communication and negotiation with industry actors.
         <br/>
-        Experience of coordinating different groups in the same project
+        Experience in planning, and leading a group in research-based activities, culminating in a complete plan for the participation in a competition for a whole team.
         <br/>
-        Possibility to shape the organization and production manner
+        Possibility of shaping and defining logistics-procedures in a new organization
       </div>
       </>,
       },
