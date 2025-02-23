@@ -67,14 +67,6 @@ export const members = [
         email: "tord.ostmo@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
-    /*{
-        id: 9,
-        name: "Mats Ørbekk",
-        title: "Mechanical Engineer",
-        image: "Members/2025/MatsØrbekk.jpg",
-        email: "mats.ørbekk@nordlysntnu.no",
-        group: ["Mechanical", "All active members"]
-    },*/
     {
         id: 10,
         name: "Anders Nyhus Røsbjørgen",
@@ -91,14 +83,6 @@ export const members = [
         email: "julian.boerakker@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
-    /*{
-        id: 12,
-        name: "Eléa Cervera",
-        title: "Mechanical Engineer",
-        image: "Members/2025/EléaCervera.jpg",
-        email: "eléa.cervera@nordlysntnu.no",
-        group: ["Mechanical", "All active members"]
-    },*/
     {
         id: 13,
         name: "Cato Bergan",
@@ -295,14 +279,6 @@ export const members = [
         email: "eirik.reiestad@nordlysntnu.no",
         group: ["Strategy", "All active members"]
     },
-    /*{
-        id: 37,
-        name: "Nicolai Nome Sommervold",
-        title: "Software Developer",
-        image: "Members/2025/NicolaiSommervold.jpg",
-        email: "nicolai.sommervold@nordlysntnu.no",
-        group: ["Strategy", "All active members"]
-    },*/
     {
         id: 38,
         name: "Natalie Vo",
@@ -337,14 +313,6 @@ export const members = [
         email: "johannes.moe@nordlysntnu.no",
         group: ["Brand", "All active members"]
     },
-    /*{
-        id: 42,
-        name: "Stine Andreassen",
-        title: "Brand Developer",
-        image: "Members/2025/StineAndreassen.jpg",
-        email: "stine.andreassen@nordlysntnu.no",
-        group: ["Brand", "All active members"]
-    },*/
     {
         id: 43,
         name: "Leonardo Lind-Milekvist",
@@ -517,5 +485,38 @@ export const members = [
         image: 'Members/2024/HilmiYasik.jpg', 
         group: ['Alumni'], 
         email: 'hilmi.yasik@nordlysntnu.no' 
+    },
+    {
+        id: 9,
+        name: "Mats Ørbekk",
+        title: '',
+        image: "Members/2025/MatsØrbekk.jpg",
+        email: "mats.ørbekk@nordlysntnu.no",
+        group: ['Alumni']
+    },
+    {
+        id: 37,
+        name: "Nicolai Nome Sommervold",
+        title: '',
+        image: "Members/2025/NicolaiSommervold.jpg",
+        email: "nicolai.sommervold@nordlysntnu.no",
+        group: ['Alumni']
+    },
+    {
+        id: 12,
+        name: "Eléa Cervera",
+        title: '',
+        image: "Members/2025/EléaCervera.jpg",
+        email: "eléa.cervera@nordlysntnu.no",
+        group: ["Alumni"]
+    },
+    {
+        id: 42,
+        name: "Stine Andreassen",
+        title: '',
+        image: "Members/2025/StineAndreassen.jpg",
+        email: "stine.andreassen@nordlysntnu.no",
+        group: ["Alumni"]
     }
+
 ]
