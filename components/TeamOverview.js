@@ -94,7 +94,9 @@ const TeamOverview = () => {
                     {isMobile && (
                         <span>
                             {selectedGroup}
-                            <span className={styles.arrow} style={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>▼</span>
+                            <span className={styles.arrow} style={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>
+                            ▼
+                              </span> {/* ▼ ⌄ 𐣼 */}
                         </span>
                     )}
                 </div>

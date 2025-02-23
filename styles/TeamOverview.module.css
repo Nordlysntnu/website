@@ -46,6 +46,7 @@
     transition: transform 0.3s ease-in-out;
 }
 .arrow {
+    font-size: 14px;
     display: inline-block;
     transition: transform 0.3s ease-in-out;
 }
