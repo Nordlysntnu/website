@@ -20,6 +20,7 @@ import Renergy from '../public/Partners/Renergy.png';
 import IFE from '../public/Partners/IFE.png';
 import Bredengen from '../public/Partners/Bredengen.png';
 import Aiko from '../public/Partners/Aiko.png';
+import Valvoline from  '../public/Partners/Valvoline.png';
 
 export default function About() {
   const platinumSponsors = {
@@ -87,6 +88,11 @@ export default function About() {
     'Bredengen': {
       link: 'https://www.bredengen.no/',
       image: Bredengen.src,
+      description: ""
+    },
+    'Valvoline': {
+      link: 'https://valvoline.no',
+      image: Valvoline.src,
       description: ""
     }
   }

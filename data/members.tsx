@@ -46,7 +46,7 @@ export const members = [
         name: "Paul Våge",
         title: "Head of Finance",
         image: "Members/2025/PaulVåge.jpg",
-        email: "paul.våge@nordlysntnu.no",
+        email: "paul.vaage@nordlysntnu.no",
         group: ["Board", "All active members"]
     },
 
@@ -56,7 +56,7 @@ export const members = [
         name: "Daniel Nicolai Grønn",
         title: "Group Leader Mechanical",
         image: "Members/2025/DanielGrønn.jpg",
-        email: "daniel.grønn@nordlysntnu.no",
+        email: "daniel.gronn@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
@@ -64,7 +64,7 @@ export const members = [
         name: "Tord Østmo",
         title: "Designer",
         image: "Members/2025/TordØstmo.jpg",
-        email: "tord.østmo@nordlysntnu.no",
+        email: "tord.ostmo@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     /*{
@@ -80,7 +80,7 @@ export const members = [
         name: "Anders Nyhus Røsbjørgen",
         title: "Mechanical Engineer",
         image: "Members/2025/AndersRøsbjørgen.jpg",
-        email: "anders.røsbjørgen@nordlysntnu.no",
+        email: "anders.rosbjorgen@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
@@ -120,7 +120,7 @@ export const members = [
         name: "Sander Ranbø",
         title: "Mechanical Engineer",
         image: "Members/2025/SanderRanbø.jpg",
-        email: "sander.ranbø@nordlysntnu.no",
+        email: "sander.ranbo@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
@@ -136,7 +136,7 @@ export const members = [
         name: "Aslak Aarflot Jønsson",
         title: "Mechanical Engineer",
         image: "Members/2025/AslakJønsson.jpg",
-        email: "aslak.jønsson@nordlysntnu.no",
+        email: "aslak.jonsson@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
@@ -162,7 +162,7 @@ export const members = [
         name: "Kristian Sæberg",
         title: "Group Leader Electrical",
         image: "Members/2025/KristianSæberg.jpg",
-        email: "kristian.sæberg@nordlysntnu.no",
+        email: "kristian.saeberg@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
     {
@@ -186,7 +186,7 @@ export const members = [
         name: "Odin Sandlie Mellingsæter",
         title: "Electrical Engineer",
         image: "Members/2025/OdinMellingsæter.jpg",
-        email: "odin.mellingsæter@nordlysntnu.no",
+        email: "odin.mellingsaeter@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
     {
@@ -194,7 +194,7 @@ export const members = [
         name: "Øystein Økland",
         title: "Electrical Engineer",
         image: "Members/2025/ØysteinØkland.jpg",
-        email: "øystein.økland@nordlysntnu.no",
+        email: "oystein.okland@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
     {
@@ -266,7 +266,7 @@ export const members = [
         name: "Ivar Hansgård",
         title: "Electrical Engineer",
         image: "Members/2025/IvarHansgård.jpg",
-        email: "ivar.hansgård@nordlysntnu.no",
+        email: "ivar.hansgaard@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
 
@@ -284,7 +284,7 @@ export const members = [
         name: "Bjørn Vik Henriksen",
         title: "Software Developer",
         image: "Members/2025/BjørnHenriksen.jpg",
-        email: "bjørn.henriksen@nordlysntnu.no",
+        email: "bjorn.henriksen@nordlysntnu.no",
         group: ["Strategy", "All active members"]
     },
     {
@@ -421,7 +421,7 @@ export const members = [
         title: '', 
         image: 'Members/2024/EmilØrnes.jpg', 
         group: ['Alumni'], 
-        email: 'emil.ørnes@nordlysntnu.no' 
+        email: 'emil.ornes@nordlysntnu.no' 
     },
     { 
         id: 52, 
@@ -453,14 +453,14 @@ export const members = [
         title: '', 
         image: 'Members/2024/KristofferØhlckers.jpg', 
         group: ['Alumni'], 
-        email: 'erik.øhlckers@nordlysntnu.no' },
+        email: 'erik.ohlckers@nordlysntnu.no' },
     { 
         id: 56, 
         name: 'Kristian Østensen', 
         title: '', 
         image: 'Members/2024/KristianØstensen.jpg', 
         group: ['Alumni'], 
-        email: 'kristian.østensen@nordlysntnu.no' 
+        email: 'kristian.ostensen@nordlysntnu.no' 
     },
     { 
         id: 57, 
