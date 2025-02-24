@@ -46,7 +46,7 @@ export const members = [
         name: "Paul Våge",
         title: "Head of Finance",
         image: "Members/2025/PaulVåge.jpg",
-        email: "paul.våge@nordlysntnu.no",
+        email: "paul.vaage@nordlysntnu.no",
         group: ["Board", "All active members"]
     },
 
@@ -56,53 +56,29 @@ export const members = [
         name: "Daniel Nicolai Grønn",
         title: "Group Leader Mechanical",
         image: "Members/2025/DanielGrønn.jpg",
-        email: "daniel.grønn@nordlysntnu.no",
+        email: "daniel.gronn@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
         id: 8,
         name: "Tord Østmo",
-        title: "Designer",
+        title: "Coordinator & Design Engineer",
         image: "Members/2025/TordØstmo.jpg",
-        email: "tord.østmo@nordlysntnu.no",
-        group: ["Mechanical", "All active members"]
-    },
-    /*{
-        id: 9,
-        name: "Mats Ørbekk",
-        title: "Mechanical Engineer",
-        image: "Members/2025/MatsØrbekk.jpg",
-        email: "mats.ørbekk@nordlysntnu.no",
-        group: ["Mechanical", "All active members"]
-    },*/
-    {
-        id: 10,
-        name: "Anders Nyhus Røsbjørgen",
-        title: "Mechanical Engineer",
-        image: "Members/2025/AndersRøsbjørgen.jpg",
-        email: "anders.røsbjørgen@nordlysntnu.no",
+        email: "tord.ostmo@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
         id: 11,
         name: "Julian Boerakker",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Composites",
         image: "Members/2025/JulianBoerakker.jpg",
         email: "julian.boerakker@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
-    /*{
-        id: 12,
-        name: "Eléa Cervera",
-        title: "Mechanical Engineer",
-        image: "Members/2025/EléaCervera.jpg",
-        email: "eléa.cervera@nordlysntnu.no",
-        group: ["Mechanical", "All active members"]
-    },*/
     {
         id: 13,
         name: "Cato Bergan",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Structure",
         image: "Members/2025/CatoBergan.jpg",
         email: "cato.bergan@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -110,7 +86,7 @@ export const members = [
     {
         id: 14,
         name: "Paul Gustav Aparicio Lofsberg",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Steering and Brakes",
         image: "Members/2025/GustavLofsberg.jpg",
         email: "paul.lofsberg@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -118,15 +94,15 @@ export const members = [
     {
         id: 15,
         name: "Sander Ranbø",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Suspension",
         image: "Members/2025/SanderRanbø.jpg",
-        email: "sander.ranbø@nordlysntnu.no",
+        email: "sander.ranbo@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
         id: 16,
         name: "Oscar Skjelvik",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Suspension",
         image: "Members/2025/OscarSkjelvik.jpg",
         email: "oscar.skjelvik@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -134,15 +110,15 @@ export const members = [
     {
         id: 17,
         name: "Aslak Aarflot Jønsson",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Suspension",
         image: "Members/2025/AslakJønsson.jpg",
-        email: "aslak.jønsson@nordlysntnu.no",
+        email: "aslak.jonsson@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
         id: 18,
         name: "Joachim Gulliksen",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Brakes",
         image: "Members/2025/JoachimGulliksen.jpg",
         email: "joachim.gulliksen@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -150,9 +126,25 @@ export const members = [
     {
         id: 19,
         name: "Sjur Weider",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Suspension",
         image: "Members/2025/SjurWeider.jpg",
         email: "sjur.weider@nordlysntnu.no",
+        group: ["Mechanical", "All active members"]
+    },
+    {
+        id: 64,
+        name: "Johannes Holden",
+        title: "Mechanical Engineer Steering",
+        image: "Members/2024/Unknown.png",
+        email: "johannes.holden@nordlysntnu.no",
+        group: ["Mechanical", "All active members"]
+    },
+    {
+        id: 65,
+        name: "Andreas Olaisen",
+        title: "Mechanical Engineer Composites",
+        image: "Members/2024/Unknown.png",
+        email: "andreas.olaisen@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
 
@@ -162,7 +154,7 @@ export const members = [
         name: "Kristian Sæberg",
         title: "Group Leader Electrical",
         image: "Members/2025/KristianSæberg.jpg",
-        email: "kristian.sæberg@nordlysntnu.no",
+        email: "kristian.saeberg@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
     {
@@ -186,7 +178,7 @@ export const members = [
         name: "Odin Sandlie Mellingsæter",
         title: "Electrical Engineer",
         image: "Members/2025/OdinMellingsæter.jpg",
-        email: "odin.mellingsæter@nordlysntnu.no",
+        email: "odin.mellingsaeter@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
     {
@@ -194,7 +186,7 @@ export const members = [
         name: "Øystein Økland",
         title: "Electrical Engineer",
         image: "Members/2025/ØysteinØkland.jpg",
-        email: "øystein.økland@nordlysntnu.no",
+        email: "oystein.okland@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
     {
@@ -266,7 +258,7 @@ export const members = [
         name: "Ivar Hansgård",
         title: "Electrical Engineer",
         image: "Members/2025/IvarHansgård.jpg",
-        email: "ivar.hansgård@nordlysntnu.no",
+        email: "ivar.hansgaard@nordlysntnu.no",
         group: ["Electrical", "All active members"]
     },
 
@@ -284,7 +276,7 @@ export const members = [
         name: "Bjørn Vik Henriksen",
         title: "Software Developer",
         image: "Members/2025/BjørnHenriksen.jpg",
-        email: "bjørn.henriksen@nordlysntnu.no",
+        email: "bjorn.henriksen@nordlysntnu.no",
         group: ["Strategy", "All active members"]
     },
     {
@@ -295,14 +287,6 @@ export const members = [
         email: "eirik.reiestad@nordlysntnu.no",
         group: ["Strategy", "All active members"]
     },
-    /*{
-        id: 37,
-        name: "Nicolai Nome Sommervold",
-        title: "Software Developer",
-        image: "Members/2025/NicolaiSommervold.jpg",
-        email: "nicolai.sommervold@nordlysntnu.no",
-        group: ["Strategy", "All active members"]
-    },*/
     {
         id: 38,
         name: "Natalie Vo",
@@ -337,14 +321,6 @@ export const members = [
         email: "johannes.moe@nordlysntnu.no",
         group: ["Brand", "All active members"]
     },
-    /*{
-        id: 42,
-        name: "Stine Andreassen",
-        title: "Brand Developer",
-        image: "Members/2025/StineAndreassen.jpg",
-        email: "stine.andreassen@nordlysntnu.no",
-        group: ["Brand", "All active members"]
-    },*/
     {
         id: 43,
         name: "Leonardo Lind-Milekvist",
@@ -421,7 +397,7 @@ export const members = [
         title: '', 
         image: 'Members/2024/EmilØrnes.jpg', 
         group: ['Alumni'], 
-        email: 'emil.ørnes@nordlysntnu.no' 
+        email: 'emil.ornes@nordlysntnu.no' 
     },
     { 
         id: 52, 
@@ -453,14 +429,14 @@ export const members = [
         title: '', 
         image: 'Members/2024/KristofferØhlckers.jpg', 
         group: ['Alumni'], 
-        email: 'erik.øhlckers@nordlysntnu.no' },
+        email: 'erik.ohlckers@nordlysntnu.no' },
     { 
         id: 56, 
         name: 'Kristian Østensen', 
         title: '', 
         image: 'Members/2024/KristianØstensen.jpg', 
         group: ['Alumni'], 
-        email: 'kristian.østensen@nordlysntnu.no' 
+        email: 'kristian.ostensen@nordlysntnu.no' 
     },
     { 
         id: 57, 
@@ -517,5 +493,46 @@ export const members = [
         image: 'Members/2024/HilmiYasik.jpg', 
         group: ['Alumni'], 
         email: 'hilmi.yasik@nordlysntnu.no' 
+    },
+    {
+        id: 9,
+        name: "Mats Ørbekk",
+        title: '',
+        image: "Members/2025/MatsØrbekk.jpg",
+        email: "mats.ørbekk@nordlysntnu.no",
+        group: ['Alumni']
+    },
+    {
+        id: 37,
+        name: "Nicolai Nome Sommervold",
+        title: '',
+        image: "Members/2025/NicolaiSommervold.jpg",
+        email: "nicolai.sommervold@nordlysntnu.no",
+        group: ['Alumni']
+    },
+    {
+        id: 12,
+        name: "Eléa Cervera",
+        title: '',
+        image: "Members/2025/EléaCervera.jpg",
+        email: "eléa.cervera@nordlysntnu.no",
+        group: ["Alumni"]
+    },
+    {
+        id: 42,
+        name: "Stine Andreassen",
+        title: '',
+        image: "Members/2025/StineAndreassen.jpg",
+        email: "stine.andreassen@nordlysntnu.no",
+        group: ["Alumni"]
+    },
+    {
+        id: 10,
+        name: "Anders Nyhus Røsbjørgen",
+        title: "Mechanical Engineer",
+        image: "Members/2025/AndersRøsbjørgen.jpg",
+        email: "anders.rosbjorgen@nordlysntnu.no",
+        group: ["Alumni"]
     }
+
 ]
