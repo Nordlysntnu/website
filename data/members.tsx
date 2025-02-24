@@ -62,23 +62,15 @@ export const members = [
     {
         id: 8,
         name: "Tord Østmo",
-        title: "Designer",
+        title: "Coordinator & Design Engineer",
         image: "Members/2025/TordØstmo.jpg",
         email: "tord.ostmo@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
     {
-        id: 10,
-        name: "Anders Nyhus Røsbjørgen",
-        title: "Mechanical Engineer",
-        image: "Members/2025/AndersRøsbjørgen.jpg",
-        email: "anders.rosbjorgen@nordlysntnu.no",
-        group: ["Mechanical", "All active members"]
-    },
-    {
         id: 11,
         name: "Julian Boerakker",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Composites",
         image: "Members/2025/JulianBoerakker.jpg",
         email: "julian.boerakker@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -86,7 +78,7 @@ export const members = [
     {
         id: 13,
         name: "Cato Bergan",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Structure",
         image: "Members/2025/CatoBergan.jpg",
         email: "cato.bergan@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -94,7 +86,7 @@ export const members = [
     {
         id: 14,
         name: "Paul Gustav Aparicio Lofsberg",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Steering and Brakes",
         image: "Members/2025/GustavLofsberg.jpg",
         email: "paul.lofsberg@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -102,7 +94,7 @@ export const members = [
     {
         id: 15,
         name: "Sander Ranbø",
-        title: "Mechanical Engineer",
+        title: "Coordinator & Mechanical Engineer Suspension",
         image: "Members/2025/SanderRanbø.jpg",
         email: "sander.ranbo@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -110,7 +102,7 @@ export const members = [
     {
         id: 16,
         name: "Oscar Skjelvik",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Suspension",
         image: "Members/2025/OscarSkjelvik.jpg",
         email: "oscar.skjelvik@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -118,7 +110,7 @@ export const members = [
     {
         id: 17,
         name: "Aslak Aarflot Jønsson",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Suspension",
         image: "Members/2025/AslakJønsson.jpg",
         email: "aslak.jonsson@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -126,7 +118,7 @@ export const members = [
     {
         id: 18,
         name: "Joachim Gulliksen",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Brakes",
         image: "Members/2025/JoachimGulliksen.jpg",
         email: "joachim.gulliksen@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
@@ -134,9 +126,25 @@ export const members = [
     {
         id: 19,
         name: "Sjur Weider",
-        title: "Mechanical Engineer",
+        title: "Mechanical Engineer Suspension",
         image: "Members/2025/SjurWeider.jpg",
         email: "sjur.weider@nordlysntnu.no",
+        group: ["Mechanical", "All active members"]
+    },
+    {
+        id: 64,
+        name: "Johannes Holden",
+        title: "Mechanical Engineer Steering",
+        image: "Members/2024/Unknown.png",
+        email: "johannes.holden@nordlysntnu.no",
+        group: ["Mechanical", "All active members"]
+    },
+    {
+        id: 65,
+        name: "Andreas Olaisen",
+        title: "Mechanical Engineer Composites",
+        image: "Members/2024/Unknown.png",
+        email: "andreas.olaisen@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
 
@@ -516,6 +524,14 @@ export const members = [
         title: '',
         image: "Members/2025/StineAndreassen.jpg",
         email: "stine.andreassen@nordlysntnu.no",
+        group: ["Alumni"]
+    },
+    {
+        id: 10,
+        name: "Anders Nyhus Røsbjørgen",
+        title: "Mechanical Engineer",
+        image: "Members/2025/AndersRøsbjørgen.jpg",
+        email: "anders.rosbjorgen@nordlysntnu.no",
         group: ["Alumni"]
     }
 
