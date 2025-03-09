@@ -14,11 +14,12 @@ export default function Mission({ dark }) {
         <Content dark={dark}>
             <div className={styles.container}>
                 <div className={styles.textContainer}>
-                    <h1 className={styles.title}>What we do</h1>
-                    <p className={styles.text}><b>Nordlys NTNU</b> is Norway`s first ever solar racing team. We are a student technical organisation at the Norwegian University of Science and Technology, aiming, in the long term, to drive across Norway exclusively fueled by solar energy. We are currently in the development process, aiming to complete our first race; the <em>Brigdestone World Solar Challenge</em> in Australia summer of 2025. 47 students, through our six different groups; <em>electrical, strategy, logistics, mechanical, brand</em> and <em>board</em>, are working closely together to create the perfect environment for growth. Both as a team and as individuals.</p>
-                    <p>To read more about the <em>team</em> and it's respective groups <Link href="/team"className={styles.link}>click here</Link></p> 
+                    <h1 className={styles.title}>Who we are</h1>
+                    <p className={styles.text}><b>Nordlys NTNU</b> is a brand-new group of students at the Norwegian University of Science and Technology (NTNU) with the goal of participating and excelling in the world of Solar Racing. Solar Racing involves covering long distances as quickly as possible using only solar energy. In the world championship, the Bridgestone World Solar Challenge, student teams from around the world traverse the 3000 kilometers from Darwin to Adelaide in the Australian Outback with an average speed of 90 km/h! To this day, no Norwegian teams have attempted this.</p> 
                     <br />
-                    <p className={styles.text}><b>The car</b> will be running exclusively on solar energy. The highly technological solar panels inbeded in the chassis catches sunrays, coverts them to electrical energy, before it's fed directly into the electrical engine, using possibly gamechanging technology.</p>
+                    <p className={styles.text}>We aim to compete in Australia as early as 2027, with the ambitious goal of reaching the top ten teams. Our long-term goal is to become one of the top performing teams in the world, with our ultimate objective of showing Norway the possibilities of clean and renewable energy. When we have proven ourselves on the international arena, we aim to bring Solar Racing itself to Norway by driving the length of Norway using pure solar energy.</p>
+                    <br />
+                    <p>To read more about the <em>team</em> and it's respective groups <Link href="/team"className={styles.link}>click here</Link></p>
                     <br />
                     <br />
                     <h1 className={styles.title}>Our values</h1>

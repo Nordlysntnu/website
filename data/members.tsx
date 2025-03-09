@@ -135,7 +135,7 @@ export const members = [
         id: 64,
         name: "Johannes Holden",
         title: "Mechanical Engineer Steering",
-        image: "Members/2024/Unknown.png",
+        image: "Members/2025/Unknown.png",
         email: "johannes.holden@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
@@ -143,7 +143,7 @@ export const members = [
         id: 65,
         name: "Andreas Olaisen",
         title: "Mechanical Engineer Composites",
-        image: "Members/2024/Unknown.png",
+        image: "Members/2025/AndreasOlaisen.jpg",
         email: "andreas.olaisen@nordlysntnu.no",
         group: ["Mechanical", "All active members"]
     },
@@ -309,6 +309,22 @@ export const members = [
         title: "Software Developer",
         image: "Members/2025/MathiasSagerup.jpg",
         email: "mathias.sagerup@nordlysntnu.no",
+        group: ["Strategy", "All active members"]
+    },
+    {
+        id: 65,
+        name: "Aleksander Kvitle",
+        title: "Software Developer",
+        image: "Members/2025/AleksanderKvitle.jpg",
+        email: "aleksander.kvitle@nordlysntnu.no",
+        group: ["Strategy", "All active members"]
+    },
+    {
+        id: 66,
+        name: "Oliver Hovden",
+        title: "Software Developer",
+        image: "Members/2025/OliverHovden.jpg",
+        email: "oliver.hovden@nordlysntnu.no",
         group: ["Strategy", "All active members"]
     },
 
