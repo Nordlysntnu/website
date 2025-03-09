@@ -19,17 +19,6 @@ const teamGroups = [
 ];
 
 const groupDescriptions = {
-<<<<<<< HEAD
-    'Board': <p><b>The Board</b> of Nordlys is the deciding and guiding force of our organization, consisting of group leaders and exceptional students. Every major decision goes either thru, or is made by the board, which makes its members exposed to great responsibility. With this responsibility also comes power, which the board members are expected to handle with care and respect. The board is the very pilar of which the other groups stand, and what nurtures their ability to grow and preform. </p> ,
-    'Electrical': <p><b>The Electrical group</b> is responsible for every electrical component of the car. They design, implement, and monitor complex electrical systems to ensure optimal energy efficiency and reliability. As a top two group size-wise within Nordlys, the electrical group is a major part of the organization. Preforming electrical components is vital in a good solar car, which causes the members focus in details to be unprecedented. The electrical group is fundamentally important in our chase to become world-leading in our field. </p>,
-    'Mechanical': <p><b>The Mechanical group</b> is responsible for every non-electrical, physical component in the car. From suspension to roll cage, the mechanical group does it all. The significant drive to make the cars lighter and sturdier than ever before, pushes the mechanical group to the edge as they balance reliability, sturdiness, weight and performance. As a top two group size-wise within Nordlys, the mechanical group is undeniably vital in the ultimate performance of our car. </p>,
-    'Strategy': <p><b>The Strategy group</b>  is responsible for analyzing data and developing race plans to maximize the car’s performance during competitions. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. Without good race plans and strategies, even the best of solar cars will be left behind, which makes the strategy group vital for Nordlys’ chase to become world leading.</p>,
-    'Brand': <p><b>The Strategy group</b>  is responsible for analyzing data and developing race plans to maximize the car’s performance during competitions. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. Without good race plans and strategies, even the best of solar cars will be left behind, which makes the strategy group vital for Nordlys’ chase to become world leading.</p>,
-    'Logistics': <p><b>The Logistics group</b> is responsible for all transportation and logistics related to the competition in a cost-effective manner. This includes everything from transportation planning, customs clearance, documentation, equipment handling, supply chain logistics, and compliance with various regulations that must be followed. The team also ensures that every piece of equipment, from the solar car itself to the smallest tools, arrives on time and in perfect condition. They manage both international and domestic logistics, coordinating with shipping companies, airlines, and local service providers to streamline the process. The group is essential in allowing the rest of the team to focus solely on the competition without having to worry about the practicalities of transport and logistics. Their work guarantees that all resources are in the right place at the right time, enabling the team to perform at their best.</p>,
-    //'Technical advisor': <p></p>,
-    'Alumni': <p><b>The Alumni</b> consists of former Nordlys members. We are proud to present our former members who all contributed to shaping Nordlys into the organization it is today.</p>,
-    //'All active members': <p> </p>
-=======
   'Board': (
     <p>
       <b>The Board</b> of Nordlys is the deciding and guiding force of our organization, consisting of group leaders and exceptional students. Every major decision goes either thru, or is made by the board, which makes its members exposed to great responsibility. With this responsibility also comes power, which the board members are expected to handle with care and respect. The board is the very pilar of which the other groups stand, and what nurtures their ability to grow and preform.
@@ -67,16 +56,12 @@ const groupDescriptions = {
     </p>
   )*/
   //'All active members': <p> </p>
->>>>>>> Emil
 };
 
 const TeamOverview = () => {
     const [selectedGroup, setSelectedGroup] = useState('Board');
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-<<<<<<< HEAD
-
-=======
     const router = useRouter(); // Bruker useRouter for å få tilgang til URL-query
     const { group } = router.query; // Hent query-parameteren 'group'
     // Når 'group' i URL-en endres, oppdater valgt gruppe
@@ -90,15 +75,10 @@ const TeamOverview = () => {
       router.push(`/team?group=${group.toLowerCase()}`); // Oppdater URL-parameteren
       setMenuOpen(false); // Lukk dropdown når et valg er gjort
   };
->>>>>>> Emil
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 1050);
         if (typeof window !== 'undefined') {
-<<<<<<< HEAD
-            handleResize(); 
-=======
             handleResize();
->>>>>>> Emil
             window.addEventListener('resize', handleResize);
         }
         return () => {
@@ -107,15 +87,6 @@ const TeamOverview = () => {
             }
         };
     }, []);
-<<<<<<< HEAD
-
-    const handleGroupChange = (group) => {
-        setSelectedGroup(group);
-        setMenuOpen(false);
-    };
-
-=======
->>>>>>> Emil
     return (
         <div className={styles.container}>
             {/* Navigation bar */}
@@ -123,15 +94,10 @@ const TeamOverview = () => {
                 <div className={styles.mobileToggle} onClick={() => setMenuOpen(!menuOpen)}>
                     {isMobile && (
                         <span>
-<<<<<<< HEAD
-                            {selectedGroup} 
-                            <span className={styles.arrow} style={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>▼</span>
-=======
                             {selectedGroup}
                             <span className={styles.arrow} style={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>
                             ▼
                               </span> {/* ▼ ⌄ 𐣼 */}
->>>>>>> Emil
                         </span>
                     )}
                 </div>
@@ -158,20 +124,6 @@ const TeamOverview = () => {
             {/* Group name as title */}
             <h2 className={styles.groupTitle}>{selectedGroup}</h2>
             {/* Display group members */}
-<<<<<<< HEAD
-            <TeamGroup members={members.filter(member => member.group === selectedGroup)} />
-
-            {/* Information section */}
-            {groupDescriptions[selectedGroup] && (
-                <div className={styles.groupInfo}>
-                    <div className={styles.description}>
-                        {groupDescriptions[selectedGroup]}
-                    </div>
-                    <div className={styles.images}>
-                        <img src={`/${selectedGroup}team.png`} alt={`${selectedGroup}`} />
-                    </div>
-                </div>
-=======
             <TeamGroup members={members.filter(member => member.group.includes(selectedGroup))} />
             {/* Information section */}
             {groupDescriptions[selectedGroup] && (
@@ -183,7 +135,6 @@ const TeamOverview = () => {
                 link="" 
                 linkText="" 
               />
->>>>>>> Emil
             )}
         </div>
     );
