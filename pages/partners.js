@@ -17,6 +17,7 @@ import Trainor from '../public/Partners/Trainor.png';
 import Link from 'next/link';
 import styles from '../styles/partners.module.css';
 import Renergy from '../public/Partners/Renergy.png';
+import Holmefjord from '../public/Partners/Holmefjord.png';
 import IFE from '../public/Partners/IFE.png';
 import Bredengen from '../public/Partners/Bredengen.png';
 import Aiko from '../public/Partners/Aiko.png';
@@ -67,7 +68,12 @@ export default function About() {
       link: 'https://www.trainor.no/',
       image: Trainor.src,
       description: ""
-    }
+    },
+    'Holmefjord': {
+      link: 'https://www.holmefjord.no/',
+      image: Holmefjord.src,
+      description: ""
+    },
   }
   const bronzeSponsors = {
     'InterPersonell': {
