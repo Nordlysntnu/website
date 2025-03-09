@@ -7,7 +7,7 @@ export default function AlertPane() {
     const alerts = {
         infoMeeting: {
             name: "Leadership recruitment",
-            info: "Deadline: May 14th 2025",
+            info: "Deadline: March 14th 2025",
             description: "We are currently recruiting group leaders and board members for the 2025/2026 project.",
             link: 'join',
             linkText: 'Apply here'
