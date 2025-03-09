@@ -9,11 +9,11 @@ import PartHeader from '../components/PartHeader';
 export default function Join() {
   const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>
   const groups = {
-    'electrical': {
-      'name': 'Electrical',
-      'image': 'EmbeddedElectronics.png',
-      'description': 'The electrical group is responsible for all the electricity on board the car. This includes both the high and low voltage systems.',
-      'electricalEngineer': {name: 'Electrical Engineer', text: "As the project is beginning its production phase, Nordlys is in need of ever more engaged and interested electrical members. The electrical group is looking for students with interest or experience in programming, electrical digital design (CAD) and electrical engineering, both high and low voltage.", supervisor: 'Not decided'}
+    //'electrical': {
+      //'name': 'Electrical',
+      //'image': 'EmbeddedElectronics.png',
+      //'description': 'The electrical group is responsible for all the electricity on board the car. This includes both the high and low voltage systems.',
+      //'electricalEngineer': {name: 'Electrical Engineer', text: "As the project is beginning its production phase, Nordlys is in need of ever more engaged and interested electrical members. The electrical group is looking for students with interest or experience in programming, electrical digital design (CAD) and electrical engineering, both high and low voltage.", supervisor: 'Not decided'}
       //'groupLeader': {name: 'Group Leader Electrical', text: 'The group leader is the leader of the electrical members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
       //'sensorNetwork': {name: 'Sensor Network', text: 'Gathering data is crucial to drive fast while preserving energy. The sensor network is responsible for gathering a lot of data and sending it to the central telemetry system.', supervisor: 'Not Decided'},
       //'telemetry': {name: 'Telemetry', text: 'To use the data from the network system, it has to be transmitted to a following computer. The telemtry system is responsible to transmit data over radio to be used in the driving strategy.', supervisor: 'Not Decided'},
@@ -22,7 +22,7 @@ export default function Join() {
       //'solarPanels': {name: 'Solar Panels', text: "Without the soalr panels, the car wouldn't be a solar racing car. The Solar Panels subgroup designs the electrical system around the solar array, as well as the control system for the panels to ensure full utilization of the array.", supervisor: 'Not Decided'},
       //'motors': {name: 'Motors', text: 'There are many ways to design electrical motors, but only the best designs deliver sufficient throughput with low weight usage. This subgroup desides how the motor system should look like, as well as the control units needed to run it.', supervisor: 'Not Decided'},
       //'electricalSystem': {name: 'Electrical System', text: 'To bring all the high voltage electrical components together to deliver as much power as possible, the electrical system has to be on point. This subgroup designs the electrical system, including the batteries, motors and solar panels, as well as the smaller electrical components.', supervisor: 'Not Decided'}
-    },
+    //},
     'mechanical': {
       'name': 'Mechanical',
       'image': 'Mechanical.png',
@@ -49,7 +49,7 @@ export default function Join() {
       'image': 'Software.png',
       'description': 'The winning team needs a winning driving strategy. The strategy group develops software analysis tools to calculate the solar cars optimal speed.',
       'strategist': {name: 'Strategist', text: "Finding out how fast the car can drive during the competition is a difficult task. The strategy team requires a highly interdisciplinary set of members, applying knowledge about physics, aerodynamics, coding and simulation together to build the basis of Nordlys' on-route driving strategy.", supervisor: 'Not decided'},
-      'groupLeader': {name: 'Group Leader Strategy', text: 'The group leader is the leader of the strategy members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. The group leader will also have responsibility for a part of the strategy system as well.', supervisor: 'Not Decided'},
+      //'groupLeader': {name: 'Group Leader Strategy', text: 'The group leader is the leader of the strategy members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. The group leader will also have responsibility for a part of the strategy system as well.', supervisor: 'Not Decided'},
       //'dataVisualization': {name: 'Data Visualization', text: "It's impossible to understand the thousands of data points sent from the car during a race just by looking at then. To make sense of the data, this subgroup develops a data visualization interface for the operators to use.", supervisor: 'Not Decided'},
       //'dataAnalysis': {name: 'Data Analysis', text: "To make sure the car drives as fast as possible without running out of energy, we need an algorithm. This subgroup develops a model and algorithm to predict future energy needs and suggest an optimal speed given inputs such as route profile, weather forecast and current energy throughputs.", supervisor: 'Not Decided'}
     },
@@ -60,15 +60,15 @@ export default function Join() {
       'keyAccountManager': {name: 'Key Account Manager', text: "Building strong and meaningful relationships with sponsors and the technology industri is key for the long term success of Nordlys. The key account managers are the team's external communication with the industry, applying and developing interpersonal skills to secure the Nordlys' funds.", supervisor: 'Not Decided'},
       //'brandDeveloper': {name: 'Brand Developer', text: "To reach our amibtios goals, we need a strong and recognizable brand. The brand developers build the brand through strategic marketing and social media, as well as planning and designing the organizations outer image and marketing plan.", supervisor: 'Not Decided'},
       'photoVideo': {name: 'Photo and Video', text: "A good brand needs good and professional photos and videos. The photographers are responsible for capturing the team as we develop, build and compete with the Nordlys car.", supervisor: 'Not Decided'},
-      'webDeveloper': {name: 'Web Developer', text: "A proffesional website keeps the audience up to speed on the team and it's work. Develop and build the website, and tell the story of who Nordlys NTNU really are.", supervisor: 'Not Decided'},
+      //'webDeveloper': {name: 'Web Developer', text: "A proffesional website keeps the audience up to speed on the team and it's work. Develop and build the website, and tell the story of who Nordlys NTNU really are.", supervisor: 'Not Decided'},
       'graphicalDesigner': {name: 'Graphical Designer', text: "One of the most important parts of building a recognizable brand is developing it's graphical profile. The graphical designer creates all the graphical content of Nordlys, either it is the logo, social media posts or recruitment posters.", supervisor: 'Not Decided'},
     },
-    'logistics': {
-      'name': 'Logistics',
-      'image': 'Logistics.png',
-      'description': 'This completely new group is responsible for all the planning and logistics of the competition of 2025. Nordlys is going to Australia for the first time and need you to help us plan everything from the travel, the accommodations and the food.',
-      'logisticsEngineer': {name: 'Logistics Engineer', text: "As a logistics engineer you will be part of the small team responsible for the entire travel arrangements for the team going to Bridgestone World Solar Challenge 2025. This includes making sure we have enough food and water, that car is shipped on time and that all the members know where to be at what times. You will be working in a close group and no previous knowledge is needed.", supervisor: 'Not Decided'},
-    },
+    //'logistics': {
+      //'name': 'Logistics',
+      //'image': 'Logistics.png',
+      //'description': 'This completely new group is responsible for all the planning and logistics of the competition of 2025. Nordlys is going to Australia for the first time and need you to help us plan everything from the travel, the accommodations and the food.',
+      //'logisticsEngineer': {name: 'Logistics Engineer', text: "As a logistics engineer you will be part of the small team responsible for the entire travel arrangements for the team going to Bridgestone World Solar Challenge 2025. This includes making sure we have enough food and water, that car is shipped on time and that all the members know where to be at what times. You will be working in a close group and no previous knowledge is needed.", supervisor: 'Not Decided'},
+    //},
     //'board': {
     //  'name': 'Board',
     //  'image': 'Management.png',

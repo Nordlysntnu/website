@@ -13,10 +13,14 @@ import Biesterfeld from '../public/Partners/Biesterfeld.png';
 import Hydro from '../public/Partners/Hydro.png';
 import Prototal from '../public/Partners/Prototal.png';
 import Easyform from '../public/Partners/Easyform.png';
+import Trainor from '../public/Partners/Trainor.png';
 import Link from 'next/link';
 import styles from '../styles/partners.module.css';
 import Renergy from '../public/Partners/Renergy.png';
 import IFE from '../public/Partners/IFE.png';
+import Bredengen from '../public/Partners/Bredengen.png';
+import Aiko from '../public/Partners/Aiko.png';
+import Valvoline from  '../public/Partners/Valvoline.png';
 
 export default function About() {
   const platinumSponsors = {
@@ -34,6 +38,11 @@ export default function About() {
       link: 'http://easyform.no/',
       image: Easyform.src,
       description: <>Easy Form AS was established in 2005 and has developed into a complete advisor and design provider, offering everything from design and engineering services to finished composite products. Easy Form has two of Europe's largest 5-axis CNC milling machines for machining large complex surfaces. Among other things, Easy Form is known for having built the first all-electric ferry made of composite materials, capable of transporting hazardous cargo, 'MF Barmøy.'</>
+    },
+    'AIKO': {
+      link: 'https://aikosolar.com/',
+      image: Aiko.src,
+      description: <>AIKO, a top-ranked solar technology leader with BloombergNEF Tier 1 status, specializing in the research, development, and manufacturing of solar generation products and PV-storage-charging integrated solutions. AIKO provides customers with solar cells, ABC (All Back Contact) modules, and scenario-based packaged solutions. Guided by the mission of "Empowering transformation towards a carbon-free era," AIKO continues to pursue extreme innovation and cutting-edge technology.<br /><br />AIKO is contributing to project 2025 with cutting-edge high-efficient solar technology. AIKO doesn't only supply the technology, but also contributes with valuable expertise, helping Nordlys build a highly optimized PV system.</>
     }
   }
   const goldSponsors = {
@@ -41,20 +50,24 @@ export default function About() {
       link: "https://rejlers.no/",
       image: Rejlers.src,
       description: ""
-    }
-  }
-  const silverSponsors = {
+    },
     'Freber': {
       link: "https://www.freber.no/",
       image: Freber.src,
       description: ""
-    },
+    }
+  }
+  const silverSponsors = {
     'Prototal': {
       link: "https://www.prototal.no/",
       image: Prototal.src,
       description: ""
+    },
+    'Trainor': {
+      link: 'https://www.trainor.no/',
+      image: Trainor.src,
+      description: ""
     }
-
   }
   const bronzeSponsors = {
     'InterPersonell': {
@@ -70,6 +83,16 @@ export default function About() {
     'Hydro': {
       link: 'https://www.hydro.com/no/no/',
       image: Hydro.src,
+      description: ""
+    },
+    'Bredengen': {
+      link: 'https://www.bredengen.no/',
+      image: Bredengen.src,
+      description: ""
+    },
+    'Valvoline': {
+      link: 'https://valvoline.no',
+      image: Valvoline.src,
       description: ""
     }
   }

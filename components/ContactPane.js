@@ -43,6 +43,9 @@ export default function ContactPane() {
         fetch(scriptUrl, {method: 'POST', body: formData})
         .then(res => res.json()).then(data => {
             console.log(data)
+            if (data['result'] == 'error') {
+                throw Error('Not successfull')
+            }
             console.log("Successfully submitted")
             formRef.current.reset()
             setLoading(false)
