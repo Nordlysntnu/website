@@ -10,7 +10,7 @@ export default function GoalPane({ dark }) {
         <Content dark={dark}>
             <div className={styles.container}>
                 <GoalCard delay={200} image={ImageTeam.src} title="Ambition" text="We aim to become the best solar racing team in the world." />
-                <GoalCard delay={400} image={Image25.src} title="Competition" text="Our first competition will be the Brigdestone World Solar Challenge 2025." />
+                <GoalCard delay={400} image={Image25.src} title="Project" text="Our first car will be complited in 2025." />
                 <GoalCard delay={600} image={ImageNorway.src} title=" Norway" text="Our long term goal is to drive the length of Norway only on solar power." />
             </div>
         </Content>

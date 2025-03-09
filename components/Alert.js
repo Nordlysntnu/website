@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from '../styles/Alert.module.css';
 
 export default function Alert({alert}) {
-    const {name, info, description, url, linkText} = alert;
+    const {name, info, description, link, linkText} = alert;
     return (
         <div className={styles.container}>
             <div className={styles.title}>
@@ -16,7 +16,7 @@ export default function Alert({alert}) {
             <div className={styles.description}>
                 {description}
             </div>
-            <Link className={styles.link} target="_blank" href={url}>{linkText}</Link>
+            <Link className={styles.link} href={link}>{linkText}</Link> {/*target="_blank"*/}
         </div>
     )
 }
