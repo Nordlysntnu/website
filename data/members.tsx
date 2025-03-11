@@ -386,7 +386,7 @@ export const members = [
         name: 'Shivaraj Chandrakant Patil', 
         title: 'Technical Advisor', 
         image: 'Members/2025/ShivarajPatil.jpg', 
-        group: 'Technical advisor', 
+        group: ['Technical advisor'], 
         email: 'shivaraj.c.patil@ntnu.no' 
     },
 
@@ -545,7 +545,7 @@ export const members = [
     {
         id: 10,
         name: "Anders Nyhus Røsbjørgen",
-        title: "Mechanical Engineer",
+        title: "",
         image: "Members/2025/AndersRøsbjørgen.jpg",
         email: "anders.rosbjorgen@nordlysntnu.no",
         group: ["Alumni"]
