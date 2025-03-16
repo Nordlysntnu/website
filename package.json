@@ -11,7 +11,7 @@
     "next": "^15.0.0-canary.195",
     "node": "^22.9.0",
     "react": "18.2.0",
-    "react-animate-on-scroll": "^2.1.5",
+    "react-animate-on-scroll": "^2.1.9",
     "react-animation-on-scroll": "^5.1.0",
     "react-dom": "18.2.0",
     "react-router-dom": "^6.8.1"
