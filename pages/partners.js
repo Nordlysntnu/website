@@ -56,7 +56,12 @@ export default function About() {
       link: "https://www.freber.no/",
       image: Freber.src,
       description: ""
-    }
+    },
+    'Holmefjord': {
+      link: 'https://www.holmefjord.no/',
+      image: Holmefjord.src,
+      description: ""
+    },
   }
   const silverSponsors = {
     'Prototal': {
@@ -67,11 +72,6 @@ export default function About() {
     'Trainor': {
       link: 'https://www.trainor.no/',
       image: Trainor.src,
-      description: ""
-    },
-    'Holmefjord': {
-      link: 'https://www.holmefjord.no/',
-      image: Holmefjord.src,
       description: ""
     },
   }
