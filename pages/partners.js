@@ -22,6 +22,9 @@ import IFE from '../public/Partners/IFE.png';
 import Bredengen from '../public/Partners/Bredengen.png';
 import Aiko from '../public/Partners/Aiko.png';
 import Valvoline from  '../public/Partners/Valvoline.png';
+import Verktøyboden from  '../public/Partners/Verktøyboden.png';
+
+
 
 export default function About() {
   const platinumSponsors = {
@@ -99,6 +102,11 @@ export default function About() {
     'Valvoline': {
       link: 'https://valvoline.no',
       image: Valvoline.src,
+      description: ""
+    },
+    'Verktøyboden': {
+      link: 'https://verktoyboden.no/',
+      image: Verktøyboden.src,
       description: ""
     }
   }
