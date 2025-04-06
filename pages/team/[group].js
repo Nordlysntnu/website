@@ -16,7 +16,7 @@ const TeamGroupPage = () => {
   const router = useRouter();
   const { group } = router.query;
   const [size, setSize] = useState('big');
-  const [imageFront, setImageFront] = useState(ImangeFrontBig.src);
+  const [imageFront, setImageFront] = useState(ImageFrontBig.src);
   const [imageBack, setImageBack] = useState(ImageBackBig.src);
 
   useEffect(() => {
