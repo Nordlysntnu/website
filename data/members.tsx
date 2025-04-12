@@ -280,14 +280,6 @@ export const members = [
         group: ["Strategy", "All active members"]
     },
     {
-        id: 36,
-        name: "Eirik Reiestad",
-        title: "Software Developer",
-        image: "Members/2025/EirikReiestad.jpg",
-        email: "eirik.reiestad@nordlysntnu.no",
-        group: ["Strategy", "All active members"]
-    },
-    {
         id: 38,
         name: "Natalie Vo",
         title: "Software Developer",
@@ -548,6 +540,14 @@ export const members = [
         title: "",
         image: "Members/2025/AndersRøsbjørgen.jpg",
         email: "anders.rosbjorgen@nordlysntnu.no",
+        group: ["Alumni"]
+    },
+    {
+        id: 36,
+        name: "Eirik Reiestad",
+        title: "Software Developer",
+        image: "Members/2025/EirikReiestad.jpg",
+        email: "eirik.reiestad@nordlysntnu.no",
         group: ["Alumni"]
     }
 
