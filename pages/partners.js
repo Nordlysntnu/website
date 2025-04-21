@@ -23,6 +23,7 @@ import Bredengen from '../public/Partners/Bredengen.png';
 import Aiko from '../public/Partners/Aiko.png';
 import Valvoline from  '../public/Partners/Valvoline.png';
 import Verktøyboden from  '../public/Partners/Verktøyboden.png';
+import Easycomposites from '../public/Partners/Easycomposites.png'
 
 
 
@@ -120,6 +121,11 @@ export default function About() {
       link: 'https://ife.no',
       image: IFE.src,
       description: ""
+    },
+    'Easycomposites': {
+      link: 'https://www.easycomposites.eu',
+      image: Easycomposites.src,
+      description: ''
     }
   }
   return (
