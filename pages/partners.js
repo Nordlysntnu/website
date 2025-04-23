@@ -23,7 +23,7 @@ import Bredengen from '../public/Partners/Bredengen.png';
 import Aiko from '../public/Partners/Aiko.png';
 import Valvoline from  '../public/Partners/Valvoline.png';
 import Verktøyboden from  '../public/Partners/Verktøyboden.png';
-import Easycomposites from '../public/Partners/Easycomposites.png'
+import Easycomposites from '../public/Partners/Easycomposites.png';
 import NTNU from '../public/partners/NTNU.png';
 
 
