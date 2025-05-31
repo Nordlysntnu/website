@@ -16,7 +16,6 @@ import Easyform from '../public/Partners/Easyform.png';
 import Trainor from '../public/Partners/Trainor.png';
 import Link from 'next/link';
 import styles from '../styles/partners.module.css';
-import Renergy from '../public/Partners/Renergy.png';
 import Holmefjord from '../public/Partners/Holmefjord.png';
 import IFE from '../public/Partners/IFE.png';
 import Bredengen from '../public/Partners/Bredengen.png';
@@ -24,6 +23,12 @@ import Aiko from '../public/Partners/Aiko.png';
 import Valvoline from  '../public/Partners/Valvoline.png';
 import Verktøyboden from  '../public/Partners/Verktøyboden.png';
 import Easycomposites from '../public/Partners/Easycomposites.png';
+import KongsbergMaritime from '../public/Partners/KongsbergMaritime.svg';
+import CSEM from '../public/Partners/CSEM.svg';
+import FREJA from '../public/Partners/FREJA.svg';
+import SKF from '../public/Partners/SKF.svg';
+import Elprint from '../public/Partners/Elprint.svg';
+import Batemo from '../public/Partners/Batemo.svg';
 import NTNU from '../public/Partners/NTNU.png';
 
 
@@ -49,6 +54,16 @@ export default function About() {
       link: 'https://aikosolar.com/',
       image: Aiko.src,
       description: <>AIKO, a top-ranked solar technology leader with BloombergNEF Tier 1 status, specializing in the research, development, and manufacturing of solar generation products and PV-storage-charging integrated solutions. AIKO provides customers with solar cells, ABC (All Back Contact) modules, and scenario-based packaged solutions. Guided by the mission of "Empowering transformation towards a carbon-free era," AIKO continues to pursue extreme innovation and cutting-edge technology.<br /><br />AIKO is contributing to project 2025 with cutting-edge high-efficient solar technology. AIKO doesn't only supply the technology, but also contributes with valuable expertise, helping Nordlys build a highly optimized PV system.</>
+    },
+    'CSEM': {
+      link: 'https://www.csem.ch/en/',
+      image: CSEM.src,
+      description: <>Founded in 1984 and headquartered in Neuchâtel, CSEM is an internationally recognized innovation specialist with over 600 employees across six locations in Switzerland and more than 200 registered patents. They develop disruptive technologies with a high societal impact in the fields of precision manufacturing, digitalization, ultra-low-power electronics, optical elements, AI, and sustainable energy. They then transfer these innovations to industry partners in a variety of sectors, including renewable energy, healthcare, watchmaking, and aerospace, or encourage start-up creations.<br /><br />CSEM is contributing to the project of 2025 by integrating AIKOs high-efficiency solar cells into ultra light-weight and flexible solar modules.</>
+    },
+    'Batemo': {
+      link: 'https://www.batemo.com/',
+      image: Batemo.src,
+      description: <>Batemo is the global technology leader for the development of lithium-ion battery simulation software. They combine the three technological assets of battery modeling, battery parameterization and battery data, which makes their products unique worldwide. They have had hundreds of battery cells in their lab, measured them over the entire operating range, completely disassembled and modeled them.<br /><br />Together with Batem we can accurately simulate and predict the performance of our battery modules.</>
     }
   }
   const goldSponsors = {
@@ -67,6 +82,16 @@ export default function About() {
       image: Holmefjord.src,
       description: ""
     },
+    'Kongsberg Maritime': {
+      link: 'https://www.kongsberg.com/maritime/',
+      image: KongsbergMaritime.src,
+      description: ""
+    },
+    'Elprint': {
+      link: 'https://elprint.no/',
+      image: Elprint.src,
+      description: ""
+    },
   }
   const silverSponsors = {
     'Prototal': {
@@ -77,6 +102,16 @@ export default function About() {
     'Trainor': {
       link: 'https://www.trainor.no/',
       image: Trainor.src,
+      description: ""
+    },
+    'FREJA': {
+      link: 'https://no.freja.com/',
+      image: FREJA.src,
+      description: ""
+    },
+    'SKF': {
+      link: 'https://www.skf.com/no',
+      image: SKF.src,
       description: ""
     },
   }
