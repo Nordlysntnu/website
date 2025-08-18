@@ -42,7 +42,7 @@ export default function Team() {
             <></>
             <PageHeader title="Team" />
             <Content dark={true}>
-                In September of 2023 the first ever full Solar Racing team from Norway was finally formed. The team consists of a highly multi-disciplinary team, distributed between the groups of Mechanical, Electrical, Strategy, Brand, Logistics and the Board. This marks an outstanding achievement in Norwegian Solar racing history!
+                In September of 2023 the first ever full Solar Racing team from Norway was finally formed. The team consists of a highly multi-disciplinary team, distributed between the groups of Mechanical, Electrical, Software, Brand, Logistics and the Board. This marks an outstanding achievement in Norwegian Solar racing history!
                 <br />
                 <br />
                 Do you want to become part of the team?

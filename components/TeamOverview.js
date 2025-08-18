@@ -10,13 +10,15 @@ const teamGroups = [
   'Board',
   'Electrical',
   'Mechanical',
-  'Strategy',
+  'Chassis',
+  'Software',
   'Brand',
   'Logistics',
   'Technical advisor',
   'Alumni',
   'All active members'
 ];
+      //<b>The Strategy group</b> is responsible for analyzing data and developing race plans to maximize the car’s performance during competitions. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. Without good race plans and strategies, even the best of solar cars will be left behind, which makes the strategy group vital for Nordlys’ chase to become world leading.
 
 const groupDescriptions = {
   'Board': (
@@ -34,9 +36,9 @@ const groupDescriptions = {
       <b>The Mechanical group</b> is responsible for every non-electrical, physical component in the car. From suspension to roll cage, the mechanical group does it all. The significant drive to make the cars lighter and sturdier than ever before, pushes the mechanical group to the edge as they balance reliability, sturdiness, weight and performance. As a top two group size-wise within Nordlys, the mechanical group is undeniably vital in the ultimate performance of our car.
     </p>
   ),
-  'Strategy': (
+  'Software': (
     <p>
-      <b>The Strategy group</b> is responsible for analyzing data and developing race plans to maximize the car’s performance during competitions. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. Without good race plans and strategies, even the best of solar cars will be left behind, which makes the strategy group vital for Nordlys’ chase to become world leading.
+      <b>The Software group</b> is responsible for analyzing data and developing race plant to maximise the car’s performance during competition. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. The Software group is also responsible for Nordlys’ servers and website.
     </p>
   ),
   'Brand': (
@@ -123,8 +125,43 @@ const TeamOverview = () => {
             </nav>
             {/* Group name as title */}
             <h2 className={styles.groupTitle}>{selectedGroup}</h2>
+
             {/* Display group members */}
-            <TeamGroup members={members.filter(member => member.group.includes(selectedGroup))} />
+	    {!["Alumni", "Technical advisor"].includes(selectedGroup) ? 
+	    	<div><h3 className={styles.groupTitle}>Project 2026</h3>
+            	<TeamGroup 
+	    	    year={2026} 
+	    	    members={members.filter(member => 
+	    	    	Array.isArray(member.history) &&
+	    	    	member.history.some(
+	    	    		h => h.year == 2026 && h.group.includes(selectedGroup)
+	    	    	)
+	    	)}/></div>
+	    : null}
+	
+	    {!["Chassis", "Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
+	    	<h3 className={styles.groupTitle}>Project 2025</h3>
+            	<TeamGroup 
+	    	    year={2025} 
+	    	    members={members.filter(member => 
+	    	    	Array.isArray(member.history) &&
+	    	    	member.history.some(
+	    	    		h => h.year == 2025 && h.group.includes(selectedGroup)
+	    	    	)
+	    	)}/></div>
+	   : null}
+
+	    {["Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
+            	<TeamGroup 
+	    	    year={2025} 
+	    	    members={members.filter(member => 
+	    	    	Array.isArray(member.history) &&
+	    	    	member.history.some(
+	    	    		h => h.year == 2025 && h.group.includes(selectedGroup)
+	    	    	)
+	    	)}/></div>
+	    : null}	
+
             {/* Information section */}
             {groupDescriptions[selectedGroup] && (
                 <SubPart1 

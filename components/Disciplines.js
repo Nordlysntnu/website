@@ -15,7 +15,7 @@ export default function Disciplines({ dark }) {return (
                     <h1 className={styles.title}>Our groups</h1>
                     <div className={styles.contentContainer}>
                         <Discipline delay={100} image={EmbeddedElectronics.src} title="Electrical" />
-                        <Discipline delay={150} image={Software.src} title="Strategy" />
+                        <Discipline delay={150} image={Software.src} title="Software" />
                         <Discipline delay={50} image={Logistics.src} title="Logistics" />
                         <Discipline delay={150} image={Mechanical.src} title="Mechanical" />
                         <Discipline delay={100} image={Brand.src} title="Brand" />

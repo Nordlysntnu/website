@@ -30,6 +30,8 @@ import SKF from '../public/Partners/SKF.svg';
 import Elprint from '../public/Partners/Elprint.svg';
 import Batemo from '../public/Partners/Batemo.svg';
 import NTNU from '../public/Partners/NTNU.png';
+import Kaercher from '../public/Partners/Kaercher.png';
+import Permabond from '../public/Partners/Permabond.png';
 
 
 
@@ -145,6 +147,16 @@ export default function About() {
       link: 'https://verktoyboden.no/',
       image: Verktøyboden.src,
       description: ""
+    },
+    'Kärcher': {
+      link: 'https://karcher.com/no',
+      image: Kaercher.src,
+      description: ""
+    },
+    'Permabond': {
+	link: 'https://permabond.no',
+        image: Permabond.src,
+	description: ""
     }
   }
   const OtherCollaborationPartners = {

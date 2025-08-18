@@ -2,22 +2,23 @@ import React from 'react';
 import TeamMember from './TeamMember'; // Component for individual members
 import styles from '../styles/TeamGroup.module.css';
 
-const TeamGroup = ({ members }) => {
+const TeamGroup = ({ year, members }) => {
     return (
         <div className={styles.container}>
             <div className={styles.memberContainer}>
-                {members.map(member => (
-                    <TeamMember 
+                {members.map(member => {
+		    const currentHistory = member.history.find(h => h.year === year);
+		    const currentTitle = currentHistory?.title;
+                    return <TeamMember 
                         key={member.id}
                         name={member.name}
-                        title={member.title}
+                        title={currentTitle}
                         image={member.image}
                         email={member.email}
                     />
-                ))}
+                })}
             </div>
         </div>
     );
 };
-
 export default TeamGroup;
