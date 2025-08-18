@@ -1,0 +1,33 @@
+.blogEntry {
+	width: 100%;
+	margin: 2rem auto;         /* centers the box horizontally with spacing */
+	margin-bottom: 5rem;
+	padding: 1.5rem;           /* spacing inside the box */
+  	border: 2px solid #ccc;    /* border around the box */
+  	background-color: #fdfdfd; /* subtle background */
+  	box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* soft shadow */
+}
+
+.blogEntry p {
+  margin: auto;
+  max-width: 100%;
+  text-align: justify;       /* makes text aligned evenly */
+  line-height: 2;          /* better readability */
+  margin-bottom: 1.2rem;     /* space before image */
+}
+
+.blogEntry img {
+  display: block;            /* ensures image respects centering */
+  margin: 0 auto;            /* centers image */
+  width: 100%;           /* prevents overflow */
+  height: auto;              /* keeps aspect ratio */
+  border-radius: 8px;        /* optional: smooth edges */
+}
+
+.image {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	height: auto;
+	border-radius:	1em;
+}
