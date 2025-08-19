@@ -21,10 +21,12 @@ export default function Blog() {
       		    <PageHeader title="Blog" />
       		    <Content dark={true}>
 			        {blogs.map(blog => {
-			        	return <BlogEntry
-                            text={blog.text}
-                            image={blog.image}
-                        />
+			        	return <div style={{"margin-bottom": "3pc"}}>
+						 <BlogEntry
+                            			 text={blog.text}
+                            			 image={blog.image} 
+						 date={blog.date}/>
+					       </div>
 			        })}
       		    </Content>
       		</Layout>
