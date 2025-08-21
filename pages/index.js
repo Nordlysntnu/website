@@ -23,7 +23,7 @@ export default function Home() {
       </Head>
       <Layout current="Home">
         <Landing />
-        { /*<AlertPane />*/}
+        <AlertPane />
         <GoalPane dark={false} />
         <SubPart1 dark={true} image={LandingImage.src} title="The impact of creating" text={text1} link="/about" linkText="About us" />
 	<BlogPreview/>
