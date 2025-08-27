@@ -6,9 +6,9 @@ import styles from '../styles/AlertPane.module.css';
 export default function AlertPane() {
     const alerts = {
         infoMeeting: {
-            name: "Info meeting with pizza",
+            name: "Application deadline 27. August",
             info: "",
-            description: "We have an info meeting with pizza Monday the 25th of August at EL6.",
+            description: "Apply now!",
             link: 'join',
             linkText: ''
         }
