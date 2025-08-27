@@ -9,6 +9,7 @@ import Logistics from '../public/Logistics.png';
 import Management from '../public/Management.png';
 import Content from './Content';
 
+
 export default function Disciplines({ dark }) {return (
         <Content dark={dark}>
             <div className={styles.container}>
