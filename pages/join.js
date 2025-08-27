@@ -211,16 +211,115 @@ export default function Join() {
     'electrical': {
       'name': 'Electrical',
       'image': 'EmbeddedElectronics.png',
-      'description': 'The electrical group is responsible for all the electricity on board the car. This includes both the high and low voltage systems.',
-      //'electricalEngineer': {name: 'Electrical Engineer', text: "As the project is beginning its production phase, Nordlys is in need of ever more engaged and interested electrical members. The electrical group is looking for students with interest or experience in programming, electrical digital design (CAD) and electrical engineering, both high and low voltage.", supervisor: 'Not decided'}
-      //'groupLeader': {name: 'Group Leader Electrical', text: 'The group leader is the leader of the electrical members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
-      //'sensorNetwork': {name: 'Sensor Network', text: 'Gathering data is crucial to drive fast while preserving energy. The sensor network is responsible for gathering a lot of data and sending it to the central telemetry system.', supervisor: 'Not Decided'},
-      //'telemetry': {name: 'Telemetry', text: 'To use the data from the network system, it has to be transmitted to a following computer. The telemtry system is responsible to transmit data over radio to be used in the driving strategy.', supervisor: 'Not Decided'},
-      //'electricalSystem': {name: 'Electrical System', text: 'The car contains many small electrical components that needs to be controlled. This includes lighting, wipers, regenetive braking, horn, and more.', supervisor: 'Not Decided'},
-      //'driverInterface': {name: 'Driver Interface', text: "Without the driver, the car won't drive. The driver interface is embedded in the dashboard, and needs to be designed so the driver can control the entire car with ease.", supervisor: 'Not Decided'},
-      //'solarPanels': {name: 'Solar Panels', text: "Without the soalr panels, the car wouldn't be a solar racing car. The Solar Panels subgroup designs the electrical system around the solar array, as well as the control system for the panels to ensure full utilization of the array.", supervisor: 'Not Decided'},
-      //'motors': {name: 'Motors', text: 'There are many ways to design electrical motors, but only the best designs deliver sufficient throughput with low weight usage. This subgroup desides how the motor system should look like, as well as the control units needed to run it.', supervisor: 'Not Decided'},
-      //'electricalSystem': {name: 'Electrical System', text: 'To bring all the high voltage electrical components together to deliver as much power as possible, the electrical system has to be on point. This subgroup designs the electrical system, including the batteries, motors and solar panels, as well as the smaller electrical components.', supervisor: 'Not Decided'}
+      'description': 'The electrical group is responsible for all the electrical systems on board the car. This includes both the high and low voltage systems.',
+      'batteryMechanicalEngineer': {
+        name: 'Battery Mechanical Engineer',
+        text: <>
+          As a Battery Mechanical Engineer, you will focus on designing and ensuring the structural integrity of the battery pack. You will work closely with the battery electrical engineers to create a safe and efficient battery system. Working with CAD, composite materials and the internal layout of the battery pack will be some of your main tasks.
+          <br/>
+          <br/>
+          <em>Areas of responsibility</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+            Structural design of battery systems. Internal and external
+            <br/>
+            Material selection, thermal management and mechanical stress analysis
+            <br/>
+            Ensuring compliance with safety requirements and regulations. 
+          </div>
+          <br/>
+          <em>What do you get out of being a Battery Mechanical Engineer in Nordlys NTNU?</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+            Experience with advanced materials and complex electromechanical systems
+            <br/>
+            Collaboration with other engineering disciplines
+            <br/>
+            Hands-on experience with battery technology and composite materials
+          </div>
+        </>
+      },
+      'batteryElectricalEngineer': {
+        name: 'Battery Electrical Engineer',
+        text: <>
+          As a Battery Electrical Engineer, you will focus on the design, development, and optimization of the electrical systems within the battery pack, in a team of both electrical and mechanical engineers. You will work closely with the battery mechanical engineers to ensure a safe and efficient battery system, focusing on the electrical busbar, precharge and safety systmes. Integrating the battery with the car's electrical HV and LV systems, ensuring electrical safety and testing the electrical components and battery cells will be some of your main tasks.
+          <br/>
+          <br/>
+          <em>Areas of responsibility</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+            Design and development of battery electrical systems
+            <br/>
+            Integration of battery systems with the car's electrical HV and LV systems
+            <br/>
+            Testing and validation of battery electrical components including busbars, fuses, precharge resistors, contactors and battery cells.
+          </div>
+          <br/>
+          <em>What do you get out of being a Battery Electrical Engineer in Nordlys NTNU?</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+            Hands-on experience with advanced battery technologies
+            <br/>
+            Collaboration with a multidisciplinary team
+            <br/>
+            Challenge your engineering skills in a real-world application
+          </div>
+        </>
+      },
+      'mpptEngineer': {
+        name: 'MPPT Engineer',
+        text: <>
+          As an MPPT Engineer, you will work on designing our own Maximum Power Point Tracking system to ensure the solar panels operate at their peak efficiency. You will be a part of a small team combinging enbedded systems and power electronics to create a reliable and efficient MPPT solution.
+          <br/>
+          <br/>
+          <em>Areas of responsibility</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+            Design and develop our first in-house MPPT system. Software and hardware
+            <br/>
+            Testing and validation of solar panel efficiency, and MPPT performance
+            <br/>
+            Integration with the car's electrical systems with CAN-bus communication. 
+          </div>
+          <br/>
+          <em>What do you get out of being an MPPT Engineer in Nordlys NTNU?</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+            Hands-on experience with solar energy systems
+            <br/>
+            Collaboration with other engineering disciplines
+            <br/>
+            Challenge your engineering skills in a real-world application
+          </div>
+        </>
+      },
+      'embeddedEngineer': {
+        name: 'Embedded Engineer',
+        text: <>
+          As an Embedded Engineer, you will develop and maintain the embedded systems that control various functionalities of the car, ensuring reliability and easy debugging when it matters the most. You will work closely with other electrical engineers to integrate sensors, actuators, and communication protocols into the car's systems. Writing CAN-bus oriented software, improving our PCB designs and making new hardware solutions will be some of your main tasks.
+          <br/>
+          <br/>
+          <em>Areas of responsibility</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+            Development of embedded software and hardware. 
+            <br/>
+            Integration of hardware and software systems into our distributed system in the car using CAN-bus.
+            <br/>
+            Testing and debugging of embedded systems
+          </div>
+          <br/>
+          <em>What do you get out of being an Embedded Engineer in Nordlys NTNU?</em>
+          <br/>
+          <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+            Hands-on experience with embedded systems
+            <br/>
+            Opportunity to innovate new solutions for real-world applications
+            <br/>
+            Developing components and making them work together in a complex system
+          </div>
+        </>
+      }
     },
     'mechanical': {
       'name': 'Mechanical',
@@ -236,7 +335,7 @@ export default function Join() {
     }, 
     'chassis': {
       'name': 'Chassis',
-      'image': 'Mechanical.png',
+      'image': 'Chassis.png',
       'description': 'The chassis group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.',
       //'mechanicalEngineer': {name: 'Mechanical Engineer', text: 'All mechanical systems of the car, from the brakes to the chassis, has to be carefully chosen, designed and produced. Though a broad category, Nordlys needs members with skills or interest within many disciplines, including CAD and aerodynamics.', supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Chassis', text: 'The group leader is the leader of the chassis members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
@@ -281,7 +380,7 @@ export default function Join() {
     	//'description': 'This completely new group is responsible for all the planning and logistics of the competition of 2025. Nordlys is going to Australia for the first time and need you to help us plan everything from the travel, the accommodations and the food.',
        // 'logisticsEngineer': {name: 'Logistics Engineer', text: "As a logistics engineer you will be part of the small team responsible for the entire travel arrangements for the team going to Bridgestone World Solar Challenge 2025. This includes making sure we have enough food and water, that car is shipped on time and that all the members know where to be at what times. You will be working in a close group and no previous knowledge is needed.", supervisor: 'Not Decided'},
     }
-  }
+  };
 
   return (
       <>
@@ -301,5 +400,5 @@ export default function Join() {
           <Groups dark={false} groups={groups}/>
       </Layout>
     </>
-  )     
+  );
 }
