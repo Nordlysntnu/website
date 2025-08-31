@@ -19,20 +19,20 @@ export default function Footer() {
             <div className={styles.container}>
                 <div className={styles.textContainer}>
                     <p>Post address:</p>
-                    <p>Herman Krags veg 31</p>
-                    <p>7050</p>
+                    <p>Klæbuveien 153</p>
+                    <p>7031</p>
                     <p>Trondheim</p>
                 </div>
                 <div className={styles.textContainer}>
                     <p>Visitor address:</p>
-                    <p>Herman Krags vei 31</p>
-                    <p>7050</p>
+                    <p>Klæbuveien 153</p>
+                    <p>7031</p>
                     <p>Trondheim</p>
                 </div>
                 <div className={styles.textContainer}>
                     <p>Contact information:</p>
-                    <Link href="mailto:sivert.kverme@nordlysntnu.no">sivert.kverme@nordlysntnu.no</Link>
-                    <p><Link href="tel:004790252412">+47 902 52 412</Link></p>
+                    <Link href="mailto:rasmus.nummelin@nordlysntnu.no">rasmus.nummelin@nordlysntnu.no</Link>
+                    <p><Link href="tel:004798054190">+47 980 54 190</Link></p>
                 </div>
             </div>
             <center>Created by and for students.</center>
