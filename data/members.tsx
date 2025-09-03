@@ -992,7 +992,7 @@ export const members = [
 		        group: ["Alumni"]
 		}
 	]
-    },
+   },
     {
         id: 36,
 	project: [2025],
@@ -1006,20 +1006,5 @@ export const members = [
 			group: ["Alumni"]
 		}
 	]
-    },
-    {
-	id: 100,
-	project: [2026],
-	name: "You?",
-	image: "Questionmark.png",
-	email: "",
-	history: [
-		{
-			year: 2026,
-			title: 'Apply to Nordlys today!',
-			group: ["Board", "Electrical", "Mechanical", "Chassis", "Software", "Brand", "Logistics"]
-		}
-	]
     }
-
 ]
