@@ -6,11 +6,11 @@ import styles from '../styles/AlertPane.module.css';
 export default function AlertPane() {
     const alerts = {
         infoMeeting: {
-            name: "Leadership recruitment",
-            info: "Deadline: March 14th 2025",
-            description: "We are currently recruiting group leaders and board members for the 2025/2026 project.",
+            name: "Application deadline 27. August",
+            info: "",
+            description: "Apply now!",
             link: 'join',
-            linkText: 'Apply here'
+            linkText: ''
         }
     }
 

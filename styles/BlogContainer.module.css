@@ -1,0 +1,27 @@
+.container {
+	width: 50%;
+	position: relative;
+	margin: auto;
+}
+
+.blogdiv {
+	background: #eeeeee;
+	border: 2px solid #ccc;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.headline {
+	text-align: center;
+	margin-top: 2pc;
+	margin-bottom: 1.5pc;
+	font-size: 50px;
+	color: #ffffff;
+}
+
+.link {
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 2pc;
+	margin-top: 2pc;
+	color: #ffffff;
+}
