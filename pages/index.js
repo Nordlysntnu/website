@@ -15,6 +15,7 @@ export default function Home() {
   const text2 = "One of the many contributers to solving global warming, is the increased usage of solar technology. The sun emits immense amounts of energy, free of charge. Finding innovative ways to use solar energy, such as in homes, on infrastructure, or even in cars, is key to move towards a sustainable future."
 
   /* <MemberPresentation dark={false} /> */
+  /*<AlertPane />*/
   return (
     <>
       <Head>
@@ -23,7 +24,6 @@ export default function Home() {
       </Head>
       <Layout current="Home">
         <Landing />
-        <AlertPane />
         <GoalPane dark={false} />
         <SubPart1 dark={true} image={LandingImage.src} title="The impact of creating" text={text1} link="/about" linkText="About us" />
 	<BlogPreview/>
