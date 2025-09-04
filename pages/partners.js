@@ -32,6 +32,7 @@ import Batemo from '../public/Partners/Batemo.svg';
 import NTNU from '../public/Partners/NTNU.png';
 import Kaercher from '../public/Partners/Kaercher.png';
 import Permabond from '../public/Partners/Permabond.png';
+import Altium from '../public/Partners/Altium.png';
 
 
 
@@ -178,6 +179,11 @@ export default function About() {
     'NTNU': {
       link: 'https://www.ntnu.no',
       image: NTNU.src,
+      description: ''
+    },
+    'Altium': {
+      link: 'https://www.altium.com/',
+      image: Altium.src,
       description: ''
     }
   }
