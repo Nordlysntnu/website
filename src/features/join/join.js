@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Content from '../components/Content';
-import Groups from '../components/Groups';
-import JoinForm from '../components/JoinForm';
-import Layout from '../components/Layout';
-import PageHeader from '../components/PageHeader';
-import PartHeader from '../components/PartHeader';
+import Content from '../../../components/Content';
+import Groups from '../../../components/Groups';
+import JoinForm from '../../../components/JoinForm';
+import Layout from '../../../components/Layout';
+import PageHeader from '../../../components/PageHeader';
+import PartHeader from '../../../components/PartHeader';
 
 export default function Join() {
   const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>

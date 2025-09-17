@@ -1,4 +1,4 @@
-import Content from "./Content";
+import Content from "../../components/Content";
 import styles from '../styles/Groups.module.css';
 import Group from "./Group";
 

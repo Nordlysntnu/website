@@ -1,4 +1,4 @@
-import Content from "./Content";
+import Content from "../../components/Content";
 import GoalCard from "./GoalCard";
 import styles from '../styles/GoalPane.module.css';
 import Image25 from '../public/2025Goal.png';

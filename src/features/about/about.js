@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Layout from '../components/Layout';
-import Mission from '../components/Mission';
-import PageHeader from '../components/PageHeader';
-import Route from '../components/Route';
-import SubPartVideo from '../components/SubPartVideo';
-import SubPart1 from '../components/SubPart1';
+import Layout from '../../../components/Layout';
+import Mission from '../../../components/Mission';
+import PageHeader from '../../../components/PageHeader';
+import Route from './Route';
+import SubPartVideo from '../../../components/SubPartVideo';
+import SubPart1 from '../../../components/SubPart1';
 
 export default function About() {
   return (

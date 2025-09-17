@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Content from '../components/Content';
-import Layout from '../components/Layout';
-import PageLanding from '../components/PageLanding';
+import Content from '../../../components/Content';
+import Layout from '../../../components/Layout';
+import PageLanding from './PageLanding';
 import LandingImage from '../public/Stars.png';
 import styles from '../styles/404.module.css';
 

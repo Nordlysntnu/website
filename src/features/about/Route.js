@@ -1,4 +1,4 @@
-import Content from "./Content";
+import Content from "../../components/Content";
 import styles from '../styles/Route.module.css';
 import "animate.css/animate.min.css";
 import { useEffect, useRef, useState } from "react";

@@ -1,6 +1,6 @@
 import styles from '../styles/Footer.module.css';
 import Link from 'next/link';
-import Content from './Content';
+import Content from '../../components/Content';
 import ContactPane from './ContactPane';
 
 export default function Footer() {
