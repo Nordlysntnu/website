@@ -3,7 +3,7 @@ import Content from '@shared/components/Content';
 import Groups from '@features/team/Groups';
 import JoinForm from './JoinForm';
 import Layout from '@shared/components/Layout';
-import PageHeader from '@features/ui/components/PageHeader';
+import PageHeader from '@shared/components/PageHeader';
 import PartHeader from '@shared/components/PartHeader';
 
 export default function Join() {

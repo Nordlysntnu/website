@@ -1,7 +1,7 @@
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import Content from "./Content";
-import Alert from "../Alert";
-import styles from '../styles/AlertPane.module.css';
+import Content from "@shared/components/Content";
+import Alert from "./Alert";
+import styles from './styles/AlertPane.module.css';
 
 export default function AlertPane() {
     const alerts = {

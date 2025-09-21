@@ -1,5 +1,5 @@
 import Content from "@shared/components/Content";
-import styles from '../styles/Route.module.css';
+import styles from './styles/Route.module.css';
 import "animate.css/animate.min.css";
 import { useEffect, useRef, useState } from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Layout from '@shared/components/Layout';
-import PageHeader from '@features/ui/PageHeader';
+import PageHeader from '@shared/components/PageHeader';
 import Content from "@shared/components/Content";
 import Sponsors from "./Sponsors"
 import Aneo from './sponsor-logos/Aneo.svg';

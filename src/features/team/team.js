@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Layout from '@shared/components/Layout';
-import PageHeader from '@features/ui/PageHeader';
+import PageHeader from '@shared/components/PageHeader';
 import Content from "@shared/components/Content";
 import DoubleImage from "./DoubleImage";
 import ImageFrontBig from '@assets/members/group-photos/Group-photo-2.jpg';
