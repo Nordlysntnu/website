@@ -1,5 +1,5 @@
-import styles from '../styles/NavBar.module.css';
-import Logo from '../public/Logo.png';
+import styles from './styles/NavBar.module.css';
+import Logo from '@assets/symbols-and-logos/Logo.png';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 

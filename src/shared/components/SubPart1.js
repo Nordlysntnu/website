@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import styles from '../styles/SubPart1.module.css';
-import Content from '../src/components/Content';
+import styles from './SubPart1.module.css';
+import Content from './Content';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 export default function SubPart1({ dark, image, title, text, link, linkText }) {

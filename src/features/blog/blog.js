@@ -1,13 +1,13 @@
 import Head from 'next/head';
-import Content from '../../../components/Content';
-import Groups from '../../../components/Groups';
-import JoinForm from '../../../components/JoinForm';
-import Layout from '../../../components/Layout';
-import PageHeader from '../../../components/PageHeader';
-import PartHeader from '../../../components/PartHeader';
-import BlogEntry from './BlogEntry';
+import Content from '@shared/components/Content';
+import Groups from '@features/team/Groups';
+import JoinForm from '@features/join/JoinForm';
+import Layout from '@shared/components/Layout';
+import PageHeader from '@features/ui/PageHeader';
+import PartHeader from '@shared/components/PartHeader';
+import BlogEntry from '@shared/components/BlogEntry';
 import React from 'react'
-import { blogs } from '../../../data/blog';
+import { blogs } from '@shared/data/blog';
 
 export default function Blog() {
 	return (

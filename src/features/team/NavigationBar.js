@@ -1,4 +1,4 @@
-import styles from '../styles/SubPart1.module.css';
+import styles from '@shared/styles/SubPart1.module.css';
 
 const teamNames = ["Board", "Mechanical", "Electrical", "Strategy", "Brand", "Logistics", "Alumni"];
 

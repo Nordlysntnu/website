@@ -1,4 +1,4 @@
-import styles from '../styles/GoalCardNew.module.css';
+import styles from './styles/GoalCardNew.module.css';
 import "animate.css/animate.min.css";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 

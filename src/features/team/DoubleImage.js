@@ -1,4 +1,4 @@
-import styles from '../styles/DoubleImage.module.css';
+import styles from './styles/DoubleImage.module.css';
 
 export default function DoubleImage({ imageFront, imageBack }) {
     return (

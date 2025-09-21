@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import styles from '../styles/SomeRibbon.module.css';
-import Instagram from '../public/Instagram.svg';
-import Facebook from '../public/Facebook.svg';
-import Linkedin from '../public/Linkedin.svg';
+import styles from './styles/SomeRibbon.module.css';
+import Instagram from '@assets/symbols-and-logos/Instagram.svg';
+import Facebook from '@assets/symbols-and-logos/Facebook.svg';
+import Linkedin from '@assets/symbols-and-logos/Linkedin.svg';
 
 export default function SomeRibbon() {
     return (

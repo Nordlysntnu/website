@@ -1,9 +1,9 @@
-import Content from "../../components/Content";
+import Content from "@shared/components/Content";
 import GoalCard from "./GoalCard";
-import styles from '../styles/GoalPane.module.css';
-import Image25 from '../public/2025Goal.png';
-import ImageTeam from '../public/TeamGoal.png';
-import ImageNorway from '../public/NorwayGoal.png';
+import styles from './styles/GoalPane.module.css';
+import Image25 from '@assets/symbols-and-logos/2025Goal.png';
+import ImageTeam from '@assets/symbols-and-logos/TeamGoal.png';
+import ImageNorway from '@assets/symbols-and-logos/NorwayGoal.png';
 
 export default function GoalPane({ dark }) {
     return (

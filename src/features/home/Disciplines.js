@@ -1,13 +1,13 @@
-import styles from '../styles/Disciplines.module.css';
+import styles from './styles/Disciplines.module.css';
 import Discipline from './Discipline';
-import Mechanical from '../public/Mechanical.png';
-import Chassis from '../public/Chassis.png';
-import Software from '../public/Software.png';
-import EmbeddedElectronics from '../public/EmbeddedElectronics.png';
-import Brand from '../public/Brand.png';
-import Logistics from '../public/Logistics.png';
-import Management from '../public/Management.png';
-import Content from './Content';
+import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
+import Chassis from '@assets/symbols-and-logos/Chassis.png';
+import Software from '@assets/symbols-and-logos/Software.png';
+import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.png';
+import Brand from '@assets/symbols-and-logos/Brand.png';
+import Logistics from '@assets/symbols-and-logos/Logistics.png';
+import Management from '@assets/symbols-and-logos/Management.png';
+import Content from '@shared/components/Content';
 
 
 export default function Disciplines({ dark }) {return (

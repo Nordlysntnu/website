@@ -1,4 +1,4 @@
-import styles from '../styles/Group.module.css'
+import styles from './styles/Group.module.css'
 import { useState, useRef, useEffect } from "react";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";

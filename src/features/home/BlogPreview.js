@@ -1,6 +1,6 @@
-import styles from '../styles/BlogContainer.module.css';
-import BlogEntry from '../components/BlogEntry';
-import { blogs } from '../data/blog';
+import styles from './styles/BlogContainer.module.css';
+import BlogEntry from '@shared/components/BlogEntry';
+import { blogs } from '@shared/data/blog';
 
 const BlogPreview = () => {
 	const BlogText = blogs[0].text;

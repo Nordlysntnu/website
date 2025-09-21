@@ -1,9 +1,9 @@
 import Content from "./Content";
 import styles from '../styles/Mission.module.css';
 import GoalCard from "./GoalCard";
-import Education from '../public/Education.png';
-import Solar from '../public/Solar.png';
-import Sustainability from '../public/Sustainability.png';
+import Education from '@assets/symbols-and-logos/Education.png';
+import Solar from '@assets/symbols-and-logos/Solar.png';
+import Sustainability from '@assets/symbols-and-logos/Sustainability.png';
 import Link from "next/link";
 
 

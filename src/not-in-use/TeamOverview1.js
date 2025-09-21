@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TeamGroup from './TeamGroup';
-import { members } from '../data/members';
+import { members } from '../shared/data/members';
 import styles from '../styles/TeamOverview.module.css';
 
 const teamGroups = ['Board', 'Electrical', 'Mechanical','Strategy', 'Brand', 'Logistics', 'Technical advisor','Alumni', 'All active members'];

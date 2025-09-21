@@ -1,6 +1,6 @@
-import styles from '../styles/Sponsors.module.css';
-import Content from './Content';
-import Sponsor from './Sponsor';
+import styles from './styles/Sponsors.module.css';
+import Content from '@shared/components/Content';
+import Sponsor from '@shared/components/Sponsor';
 import Link from 'next/link';
 
 export default function Sponsors({ sponsors, title, dark, platinum }) {

@@ -1,6 +1,6 @@
 import { AnimationOnScroll } from 'react-animation-on-scroll';
-import styles from '../styles/PageHeader.module.css';
-import Content from '../src/components/Content';
+import styles from './styles/PageHeader.module.css';
+import Content from '@shared/components/Content';
 
 // evt fix lack of fade-in on "team" and "partners" pages
 

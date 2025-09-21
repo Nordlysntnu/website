@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/TeamMember.module.css';
+import styles from './styles/TeamMember.module.css';
 
 const TeamMember = ({ name, title, image, email }) => {
     if (name == "You?") { return (

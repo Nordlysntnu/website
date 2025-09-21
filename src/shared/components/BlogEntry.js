@@ -1,4 +1,4 @@
-import styles from '../styles/BlogEntry.module.css';
+import styles from './styles/BlogEntry.module.css';
 
 const BlogEntry = ({ text, image, date }) => {
 	return (

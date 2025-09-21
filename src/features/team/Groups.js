@@ -1,5 +1,5 @@
-import Content from "../../components/Content";
-import styles from '../styles/Groups.module.css';
+import Content from "@shared/components/Content";
+import styles from './styles/Groups.module.css';
 import Group from "./Group";
 
 export default function({ dark, groups }) {

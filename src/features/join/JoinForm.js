@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import styles from '../styles/JoinForm.module.css';
+import styles from './styles/JoinForm.module.css';
 
 export default function JoinForm({ groups }) {
     const formRef = useRef(null)

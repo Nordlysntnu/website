@@ -1,6 +1,6 @@
 import React from 'react';
 import TeamMember from './TeamMember'; // Component for individual members
-import styles from '../styles/TeamGroup.module.css';
+import styles from './styles/TeamGroup.module.css';
 
 const TeamGroup = ({ year, members }) => {
     return (

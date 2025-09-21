@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import styles from '../styles/ContactPane.module.css';
+import styles from './styles/ContactPane.module.css';
 
 export default function ContactPane() {
     const scriptUrl = "https://script.google.com/macros/s/AKfycbzyycGbOVZH4fypAoCzVYLhGT3YFcYidSFkc2sQMMBzyJUJW3T60_1XdspOeuqY5a-HmA/exec"

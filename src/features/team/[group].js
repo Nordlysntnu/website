@@ -1,16 +1,16 @@
 import { useRouter } from 'next/router';
 import Head from "next/head";
-import Layout from '../../../components/Layout';
-import PageHeader from '../../../components/PageHeader';
-import Content from "../../../components/Content";
-import DoubleImage from "../../../components/DoubleImage";
-import ImageFrontBig from '../../public/Group-photo-2.jpg';
-import ImageBackBig from '../../public/Group-photo-1.jpg';
-import ImageFrontSmall from '../../public/Group-photo-SOME-2.jpg';
-import ImageBackSmall from '../../public/Group-photo-SOME-1.jpg';
-import styles from '../../styles/SubPart1.module.css';
+import Layout from '@shared/components/Layout';
+import PageHeader from '@features/ui/PageHeader';
+import Content from "@shared/components/Content";
+import DoubleImage from "./DoubleImage";
+import ImageFrontBig from '@assets/members/group-photos/Group-photo-2.jpg';
+import ImageBackBig from '@assets/members/group-photos/Group-photo-1.jpg';
+import ImageFrontSmall from '@assets/members/group-photos/Group-photo-SOME-2.jpg';
+import ImageBackSmall from '@assets/members/group-photos/Group-photo-SOME-1.jpg';
+import styles from '@shared/styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
-import TeamOverview from "../../../components/TeamOverview";
+import TeamOverview from "./TeamOverview";
 
 const TeamGroupPage = () => {
   const router = useRouter();
