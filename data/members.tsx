@@ -872,7 +872,7 @@ export const members = [
 	{
 		id: 103,
 		project: [2026],
-		name: "Cecilie Nyno Linchausen",
+		name: "Cecilie Nymo Linchausen",
 		image: "Members/2026/Cecilie.JPG",
 		email: "cecilie.linchausen@nordlysntnu.no",
 		history: [
