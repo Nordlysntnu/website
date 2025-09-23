@@ -1,14 +1,14 @@
 import Head from 'next/head';
-import Landing from './shared/components/Landing';
-import Layout from '../components/Layout';
-import SubPart1 from './shared/components/SubPart1';
-import LandingImage from '../public/LandingImage.jpg';
-import GoalPane from '../components/GoalPane';
-import Disciplines from './features/home/Disciplines';
-import MemberPresentation from './features/team/MemberPresentation';
-import SubPartVideo from '../components/SubPartVideo';
-import AlertPane from '../components/AlertPane';
-import BlogPreview from './features/home/BlogPreview';
+import Landing from '@shared/components/Landing';
+import Layout from '@shared/components/Layout';
+import SubPart1 from '@shared/components/SubPart1';
+import LandingImage from '@assets/pictures/LandingImage.jpg';
+import GoalPane from '@features/home/GoalPane';
+import Disciplines from '@features/home/Disciplines';
+import MemberPresentation from '@features/team/MemberPresentation';
+import SubPartVideo from '@shared/components/SubPartVideo';
+import AlertPane from '@features/alert/AlertPane';
+import BlogPreview from '@features/home/BlogPreview';
 
 export default function Home() {
   const text1 = "Theres nothing more valuable than creating something new. Through developing solar powered cars and competing in some of the worlds biggest solar racing competitions, Nordlys NTNU aims to educate the best engineers in Norway, and showcase optimism and innovation in a world in dire need of sustainable energies."

@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Layout from '@shared/components/Layout';
-import Mission from './Mission';
+import Mission from '@features/about/Mission';
 import PageHeader from '@shared/components/PageHeader';
-import Route from './Route';
+import Route from '@features/about/Route';
 import SubPartVideo from '@shared/components/SubPartVideo';
 import SubPart1 from '@shared/components/SubPart1';
 

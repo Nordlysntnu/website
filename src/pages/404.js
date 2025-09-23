@@ -4,7 +4,7 @@ import Content from '@shared/components/Content';
 import Layout from '@shared/components/Layout';
 import PageLanding from '@shared/components/PageLanding';
 import LandingImage from '@assets/other/Stars.png';
-import styles from './styles/404.module.css';
+import styles from '@features/error/styles/404.module.css';
 
 export default function PageNotFound() {
     return(

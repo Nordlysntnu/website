@@ -1,4 +1,4 @@
-import styles from './styles/Content.module.css';
+import styles from '../styles/Content.module.css';
 
 export default function Content({ children, dark, id }) {
     return (

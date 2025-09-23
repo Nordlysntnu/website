@@ -1,4 +1,4 @@
-import styles from './styles/PartHeader.module.css';
+import styles from '../styles/PartHeader.module.css';
 
 export default function PartHeader({ darkColor, title, text }) {
     return (

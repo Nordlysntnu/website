@@ -1,4 +1,4 @@
-import styles from './styles/BlogContainer.module.css';
+import styles from '@shared/styles/BlogContainer.module.css';
 import BlogEntry from '@shared/components/BlogEntry';
 import { blogs } from '@shared/data/blog';
 
