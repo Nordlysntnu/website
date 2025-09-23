@@ -4,10 +4,10 @@ import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import Content from "@shared/components/Content";
 import DoubleImage from "@features/team/DoubleImage";
-import ImageFrontBig from '@assets/members/group-photos/Group-photo-2.jpg';
-import ImageBackBig from '@assets/members/group-photos/Group-photo-1.jpg';
-import ImageFrontSmall from '@assets/members/group-photos/Group-photo-SOME-2.jpg';
-import ImageBackSmall from '@assets/members/group-photos/Group-photo-SOME-1.jpg';
+const ImageFrontBig = "/images/members/group-photos/Group-photo-2.jpg";
+const ImageBackBig = "/images/members/group-photos/Group-photo-1.jpg";
+const ImageFrontSmall = "/images/members/group-photos/Group-photo-SOME-2.jpg";
+const ImageBackSmall = "/images/members/group-photos/Group-photo-SOME-1.jpg";
 import styles from '@shared/styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
 import TeamOverview from "@features/team/TeamOverview";
@@ -16,19 +16,19 @@ const TeamGroupPage = () => {
   const router = useRouter();
   const { group } = router.query;
   const [size, setSize] = useState('big');
-  const [imageFront, setImageFront] = useState(ImageFrontBig.src);
-  const [imageBack, setImageBack] = useState(ImageBackBig.src);
+  const [imageFront, setImageFront] = useState(ImageFrontBig);
+  const [imageBack, setImageBack] = useState(ImageBackBig);
 
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth <= 600 && size === 'big') {
         setSize('small');
-        setImageFront(ImageFrontSmall.src);
-        setImageBack(ImageBackSmall.src);
+        setImageFront(ImageFrontSmall);
+        setImageBack(ImageBackSmall);
       } else if (window.innerWidth > 600 && size === 'small') {
         setSize('big');
-        setImageFront(ImageFrontBig.src);
-        setImageBack(ImageBackBig.src);
+        setImageFront(ImageFrontBig);
+        setImageBack(ImageBackBig);
       }
     }
     window.addEventListener('resize', handleResize);
@@ -39,8 +39,8 @@ const TeamGroupPage = () => {
   useEffect(() => {
     switch (group.toLowerCase()) {
       case 'board':
-        setImageFront(ImageFrontBig.src);
-        setImageBack(ImageBackBig.src);
+        setImageFront(ImageFrontBig);
+        setImageBack(ImageBackBig);
         break;
       case 'electrical':
         setImageFront('/path/to/electrical-front.jpg');
@@ -63,8 +63,8 @@ const TeamGroupPage = () => {
         setImageBack('/path/to/alumni-back.jpg');
         break;
       default:
-        setImageFront(ImageFrontBig.src);
-        setImageBack(ImageBackBig.src);
+        setImageFront(ImageFrontBig);
+        setImageBack(ImageBackBig);
     }
   }, [group]);
 

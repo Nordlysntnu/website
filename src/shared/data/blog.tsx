@@ -1,7 +1,7 @@
 export const blogs = [
 	{
 		text: "We've completed the very first test of Lumholtz at Rudskogen!💫 The first time we have driven our solar racing car is a huge milestone for us. While we faced some challenges along the way, our two test days was a great success. We gained valuable insights that bring us one step closer to a competition-ready car!We want to give a big thank you to Rudskogen Motorsenter for welcoming us and letting us use their facilities! We wouldn't be able to test our car in a safe environment without their support, and we look forward to a continued collaboration.🏎️🙏🏼",
-		image: "Blog/rudskogen.jpg",
+		image: "/blog/rudskogen.jpg",
 		date: "July 2025"
 	},
 	{
@@ -12,7 +12,7 @@ export const blogs = [
 			🌍 Their support strengthens our mission to promote cutting-edge technology and industry connections — both for students and for the wider national and international community.
 			
 			Thank you for empowering the next generation of engineers and for investing in sustainable progress! ⚡🔗`,
-		image: "Blog/melbye.jpg",
+		image: "/blog/melbye.jpg",
 		date: "July 2025"
 	},
 	{
@@ -23,12 +23,12 @@ export const blogs = [
 🌊 The support from Kongsberg Maritime also gives us an extra boost of motivation in our work to develop Norway’s first solar racing car.
 
 Thank you for championing sustainable technology! ☀️ 🏎️`,
-		image: "Blog/kongsberg.jpg",
+		image: "/blog/kongsberg.jpg",
 		date: "June 2025"
 	},
 	{
 		text: "After two years of hard work and dedication, we´re incredibly proud to finally uveil Lumholtz - our and Norway´s first ever solar race car! ⚡ 🎉 The unveiling on Monday was a great success, and we’re thankful for everyone who joined us to celebrate this milestone. A special thank you to Steve Völler and Geir Egil Dahle Øien for sharing some inspiring words during the event. Especially thank you to all our sponsors who have enabled us to execute the project! ✨ Now we are setting aim for this Summer and actually driving the car. Look out for a future update when we present where you can see us this Summer! ☀️",
-		image: "Blog/unveiling.jpg",
+		image: "/blog/unveiling.jpg",
 		date: "April 2025"
 	},
 	{
@@ -40,7 +40,7 @@ Sebastian Stigar and Georgios Pantazidis provided us with valuable insights into
 - Commercial strategy 
 We found it very interesting and had the opportunity to ask many questions, receiving great answers to everything we were curious about.
 ⚡ We appreciate that they took the time to share their expertise with us. 🙏`,
-		image: "Blog/brynaarflot.jpg",
+		image: "/blog/brynaarflot.jpg",
 		date: "April 2025"
 	}
 ]

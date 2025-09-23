@@ -36,6 +36,7 @@ import Altium from '@features/partners/sponsor-logos/Altium.png';
 
 
 
+
 export default function About() {
   const platinumSponsors = {
     'Aneo': {
