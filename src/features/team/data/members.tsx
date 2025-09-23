@@ -75,7 +75,7 @@ export const members = [
         id: 6,
 	project: [2025, 2026],
         name: "Rasmus Nummelin",
-        image: "/members/2025/RasmusNummelin.jpg",
+        image: "/members/2026/RasmusNummelin.jpg",
         email: "rasmus.nummelin@nordlysntnu.no",
 	history: [
 		{
@@ -157,7 +157,12 @@ export const members = [
 	history: [
 		{
 			year: 2025,
-		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
+		        title: "Coordinator & Mechanical Engineer Suspension",
+		        group: ["Mechanical", "All active members"]
+		},
+		{
+			year: 2026,
+		        title: "Group Leader Mechanical",
 		        group: ["Mechanical", "All active members"]
 		}
 	]
@@ -166,18 +171,18 @@ export const members = [
         id: 15,
 	project: [2025, 2026],
         name: "Sander Ranbø",
-        image: "/members/2025/SanderRanbø.jpg",
+        image: "/members/2026/SanderRanbø.jpg",
         email: "sander.ranbo@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
-		        title: "Coordinator & Mechanical Engineer Suspension",
+		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
 		        group: ["Mechanical", "All active members"]
 		},
 		{
 			year: 2026,
-		        title: "Group Leader Mechanical",
-		        group: ["Mechanical", "All active members"]
+				title: "Coordinator & Mechanical Engineer Steering and Brakes",
+				group: ["Mechanical", "All active members"]
 		}
 	]
     },
@@ -204,6 +209,11 @@ export const members = [
 	history: [
 		{
 			year: 2025,
+		        title: "Mechanical Engineer Suspension",
+		        group: ["Mechanical", "All active members"]
+		},
+		{
+			year: 2026,
 		        title: "Mechanical Engineer Suspension",
 		        group: ["Mechanical", "All active members"]
 		}
@@ -279,13 +289,68 @@ export const members = [
 		}
 	]
     },
-
+    {
+        id: 132,
+		project: [2026],
+        name: "Andreas Hareide",
+        image: "Members/2026/Andreas.JPG",
+        email: "andreas.hareide@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Mechanical Engineer",
+		        group: ["Chassis", "All active members"]
+		}
+		]
+    },
+    {
+		id: 133,
+		project: [2026],
+		name: "Anders Snekvik",
+        image: "Members/2026/Anders.JPG",
+		email: "anders.snekvik@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Chassis", "All active members"]
+			}
+		]
+    },
+    {
+		id: 134,
+		project: [2026],
+		name: "Tommaso Gori",
+        image: "Members/2025/Unknown.png",
+		email: "tommaso.gori@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Chassis", "All active members"]
+			}
+	]
+    },
+    {
+		id: 135,
+		project: [2026],
+		name: "Vivik Holmbukt",
+        image: "Members/2026/Vivik.JPG",
+		email: "vivik.holmbukt@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Chassis", "All active members"]
+			}
+	]
+    },
     //Electrical
     {
         id: 20,
 	project: [2025, 2026],
         name: "Kristian Sæberg",
-        image: "/members/2025/KristianSæberg.jpg",
+        image: "/members/2026/KristianSæberg.jpg",
         email: "kristian.saeberg@nordlysntnu.no",
 	history: [
 		{
@@ -318,7 +383,7 @@ export const members = [
         id: 22,
 	project: [2025, 2026],
         name: "William Fosser",
-        image: "/members/2025/WilliamFosser.jpg",
+        image: "/members/2026/WilliamFosser.jpg",
         email: "william.fosser@nordlysntnu.no",
 	history: [
 		{
@@ -363,13 +428,18 @@ export const members = [
     },
     {
         id: 25,
-	project: [2025],
+	project: [2025, 2026],
         name: "Georg Hofstad",
         image: "/members/2025/GeorgHofstad.jpg",
         email: "georg.hofstad@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		},
+		{
+			year: 2026,
 		        title: "Electrical Engineer",
 		        group: ["Electrical", "All active members"]
 		}
@@ -487,6 +557,104 @@ export const members = [
 		}
 	]
     },
+    {
+        id: 110,
+		project: [2026],
+        name: "Adam Stenling",
+        image: "Members/2026/Adam.JPG",
+        email: "adam.stenling@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
+    {
+        id: 112,
+		project: [2026],
+        name: "Anne Brenden",
+        image: "Members/2026/Anne.JPG",
+        email: "anne.brenden@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
+    {
+        id: 113,
+		project: [2026],
+        name: "Birk Bjelland",
+        image: "Members/2026/Birk.JPG",
+        email: "birk.bjelland@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
+    {
+        id: 114,
+		project: [2026],
+        name: "Joakim Enes",
+        image: "Members/2026/Joakim.JPG",
+        email: "joakim.enes@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
+    {
+        id: 115,
+		project: [2026],
+        name: "Mattis Hempelmann",
+        image: "Members/2025/Unknown.png",
+        email: "mattis.hempelmann@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
+    {
+        id: 116,
+		project: [2026],
+        name: "Ole Bondahl",
+        image: "Members/2025/Unknown.png",
+        email: "ole.bondahl@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
+    {
+        id: 117,
+		project: [2026],
+        name: "Petter Sørkilflå",
+        image: "Members/2026/Petter.JPG",
+        email: "petter.sorkilfla@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
 
     //Software
     {
@@ -498,7 +666,7 @@ export const members = [
 	history: [
 		{
 			year: 2025,
-		        title: "Group Leader Software",
+		        title: "Group Leader Strategy",
 		        group: ["Software", "All active members"]
 		}
 	]
@@ -554,7 +722,7 @@ export const members = [
         id: 40,
 	project: [2025, 2026],
         name: "Mathias Sagerup",
-        image: "/members/2025/MathiasSagerup.jpg",
+        image: "/members/2026/MathiasSagerup.jpg",
         email: "mathias.sagerup@nordlysntnu.no",
 	history: [
 		{
@@ -587,7 +755,7 @@ export const members = [
         id: 66,
 	project: [2025, 2026],
         name: "Oliver Hovden",
-        image: "/members/2025/OliverHovden.jpg",
+        image: "/members/2026/OliverHovden.jpg",
         email: "oliver.hovden@nordlysntnu.no",
 	history: [
 		{
@@ -602,6 +770,118 @@ export const members = [
 		}
 	]
     },
+	{
+		id: 101,
+		project: [2026],
+		name: "Adrian Hestnes",
+		image: "Members/2026/Adrian.JPG",
+		email: "adrian.hestnes@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
+	{
+		id: 102,
+		project: [2026],
+		name: "Anton Mårtensson",
+		image: "Members/2026/Anton.JPG",
+		email: "anton.mortenson@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
+	{
+		id: 103,
+		project: [2026],
+		name: "Cecilie Nymo Linchausen",
+		image: "Members/2026/Cecilie.JPG",
+		email: "cecilie.linchausen@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
+	{
+		id: 104,
+		project: [2026],
+		name: "Jacob Connelly",
+		image: "Members/2025/Unknown.png",
+		email: "jacob.connely@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
+	{
+		id: 105,
+		project: [2026],
+		name: "Johnny Ngo Nguyen",
+		image: "Members/2026/Johnny.JPG",
+		email: "johnny.nguyen@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
+	{
+		id: 106,
+		project: [2026],
+		name: "María Kristín Ólafsdóttir",
+		image: "Members/2026/Maria.JPG",
+		email: "maria.olafsdottir@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
+	{
+		id: 107,
+		project: [2026],
+		name: "Martin Repvik Olsbø",
+		image: "Members/2026/Martin.JPG",
+		email: "martin.olsbo@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
+	{
+		id: 108,
+		project: [2026],
+		name: "Pier Guido Seno",
+		image: "Members/2026/Pier.JPG",
+		email: "pier.seno@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
 
     //Brand
     {
@@ -646,6 +926,34 @@ export const members = [
 		}
 	]
     },
+    {
+        id: 140,
+		project: [2026],
+        name: "Kolbjørn Klomstad",
+        image: "Members/2026/Kolbjørn.JPG",
+        email: "kolbjorn.klomstad@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Head of Marketing",
+		        group: ["Board", "Brand", "All active members"]
+		}
+	]
+    },
+	{
+		id: 141,
+		project: [2026],
+		name: "Elias Valen",
+		image: "Members/2025/Unknown.png",
+		email: "elias.valen@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+			title: "",
+			group: ["Brand", "All active members"]
+		}
+		]
+	},
 
     //Logistics
     {
@@ -680,7 +988,7 @@ export const members = [
         id: 47,
 	project: [2025, 2026],
         name: "Sigve Isaksen",
-        image: "/members/2025/SigveIsaksen.jpg",
+        image: "/members/2026/SigveIsaksen.jpg",
         email: "sigve.isaksen@nordlysntnu.no",
 	history: [
 		{
