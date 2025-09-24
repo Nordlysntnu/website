@@ -290,6 +290,76 @@ export const members = [
 		}
 	]
     },
+	    {
+	id: 120,
+	project: [2026],
+	name: "Carlos Peña Zorzano",
+    image: "/members/2026/Carlos.JPG",
+	email: "carlos.zorzano@nordlysntnu.no",
+	history: [
+		{
+			year: 2026,
+			title: "Mechanical Engineer",
+			group: ["Mechanical", "All active members"]
+		}
+	]
+    },
+    {
+	id: 121,
+	project: [2026],
+	name: "Fredrik Falk",
+    image: "/members/2026/Fredrik.JPG",
+	email: "fredrik.falk@nordlysntnu.no",
+	history: [
+		{
+			year: 2026,
+			title: "Mechanical Engineer",
+			group: ["Mechanical", "All active members"]
+		}
+	]
+    },
+    {
+		id: 122,
+		project: [2026],
+		name: "Irene Stoltenberg",
+ 	   image: "/members/2026/Irene.JPG",
+		email: "irene.stoltenberg@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Mechanical", "All active members"]
+			}
+		]
+    },
+    {
+		id: 123,
+		project: [2026],
+		name: "Lukas King",
+ 	   image: "/members/2026/Lukas.JPG",
+		email: "lukas.king@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Mechanical", "All active members"]
+			}
+		]
+    },
+    {
+		id: 124,
+		project: [2026],
+		name: "Pranav Lohar",
+ 	   image: "/members/2026/Pranav.JPG",
+		email: "pranav.lohar@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Mechanical", "All active members"]
+			}
+		]
+    },
     {
         id: 132,
 		project: [2026],
