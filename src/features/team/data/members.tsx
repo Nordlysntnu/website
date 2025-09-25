@@ -211,11 +211,6 @@ export const members = [
 			year: 2025,
 		        title: "Mechanical Engineer Suspension",
 		        group: ["Mechanical", "All active members"]
-		},
-		{
-			year: 2026,
-		        title: "Mechanical Engineer Suspension",
-		        group: ["Mechanical", "All active members"]
 		}
 	]
     },
