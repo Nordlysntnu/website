@@ -33,6 +33,8 @@ import NTNU from '@features/partners/sponsor-logos/NTNU.png';
 import Kaercher from '@features/partners/sponsor-logos/Kaercher.png';
 import Permabond from '@features/partners/sponsor-logos/Permabond.png';
 import Altium from '@features/partners/sponsor-logos/Altium.png';
+import Ansys from '@features/partners/sponsor-logos/Ansys.png';
+import EDR from '@features/partners/sponsor-logos/EDR.png';
 
 
 
@@ -185,6 +187,16 @@ export default function About() {
     'Altium': {
       link: 'https://www.altium.com/',
       image: Altium.src,
+      description: ''
+    },
+    'Ansys': {
+      link: 'https://www.ansys.com/',
+      image: Ansys.src,
+      description: ''
+    },
+    'EDR': {
+      link: 'https://edrmedeso.com/',
+      image: EDR.src,
       description: ''
     }
   }
