@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
 import Instagram from '@assets/symbols-and-logos/Instagram.svg';
@@ -36,7 +35,6 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
     return (
         <>
         <div className={styles.container}>
-            // width and height can be updated to better suit the website
             <Image className={styles.image} src={image} alt={`${name}'s profile`} width="300" height="300" />
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
