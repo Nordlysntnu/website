@@ -4,6 +4,8 @@ import Content from './Content';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { useEffect, useRef, useState } from 'react';
 
+//fix
+
 export default function SubPartVideo({ dark, video, poster, title, text, link, linkText }) {
     const videoRef = useRef(null);
     const [shouldLoad, setShouldLoad] = useState(false);
