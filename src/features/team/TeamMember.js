@@ -6,7 +6,7 @@ import ContactRibbon from './ContactRibbon';
 const TeamMember = ({ name, title, image, email, linkedin, phone }) => {
     if (name == "You?") { return (
         <div className={styles.container}>
-            <img className={styles.image} 
+            <Image className={styles.image} 
 		src={image} 
 		alt={`${name}'s profile`} 
 		onClick={() => window.location.href = "/join"}/>
@@ -19,7 +19,8 @@ const TeamMember = ({ name, title, image, email, linkedin, phone }) => {
     );}
     else return (
         <div className={styles.container}>
-            <img className={styles.image} src={image} alt={`${name}'s profile`} />
+            // width and height can be updated to better suit the website
+            <Image className={styles.image} src={image} alt={`${name}'s profile`} width="300" height="300" />
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
