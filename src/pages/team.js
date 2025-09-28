@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Suspense, lazy } from "react";
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import Content from "@shared/components/Content";
@@ -15,19 +14,19 @@ import DoubleImage from "@features/team/DoubleImage";
 
 export default function Team() {
     const [size, setSize] = useState('big');
-    const [imageFront, setImageFront] = useState("/members/group-photos/P2026_Group_fun.jpeg");
-    const [imageBack, setImageBack] = useState("/members/group-photos/P2026_Group.jpeg");
+    const [imageFront, setImageFront] = useState(ImageFrontBig.src);
+    const [imageBack, setImageBack] = useState(ImageBackBig.src);
 
     useEffect(() => {
         function handleResize() {
             if (window.innerWidth <= 600 && size === 'big') {
                 setSize('small');
-                setImageFront("/members/group-photos/P2026_Group_fun.jpeg");
-                setImageBack("/members/group-photos/P2026_Group.jpeg");
+                setImageFront(ImageFrontSmall.src);
+                setImageBack(ImageBackSmall.src);
             } else if (window.innerWidth > 600 && size === 'small') {
                 setSize('big');
-                setImageFront("/members/group-photos/P2026_Group_fun.jpeg");
-                setImageBack("/members/group-photos/P2026_Group.jpeg");
+                setImageFront(ImageFrontBig.src);
+                setImageBack(ImageBackBig.src);
             }
         }
         window.addEventListener('resize', handleResize)
