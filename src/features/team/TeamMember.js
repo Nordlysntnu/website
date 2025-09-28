@@ -18,6 +18,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
     if (name == "You?") { return (
         <div className={styles.container}>
             <Image className={styles.image} 
+            <Image className={styles.image} 
 		src={image} 
 		alt={`${name}'s profile`} 
 		onClick={() => window.location.href = "/join"}/>
