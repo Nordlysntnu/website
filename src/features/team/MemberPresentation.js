@@ -24,7 +24,7 @@ export default function MemberPresentation({ dark }) {
                 </div>
                 <div className={styles.textContainer}>
                     <h1 className={styles.title}>Hans and Wilhelm</h1>
-                    <div className={styles.text}>This past year we have already begun laying the groundworks for Nordlys. Two students of power electronics has written their project and master's theses on the car. Hans has been looking into the choice of motor for the car, a motor system that needs to be both lightweight, fast and energy efficient. Wilhelm has developed a model of the electrical system of the car, simulating the car's expected speed. Now it's time to really delve into the project and the development of the car. Are you with us?</div>
+                    <div className={styles.text}>This past year we have already begun laying the groundworks for Nordlys. Two students of power electronics have written their project and master's theses on the car. Hans has been looking into the choice of motor for the car, a motor system that needs to be both lightweight, fast and energy efficient. Wilhelm has developed a model of the electrical system of the car, simulating the car's expected speed. Now it's time to really delve into the project and the development of the car. Are you with us?</div>
                 <Link href="/join" className={styles.button}>Join</Link>
                 </div>
             </div>
