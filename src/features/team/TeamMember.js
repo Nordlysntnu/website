@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
 
 const TeamMember = ({ name, title, image, email }) => {
@@ -17,7 +18,6 @@ const TeamMember = ({ name, title, image, email }) => {
     );}
     else return (
         <div className={styles.container}>
-            // width and height can be updated to better suit the website
             <Image className={styles.image} src={image} alt={`${name}'s profile`} width="300" height="300" />
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
