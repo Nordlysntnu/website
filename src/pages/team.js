@@ -1,12 +1,13 @@
 import Head from "next/head";
+import { Suspense, lazy } from "react";
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import Content from "@shared/components/Content";
 import DoubleImage from "@features/team/DoubleImage";
-import ImageFrontBig from '../../public/members/group-photos/P2026_Group_fun.jpeg';
-import ImageBackBig from '../../public/members/group-photos/P2026_Group.jpeg';
-import ImageFrontSmall from '../../public/members/group-photos/P2026_Group_fun.jpeg';
-import ImageBackSmall from '../../public/members/group-photos/P2026_Group.jpeg';
+//import ImageFrontBig from '../../public/members/group-photos/P2026_Group_fun.jpeg';
+//import ImageBackBig from '../../public/members/group-photos/P2026_Group.jpeg';
+//import ImageFrontSmall from '../../public/members/group-photos/P2026_Group_fun.jpeg';
+//import ImageBackSmall from '../../public/members/group-photos/P2026_Group.jpeg';
 import Link from 'next/link';
 import styles from '@shared/styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
@@ -14,19 +15,19 @@ import TeamOverview from "@features/team/TeamOverview";
 
 export default function Team() {
     const [size, setSize] = useState('big');
-    const [imageFront, setImageFront] = useState(ImageFrontBig.src);
-    const [imageBack, setImageBack] = useState(ImageBackBig.src);
+    const [imageFront, setImageFront] = useState("/members/group-photos/P2026_Group_fun.jpeg");
+    const [imageBack, setImageBack] = useState("/members/group-photos/P2026_Group.jpeg");
 
     useEffect(() => {
         function handleResize() {
             if (window.innerWidth <= 600 && size === 'big') {
                 setSize('small');
-                setImageFront(ImageFrontSmall.src);
-                setImageBack(ImageBackSmall.src);
+                setImageFront("/members/group-photos/P2026_Group_fun.jpeg");
+                setImageBack("/members/group-photos/P2026_Group.jpeg");
             } else if (window.innerWidth > 600 && size === 'small') {
                 setSize('big');
-                setImageFront(ImageFrontBig.src);
-                setImageBack(ImageBackBig.src);
+                setImageFront("/members/group-photos/P2026_Group_fun.jpeg");
+                setImageBack("/members/group-photos/P2026_Group.jpeg");
             }
         }
         window.addEventListener('resize', handleResize)
