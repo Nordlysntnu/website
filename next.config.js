@@ -1,4 +1,4 @@
-module.exports = {
+const nextConfig = {
     images: {
         unoptimized: true,
     },
