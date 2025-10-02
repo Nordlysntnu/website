@@ -149,11 +149,11 @@ export const members = [
 	]
     },
     {
-        id: 14,
+        id: 15,
 	project: [2025, 2026],
-        name: "Sander Ranbø",
-        image: "/members/2026/Sander.jpg",
-        email: "sander.ranbo@nordlysntnu.no",
+        name: "Paul Gustav Aparicio Lofsberg",
+        image: "/members/2026/Gustav.jpg",
+        email: "paul.lofsberg@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
@@ -162,13 +162,13 @@ export const members = [
 		},
 		{
 			year: 2026,
-		        title: "Coordinator & Mechanical Engineer Suspension",
+		        title: "Group Leader Mechanical",
 		        group: ["Mechanical", "All active members"]
 		}
 	]
     },
     {
-        id: 15,
+        id: 14,
 	project: [2025, 2026],
         name: "Paul Gustav Aparicio Lofsberg",
         image: "/members/2026/Gustav.jpg",
@@ -181,7 +181,7 @@ export const members = [
 		},
 		{
 			year: 2026,
-				title: "Group Leader Mechanical",
+				title: "Coordinator & Mechanical Engineer Steering and Brakes",
 				group: ["Mechanical", "All active members"]
 		}
 	]
