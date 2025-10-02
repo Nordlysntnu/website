@@ -162,8 +162,8 @@ export const members = [
 		},
 		{
 			year: 2026,
-				title: "Group Leader Mechanical",
-				group: ["Mechanical", "All active members"]
+		        title: "Coordinator & Mechanical Engineer Suspension",
+		        group: ["Mechanical", "All active members"]
 		}
 	]
     },
@@ -181,8 +181,8 @@ export const members = [
 		},
 		{
 			year: 2026,
-		        title: "Coordinator & Mechanical Engineer Suspension",
-		        group: ["Mechanical", "All active members"]
+				title: "Group Leader Mechanical",
+				group: ["Mechanical", "All active members"]
 		}
 	]
     },
