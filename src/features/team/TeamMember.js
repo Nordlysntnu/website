@@ -20,7 +20,7 @@ const TeamMember = ({ name, title, image, email, linkedin, phone }) => {
     );}
     else return (
         <div className={styles.container}>
-            <Image className={styles.image} src={image} alt={`${name}'s profile`} width="300" height="300" />
+            <Image className={styles.image} src={image} alt={`${name}'s profile`} />
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
