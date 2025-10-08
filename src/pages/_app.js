@@ -1,13 +1,12 @@
 import '@shared/styles/globals.css';
 import { Rubik, Khand } from 'next/font/google';
 import Script from 'next/script';
-import Head from 'next/head';
 
 const rubik = Rubik({
     subsets: ['latin'],
     weight: ['300', '400', '500', '600', '700', '800', '900'],
     variable: '--font-rubik',
-});
+})
 
 const khand = Khand({
     subsets: ['latin'],
@@ -18,10 +17,6 @@ const khand = Khand({
 export default function App({ Component, pageProps }) {
     return (
         <>
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
-            </Head>
-
             {/* Google tag (gtag.js) */}
 
             <Script
@@ -36,10 +31,12 @@ export default function App({ Component, pageProps }) {
                     gtag('config', 'G-3FFKC00053');
                 `}
             </Script>
+
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
+
             <main className={`${rubik.variable} ${khand.variable}`}>
-                <Component {...pageProps} />
+                <Component {...pageProps}/>
             </main>
-            
         </>
     );
 }
