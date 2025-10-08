@@ -5,8 +5,8 @@ export default function DoubleImage({ imageFront, imageBack }) {
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
-                <Image src={imageFront} width={800} height={500} className={styles.image} laoding="lazy" placeholder="empty" />
-                <Image src={imageBack} width={800} height={500} className={styles.image} laoding="lazy" placeholder="empty" />
+                <Image src={imageFront} className={styles.image} laoding="lazy" placeholder="empty" />
+                <Image src={imageBack} className={styles.image} laoding="lazy" placeholder="empty" />
             </div>
         </div>
     )
