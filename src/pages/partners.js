@@ -35,6 +35,7 @@ import Permabond from '@features/partners/sponsor-logos/Permabond.png';
 import Altium from '@features/partners/sponsor-logos/Altium.png';
 import Ansys from '@features/partners/sponsor-logos/Ansys.png';
 import EDR from '@features/partners/sponsor-logos/EDR.png';
+import CNC from '@features/partners/sponsor-logos/cncc.png';
 
 
 
@@ -197,6 +198,11 @@ export default function About() {
     'EDR': {
       link: 'https://edrmedeso.com/',
       image: EDR.src,
+      description: ''
+    },
+    'CNC Consult': {
+      link: 'https://cncc.no',
+      image: CNC.src,
       description: ''
     }
   }
