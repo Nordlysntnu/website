@@ -166,7 +166,7 @@ const TeamOverview = () => {
             {groupDescriptions[selectedGroup] && (
                 <SubPart1 
                 dark={true} 
-                image={`/images/${selectedGroup}team.png`} 
+                image={`/images/compressed/${selectedGroup}team.jpg`} 
                 title={selectedGroup} 
                 text={groupDescriptions[selectedGroup]} 
                 link="" 
