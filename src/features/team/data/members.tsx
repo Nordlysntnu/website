@@ -203,6 +203,25 @@ export const members = [
 	]
     },
     {
+        id: 15,
+	project: [2025, 2026],
+        name: "Paul Gustav Aparicio Lofsberg",
+        image: "/members/2026/Gustav.jpg",
+        email: "paul.lofsberg@nordlysntnu.no",
+	history: [
+		{
+			year: 2025,
+		        title: "Coordinator & Mechanical Engineer Suspension",
+		        group: ["Mechanical", "All active members"]
+		},
+		{
+			year: 2026,
+		        title: "Coordinator & Mechanical Engineer Suspension",
+		        group: ["Mechanical", "All active members"]
+		}
+	]
+    },
+    {
         id: 16,
 	project: [2025],
         name: "Oscar Skjelvik",
