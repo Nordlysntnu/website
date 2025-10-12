@@ -163,7 +163,7 @@ export const members = [
 	]
     },
     {
-        id: 15,
+        id: 14,
 	project: [2025, 2026],
         name: "Paul Gustav Aparicio Lofsberg",
         image: "/members/2026/compressed/Gustav.jpg",
@@ -172,7 +172,7 @@ export const members = [
 	history: [
 		{
 			year: 2025,
-		        title: "Coordinator & Mechanical Engineer Suspension",
+		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
 		        group: ["Mechanical", "All active members"]
 		},
 		{
@@ -183,7 +183,7 @@ export const members = [
 	]
     },
     {
-        id: 14,
+        id: 15,
 	project: [2025, 2026],
         name: "Sander Ranbø",
         image: "/members/2026/compressed/Sander.jpg",
@@ -192,7 +192,7 @@ export const members = [
 	history: [
 		{
 			year: 2025,
-		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
+		        title: "Coordinator & Mechanical Engineer Suspension",
 		        group: ["Mechanical", "All active members"]
 		},
 		{
