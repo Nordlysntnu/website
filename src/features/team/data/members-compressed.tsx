@@ -5,7 +5,7 @@ export const members = [
         id: 1,
 	project: [2025],
         name: "Sivert Sande Kverme",
-        image: "/members/2025/SivertKverme.jpg",
+        image: "/members/2025/compressed/SivertKverme.jpg",
         email: "sivert.kverme@nordlysntnu.no",
 	history: [
 		{
@@ -19,7 +19,7 @@ export const members = [
         id: 2,
 	project: [2025],
         name: "Aare Hoholm",
-        image: "/members/2025/AareHoholm.jpg",
+        image: "/members/2025/compressed/AareHoholm.jpg",
         email: "aare.hoholm@nordlysntnu.no",
 	history: [
 		{
@@ -33,7 +33,7 @@ export const members = [
         id: 3,
 	project: [2025],
         name: "Sebastian Jacobsen",
-        image: "/members/2025/SebastianJacobsen.jpg",
+        image: "/members/2025/compressed/SebastianJacobsen.jpg",
         email: "sebastian.jacobsen@nordlysntnu.no",
 	history: [
 		{
@@ -47,7 +47,7 @@ export const members = [
         id: 4,
 	project: [2025],
         name: "Maren Henæs Sand",
-        image: "/members/2025/MarenSand.jpg",
+        image: "/members/2025/compressed/MarenSand.jpg",
         email: "maren.sand@nordlysntnu.no",
 	history: [
 		{
@@ -61,7 +61,7 @@ export const members = [
         id: 5,
 	project: [2025],
         name: "Erik Fougner Arnesen",
-        image: "/members/2025/ErikArnesen.jpg",
+        image: "/members/2025/compressed/ErikArnesen.jpg",
         email: "erik.arnesen@nordlysntnu.no",
 	history: [
 		{
@@ -96,7 +96,7 @@ export const members = [
         id: 7,
 	project: [2025],
         name: "Daniel Nicolai Grønn",
-        image: "/members/2025/DanielGrønn.jpg",
+        image: "/members/2025/compressed/DanielGrønn.jpg",
         email: "daniel.gronn@nordlysntnu.no",
 	history: [
 		{
@@ -110,7 +110,7 @@ export const members = [
         id: 8,
 	project: [2025],
         name: "Tord Østmo",
-        image: "/members/2025/TordØstmo.jpg",
+        image: "/members/2025/compressed/TordØstmo.jpg",
         email: "tord.ostmo@nordlysntnu.no",
 	history: [
 		{
@@ -124,7 +124,7 @@ export const members = [
         id: 11,
 	project: [2025],
         name: "Julian Boerakker",
-        image: "/members/2025/JulianBoerakker.jpg",
+        image: "/members/2025/compressed/JulianBoerakker.jpg",
         email: "julian.boerakker@nordlysntnu.no",
 	history: [
 		{
@@ -138,7 +138,7 @@ export const members = [
         id: 13,
 	project: [2025],
         name: "Cato Bergan",
-        image: "/members/2025/CatoBergan.jpg",
+        image: "/members/2025/compressed/CatoBergan.jpg",
         email: "cato.bergan@nordlysntnu.no",
 	history: [
 		{
@@ -190,7 +190,7 @@ export const members = [
         id: 16,
 	project: [2025],
         name: "Oscar Skjelvik",
-        image: "/members/2025/OscarSkjelvik.jpg",
+        image: "/members/2025/compressed/OscarSkjelvik.jpg",
         email: "oscar.skjelvik@nordlysntnu.no",
 	history: [
 		{
@@ -204,7 +204,7 @@ export const members = [
         id: 17,
 	project: [2025],
         name: "Aslak Aarflot Jønsson",
-        image: "/members/2025/AslakJønsson.jpg",
+        image: "/members/2025/compressed/AslakJønsson.jpg",
         email: "aslak.jonsson@nordlysntnu.no",
 	history: [
 		{
@@ -218,7 +218,7 @@ export const members = [
         id: 18,
 	project: [2025],
         name: "Joachim Gulliksen",
-        image: "/members/2025/JoachimGulliksen.jpg",
+        image: "/members/2025/compressed/JoachimGulliksen.jpg",
         email: "joachim.gulliksen@nordlysntnu.no",
 	history: [
 		{
@@ -232,7 +232,7 @@ export const members = [
         id: 19,
 	project: [2025],
         name: "Sjur Weider",
-        image: "/members/2025/SjurWeider.jpg",
+        image: "/members/2025/compressed/SjurWeider.jpg",
         email: "sjur.weider@nordlysntnu.no",
 	history: [
 		{
@@ -260,7 +260,7 @@ export const members = [
         id: 65,
 	project: [2025],
         name: "Andreas Olaisen",
-        image: "/members/2025/AndreasOlaisen.jpg",
+        image: "/members/2025/compressed/AndreasOlaisen.jpg",
         email: "andreas.olaisen@nordlysntnu.no",
 	history: [
 		{
@@ -435,7 +435,7 @@ export const members = [
         id: 21,
 	project: [2025],
         name: "Sukhman Singh Sidhu",
-        image: "/members/2025/SukhmanSidhu.jpg",
+        image: "/members/2025/compressed/SukhmanSidhu.jpg",
         email: "sukhman.sidhu@nordlysntnu.no",
 	history: [
 		{
@@ -468,7 +468,7 @@ export const members = [
         id: 23,
 	project: [2025],
         name: "Odin Sandlie Mellingsæter",
-        image: "/members/2025/OdinMellingsæter.jpg",
+        image: "/members/2025/compressed/OdinMellingsæter.jpg",
         email: "odin.mellingsaeter@nordlysntnu.no",
 	history: [
 		{
@@ -482,7 +482,7 @@ export const members = [
         id: 24,
 	project: [2025],
         name: "Øystein Økland",
-        image: "/members/2025/ØysteinØkland.jpg",
+        image: "/members/2025/compressed/ØysteinØkland.jpg",
         email: "oystein.okland@nordlysntnu.no",
 	history: [
 		{
@@ -496,7 +496,7 @@ export const members = [
         id: 25,
 	project: [2025, 2026],
         name: "Georg Hofstad",
-        image: "/members/2025/GeorgHofstad.jpg",
+        image: "/members/2025/compressed/GeorgHofstad.jpg",
         email: "georg.hofstad@nordlysntnu.no",
 	history: [
 		{
@@ -515,7 +515,7 @@ export const members = [
         id: 26,
 	project: [2025],
         name: "Sander Mikkelhaug",
-        image: "/members/2025/SanderMikkelhaug.jpg",
+        image: "/members/2025/compressed/SanderMikkelhaug.jpg",
         email: "sander.mikkelhaug@nordlysntnu.no",
 	history: [
 		{
@@ -529,7 +529,7 @@ export const members = [
         id: 27,
 	project: [2025],
         name: "Natalia Chwiejczak",
-        image: "/members/2025/NataliaChwiejczak.jpg",
+        image: "/members/2025/compressed/NataliaChwiejczak.jpg",
         email: "natalia.chwiejczak@nordlysntnu.no",
 	history: [
 		{
@@ -543,7 +543,7 @@ export const members = [
         id: 28,
 	project: [2025],
         name: "Elias Alsos",
-        image: "/members/2025/EliasAlsos.jpg",
+        image: "/members/2025/compressed/EliasAlsos.jpg",
         email: "elias.alsos@nordlysntnu.no",
 	history: [
 		{
@@ -557,7 +557,7 @@ export const members = [
         id: 29,
 	project: [2025],
         name: "Simon Jaccard Buggeland",
-        image: "/members/2025/SimonBuggeland.jpg",
+        image: "/members/2025/compressed/SimonBuggeland.jpg",
         email: "simon.buggeland@nordlysntnu.no",
 	history: [
 		{
@@ -571,7 +571,7 @@ export const members = [
         id: 30,
 	project: [2025],
         name: "Vetle Vatnem",
-        image: "/members/2025/VetleVatnem.jpg",
+        image: "/members/2025/compressed/VetleVatnem.jpg",
         email: "vetle.vatnem@nordlysntnu.no",
 	history: [
 		{
@@ -585,7 +585,7 @@ export const members = [
         id: 31,
 	project: [2025],
         name: "Johanne Mjøs Bertelsen",
-        image: "/members/2025/JohanneBertelsen.jpg",
+        image: "/members/2025/compressed/JohanneBertelsen.jpg",
         email: "johanne.bertelsen@nordlysntnu.no",
 	history: [
 		{
@@ -599,7 +599,7 @@ export const members = [
         id: 32,
 	project: [2025],
         name: "Markus Emil Eriksson",
-        image: "/members/2025/MarkusEriksson.jpg",
+        image: "/members/2025/compressed/MarkusEriksson.jpg",
         email: "markus.eriksson@nordlysntnu.no",
 	history: [
 		{
@@ -613,7 +613,7 @@ export const members = [
         id: 33,
 	project: [2025],
         name: "Ivar Hansgård",
-        image: "/members/2025/IvarHansgård.jpg",
+        image: "/members/2025/compressed/IvarHansgård.jpg",
         email: "ivar.hansgaard@nordlysntnu.no",
 	history: [
 		{
@@ -727,7 +727,7 @@ export const members = [
         id: 34,
 	project: [2025],
         name: "Jakob Behrens",
-        image: "/members/2025/JakobBehrens.jpg",
+        image: "/members/2025/compressed/JakobBehrens.jpg",
         email: "jakob.behrens@nordlysntnu.no",
 	history: [
 		{
@@ -741,7 +741,7 @@ export const members = [
         id: 35,
 	project: [2025],
         name: "Bjørn Vik Henriksen",
-        image: "/members/2025/BjørnHenriksen.jpg",
+        image: "/members/2025/compressed/BjørnHenriksen.jpg",
         email: "bjorn.henriksen@nordlysntnu.no",
 	history: [
 		{
@@ -755,7 +755,7 @@ export const members = [
         id: 38,
 	project: [2025],
         name: "Natalie Vo",
-        image: "/members/2025/NatalieVo.jpg",
+        image: "/members/2025/compressed/NatalieVo.jpg",
         email: "natalie.vo@nordlysntnu.no",
 	history: [
 		{
@@ -769,7 +769,7 @@ export const members = [
         id: 39,
 	project: [2025, 2026],
         name: "Paul Våge",
-        image: "/members/2025/PaulVåge.jpg",
+        image: "/members/2025/compressed/PaulVåge.jpg",
         email: "paul.vaage@nordlysntnu.no",
 	history: [
 		{
@@ -807,7 +807,7 @@ export const members = [
         id: 65,
 	project: [2025],
         name: "Aleksander Kvitle",
-        image: "/members/2025/AleksanderKvitle.jpg",
+        image: "/members/2025/compressed/AleksanderKvitle.jpg",
         email: "aleksander.kvitle@nordlysntnu.no",
 	history: [
 		{
@@ -954,7 +954,7 @@ export const members = [
         id: 41,
 	project: [2025],
         name: "Johannes Tunli Moe",
-        image: "/members/2025/JohannesMoe.jpg",
+        image: "/members/2025/compressed/JohannesMoe.jpg",
         email: "johannes.moe@nordlysntnu.no",
 	history: [
 		{
@@ -968,7 +968,7 @@ export const members = [
         id: 43,
 	project: [2025],
         name: "Leonardo Lind-Milekvist",
-        image: "/members/2025/LeonardoLind-Milekvist.jpg",
+        image: "/members/2025/compressed/LeonardoLind-Milekvist.jpg",
         email: "leonardo.lind-milekvist@nordlysntnu.no",
 	history: [
 		{
@@ -982,7 +982,7 @@ export const members = [
         id: 44,
 	project: [2025],
         name: "Emil Vellan",
-        image: "/members/2025/EmilVellan.jpg",
+        image: "/members/2025/compressed/EmilVellan.jpg",
         email: "emil.vellan@nordlysntnu.no",
 	history: [
 		{
@@ -1026,7 +1026,7 @@ export const members = [
         id: 45,
 	project: [2025],
         name: "Hedda Christine Reinskou",
-        image: "/members/2025/HeddaReinskou.jpg",
+        image: "/members/2025/compressed/HeddaReinskou.jpg",
         email: "hedda.reinskou@nordlysntnu.no",
 	history: [
 		{
@@ -1040,7 +1040,7 @@ export const members = [
         id: 46,
 	project: [2025],
         name: "Sven Amberg",
-        image: "/members/2025/SvenAmberg.jpg",
+        image: "/members/2025/compressed/SvenAmberg.jpg",
         email: "sven.amberg@nordlysntnu.no",
 	history: [
 		{
@@ -1054,7 +1054,7 @@ export const members = [
         id: 47,
 	project: [2025, 2026],
         name: "Sigve Isaksen",
-        image: "/members/2026/Sigve.jpg",
+        image: "/members/2026/compressed/Sigve.jpg",
         email: "sigve.isaksen@nordlysntnu.no",
 	history: [
 		{
@@ -1075,7 +1075,7 @@ export const members = [
         id: 48, 
 	project: [2025],
         name: 'Shivaraj Chandrakant Patil', 
-        image: '/members/2025/ShivarajPatil.jpg', 
+        image: '/members/2025/compressed/ShivarajPatil.jpg', 
         email: 'shivaraj.c.patil@ntnu.no', 
 	history: [
 		{
@@ -1091,7 +1091,7 @@ export const members = [
         id: 49, 
 	project: [2025],
         name: 'Aurora Vinslid', 
-        image: '/members/2024/AuroraVinslid.jpg', 
+        image: '/members/2024/compressed/AuroraVinslid.jpg', 
         email: 'aurora.vinslid@nordlysntnu.no', 
 	history: [
 		{
@@ -1105,7 +1105,7 @@ export const members = [
         id: 50, 
 	project: [2025],
         name: 'Oliver Meijer Angerman', 
-        image: '/members/2024/OliverAngerman.jpg', 
+        image: '/members/2024/compressed/OliverAngerman.jpg', 
         email: 'oliver.angerman@nordlysntnu.no', 
 	history: [
 		{
@@ -1119,7 +1119,7 @@ export const members = [
         id: 51, 
 	project: [2025],
         name: 'Emil Blom Ørnes', 
-        image: '/members/2024/EmilØrnes.jpg', 
+        image: '/members/2024/compressed/EmilØrnes.jpg', 
         email: 'emil.ornes@nordlysntnu.no', 
 	history: [
 		{
@@ -1133,7 +1133,7 @@ export const members = [
         id: 52, 
 	project: [2025],
         name: 'Benjamin Tryggestad', 
-        image: '/members/2024/BenjaminTryggestad.jpg', 
+        image: '/members/2024/compressed/BenjaminTryggestad.jpg', 
         email: 'benjamin.tryggestad@nordlysntnu.no', 
 	history: [
 		{
@@ -1147,7 +1147,7 @@ export const members = [
         id: 53, 
 	project: [2025],
         name: 'Immanuel Leps', 
-        image: '/members/2024/ImmanuelLeps.jpg', 
+        image: '/members/2024/compressed/ImmanuelLeps.jpg', 
         email: 'immanuel.leps@nordlysntnu.no', 
 	history: [
 		{
@@ -1161,7 +1161,7 @@ export const members = [
         id: 54, 
 	project: [2025],
         name: 'Mathieu Pelissier', 
-        image: '/members/2024/MathieuPelissier.jpg', 
+        image: '/members/2024/compressed/MathieuPelissier.jpg', 
         email: 'mathieu.pelissier@nordlysntnu.no', 
 	history: [
 		{
@@ -1175,7 +1175,7 @@ export const members = [
         id: 55, 
 	project: [2025],
         name: 'Erik Kristoffer Øhlckers', 
-        image: '/members/2024/KristofferØhlckers.jpg', 
+        image: '/members/2024/compressed/KristofferØhlckers.jpg', 
         email: 'erik.ohlckers@nordlysntnu.no' ,
 	history: [
 		{
@@ -1189,7 +1189,7 @@ export const members = [
         id: 56, 
 	project: [2025],
         name: 'Kristian Østensen', 
-        image: '/members/2024/KristianØstensen.jpg', 
+        image: '/members/2024/compressed/KristianØstensen.jpg', 
         email: 'kristian.ostensen@nordlysntnu.no', 
 	history: [
 		{
@@ -1203,7 +1203,7 @@ export const members = [
         id: 57, 
 	project: [2025],
         name: 'Andrea Al Muktash', 
-        image: '/members/2024/AndreaAlMuktash.jpg', 
+        image: '/members/2024/compressed/AndreaAlMuktash.jpg', 
         email: 'andrea.almuktash@nordlysntnu.no', 
 	history: [
 		{
@@ -1217,7 +1217,7 @@ export const members = [
         id: 58, 
 	project: [2025],
         name: 'Darius Salehi', 
-        image: '/members/2024/DariusSalehi.jpg', 
+        image: '/members/2024/compressed/DariusSalehi.jpg', 
         email: 'darius.salehi@nordlysntnu.no', 
 	history: [
 		{
@@ -1231,7 +1231,7 @@ export const members = [
         id: 59, 
 	project: [2025],
         name: 'Boris Bajla', 
-        image: '/members/2024/BorisBajla.jpg', 
+        image: '/members/2024/compressed/BorisBajla.jpg', 
         email: 'boris.bajla@nordlysntnu.no', 
 	history: [
 		{
@@ -1245,7 +1245,7 @@ export const members = [
         id: 60, 
 	project: [2025],
         name: 'Mathilde Skaset-Haarr', 
-        image: '/members/2024/MathildeSkaset-Haarr.jpg', 
+        image: '/members/2024/compressed/MathildeSkaset-Haarr.jpg', 
         email: 'mathilde.skaset-haarr@nordlysntnu.no', 
 	history: [
 		{
@@ -1259,7 +1259,7 @@ export const members = [
         id: 61, 
 	project: [2025],
         name: 'Johan Storesund', 
-        image: '/members/2024/JohanStoresund.jpg', 
+        image: '/members/2024/compressed/JohanStoresund.jpg', 
         email: 'johan.storesund@nordlysntnu.no', 
 	history: [
 		{
@@ -1273,7 +1273,7 @@ export const members = [
         id: 62, 
 	project: [2025],
         name: 'Birger Christopher Stein Bjelke', 
-        image: '/members/2024/BirgerBjelke.jpg', 
+        image: '/members/2024/compressed/BirgerBjelke.jpg', 
         email: 'birger.bjelke@nordlysntnu.no', 
 	history: [
 		{
@@ -1287,7 +1287,7 @@ export const members = [
         id: 63, 
 	project: [2025],
         name: 'Hilmi Furkan Yasik', 
-        image: '/members/2024/HilmiYasik.jpg', 
+        image: '/members/2024/compressed/HilmiYasik.jpg', 
         email: 'hilmi.yasik@nordlysntnu.no', 
 	history: [
 		{
@@ -1301,7 +1301,7 @@ export const members = [
         id: 9,
 	project: [2025],
         name: "Mats Ørbekk",
-        image: "/members/2025/MatsØrbekk.jpg",
+        image: "/members/2025/compressed/MatsØrbekk.jpg",
         email: "mats.ørbekk@nordlysntnu.no",
 	history: [
 		{
@@ -1315,7 +1315,7 @@ export const members = [
         id: 37,
 	project: [2025],
         name: "Nicolai Nome Sommervold",
-        image: "/members/2025/NicolaiSommervold.jpg",
+        image: "/members/2025/compresssed/NicolaiSommervold.jpg",
         email: "nicolai.sommervold@nordlysntnu.no",
 	history: [
 		{
@@ -1329,7 +1329,7 @@ export const members = [
         id: 12,
 	project: [2025],
         name: "Eléa Cervera",
-        image: "/members/2025/EléaCervera.jpg",
+        image: "/members/2025/compressed/EléaCervera.jpg",
         email: "eléa.cervera@nordlysntnu.no",
 	history: [
 		{
@@ -1343,7 +1343,7 @@ export const members = [
         id: 42,
 	project: [2025],
         name: "Stine Andreassen",
-        image: "/members/2025/StineAndreassen.jpg",
+        image: "/members/2025/compressed/StineAndreassen.jpg",
         email: "stine.andreassen@nordlysntnu.no",
 	history: [
 		{
@@ -1357,7 +1357,7 @@ export const members = [
         id: 10,
 	project: [2025],
         name: "Anders Nyhus Røsbjørgen",
-        image: "/members/2025/AndersRøsbjørgen.jpg",
+        image: "/members/2025/compressed/AndersRøsbjørgen.jpg",
         email: "anders.rosbjorgen@nordlysntnu.no",
 	history: [
 		{
@@ -1371,7 +1371,7 @@ export const members = [
         id: 36,
 	project: [2025],
         name: "Eirik Reiestad",
-        image: "/members/2025/EirikReiestad.jpg",
+        image: "/members/2025/compressed/EirikReiestad.jpg",
         email: "eirik.reiestad@nordlysntnu.no",
 	history: [
 		{
