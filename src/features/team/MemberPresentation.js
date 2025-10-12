@@ -1,7 +1,7 @@
 import Content from '@shared/components/Content';
 import styles from './styles/MemberPresentation.module.css';
-import Hans from '../../../public/members/HansDreyerHysing.jpg';
-import Wilhelm from '../../../public/members/WilhelmBorgersen.jpg';
+import Hans from '../../../public/members/HansDreyerHysing-compressed.jpg';
+import Wilhelm from '../../../public/members/WilhelmBorgersen-compressed.jpg';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import Image from 'next/image'
 import Link from 'next/link';
