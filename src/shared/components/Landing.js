@@ -6,7 +6,7 @@ export default function Landing() {
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
-                <video autoPlay muted loop playsInline poster="/posters/Ribbon.png" className={styles.ribbon}>
+                <video autoPlay muted loop playsInline poster="/posters/compressed/Ribbon.png" className={styles.ribbon}>
                     <source src="/videos/RibbonWStars.mp4" type="video/mp4" />
                 </video>
             </div>
