@@ -68,7 +68,7 @@
 }
 
 .clickable {
-    cursor: zoom-in;
+    cursor: pointer;
     transition: transform 0.2s ease;
 }
 
