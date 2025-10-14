@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
 import Instagram from '@assets/symbols-and-logos/Instagram.svg';
@@ -14,7 +15,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
-    
+
     if (name == "You?") { return (
         <div className={styles.container}>
             <Image className={styles.image} 
@@ -32,7 +33,11 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
 
     return (
         <>
+
+    return (
+        <>
         <div className={styles.container}>
+            <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => setIsModalOpen(true)}/>
             <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => setIsModalOpen(true)}/>
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
@@ -40,6 +45,18 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
                 <ContactRibbon email={email} linkedin={linkedin} phone={phone} />
             </div>
         </div>
+
+        {isModalOpen && (
+            <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
+                <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                    <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
+                        x
+                    </button>
+                    <Image src={fullImage || image} alt={`${name}'s profile (full size)`} fill className={styles.fullImage}/>
+                </div>
+            </div>
+        )}
+        </>
 
         {isModalOpen && (
             <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
