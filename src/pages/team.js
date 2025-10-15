@@ -2,15 +2,15 @@ import Head from "next/head";
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import Content from "@shared/components/Content";
-import DoubleImage from "@features/team/DoubleImage";
-import ImageFrontBig from '../../public/members/group-photos/P2026_Group_fun.jpeg';
-import ImageBackBig from '../../public/members/group-photos/P2026_Group.jpeg';
-import ImageFrontSmall from '../../public/members/group-photos/P2026_Group_fun.jpeg';
-import ImageBackSmall from '../../public/members/group-photos/P2026_Group.jpeg';
 import Link from 'next/link';
+import ImageFrontBig from '../../public/members/group-photos/compressed/P2026_Group_fun.jpg';
+import ImageBackBig from '../../public/members/group-photos/compressed/P2026_Group.jpg';
+import ImageFrontSmall from '../../public/members/group-photos/compressed/P2026_Group_fun.jpg';
+import ImageBackSmall from '../../public/members/group-photos/compressed/P2026_Group.jpg';
 import styles from '@shared/styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
 import TeamOverview from "@features/team/TeamOverview";
+import DoubleImage from "@features/team/DoubleImage";
 
 export default function Team() {
     const [size, setSize] = useState('big');

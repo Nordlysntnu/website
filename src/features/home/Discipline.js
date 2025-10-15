@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Image from 'next/image'
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import styles from './styles/Discipline.module.css';
 import Link from 'next/link';
@@ -9,7 +10,7 @@ export default function Discipline({ title, image, delay }) {
         <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce delay={delay ? delay : 0}>
             <Link href={`/team?group=${teamSlug}`} className={styles.container}>
                 <div className={styles.imageContainer}>
-                    <img src={image} className={styles.image} />
+                    <Image src={image} className={styles.image} />
                 </div>
                 <div className={styles.title}>{title}</div>
             </Link>

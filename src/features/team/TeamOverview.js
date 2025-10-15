@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import TeamGroup from './TeamGroup';
-import { members } from './data/members';
+import { members } from './data/members-compressed';
 import styles from './styles/TeamOverview.module.css';
 import SubPart1 from '@shared/components/SubPart1';
 import { useRouter } from 'next/router';
@@ -166,7 +166,7 @@ const TeamOverview = () => {
             {groupDescriptions[selectedGroup] && (
                 <SubPart1 
                 dark={true} 
-                image={`/images/${selectedGroup}team.png`} 
+                image={`/images/compressed/${selectedGroup}team.jpg`} 
                 title={selectedGroup} 
                 text={groupDescriptions[selectedGroup]} 
                 link="" 
