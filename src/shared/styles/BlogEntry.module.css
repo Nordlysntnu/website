@@ -9,6 +9,10 @@
 }
 
 .blogEntry p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
   margin: auto;
   max-width: 100%;
   text-align: justify;       /* makes text aligned evenly */
