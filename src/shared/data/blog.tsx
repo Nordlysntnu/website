@@ -55,7 +55,10 @@ Sebastian Stigar and Georgios Pantazidis provided us with valuable insights into
 - Commercial strategy 
 We found it very interesting and had the opportunity to ask many questions, receiving great answers to everything we were curious about.
 ⚡ We appreciate that they took the time to share their expertise with us. 🙏`,
-		images: ["/blog/brynaarflot.jpg"],
+		images: [
+			"/blog/brynaarflot.jpg",
+			"/blog/bryn-bilde2.gif"
+		],
 		date: "April 2025"
 	}
 ]
