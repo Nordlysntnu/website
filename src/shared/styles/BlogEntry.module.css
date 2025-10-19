@@ -107,12 +107,3 @@
   justify-content: center;
   border-radius: 8px;
 }
-
-@media (max-width: 600px) {
-  .imageGrid[data-count="3"], 
-  .imageGrid[data-count="4"] {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-template-areas: none;
-  }
-}
