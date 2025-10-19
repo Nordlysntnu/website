@@ -32,7 +32,7 @@ Thank you for championing sustainable technology! ☀️ 🏎️`,
 			"/blog/unveiling.jpg",
 			"/blog/1746109403934.jpeg",
 			"/blog/1746109404280.jpeg",
-
+			"/blog/1746109404461.jpeg"
 		],
 		date: "April 2025"
 	},
