@@ -163,29 +163,11 @@ export const members = [
 	]
     },
     {
-        id: 14,
-	project: [2025, 2026],
-        name: "Sander Ranbø",
-        image: "/members/2026/Sander.jpg",
-        email: "sander.ranbo@nordlysntnu.no",
-	history: [
-		{
-			year: 2025,
-		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
-		        group: ["Mechanical", "All active members"]
-		},
-		{
-			year: 2026,
-				title: "Group Leader Mechanical",
-				group: ["Mechanical", "All active members"]
-		}
-	]
-    },
-    {
         id: 15,
 	project: [2025, 2026],
         name: "Paul Gustav Aparicio Lofsberg",
-        image: "/members/2026/Gustav.jpg",
+        image: "/members/2026/compressed/Gustav.jpg",
+		fullImage: "/members/2026/Gustav.jpg",
         email: "paul.lofsberg@nordlysntnu.no",
 	history: [
 		{
@@ -197,6 +179,26 @@ export const members = [
 			year: 2026,
 		        title: "Coordinator & Mechanical Engineer Suspension",
 		        group: ["Mechanical", "All active members"]
+		}
+	]
+    },
+    {
+        id: 14,
+	project: [2025, 2026],
+        name: "Sander Ranbø",
+        image: "/members/2026/compressed/Sander.jpg",
+		fullImage: "/members/2026/Sander.jpg",
+        email: "sander.ranbo@nordlysntnu.no",
+	history: [
+		{
+			year: 2025,
+		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
+		        group: ["Mechanical", "All active members"]
+		},
+		{
+			year: 2026,
+				title: "Group Leader Mechanical",
+				group: ["Mechanical", "All active members"]
 		}
 	]
     },
@@ -1400,7 +1402,7 @@ export const members = [
         id: 37,
 	project: [2025],
         name: "Nicolai Nome Sommervold",
-        image: "/members/2025/compressed/NicolaiSommervold.jpg",
+        image: "/members/2025/compresssed/NicolaiSommervold.jpg",
 		fullImage: "/members/2025/NicolaiSommervold.jpg",
         email: "nicolai.sommervold@nordlysntnu.no",
 	history: [
