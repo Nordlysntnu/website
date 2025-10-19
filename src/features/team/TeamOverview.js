@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import TeamGroup from './TeamGroup';
-import { members } from './data/members-compressed';
+import { members } from './data/members';
 import styles from './styles/TeamOverview.module.css';
 import SubPart1 from '@shared/components/SubPart1';
 import { useRouter } from 'next/router';
