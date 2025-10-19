@@ -24,7 +24,7 @@ export default function Blog() {
 			        	return <div style={{"margin-bottom": "3pc"}}>
 						 <BlogEntry
                             			 text={blog.text}
-                            			 image={blog.image} 
+                            			 images={blog.images} 
 						 date={blog.date}/>
 					       </div>
 			        })}
