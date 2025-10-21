@@ -15,7 +15,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
 
-const TeamMember = ({ name, title, image, fullImage, email }) => {
+const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
