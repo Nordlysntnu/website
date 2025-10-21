@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './styles/TeamMember.module.css';
+import Instagram from '@assets/symbols-and-logos/Instagram.svg';
+import ContactRibbon from './ContactRibbon';
 
-const TeamMember = ({ name, title, image, email }) => {
+const TeamMember = ({ name, title, image, email, linkedin, phone }) => {
     if (name == "You?") { return (
         <div className={styles.container}>
             <img className={styles.image} 
@@ -21,7 +23,7 @@ const TeamMember = ({ name, title, image, email }) => {
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
-                <a href={`mailto:${email}`} className={styles.link}>Contact</a>
+                <ContactRibbon email={email} linkedin={linkedin} phone={phone} />
             </div>
         </div>
     );
