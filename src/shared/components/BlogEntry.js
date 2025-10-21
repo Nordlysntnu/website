@@ -5,7 +5,9 @@ import Image from 'next/image';
 	<div className={styles.blogEntry}>
 		<h1>{date}</h1>
 		<p>{text}</p>
-		<Image src={image} alt="failed" />
+		<div className={styles.imageWrapper}>
+			<Image src={image} alt="Blog image" width={0} height={0} sizes="100vw" className={styles.image} />
+		</div>
 	</div>
 	);
 };
