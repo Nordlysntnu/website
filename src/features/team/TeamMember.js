@@ -14,7 +14,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, []);
-
+    
     if (name == "You?") { return (
         <div className={styles.container}>
             <Image className={styles.image} 
