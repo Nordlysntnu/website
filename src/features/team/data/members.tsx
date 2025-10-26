@@ -1398,7 +1398,7 @@ export const members = [
         id: 37,
 	project: [2025],
         name: "Nicolai Nome Sommervold",
-        image: "/members/2025/compresssed/NicolaiSommervold.jpg",
+        image: "/members/2025/compressed/NicolaiSommervold.jpg",
 		fullImage: "/members/2025/NicolaiSommervold.jpg",
         email: "nicolai.sommervold@nordlysntnu.no",
 	history: [
