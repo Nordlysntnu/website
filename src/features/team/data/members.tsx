@@ -8,6 +8,8 @@ export const members = [
         image: "/members/2025/compressed/SivertKverme.jpg",
 		fullImage: "/members/2025/SivertKverme.jpg",
         email: "sivert.kverme@nordlysntnu.no",
+		linkedin: "sivert.kverme@nordlysntnu.no",
+		phone: "sivert.kverme@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
@@ -23,6 +25,7 @@ export const members = [
         image: "/members/2025/compressed/AareHoholm.jpg",
 		fullImage: "/members/2025/AareHoholm.jpg",
         email: "aare.hoholm@nordlysntnu.no",
+		phone: "sivert.kverme@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
@@ -38,6 +41,7 @@ export const members = [
         image: "/members/2025/compressed/SebastianJacobsen.jpg",
 		fullImage: "/members/2025/SebastianJacobsen.jpg",
         email: "sebastian.jacobsen@nordlysntnu.no",
+		linkedin: "sivert.kverme@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,

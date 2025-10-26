@@ -1,6 +1,6 @@
-import Email from '@assets/symbols-and-logos/email.svg'
+import Email from '@assets/symbols-and-logos/Email.svg'
 import Linkedin from '@assets/symbols-and-logos/Linkedin.svg'
-import Phone from '@assets/symbols-and-logos/telephone.svg'
+import Phone from '@assets/symbols-and-logos/Phone.svg'
 import styles from './styles/ContactRibbon.module.css'
 
 export default function ContactRibbon( {email, linkedin, phone}) {
