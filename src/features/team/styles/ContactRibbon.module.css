@@ -29,6 +29,8 @@
 
 .icon img {
     height: 1.2em;
+    width: auto;
+    display: block;
 }
 
 .icon:last-of-type {
