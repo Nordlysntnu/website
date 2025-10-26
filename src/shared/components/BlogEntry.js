@@ -1,11 +1,14 @@
 import styles from '../styles/BlogEntry.module.css';
+import Image from 'next/image';
 
 const BlogEntry = ({ text, image, date }) => {
 	return (
 	<div className={styles.blogEntry}>
 		<h1>{date}</h1>
 		<p>{text}</p>
-		<img src={image} alt="failed" />
+		<div className={styles.imageWrapper}>
+			<Image src={image} alt="Blog image" width={0} height={0} sizes="100vw" className={styles.image} />
+		</div>
 	</div>
 	);
 }

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import styles from '../styles/SubPart1.module.css';
 import Content from './Content';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { useEffect, useRef, useState } from 'react';
+
 
 export default function SubPartVideo({ dark, video, poster, title, text, link, linkText }) {
     return (
