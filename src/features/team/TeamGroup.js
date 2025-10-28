@@ -14,6 +14,7 @@ const TeamGroup = ({ year, members }) => {
                         name={member.name}
                         title={currentTitle}
                         image={member.image}
+                        fullImage={member.fullImage}
                         email={member.email}
                     />
                 })}

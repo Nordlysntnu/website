@@ -1,6 +1,6 @@
 .blogEntry {
 	width: 100%;
-	margin: 0rem auto;         /* centers the box horizontally with spacing */
+	margin: 0 auto;         /* centers the box horizontally with spacing */
 	/*margin-bottom: 5rem;*/
 	padding: 1.5rem;           /* spacing inside the box */
   	border: 2px solid #ccc;    /* border around the box */
@@ -36,10 +36,15 @@
   border-radius: 8px;        /* optional: smooth edges */
 }
 
+.imageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .image {
 	width: 100%;
-	display: block;
-	margin: 0 auto;
-	height: auto;
-	border-radius:	1em;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
 }

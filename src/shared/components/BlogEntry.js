@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/BlogEntry.module.css';
+import Image from 'next/image';
 
 const BlogEntry = ({ text, image, date }) => {
 	
@@ -12,7 +13,7 @@ const BlogEntry = ({ text, image, date }) => {
 			<p>{text}</p>
 			<p styles={{'color': 'red'}}>Show more</p>
 		</span>
-		<img src={image} alt="failed" />
+		<Image src={image} alt="Blog image" width={0} height={0} sizes="100vw" className={styles.image} />
 	</div>
 	);
 }

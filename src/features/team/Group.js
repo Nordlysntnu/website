@@ -2,6 +2,7 @@ import styles from './styles/Group.module.css'
 import { useState, useRef, useEffect } from "react";
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import "animate.css/animate.min.css";
+import Image from 'next/image';
 
 export default function Group({ image, groupName, theses, description }) {
     const [path, setPath] = useState(styles.openIcon)
@@ -38,7 +39,7 @@ export default function Group({ image, groupName, theses, description }) {
         <AnimationOnScroll animateIn="animate__fadeInUp" offset={50} animateOnce >
         <div className={styles.group} onClick={handleClick}>
             <h2 className={styles.titleContainer}>
-                <img className={styles.titleImage} src={image} />
+                <Image className={styles.titleImage} src={image} />
                 {groupName}
                 <div className={styles.fillContainer}></div>
                 <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" fill="none">
