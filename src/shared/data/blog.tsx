@@ -1,5 +1,15 @@
 export const blogs = [
 	{
+		text: "Some shots of Lumholtz from our test drive at Dragvoll NTNU ☀️ #SolarRacing #NordlysNTNU",
+		images: ["/blog/dragvoll5.jpg", "/blog/dragvoll1.jpg", "/blog/dragvoll2.jpg", "/blog/dragvoll3.jpg", "/blog/dragvoll4.jpg"],
+		date: "October 2025"
+	},
+	{
+		text: "[Advertisement] 3Dconnexion's Space and CAD mouse have served a crucial role in the development of our car. Nordlys NTNU is incredibly satisfied with the ergonomic design, and versatile functionality. Thank you to the wonderful people at 3D-connexion.",
+		images: ["/blog/3d1.jpg", "/blog/3d2.jpg", "/blog/3d3.jpg"],
+		date: "September 2025"
+	},
+	{
 		text: "We've completed the very first test of Lumholtz at Rudskogen!💫 The first time we have driven our solar racing car is a huge milestone for us. While we faced some challenges along the way, our two test days was a great success. We gained valuable insights that bring us one step closer to a competition-ready car!We want to give a big thank you to Rudskogen Motorsenter for welcoming us and letting us use their facilities! We wouldn't be able to test our car in a safe environment without their support, and we look forward to a continued collaboration.🏎️🙏🏼",
 		images: ["/blog/rudskogen.jpg"],
 		date: "July 2025"
