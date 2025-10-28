@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
 
-const TeamMember = ({ name, title, image, email }) => {
+const TeamMember = ({ name, title, image, fullImage, email }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key == 'Escape') setIsModalOpen(false);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
     if (name == "You?") { return (
         <div className={styles.container}>
-            <img className={styles.image} 
+            <Image className={styles.image} 
 		src={image} 
 		alt={`${name}'s profile`} 
 		onClick={() => window.location.href = "/join"}/>
@@ -15,15 +26,29 @@ const TeamMember = ({ name, title, image, email }) => {
             </div>
         </div>
     );}
-    else return (
+
+    return (
+        <>
         <div className={styles.container}>
-            <img className={styles.image} src={image} alt={`${name}'s profile`} />
+            <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => setIsModalOpen(true)}/>
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
                 <a href={`mailto:${email}`} className={styles.link}>Contact</a>
             </div>
         </div>
+
+        {isModalOpen && (
+            <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
+                <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                    <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
+                        x
+                    </button>
+                    <Image src={fullImage || image} alt={`${name}'s profile (full size)`} fill className={styles.fullImage}/>
+                </div>
+            </div>
+        )}
+        </>
     );
 };
 

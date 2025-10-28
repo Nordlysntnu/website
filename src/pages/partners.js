@@ -36,6 +36,7 @@ import Altium from '@features/partners/sponsor-logos/Altium.png';
 import Ansys from '@features/partners/sponsor-logos/Ansys.png';
 import EDR from '@features/partners/sponsor-logos/EDR.png';
 import CNC from '@features/partners/sponsor-logos/cncc.png';
+import Melbye from '@features/partners/sponsor-logos/melbye.png';
 
 
 
@@ -119,6 +120,11 @@ export default function About() {
     'SKF': {
       link: 'https://www.skf.com/no',
       image: SKF.src,
+      description: ""
+    },
+    'Melbye': {
+      link: 'https://melbye.no',
+      image: Melbye.src,
       description: ""
     },
   }
