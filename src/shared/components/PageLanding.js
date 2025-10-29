@@ -1,7 +1,5 @@
 import styles from '../styles/Landing.module.css';
 
-
-
 export default function PageLanding({ title, text, image }) {
     return (
         <div className={styles.container}>

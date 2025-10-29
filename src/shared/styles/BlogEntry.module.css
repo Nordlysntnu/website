@@ -40,9 +40,9 @@
 
 .image {
 	width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: contain;
+	height: auto;
+	border-radius:	1em;
+  object-fit: cover;
 }
 
 .imageGrid {
