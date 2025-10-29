@@ -8,8 +8,6 @@ export const members = [
         image: "/members/2025/compressed/SivertKverme.jpg",
 		fullImage: "/members/2025/SivertKverme.jpg",
         email: "sivert.kverme@nordlysntnu.no",
-		linkedin: "sivert.kverme@nordlysntnu.no",
-		phone: "sivert.kverme@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
@@ -25,7 +23,6 @@ export const members = [
         image: "/members/2025/compressed/AareHoholm.jpg",
 		fullImage: "/members/2025/AareHoholm.jpg",
         email: "aare.hoholm@nordlysntnu.no",
-		phone: "sivert.kverme@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
@@ -41,7 +38,6 @@ export const members = [
         image: "/members/2025/compressed/SebastianJacobsen.jpg",
 		fullImage: "/members/2025/SebastianJacobsen.jpg",
         email: "sebastian.jacobsen@nordlysntnu.no",
-		linkedin: "sivert.kverme@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
@@ -189,6 +185,9 @@ export const members = [
         image: "/members/2026/compressed/Sander.jpg",
 		fullImage: "/members/2026/Sander.jpg",
         email: "sander.ranbo@nordlysntnu.no",
+		linkedin: "www.linkedin.com/in/sander-ranbø-b35496327",
+		phone: "+4741499065",
+
 	history: [
 		{
 			year: 2025,
@@ -298,7 +297,7 @@ export const members = [
 	name: "Iver Garli",
         image: "/members/2026/compressed/Iver.jpg",
 		fullImage: "/members/2026/Iver.jpg",
-	email: "iver.garli@nordlysntnu.no",
+	    email: "iver.garli@nordlysntnu.no",
 	history: [
 		{
 			year: 2026,
@@ -484,6 +483,7 @@ export const members = [
         image: "/members/2026/compressed/William.jpg",
 		fullImage: "/members/2026/William.jpg",
         email: "william.fosser@nordlysntnu.no",
+		phone: "+4746533924",
 	history: [
 		{
 			year: 2025,
@@ -824,6 +824,8 @@ export const members = [
         image: "/members/2025/compressed/PaulVåge.jpg",
 		fullImage: "/members/2025/PaulVåge.jpg",
         email: "paul.vaage@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/paul-v%C3%A5ge-77831b28b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		phone: "+4797746700",
 	history: [
 		{
 			year: 2025,
@@ -832,7 +834,7 @@ export const members = [
 		},
 		{
 			year: 2026,
-		        title: "Head of Finance",
+		        title: "Head of Finance & Deputy Project Manager",
 		        group: ["Board", "All active members"]
 		}
 	]

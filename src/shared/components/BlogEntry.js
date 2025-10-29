@@ -43,6 +43,4 @@ const BlogEntry = ({ text, images = [], date }) => {
 	);
 };
 
-
-
 export default BlogEntry;
