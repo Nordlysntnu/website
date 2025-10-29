@@ -6,6 +6,14 @@ import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import PartHeader from '@shared/components/PartHeader';
 
+import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
+import Chassis from '@assets/symbols-and-logos/Chassis.png';
+import Software from '@assets/symbols-and-logos/Software.png';
+import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.png';
+import Brand from '@assets/symbols-and-logos/Brand.png';
+import Logistics from '@assets/symbols-and-logos/Logistics.png';
+import Management from '@assets/symbols-and-logos/Management.png';
+
 export default function Join() {
   const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>
   const groups = {
@@ -210,7 +218,7 @@ export default function Join() {
     //  },
     'electrical': {
       'name': 'Electrical',
-      'image': '/images/Electricalteam.png',
+      'image': EmbeddedElectronics.src,
       'description': 'The electrical group is responsible for all the electrical systems on board the car. This includes both the high and low voltage systems.',
       'batteryMechanicalEngineer': {
         name: 'Battery Mechanical Engineer',
@@ -323,7 +331,7 @@ export default function Join() {
     },
     'mechanical': {
       'name': 'Mechanical',
-      'image': 'Mechanical.png',
+      'image': Mechanical.src,
       'description': 'The mechanical group designs and builds all the dynamic mechanical systems of the solar car. Systems include braking, suspension and steering.',
       //'mechanicalEngineer': {name: 'Mechanical Engineer', text: 'All mechanical systems of the car, from the brakes to the chassis, has to be carefully chosen, designed and produced. Though a broad category, Nordlys needs members with skills or interest within many disciplines, including CAD and aerodynamics.', supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Mechanical', text: 'The group leader is the leader of the mechanical members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
@@ -335,7 +343,7 @@ export default function Join() {
     }, 
     'chassis': {
       'name': 'Chassis',
-      'image': 'Chassis.png',
+      'image': Chassis.src,
       'description': 'The chassis group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.',
       //'mechanicalEngineer': {name: 'Mechanical Engineer', text: 'All mechanical systems of the car, from the brakes to the chassis, has to be carefully chosen, designed and produced. Though a broad category, Nordlys needs members with skills or interest within many disciplines, including CAD and aerodynamics.', supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Chassis', text: 'The group leader is the leader of the chassis members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
@@ -356,7 +364,7 @@ export default function Join() {
     //},
     'strategy': {
       'name': 'Software',
-      'image': 'Software.png',
+      'image': Software.src,
       'description': 'The winning team needs a winning driving strategy. The software group develops software analysis tools to calculate the solar cars optimal speed.',
       //'strategist': {name: 'Strategist', text: "Finding out how fast the car can drive during the competition is a difficult task. The strategy team requires a highly interdisciplinary set of members, applying knowledge about physics, aerodynamics, coding and simulation together to build the basis of Nordlys' on-route driving strategy.", supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Strategy', text: 'The group leader is the leader of the strategy members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. The group leader will also have responsibility for a part of the strategy system as well.', supervisor: 'Not Decided'},
@@ -365,7 +373,7 @@ export default function Join() {
     },
     'brand': {
       'name': 'Brand',
-      'image': 'Brand.png',
+      'image': Brand.src,
       'description': 'The Brand group is responsible for the development of the overall Brand of Nordlys. Given the young age of the organization, this is an important group that does not require a lot of previous experience.',
     //  //'keyAccountManager': {name: 'Key Account Manager', text: "Building strong and meaningful relationships with sponsors and the technology industri is key for the long term success of Nordlys. The key account managers are the team's external communication with the industry, applying and developing interpersonal skills to secure the Nordlys' funds.", supervisor: 'Not Decided'},
     //  //'brandDeveloper': {name: 'Brand Developer', text: "To reach our amibtios goals, we need a strong and recognizable brand. The brand developers build the brand through strategic marketing and social media, as well as planning and designing the organizations outer image and marketing plan.", supervisor: 'Not Decided'},
@@ -375,7 +383,7 @@ export default function Join() {
     },
     'logistics': {
     	'name': 'Logistics',
-        'image': 'Logistics.png',
+      'image': Logistics.src,
     	'description': 'This group is responsible for the planning and logistics of competitions, testing and other activities. Nordlys is going to participate in competitions abroad and needs you to help us plan everything from travel, accomodations and food',
     	//'description': 'This completely new group is responsible for all the planning and logistics of the competition of 2025. Nordlys is going to Australia for the first time and need you to help us plan everything from the travel, the accommodations and the food.',
        // 'logisticsEngineer': {name: 'Logistics Engineer', text: "As a logistics engineer you will be part of the small team responsible for the entire travel arrangements for the team going to Bridgestone World Solar Challenge 2025. This includes making sure we have enough food and water, that car is shipped on time and that all the members know where to be at what times. You will be working in a close group and no previous knowledge is needed.", supervisor: 'Not Decided'},
