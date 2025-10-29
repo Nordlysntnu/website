@@ -44,7 +44,76 @@
 
 .image {
 	width: 100%;
-  height: auto;
+	height: auto;
+	border-radius:	1em;
+  object-fit: cover;
+}
+
+.imageGrid {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+}
+
+.imageGrid[data-count="1"] {
+  grid-template-columns: 1fr;
+}
+
+.imageGrid[data-count="2"] {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.imageGrid[data-count="3"] {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "main side-top" "main side-bottom";
+}
+
+.imageGrid[data-count="3"] .thumbnailWrapper:nth-child(1) {
+  grid-area: main;
+}
+
+.imageGrid[data-count="3"] .thumbnailWrapper:nth-child(2) {
+  grid-area: side-top;
+}
+
+.imageGrid[data-count="3"] .thumbnailWrapper:nth-child(3) {
+  grid-area: side-bottom;
+}
+
+.imageGrid[data-count="4"] {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.thumbnailWrapper {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
   border-radius: 8px;
-  object-fit: contain;
+}
+
+.thumbnailWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbnailWrapper:hover {
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.moreOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
 }
