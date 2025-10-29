@@ -210,7 +210,7 @@ export default function Join() {
     //  },
     'electrical': {
       'name': 'Electrical',
-      'image': 'EmbeddedElectronics.png',
+      'image': '/images/Electricalteam.png',
       'description': 'The electrical group is responsible for all the electrical systems on board the car. This includes both the high and low voltage systems.',
       'batteryMechanicalEngineer': {
         name: 'Battery Mechanical Engineer',
