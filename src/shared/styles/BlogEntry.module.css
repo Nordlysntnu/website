@@ -8,16 +8,29 @@
   	box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* soft shadow */
 }
 
-.blogEntry p {
+.pcollapsed {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   overflow: hidden;
   margin: auto;
   max-width: 100%;
   text-align: justify;       /* makes text aligned evenly */
   line-height: 2;          /* better readability */
-  margin-bottom: 1.2rem;     /* space before image */
+  margin-bottom: 0.5rem;     /* space before image */
+}
+
+.pexpanded {
+  margin: auto;
+  max-width: 100%;
+  text-align: justify;       /* makes text aligned evenly */
+  line-height: 2;          /* better readability */
+  margin-bottom: 0.5rem;     /* space before image */
+}
+
+.preadmore {
+  color: #b20b3a;
+  margin-bottom: 1.2rem;
 }
 
 .blogEntry h1 {
