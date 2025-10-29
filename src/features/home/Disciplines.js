@@ -9,7 +9,6 @@ import Logistics from '@assets/symbols-and-logos/Logistics.png';
 import Management from '@assets/symbols-and-logos/Management.png';
 import Content from '@shared/components/Content';
 
-
 export default function Disciplines({ dark }) {return (
         <Content dark={dark}>
             <div className={styles.container}>
