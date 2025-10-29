@@ -9,17 +9,6 @@ import Logistics from '@assets/symbols-and-logos/Logistics.png';
 import Management from '@assets/symbols-and-logos/Management.png';
 import Content from '@shared/components/Content';
 
-/*
-
-                        <Discipline delay={100} image={EmbeddedElectronics.src} title="Electrical" />
-                        <Discipline delay={100} image={Software.src} title="Software" />
-                        <Discipline delay={100} image={Logistics.src} title="Logistics" />
-                        <Discipline delay={100} image={Mechanical.src} title="Mechanical" />
-                        <Discipline delay={300} image={Chassis.src} title="Chassis" />
-                        <Discipline delay={300} image={Brand.src} title="Brand" />
-                        <Discipline delay={300} image={Management.src} title="Board" />
-*/
-
 export default function Disciplines({ dark }) {return (
         <Content dark={dark}>
             <div className={styles.container}>
