@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
+import ContactRibbon from './ContactRibbon';
 
-const TeamMember = ({ name, title, image, fullImage, email }) => {
+const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const TeamMember = ({ name, title, image, fullImage, email }) => {
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
-                <a href={`mailto:${email}`} className={styles.link}>Contact</a>
+                <ContactRibbon email={email} linkedin={linkedin} phone={phone} />
             </div>
         </div>
 
@@ -53,9 +54,3 @@ const TeamMember = ({ name, title, image, fullImage, email }) => {
 };
 
 export default TeamMember;
-
-
-
-
-
-

@@ -12,9 +12,10 @@
 
 .image {
     width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
     display: block;
     margin: 0 auto;
-    height: auto;
     border-radius: 1em;
 }
 
