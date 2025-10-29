@@ -1,21 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
-import Instagram from '@assets/symbols-and-logos/Instagram.svg';
 import ContactRibbon from './ContactRibbon';
 
 const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.key == 'Escape') setIsModalOpen(false);
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, []);
-
-const TeamMember = ({ name, title, image, fullImage, email }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
@@ -66,9 +54,3 @@ const TeamMember = ({ name, title, image, fullImage, email }) => {
 };
 
 export default TeamMember;
-
-
-
-
-
-
