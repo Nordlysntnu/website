@@ -159,26 +159,6 @@ export const members = [
 	]
     },
     {
-        id: 15,
-	project: [2025, 2026],
-        name: "Paul Gustav Aparicio Lofsberg",
-        image: "/members/2026/compressed/Gustav.jpg",
-		fullImage: "/members/2026/Gustav.jpg",
-        email: "paul.lofsberg@nordlysntnu.no",
-	history: [
-		{
-			year: 2025,
-		        title: "Coordinator & Mechanical Engineer Suspension",
-		        group: ["Mechanical", "All active members"]
-		},
-		{
-			year: 2026,
-		        title: "Mechanical Engineer Brake System",
-		        group: ["Mechanical", "All active members"]
-		}
-	]
-    },
-    {
         id: 14,
 	project: [2025, 2026],
         name: "Sander Ranbø",
@@ -198,6 +178,26 @@ export const members = [
 			year: 2026,
 				title: "Group Leader Mechanical",
 				group: ["Mechanical", "All active members"]
+		}
+	]
+    },
+    {
+        id: 15,
+	project: [2025, 2026],
+        name: "Paul Gustav Aparicio Lofsberg",
+        image: "/members/2026/compressed/Gustav.jpg",
+		fullImage: "/members/2026/Gustav.jpg",
+        email: "paul.lofsberg@nordlysntnu.no",
+	history: [
+		{
+			year: 2025,
+		        title: "Coordinator & Mechanical Engineer Suspension",
+		        group: ["Mechanical", "All active members"]
+		},
+		{
+			year: 2026,
+		        title: "Mechanical Engineer Brake System",
+		        group: ["Mechanical", "All active members"]
 		}
 	]
     },
@@ -887,6 +887,8 @@ export const members = [
         image: "/members/2026/compressed/Oliver.jpg",
 		fullImage: "/members/2026/Oliver.jpg",
         email: "oliver.hovden@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/oliver-hovden-2aa9b0379",
+		phone: "+4745913303",
 	history: [
 		{
 			year: 2025,

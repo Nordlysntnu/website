@@ -31,12 +31,14 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
     return (
         <>
         <div className={styles.container}>
+            <div className="topGroup">
             <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => setIsModalOpen(true)}/>
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
-                <ContactRibbon email={email} linkedin={linkedin} phone={phone} />
             </div>
+            </div>
+            <ContactRibbon email={email} linkedin={linkedin} phone={phone} />
         </div>
 
         {isModalOpen && (
