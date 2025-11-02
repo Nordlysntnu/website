@@ -17,11 +17,11 @@ export default function Blog() {
                 <link rel="icon" href="/favicon.ico" />
       		</Head>
       		<Layout>
-		    <></>
+			<></>
       		    <PageHeader title="Blog" />
-      		    <Content dark={true}>
+      		    <Content dark={true} nopad={true}>
 			        {blogs.map(blog => {
-			        	return <div style={{"margin-bottom": "3pc"}}>
+			        	return <div style={{"width": "100%", "margin-bottom": "3pc"}}>
 						 <BlogEntry
                             			 text={blog.text}
                             			 images={blog.images} 

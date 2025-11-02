@@ -1,8 +1,6 @@
 .container {
     width: 100%;
     position: relative;
-	min-height: 1100px;
-	height: fit-content;
   	display: flex;
   	align-items: center;
   	justify-content: center;
@@ -23,7 +21,7 @@
 }
 
 .textContainer {
-	position:absolute;
+	position: absolute;
 	inset: 0;
 	align-items: center;
 	justify-content: center;
@@ -41,8 +39,11 @@
 
 .headline {
 	text-align: center;
+	max-width: 80%;
 	margin-top: 2pc;
 	margin-bottom: 1.5pc;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: 50px;
 	color: #ffffff;
 }
