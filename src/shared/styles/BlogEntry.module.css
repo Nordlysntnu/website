@@ -3,9 +3,10 @@
 	margin: 0 auto;         /* centers the box horizontally with spacing */
 	/*margin-bottom: 5rem;*/
 	padding: 1.5rem;           /* spacing inside the box */
-  	border: 2px solid #ccc;    /* border around the box */
+  border: 2px solid #ccc;    /* border around the box */
   	/*background-color: #fdfdfd;*/ /* subtle background */
-  	box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* soft shadow */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* soft shadow */
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .pcollapsed {
@@ -30,13 +31,12 @@
 
 .preadmore {
   color: #b20b3a;
-  margin-bottom: 1.2rem;
 }
 
 .blogEntry h1 {
   color: #b20b3a;
   margin-top: 0pc;
-  margin-bottom: 1pc;
+  margin-bottom: 0pc;
   max-width: 100%;
   font-size: 40px; 
 }
@@ -63,6 +63,7 @@
 }
 
 .imageGrid {
+  margin-top: 1.2em;
   display: grid;
   gap: 8px;
   width: 100%;

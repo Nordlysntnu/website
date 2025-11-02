@@ -13,20 +13,6 @@ const BlogPreview = () => {
 	const [bgHeight, setBgHeight] = useState(0);
 
 	const ref = useRef(null);
-	//return (
-	//<Content blue>
-	//	<div style={{width: "100%", position: "absolute", zIndex:"-1"}}>
-	//	    <video autoPlay muted loop playsInline poster="/posters/Ribbon.png" className={styles.ribbon}>
-	//	        <source src="/videos/RibbonWStars.mp4" type="video/mp4" />
-	//	    </video>
-	//	</div>
-	//    <div styles={{position: "relative", zIndex: "1"}}>
-	//		<h1 className={styles.headline}>What have we done recently?</h1>
-	//		<div className={styles.blogdiv}><BlogEntry text={BlogText} image={BlogImage} date={BlogDate}/></div>
-	//		<a href="/blog"><p className={styles.link}>See more on our blog &gt; </p></a>
-	//	</div>
-	//</Content>
-	//);
 	useEffect(() => {
 		if(ref.current) {
 			setBgHeight(parseFloat(ref.current.scrollHeight));
@@ -39,7 +25,7 @@ const BlogPreview = () => {
 	}, [bgHeight]);
 
     return (
-        <div className={styles.container} style = {{'height': bgHeight*1.02}}>
+        <div className={styles.container} style = {{'height': bgHeight}}>
             <div className={styles.imageContainer}>
                 <video autoPlay muted loop playsInline poster="/posters/Ribbon.png" className={styles.ribbon}>
                     <source src="/videos/RibbonWStars.mp4" type="video/mp4" />
