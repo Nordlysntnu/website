@@ -1,19 +1,60 @@
-import styles from '../styles/BlogEntry.module.css';
-import React, {useState} from 'react';
+import styles from '@shared/styles/BlogEntry.module.css';
+import React, {useEffect, useState, useRef} from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import Image from 'next/image';
 
-const BlogEntry = ({ text, images = [], date }) => {
+function textField(text) {
 
+}
+
+const BlogEntry = ({ text, images = [], date }) => {
 	const [lightboxOpen, setLightboxOpen] = useState(false);
 	const [currentIndex, setCurrentIndex] = useState(0);
+
+	const [collapsed, setCollapsed] = useState(true);
+	const [collapsible, setCollapsible] = useState(false);
+	
+	const maxLines = 7;
+
+	const pRef = useRef(null);
+
+	useEffect(() => {
+		const el = pRef.current;
+		
+		const lh = parseFloat(window.getComputedStyle(el).fontSize)*0.2;
+		console.log('lh = ', lh)
+		const maxHeight = parseFloat(window
+			.getComputedStyle(el)
+			.fontSize
+		) * maxLines*1.2;
+
+
+		if (el.scrollHeight > maxHeight && window.innerWidth < 768) {
+			setCollapsible(true);
+		}
+
+		console.log("scrollheight: ", el.scrollHeight, ", maxHeight: ", maxHeight);
+
+	}, []);
 
 	return (
 	<div className={styles.blogEntry}>
 		<h1>{date}</h1>
-		<p>{text}</p>
-
+		<p 
+			ref={pRef}
+			className = {collapsed && collapsible ? styles.pcollapsed : styles.pexpanded}
+		>
+			{text}
+		</p>
+		{collapsible && (
+			<p
+				onClick={() => setCollapsed(!collapsed)}
+				className={styles.preadmore}
+			>
+				{collapsed ? 'Read More >' : 'Read Less >'}
+			</p>
+		)}
 		{/* Image thumbnails */}
 		<div className={styles.imageGrid} data-count={Math.min(images.length, 4)}>
 			{images.slice(0, 4).map((imgSrc, idx) => (
@@ -39,7 +80,7 @@ const BlogEntry = ({ text, images = [], date }) => {
 				slides={images.map((src) => ({ src }))}
 				/>
 			)}
-			</div>
+	</div>
 	);
 };
 

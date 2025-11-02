@@ -10,6 +10,8 @@ import React from 'react'
 import { blogs } from '@shared/data/blog';
 
 export default function Blog() {
+	const pagetext = "Nordlys NTNU never goes on vacation — year round, our members work designing, developing, producing and testing our technology. And beyond the pure technical work, we also travel around Europe, host and attend events, and do many fun social activities together. Here on our blog, you can see a snapshot of these activities.";
+
 	return (
 	<>
 		<Head>
@@ -17,11 +19,12 @@ export default function Blog() {
                 <link rel="icon" href="/favicon.ico" />
       		</Head>
       		<Layout>
-		    <></>
+			<></>
       		    <PageHeader title="Blog" />
-      		    <Content dark={true}>
+					<Content dark={true}><p>{pagetext}</p></Content>
+      		    <Content dark={true} nopad={true}>
 			        {blogs.map(blog => {
-			        	return <div style={{"margin-bottom": "3pc"}}>
+			        	return <div style={{"width": "100%", "margin-bottom": "3pc"}}>
 						 <BlogEntry
                             			 text={blog.text}
                             			 images={blog.images} 
