@@ -173,7 +173,7 @@ export const members = [
 		},
 		{
 			year: 2026,
-		        title: "Coordinator & Mechanical Engineer Suspension",
+		        title: "Mechanical Engineer Brake System",
 		        group: ["Mechanical", "All active members"]
 		}
 	]
@@ -319,7 +319,7 @@ export const members = [
 	history: [
 		{
 			year: 2026,
-			title: "Mechanical Engineer",
+			title: "Mechanical Engineer Suspension",
 			group: ["Mechanical", "All active members"]
 		}
 	]
@@ -334,7 +334,7 @@ export const members = [
 	history: [
 		{
 			year: 2026,
-			title: "Mechanical Engineer",
+			title: "Mechanical Engineer Suspension",
 			group: ["Mechanical", "All active members"]
 		}
 	]
@@ -350,7 +350,7 @@ export const members = [
 		history: [
 			{
 				year: 2026,
-				title: "Mechanical Engineer",
+				title: "Mechanical Engineer Brake System & Suspension",
 				group: ["Mechanical", "All active members"]
 			}
 		]
@@ -365,7 +365,7 @@ export const members = [
 		history: [
 			{
 				year: 2026,
-				title: "Mechanical Engineer",
+				title: "Mechanical Engineer Steering System",
 				group: ["Mechanical", "All active members"]
 			}
 		]
@@ -380,7 +380,7 @@ export const members = [
 		history: [
 			{
 				year: 2026,
-				title: "Mechanical Engineer",
+				title: "Mechanical Engineer Steering System",
 				group: ["Mechanical", "All active members"]
 			}
 		]
@@ -1019,6 +1019,21 @@ export const members = [
 			}
 		]
 	},
+    {
+        id: 109,
+	project: [2026],
+        name: "William Fosser",
+        image: "/members/2026/compressed/William.jpg",
+		fullImage: "/members/2026/William.jpg",
+        email: "william.fosser@nordlysntnu.no",
+	history: [
+		{
+			year: 2026,
+		        title: "Website Quality Assurance",
+		        group: ["Software"]
+		}
+	]
+    },
 
     //Brand
     {
