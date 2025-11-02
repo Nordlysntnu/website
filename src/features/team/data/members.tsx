@@ -298,6 +298,8 @@ export const members = [
         image: "/members/2026/compressed/Iver.jpg",
 		fullImage: "/members/2026/Iver.jpg",
 	    email: "iver.garli@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/iver-garli-a746a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		phone: "+4745476553",
 	history: [
 		{
 			year: 2026,
@@ -313,6 +315,7 @@ export const members = [
     image: "/members/2026/compressed/Carlos.jpg",
 	fullImage: "/members/2026/Carlos.jpg",
 	email: "carlos.zorzano@nordlysntnu.no",
+	linkedin: "www.linkedin.com/in/carlos-peña-zorzano",
 	history: [
 		{
 			year: 2026,
@@ -343,6 +346,7 @@ export const members = [
  	   image: "/members/2026/compressed/Irene.jpg",
 	   fullImage: "/members/2026/Irene.jpg",
 		email: "irene.stoltenberg@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/irene-stoltenberg-764a38370?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 		history: [
 			{
 				year: 2026,
@@ -417,6 +421,7 @@ export const members = [
 		name: "Tommaso Gori",
         image: "/members/2025/Unknown.png",
 		email: "tommaso.gori@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/tommaso-gori-2695ba210?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 		history: [
 			{
 				year: 2026,
@@ -733,6 +738,7 @@ export const members = [
         name: "Mattis Hempelmann",
         image: "/members/2025/Unknown.png",
         email: "mattis.hempelmann@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/mattis-hempelmann?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
 		history: [
 		{
 			year: 2026,
