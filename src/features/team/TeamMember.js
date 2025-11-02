@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
+import ContactRibbon from './ContactRibbon';
 
-const TeamMember = ({ name, title, image, fullImage, email }) => {
+const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
@@ -30,12 +31,14 @@ const TeamMember = ({ name, title, image, fullImage, email }) => {
     return (
         <>
         <div className={styles.container}>
+            <div className="topGroup">
             <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => setIsModalOpen(true)}/>
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
-                <a href={`mailto:${email}`} className={styles.link}>Contact</a>
             </div>
+            </div>
+            <ContactRibbon email={email} linkedin={linkedin} phone={phone} />
         </div>
 
         {isModalOpen && (
@@ -53,9 +56,3 @@ const TeamMember = ({ name, title, image, fullImage, email }) => {
 };
 
 export default TeamMember;
-
-
-
-
-
-

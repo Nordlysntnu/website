@@ -1,0 +1,39 @@
+.container {
+    padding: 0.5em 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.innerContainer {
+    padding: 0.2em 3em;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(21, 34, 66, 1);
+    width: 120px;
+}
+
+.icon {
+    height: 1.2em;
+    margin-right: 0.5em;
+    transform: scale(0.9);
+    transition: 250ms ease all;
+    flex-shrink: 0;
+}
+
+.icon:hover {
+    transform: scale(1);
+}
+
+.icon img {
+    height: 1.2em;
+    width: auto;
+    display: block;
+}
+
+.icon:last-of-type {
+    margin: 0;
+}

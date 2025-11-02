@@ -159,6 +159,29 @@ export const members = [
 	]
     },
     {
+        id: 14,
+	project: [2025, 2026],
+        name: "Sander Ranbø",
+        image: "/members/2026/compressed/Sander.jpg",
+		fullImage: "/members/2026/Sander.jpg",
+        email: "sander.ranbo@nordlysntnu.no",
+		linkedin: "www.linkedin.com/in/sander-ranbø-b35496327",
+		phone: "+4741499065",
+
+	history: [
+		{
+			year: 2025,
+		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
+		        group: ["Mechanical", "All active members"]
+		},
+		{
+			year: 2026,
+				title: "Group Leader Mechanical",
+				group: ["Mechanical", "All active members"]
+		}
+	]
+    },
+    {
         id: 15,
 	project: [2025, 2026],
         name: "Paul Gustav Aparicio Lofsberg",
@@ -175,26 +198,6 @@ export const members = [
 			year: 2026,
 		        title: "Mechanical Engineer Brake System",
 		        group: ["Mechanical", "All active members"]
-		}
-	]
-    },
-    {
-        id: 14,
-	project: [2025, 2026],
-        name: "Sander Ranbø",
-        image: "/members/2026/compressed/Sander.jpg",
-		fullImage: "/members/2026/Sander.jpg",
-        email: "sander.ranbo@nordlysntnu.no",
-	history: [
-		{
-			year: 2025,
-		        title: "Coordinator & Mechanical Engineer Steering and Brakes",
-		        group: ["Mechanical", "All active members"]
-		},
-		{
-			year: 2026,
-				title: "Group Leader Mechanical",
-				group: ["Mechanical", "All active members"]
 		}
 	]
     },
@@ -294,7 +297,9 @@ export const members = [
 	name: "Iver Garli",
         image: "/members/2026/compressed/Iver.jpg",
 		fullImage: "/members/2026/Iver.jpg",
-	email: "iver.garli@nordlysntnu.no",
+	    email: "iver.garli@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/iver-garli-a746a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		phone: "+4745476553",
 	history: [
 		{
 			year: 2026,
@@ -310,6 +315,7 @@ export const members = [
     image: "/members/2026/compressed/Carlos.jpg",
 	fullImage: "/members/2026/Carlos.jpg",
 	email: "carlos.zorzano@nordlysntnu.no",
+	linkedin: "www.linkedin.com/in/carlos-peña-zorzano",
 	history: [
 		{
 			year: 2026,
@@ -340,6 +346,7 @@ export const members = [
  	   image: "/members/2026/compressed/Irene.jpg",
 	   fullImage: "/members/2026/Irene.jpg",
 		email: "irene.stoltenberg@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/irene-stoltenberg-764a38370?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 		history: [
 			{
 				year: 2026,
@@ -414,6 +421,7 @@ export const members = [
 		name: "Tommaso Gori",
         image: "/members/2025/Unknown.png",
 		email: "tommaso.gori@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/tommaso-gori-2695ba210?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 		history: [
 			{
 				year: 2026,
@@ -480,6 +488,7 @@ export const members = [
         image: "/members/2026/compressed/William.jpg",
 		fullImage: "/members/2026/William.jpg",
         email: "william.fosser@nordlysntnu.no",
+		phone: "+4746533924",
 	history: [
 		{
 			year: 2025,
@@ -729,6 +738,7 @@ export const members = [
         name: "Mattis Hempelmann",
         image: "/members/2025/Unknown.png",
         email: "mattis.hempelmann@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/mattis-hempelmann?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
 		history: [
 		{
 			year: 2026,
@@ -820,6 +830,8 @@ export const members = [
         image: "/members/2025/compressed/PaulVåge.jpg",
 		fullImage: "/members/2025/PaulVåge.jpg",
         email: "paul.vaage@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/paul-v%C3%A5ge-77831b28b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		phone: "+4797746700",
 	history: [
 		{
 			year: 2025,
@@ -828,7 +840,7 @@ export const members = [
 		},
 		{
 			year: 2026,
-		        title: "Head of Finance",
+		        title: "Head of Finance & Deputy Project Manager",
 		        group: ["Board", "All active members"]
 		}
 	]
@@ -875,6 +887,8 @@ export const members = [
         image: "/members/2026/compressed/Oliver.jpg",
 		fullImage: "/members/2026/Oliver.jpg",
         email: "oliver.hovden@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/oliver-hovden-2aa9b0379",
+		phone: "+4745913303",
 	history: [
 		{
 			year: 2025,

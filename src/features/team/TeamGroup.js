@@ -16,6 +16,8 @@ const TeamGroup = ({ year, members }) => {
                         image={member.image}
                         fullImage={member.fullImage}
                         email={member.email}
+                        linkedin={member.linkedin}
+                        phone={member.phone}
                     />
                 })}
             </div>
