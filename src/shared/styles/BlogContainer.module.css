@@ -6,7 +6,7 @@
   	justify-content: center;
 }
 
-.imageContainer {
+.ribbonContainer {
     width: 100%;
 	object-fit: contain;
 	max-height: 200px;
@@ -20,7 +20,7 @@
     object-fit: cover;
 }
 
-.textContainer {
+.blogEntryContainer {
 	position: absolute;
 	inset: 0;
 	align-items: center;

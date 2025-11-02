@@ -26,12 +26,12 @@ const BlogPreview = () => {
 
     return (
         <div className={styles.container} style = {{'height': bgHeight}}>
-            <div className={styles.imageContainer}>
+            <div className={styles.ribbonContainer}>
                 <video autoPlay muted loop playsInline poster="/posters/Ribbon.png" className={styles.ribbon}>
                     <source src="/videos/RibbonWStars.mp4" type="video/mp4" />
                 </video>
             </div>
-            <div ref={ref} className={styles.textContainer}>
+            <div ref={ref} className={styles.blogEntryContainer}>
 				<h1 className={styles.headline}>What have we done recently?</h1>
 				<div className={styles.blogdiv}><BlogEntry text={BlogText} images={BlogImages} date={BlogDate}/></div>
 	    		<a href="/blog"><p className={styles.link}>See more on our blog &gt; </p></a>
