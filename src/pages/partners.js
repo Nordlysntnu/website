@@ -37,6 +37,7 @@ import Ansys from '@features/partners/sponsor-logos/Ansys.png';
 import EDR from '@features/partners/sponsor-logos/EDR.png';
 import CNC from '@features/partners/sponsor-logos/cncc.png';
 import Melbye from '@features/partners/sponsor-logos/melbye.png';
+import IMS from '@features/partners/sponsor-logos/IMS.png';
 
 
 
@@ -125,6 +126,11 @@ export default function About() {
     'Melbye': {
       link: 'https://melbye.no',
       image: Melbye.src,
+      description: ""
+    },
+    'IMS': {
+      link: 'https://IMS.no',
+      image: IMS.src,
       description: ""
     },
   }
