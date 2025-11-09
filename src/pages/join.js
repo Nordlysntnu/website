@@ -10,7 +10,7 @@ import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
 import Chassis from '@assets/symbols-and-logos/Chassis.png';
 import Software from '@assets/symbols-and-logos/Software.png';
 import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.png';
-import Brand from '@assets/symbols-and-logos/Brand.png';
+import Marketing from '@assets/symbols-and-logos/Marketing.png';
 import Logistics from '@assets/symbols-and-logos/Logistics.png';
 import Management from '@assets/symbols-and-logos/Management.png';
 
@@ -137,7 +137,7 @@ export default function Join() {
     //  <br/>
     //  <em>Areas of responsibility</em>
     //  <br/>
-    //  <div style={{marginTop: "0.4em", lineHeight: "1.4em"}}>
+    //  <div style={{marginTop: "f0.4em", lineHeight: "1.4em"}}>
     //    Marketing
     //    <br/>
     //    <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
@@ -372,9 +372,9 @@ export default function Join() {
       //'dataAnalysis': {name: 'Data Analysis', text: "To make sure the car drives as fast as possible without running out of energy, we need an algorithm. This subgroup develops a model and algorithm to predict future energy needs and suggest an optimal speed given inputs such as route profile, weather forecast and current energy throughputs.", supervisor: 'Not Decided'}
     },
     'brand': {
-      'name': 'Brand',
-      'image': Brand.src,
-      'description': 'The Brand group is responsible for the development of the overall Brand of Nordlys. Given the young age of the organization, this is an important group that does not require a lot of previous experience.',
+      'name': 'Marketing',
+      'image': Marketing.src,
+      'description': 'The Marketing group is responsible for the development of the overall brand of Nordlys. Given the young age of the organization, this is an important group that does not require a lot of previous experience.',
     //  //'keyAccountManager': {name: 'Key Account Manager', text: "Building strong and meaningful relationships with sponsors and the technology industri is key for the long term success of Nordlys. The key account managers are the team's external communication with the industry, applying and developing interpersonal skills to secure the Nordlys' funds.", supervisor: 'Not Decided'},
     //  //'brandDeveloper': {name: 'Brand Developer', text: "To reach our amibtios goals, we need a strong and recognizable brand. The brand developers build the brand through strategic marketing and social media, as well as planning and designing the organizations outer image and marketing plan.", supervisor: 'Not Decided'},
     //  //'photoVideo': {name: 'Photo and Video', text: "A good brand needs good and professional photos and videos. The photographers are responsible for capturing the team as we develop, build and compete with the Nordlys car.", supervisor: 'Not Decided'},

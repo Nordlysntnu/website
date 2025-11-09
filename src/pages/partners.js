@@ -217,11 +217,6 @@ export default function About() {
       link: 'https://edrmedeso.com/',
       image: EDR.src,
       description: ''
-    },
-    'CNC Consult': {
-      link: 'https://cncc.no',
-      image: CNC.src,
-      description: ''
     }
   }
   return (

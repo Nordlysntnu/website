@@ -12,7 +12,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Co-founder and Team Leader",
-			group: ["Board", "All active members"]
+			group: ["Board", "Alumni"]
 		}
 	]
     },
@@ -27,7 +27,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Technical Leader",
-		        group: ["Board", "All active members"]
+		        group: ["Board", "Alumni"]
 		}
 	]
     },
@@ -42,7 +42,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Co-founder and Head of Competition",
-		        group: ["Board", "Logistics", "All active members"]
+		        group: ["Board", "Logistics", "Alumni"]
 		}
 	]
     },
@@ -57,7 +57,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Head of Brand",
-		        group: ["Board", "Brand", "All active members"]
+		        group: ["Board", "Marketing", "Alumni"]
 		}
 	]
     },
@@ -72,7 +72,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Head of Production",
-		        group: ["Board", "All active members"]
+		        group: ["Board", "Alumni"]
 		}
 	]
     },
@@ -109,7 +109,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Group Leader Mechanical",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -124,7 +124,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Coordinator & Design Engineer",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -139,7 +139,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Coordinator & Mechanical Engineer Composites",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -154,7 +154,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Coordinator & Mechanical Engineer Structure",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -227,7 +227,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Mechanical Engineer Suspension",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -242,7 +242,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Mechanical Engineer Brakes",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -257,7 +257,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Mechanical Engineer Suspension",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -271,7 +271,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Mechanical Engineer Steering",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -286,7 +286,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Mechanical Engineer Composites",
-		        group: ["Mechanical", "All active members"]
+		        group: ["Mechanical", "Alumni"]
 		}
 	]
     },
@@ -445,6 +445,21 @@ export const members = [
 			}
 	]
     },
+    {
+		id: 136,
+		project: [2026],
+		name: "Linnea Gateman",
+        image: "/members/2025/Unknown.png",
+        fullImage: "/members/2025/Unknown.png",
+		email: "linnea.gateman@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Chassis", "All active members"]
+			}
+	]
+    },
     //Electrical
     {
         id: 20,
@@ -477,7 +492,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -513,7 +528,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -528,7 +543,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -563,7 +578,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -578,7 +593,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -593,7 +608,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -608,7 +623,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -623,7 +638,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -638,7 +653,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -653,7 +668,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -668,7 +683,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Electrical", "Alumni"]
 		}
 	]
     },
@@ -757,7 +772,7 @@ export const members = [
 		{
 			year: 2026,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Alumni"]
 		}
 		]
     },
@@ -789,7 +804,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Group Leader Strategy",
-		        group: ["Software", "All active members"]
+		        group: ["Software", "Alumni"]
 		}
 	]
     },
@@ -804,7 +819,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Software Developer",
-		        group: ["Software", "All active members"]
+		        group: ["Software", "Alumni"]
 		}
 	]
     },
@@ -819,7 +834,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Software Developer",
-		        group: ["Software", "All active members"]
+		        group: ["Software", "Alumni"]
 		}
 	]
     },
@@ -876,7 +891,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Software Developer",
-		        group: ["Software", "All active members"]
+		        group: ["Software", "Alumni"]
 		}
 	]
     },
@@ -1049,7 +1064,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Key Account Manager",
-		        group: ["Brand", "All active members"]
+		        group: ["Marketing", "Alumni"]
 		}
 	]
     },
@@ -1064,7 +1079,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Web Developer",
-		        group: ["Brand", "All active members"]
+		        group: ["Marketing", "Alumni"]
 		}
 	]
     },
@@ -1079,7 +1094,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Web Developer",
-		        group: ["Brand", "All active members"]
+		        group: ["Marketing", "Alumni"]
 		}
 	]
     },
@@ -1094,7 +1109,7 @@ export const members = [
 		{
 			year: 2026,
 		        title: "Head of Marketing",
-		        group: ["Board", "Brand", "All active members"]
+		        group: ["Board", "Marketing", "All active members"]
 		}
 	]
     },
@@ -1108,7 +1123,7 @@ export const members = [
 		{
 			year: 2026,
 			title: "",
-			group: ["Brand", "All active members"]
+			group: ["Marketing", "All active members"]
 		}
 		]
 	},
@@ -1125,7 +1140,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Logistics Engineer",
-		        group: ["Logistics", "All active members"]
+		        group: ["Logistics", "Alumni"]
 		}
 	]
     },
@@ -1140,7 +1155,7 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Logistics Engineer",
-		        group: ["Logistics", "All active members"]
+		        group: ["Logistics", "Alumni"]
 		}
 	]
     },

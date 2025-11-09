@@ -1,6 +1,6 @@
 import styles from '@shared/styles/SubPart1.module.css';
 
-const teamNames = ["Board", "Mechanical", "Electrical", "Strategy", "Brand", "Logistics", "Alumni"];
+const teamNames = ["Board", "Mechanical", "Electrical", "Strategy", "Marketing", "Logistics", "Alumni"];
 
 export default function NavigationBar({ selectedTeam, onTeamSelect }) {
     return (

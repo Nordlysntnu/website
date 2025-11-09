@@ -4,7 +4,7 @@ import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
 import Chassis from '@assets/symbols-and-logos/Chassis.png';
 import Software from '@assets/symbols-and-logos/Software.png';
 import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.png';
-import Brand from '@assets/symbols-and-logos/Brand.png';
+import Marketing from '@assets/symbols-and-logos/Marketing.png';
 import Logistics from '@assets/symbols-and-logos/Logistics.png';
 import Management from '@assets/symbols-and-logos/Management.png';
 import Content from '@shared/components/Content';
@@ -20,7 +20,7 @@ export default function Disciplines({ dark }) {return (
                         <Discipline delay={100} image={Logistics.src} title="Logistics" />
                         <Discipline delay={100} image={Mechanical.src} title="Mechanical" />
                         <Discipline delay={300} image={Chassis.src} title="Chassis" />
-                        <Discipline delay={300} image={Brand.src} title="Brand" />
+                        <Discipline delay={300} image={Marketing.src} title="Marketing" />
                         <Discipline delay={300} image={Management.src} title="Board" />
                     </div>
                 </div>

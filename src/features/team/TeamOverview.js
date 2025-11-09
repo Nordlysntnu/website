@@ -12,7 +12,7 @@ const teamGroups = [
   'Mechanical',
   'Chassis',
   'Software',
-  'Brand',
+  'Marketing',
   'Logistics',
   'Technical advisor',
   'Alumni',
@@ -41,9 +41,9 @@ const groupDescriptions = {
       <b>The Software group</b> is responsible for analyzing data and developing race plant to maximise the car’s performance during competition. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. The Software group is also responsible for Nordlys’ servers and website.
     </p>
   ),
-  'Brand': (
+  'Marketing': (
     <p>
-      <b>The Brand group</b> shapes the public image of Nordlys, aiming to build awareness and excitement in our team’s mission. Thru social media, stands, financial connections and web solutions the brand group works towards gaining sponsorships, recruiting talent and improving the overall brand of Nordlys. As in-house talent and sponsorships are vital for our organization’s survival, the brand makes up an important supporting pilar in our organization.
+      <b>The Marketing group</b> shapes the public image of Nordlys, aiming to build awareness and excitement in our team’s mission. Through social media, stands, financial connections and web solutions the brand group works towards gaining sponsorships, recruiting talent and improving the overall brand of Nordlys. As in-house talent and sponsorships are vital for our organization’s survival, the brand makes up an important supporting pilar in our organization.
     </p>
   ),
   'Logistics': (
@@ -139,7 +139,7 @@ const TeamOverview = () => {
 	    	)}/></div>
 	    : null}
 	
-	    {!["Chassis", "Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
+	    {!["Chassis", "All active members", "Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
 	    	<h3 className={styles.groupTitle}>Project 2025</h3>
             	<TeamGroup 
 	    	    year={2025} 
