@@ -220,33 +220,33 @@ export default function Join() {
       'name': 'Electrical',
       'image': EmbeddedElectronics.src,
       'description': 'The electrical group is responsible for all the electrical systems on board the car. This includes both the high and low voltage systems.',
-      'batteryMechanicalEngineer': {
-        name: 'Battery Mechanical Engineer',
-        text: <>
-          As a Battery Mechanical Engineer, you will focus on designing and ensuring the structural integrity of the battery pack. You will work closely with the battery electrical engineers to create a safe and efficient battery system. Working with CAD, composite materials and the internal layout of the battery pack will be some of your main tasks.
-          <br/>
-          <br/>
-          <em>Areas of responsibility</em>
-          <br/>
-          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-            Structural design of battery systems. Internal and external
-            <br/>
-            Material selection, thermal management and mechanical stress analysis
-            <br/>
-            Ensuring compliance with safety requirements and regulations. 
-          </div>
-          <br/>
-          <em>What do you get out of being a Battery Mechanical Engineer in Nordlys NTNU?</em>
-          <br/>
-          <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-            Experience with advanced materials and complex electromechanical systems
-            <br/>
-            Collaboration with other engineering disciplines
-            <br/>
-            Hands-on experience with battery technology and composite materials
-          </div>
-        </>
-      },
+      //'batteryMechanicalEngineer': {
+      //  name: 'Battery Mechanical Engineer',
+      //  text: <>
+      //    As a Battery Mechanical Engineer, you will focus on designing and ensuring the structural integrity of the battery pack. You will work closely with the battery electrical engineers to create a safe and efficient battery system. Working with CAD, composite materials and the internal layout of the battery pack will be some of your main tasks.
+      //    <br/>
+      //    <br/>
+      //    <em>Areas of responsibility</em>
+      //    <br/>
+      //    <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+      //      Structural design of battery systems. Internal and external
+      //      <br/>
+      //      Material selection, thermal management and mechanical stress analysis
+      //      <br/>
+      //      Ensuring compliance with safety requirements and regulations. 
+      //    </div>
+      //    <br/>
+      //    <em>What do you get out of being a Battery Mechanical Engineer in Nordlys NTNU?</em>
+      //    <br/>
+      //    <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+      //      Experience with advanced materials and complex electromechanical systems
+      //      <br/>
+      //      Collaboration with other engineering disciplines
+      //      <br/>
+      //      Hands-on experience with battery technology and composite materials
+      //    </div>
+      //  </>
+      //},
       'batteryElectricalEngineer': {
         name: 'Battery Electrical Engineer',
         text: <>
@@ -274,37 +274,37 @@ export default function Join() {
           </div>
         </>
       },
-      'mpptEngineer': {
-        name: 'MPPT Engineer',
-        text: <>
-          As an MPPT Engineer, you will work on designing our own Maximum Power Point Tracking system to ensure the solar panels operate at their peak efficiency. You will be a part of a small team combinging enbedded systems and power electronics to create a reliable and efficient MPPT solution.
-          <br/>
-          <br/>
-          <em>Areas of responsibility</em>
-          <br/>
-          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
-            Design and develop our first in-house MPPT system. Software and hardware
-            <br/>
-            Testing and validation of solar panel efficiency, and MPPT performance
-            <br/>
-            Integration with the car's electrical systems with CAN-bus communication. 
-          </div>
-          <br/>
-          <em>What do you get out of being an MPPT Engineer in Nordlys NTNU?</em>
-          <br/>
-          <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
-            Hands-on experience with solar energy systems
-            <br/>
-            Collaboration with other engineering disciplines
-            <br/>
-            Challenge your engineering skills in a real-world application
-          </div>
-        </>
-      },
+      //'mpptEngineer': {
+      //  name: 'MPPT Engineer',
+      //  text: <>
+      //    As an MPPT Engineer, you will work on designing our own Maximum Power Point Tracking system to ensure the solar panels operate at their peak efficiency. You will be a part of a small team combinging enbedded systems and power electronics to create a reliable and efficient MPPT solution.
+      //    <br/>
+      //    <br/>
+      //    <em>Areas of responsibility</em>
+      //    <br/>
+      //    <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+      //      Design and develop our first in-house MPPT system. Software and hardware
+      //      <br/>
+      //      Testing and validation of solar panel efficiency, and MPPT performance
+      //      <br/>
+      //      Integration with the car's electrical systems with CAN-bus communication. 
+      //    </div>
+      //    <br/>
+      //    <em>What do you get out of being an MPPT Engineer in Nordlys NTNU?</em>
+      //    <br/>
+      //    <div style={{paddingLeft: "2em", marginTop: "0.2em", lineHeight: "1.4em"}}>
+      //      Hands-on experience with solar energy systems
+      //      <br/>
+      //      Collaboration with other engineering disciplines
+      //      <br/>
+      //      Challenge your engineering skills in a real-world application
+      //    </div>
+      //  </>
+      //},
       'embeddedEngineer': {
         name: 'Embedded Engineer',
         text: <>
-          As an Embedded Engineer, you will develop and maintain the embedded systems that control various functionalities of the car, ensuring reliability and easy debugging when it matters the most. You will work closely with other electrical engineers to integrate sensors, actuators, and communication protocols into the car's systems. Writing CAN-bus oriented software, improving our PCB designs and making new hardware solutions will be some of your main tasks.
+          As an embedded software developer you will work on writing code for our STM32-based data accusation modules (DAMs) and steering wheel (DSW). The code for these systems is critical for the core functionality of the car, and controls the car based on input from the driver. The tasks will be mostly writing robust state machine based application code, but also driver development integrating new hardware or improving current solutions. 
           <br/>
           <br/>
           <em>Areas of responsibility</em>
@@ -337,14 +337,24 @@ export default function Join() {
       //'groupLeader': {name: 'Group Leader Mechanical', text: 'The group leader is the leader of the mechanical members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
       //'braking': {name: 'Braking', text: 'Creating safe but lightweight brakes is a challenge, but one we must conquer to build a successful solar racing car. This system focuses on the design and building of the braking system.', supervisor: 'Not Decided'},
       //'suspension': {name: 'Suspension', text: 'This system focuses on designing a lightweight suspension system. Without it, driving the car becomes both unstable and uncomfortable.', supervisor: 'Not Decided'},
-      //'steering': {name: 'Steering', text: 'The steering system needs to be precise and lightweight, as well as easy to manipulate by the driver. This subgroup designs, test and builds an efficient steering rig. ', supervisor: 'Not Decided'},
-      //'drivetrain': {name: 'Drivetrain', text: "The drivetrain connects to the electric motors to deliver mechanical power to the wheels. Either if the car uses inwheel motors or external, the drivetrain needs to be lightweight and delver sufficent amounts of torque withoiut loosing too much energy on the way.", supervisor: 'Not Decided'},
+      'steering': {
+        name: 'Steering', 
+        text: 'As a Steering System Engineer you will be responsible for designing and developing a new steering system for our already existing car. The steering system needs to be both reliable and safe during a competition as well as being lightweight. The steering system as of now is based on a rack and pinion design. Your work will involve design and production of the new steering system. The design process will mostly be in CAD and structural analysis programs. You will also be able to do lots of practical work during the production of the system.'
+      }//'drivetrain': {name: 'Drivetrain', text: "The drivetrain connects to the electric motors to deliver mechanical power to the wheels. Either if the car uses inwheel motors or external, the drivetrain needs to be lightweight and delver sufficent amounts of torque withoiut loosing too much energy on the way.", supervisor: 'Not Decided'},
       //'bearingStructure': {name: 'Bearing Structure', text: 'The car itself needs to carry both the driver and itself, while being lightweight and highly aerodynamic. This subgroup will be working on the design of the chassis and outer shell, testing and tweaking its aerodynamics and bearing characteristics until perfection.', supervisor: 'Not Decided'}
     }, 
     'chassis': {
       'name': 'Chassis',
       'image': Chassis.src,
       'description': 'The chassis group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.',
+      'structural-and-safety': {
+        name: 'Structural and Safety Engineer',
+        text: 'As a Structural & Safety Engineer, you will be responsible for the car’s primary load-bearing structure, including the chassis, occupant cell, and other critical composite and metallic components. Safety is one of our highest priorities, and you will contribute to ensuring that every structural element meets competition regulations and provides a robust and reliable foundation for the vehicle. Your work will involve designing and validating static structural components, performing analyses to verify strength and stiffness, and ensuring that the car’s structural solutions integrate well with other subsystems. You will collaborate closely with teammates across aerodynamics, mechanical, and electronics to ensure a safe and well-engineered final product.'
+      },
+      'body-dynamics': {
+        name: 'Body Mechanisms Engineer',
+        text: 'As a Body Mechanisms Engineer, you will design and develop the moving components of the car’s structure, such as hinges, latching systems, and opening/closing mechanisms for service panels and doors. Your work focuses on small but critical mechanical systems that ensure accessibility, usability, and reliability. You will be responsible for creating functional, manufacturable mechanisms that integrate cleanly with the chassis and body structure. The work includes CAD design, kinematic analysis, material selection, and close collaboration with the structural and aerodynamics teams to ensure that all mechanisms are lightweight, robust, and competition-ready.' 
+      }
       //'mechanicalEngineer': {name: 'Mechanical Engineer', text: 'All mechanical systems of the car, from the brakes to the chassis, has to be carefully chosen, designed and produced. Though a broad category, Nordlys needs members with skills or interest within many disciplines, including CAD and aerodynamics.', supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Chassis', text: 'The group leader is the leader of the chassis members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
       //'braking': {name: 'Braking', text: 'Creating safe but lightweight brakes is a challenge, but one we must conquer to build a successful solar racing car. This system focuses on the design and building of the braking system.', supervisor: 'Not Decided'},
@@ -366,6 +376,14 @@ export default function Join() {
       'name': 'Software',
       'image': Software.src,
       'description': 'The winning team needs a winning driving strategy. The software group develops software analysis tools to calculate the solar cars optimal speed.',
+      'software-dev': {
+        name: 'Software Developer',
+        text: 'As a Software Developer, you will focus on the development of an advanced simulation software in Python which can accurately model our cars in competition and calculate how the car should drive to win the race. To do this, you will learn how the car works inside and out, translate technology to code, work with optimization, control, data analysis, and neural networks and write software which solves real world problems.\n\nAreas of responsibility: taking part in the planning, design, and writing of software for optimizing race strategy.\n\nWhat do you get out of being a Software Developer at Nordlys NTNU? Experience with software development and design, Python programming, control theory and optimization, data analysis and neural networks. Participate in Hackathons with the team\n\nThis role is perfect for you if you study: Computer science (Datatek/dataing/informatikk), cybernetics, mathematics.'
+      },
+      'webdev': {
+        name: 'Web Developer',
+        text: 'As a web developer at Nordlys NTNU, you will sit at the crossroads of marketing and technology, where you combine coding skills with creativity to fullfill our ambition of creating the best and coolest website on the internet. Here, you may also develop graphical user interfaces for our internal tools.\n\nAreas of responsibility: planning and designing how the website should look. Coding the website in React. Creating graphical user interfaces for other software projects.\n\nThis role is perfect for you if you study: Computer science (Datatek/dataing/informatikk), Marketing'
+      }
       //'strategist': {name: 'Strategist', text: "Finding out how fast the car can drive during the competition is a difficult task. The strategy team requires a highly interdisciplinary set of members, applying knowledge about physics, aerodynamics, coding and simulation together to build the basis of Nordlys' on-route driving strategy.", supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Strategy', text: 'The group leader is the leader of the strategy members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. The group leader will also have responsibility for a part of the strategy system as well.', supervisor: 'Not Decided'},
       //'dataVisualization': {name: 'Data Visualization', text: "It's impossible to understand the thousands of data points sent from the car during a race just by looking at then. To make sense of the data, this subgroup develops a data visualization interface for the operators to use.", supervisor: 'Not Decided'},
@@ -375,7 +393,17 @@ export default function Join() {
       'name': 'Marketing',
       'image': Marketing.src,
       'description': 'The Marketing group is responsible for the development of the overall brand of Nordlys. Given the young age of the organization, this is an important group that does not require a lot of previous experience.',
-    //  //'keyAccountManager': {name: 'Key Account Manager', text: "Building strong and meaningful relationships with sponsors and the technology industri is key for the long term success of Nordlys. The key account managers are the team's external communication with the industry, applying and developing interpersonal skills to secure the Nordlys' funds.", supervisor: 'Not Decided'},
+      'keyAccountManager': {
+        name: 'Key Account Manager', 
+        text: "As a Key Account Manager in the Marketing Group at Nordlys NTNU, you will be responsible for building and maintaining strong relationships with our partners and sponsors. The role involves regular communication with key stakeholders, coordinating collaborations, and ensuring that partnership agreements are followed up in close cooperation with the rest of the organization. You will act as a link between external partners and Nordlys NTNU, contributing to long-term value creation and a professional external profile."},
+      'content-creator': {
+        name: 'Content creator',
+        text: 'As a Content Creator in the Marketing Group at Nordlys NTNU, you will be responsible for developing engaging and high-quality content for our digital channels. This includes planning, producing, and publishing content that communicates our activities, values, and events in a clear and consistent manner. You will work closely with other members of the marketing team to strengthen our brand identity and increase visibility, while ensuring that content aligns with Nordlys NTNU’s overall communication strategy.'
+      },
+      'event-manager': {
+        name: 'Event Manager',
+        text: 'As an Event Manager in the Marketing Group at Nordlys NTNU, you will be responsible for planning, coordinating, and executing events that promote Nordlys NTNU and engage students, partners, and other stakeholders. The role includes developing event concepts, managing logistics, coordinating with internal teams and external collaborators, and ensuring smooth execution from planning to completion. You will play a key role in creating professional and well-organized events that strengthen Nordlys NTNU’s visibility and reputation.'
+      }
     //  //'brandDeveloper': {name: 'Brand Developer', text: "To reach our amibtios goals, we need a strong and recognizable brand. The brand developers build the brand through strategic marketing and social media, as well as planning and designing the organizations outer image and marketing plan.", supervisor: 'Not Decided'},
     //  //'photoVideo': {name: 'Photo and Video', text: "A good brand needs good and professional photos and videos. The photographers are responsible for capturing the team as we develop, build and compete with the Nordlys car.", supervisor: 'Not Decided'},
     //  //'webDeveloper': {name: 'Web Developer', text: "A proffesional website keeps the audience up to speed on the team and it's work. Develop and build the website, and tell the story of who Nordlys NTNU really are.", supervisor: 'Not Decided'},
@@ -387,6 +415,15 @@ export default function Join() {
     	'description': 'This group is responsible for the planning and logistics of competitions, testing and other activities. Nordlys is going to participate in competitions abroad and needs you to help us plan everything from travel, accomodations and food',
     	//'description': 'This completely new group is responsible for all the planning and logistics of the competition of 2025. Nordlys is going to Australia for the first time and need you to help us plan everything from the travel, the accommodations and the food.',
        // 'logisticsEngineer': {name: 'Logistics Engineer', text: "As a logistics engineer you will be part of the small team responsible for the entire travel arrangements for the team going to Bridgestone World Solar Challenge 2025. This includes making sure we have enough food and water, that car is shipped on time and that all the members know where to be at what times. You will be working in a close group and no previous knowledge is needed.", supervisor: 'Not Decided'},
+    },
+    'finance': {
+      'name': 'Finance',
+      'image': Management.src,
+      'description': '',
+      'finance-member': {
+        name: 'Finance Member',
+        text: 'As a finance member in Nordlys, you will contribute to data-driven decision-making by working with the team’s financial foundation, with a primary focus on financial analysis alongside budgeting and accounting. \n\nYou will work primarily in Google Sheets, where you will maintain budgets and accounting overviews, analyze liquidity needs over time, and assess how resources can be allocated as efficiently as possible. This includes transforming financial data into clear visualizations, such as graphs and financial models, that support planning and strategic discussions across the team. \n\nThe role provides hands-on experience with practical financial management in a student-driven engineering project, and close collaboration with other departments to ensure sound financial planning.'
+      }
     }
   };
 
