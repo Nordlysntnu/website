@@ -339,7 +339,9 @@ export default function Join() {
       //'suspension': {name: 'Suspension', text: 'This system focuses on designing a lightweight suspension system. Without it, driving the car becomes both unstable and uncomfortable.', supervisor: 'Not Decided'},
       'steering': {
         name: 'Steering', 
-        text: 'As a Steering System Engineer you will be responsible for designing and developing a new steering system for our already existing car. The steering system needs to be both reliable and safe during a competition as well as being lightweight. The steering system as of now is based on a rack and pinion design. Your work will involve design and production of the new steering system. The design process will mostly be in CAD and structural analysis programs. You will also be able to do lots of practical work during the production of the system.'
+        text: <>
+          As a Steering System Engineer you will be responsible for designing and developing a new steering system for our already existing car. The steering system needs to be both reliable and safe during a competition as well as being lightweight. The steering system as of now is based on a rack and pinion design. Your work will involve design and production of the new steering system. The design process will mostly be in CAD and structural analysis programs. You will also be able to do lots of practical work during the production of the system
+        </>
       }//'drivetrain': {name: 'Drivetrain', text: "The drivetrain connects to the electric motors to deliver mechanical power to the wheels. Either if the car uses inwheel motors or external, the drivetrain needs to be lightweight and delver sufficent amounts of torque withoiut loosing too much energy on the way.", supervisor: 'Not Decided'},
       //'bearingStructure': {name: 'Bearing Structure', text: 'The car itself needs to carry both the driver and itself, while being lightweight and highly aerodynamic. This subgroup will be working on the design of the chassis and outer shell, testing and tweaking its aerodynamics and bearing characteristics until perfection.', supervisor: 'Not Decided'}
     }, 
@@ -349,11 +351,20 @@ export default function Join() {
       'description': 'The chassis group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.',
       'structural-and-safety': {
         name: 'Structural and Safety Engineer',
-        text: 'As a Structural & Safety Engineer, you will be responsible for the car’s primary load-bearing structure, including the chassis, occupant cell, and other critical composite and metallic components. Safety is one of our highest priorities, and you will contribute to ensuring that every structural element meets competition regulations and provides a robust and reliable foundation for the vehicle. Your work will involve designing and validating static structural components, performing analyses to verify strength and stiffness, and ensuring that the car’s structural solutions integrate well with other subsystems. You will collaborate closely with teammates across aerodynamics, mechanical, and electronics to ensure a safe and well-engineered final product.'
+        text: <>
+          As a Structural & Safety Engineer, you will be responsible for the car’s primary load-bearing structure, including the chassis, occupant cell, and other critical composite and metallic components. Safety is one of our highest priorities, and you will contribute to ensuring that every structural element meets competition regulations and provides a robust and reliable foundation for the vehicle.
+          <br/>
+          <br/>
+          Your work will involve designing and validating static structural components, performing analyses to verify strength and stiffness, and ensuring that the car’s structural solutions integrate well with other subsystems. You will collaborate closely with teammates across aerodynamics, mechanical, and electronics to ensure a safe and well-engineered final product.
+        </>
       },
       'body-dynamics': {
         name: 'Body Mechanisms Engineer',
-        text: 'As a Body Mechanisms Engineer, you will design and develop the moving components of the car’s structure, such as hinges, latching systems, and opening/closing mechanisms for service panels and doors. Your work focuses on small but critical mechanical systems that ensure accessibility, usability, and reliability. You will be responsible for creating functional, manufacturable mechanisms that integrate cleanly with the chassis and body structure. The work includes CAD design, kinematic analysis, material selection, and close collaboration with the structural and aerodynamics teams to ensure that all mechanisms are lightweight, robust, and competition-ready.' 
+        text: <>
+          As a Body Mechanisms Engineer, you will design and develop the moving components of the car’s structure, such as hinges, latching systems, and opening/closing mechanisms for service panels and doors. Your work focuses on small but critical mechanical systems that ensure accessibility, usability, and reliability. 
+          <br/>
+          <br/>
+          You will be responsible for creating functional, manufacturable mechanisms that integrate cleanly with the chassis and body structure. The work includes CAD design, kinematic analysis, material selection, and close collaboration with the structural and aerodynamics teams to ensure that all mechanisms are lightweight, robust, and competition-ready.</>
       }
       //'mechanicalEngineer': {name: 'Mechanical Engineer', text: 'All mechanical systems of the car, from the brakes to the chassis, has to be carefully chosen, designed and produced. Though a broad category, Nordlys needs members with skills or interest within many disciplines, including CAD and aerodynamics.', supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Chassis', text: 'The group leader is the leader of the chassis members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. Most group leaders have responsibility for a subsystem as well.', supervisor: 'Not Decided'},
@@ -378,11 +389,48 @@ export default function Join() {
       'description': 'The winning team needs a winning driving strategy. The software group develops software analysis tools to calculate the solar cars optimal speed.',
       'software-dev': {
         name: 'Software Developer',
-        text: 'As a Software Developer, you will focus on the development of an advanced simulation software in Python which can accurately model our cars in competition and calculate how the car should drive to win the race. To do this, you will learn how the car works inside and out, translate technology to code, work with optimization, control, data analysis, and neural networks and write software which solves real world problems.\n\nAreas of responsibility: taking part in the planning, design, and writing of software for optimizing race strategy.\n\nWhat do you get out of being a Software Developer at Nordlys NTNU? Experience with software development and design, Python programming, control theory and optimization, data analysis and neural networks. Participate in Hackathons with the team\n\nThis role is perfect for you if you study: Computer science (Datatek/dataing/informatikk), cybernetics, mathematics.'
+        text: <>As a Software Developer, you will focus on the development of an advanced simulation software in Python which can accurately model our cars in competition and calculate how the car should drive to win the race. To do this, you will learn how the car works inside and out, translate technology to code, work with optimization, control, data analysis, and neural networks and write software which solves real world problems.
+        <br/>
+        <br/>
+        <em>Areas of responsibility:</em> 
+        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+          taking part in the planning, design, and writing of software for optimizing race strategy.
+        </div>
+        <br/>
+        <em>What do you get out of being a Software Developer at Nordlys NTNU?</em> 
+        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+          Experience with software development and design, Python programming, control theory and optimization, data analysis and neural networks. 
+          <br/>
+          Participate in Hackathons with the team
+        </div>
+        <br/>
+        <em>This role is perfect for you if you study: </em>
+        <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+          Computer science (Datatek/dataing/informatikk), cybernetics, mathematics.
+        </div>
+        </>
       },
       'webdev': {
         name: 'Web Developer',
-        text: 'As a web developer at Nordlys NTNU, you will sit at the crossroads of marketing and technology, where you combine coding skills with creativity to fullfill our ambition of creating the best and coolest website on the internet. Here, you may also develop graphical user interfaces for our internal tools.\n\nAreas of responsibility: planning and designing how the website should look. Coding the website in React. Creating graphical user interfaces for other software projects.\n\nThis role is perfect for you if you study: Computer science (Datatek/dataing/informatikk), Marketing'
+        text: <>
+          As a web developer at Nordlys NTNU, you will sit at the crossroads of marketing and technology, where you combine coding skills with creativity to fullfill our ambition of creating the best and coolest website on the internet. Here, you may also develop graphical user interfaces for our internal tools.
+          <br/>
+          <em>Areas of responsibility:</em>
+          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+            Planning and designing how the website should look. 
+            <br/>
+            Coding the website in React. 
+            <br/>
+            Creating graphical user interfaces for other software projects.
+          </div>
+          <br/>
+          <em>This role is perfect for you if you study:</em>
+          <div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}>
+            Computer science (Datatek/dataing/informatikk) 
+            <br/>
+            Marketing
+          </div>
+        </>
       }
       //'strategist': {name: 'Strategist', text: "Finding out how fast the car can drive during the competition is a difficult task. The strategy team requires a highly interdisciplinary set of members, applying knowledge about physics, aerodynamics, coding and simulation together to build the basis of Nordlys' on-route driving strategy.", supervisor: 'Not decided'},
       //'groupLeader': {name: 'Group Leader Strategy', text: 'The group leader is the leader of the strategy members. This is both a responsibility, and an oppurtunity of closer form the direction of the organization and the car. The group leader will also have responsibility for a part of the strategy system as well.', supervisor: 'Not Decided'},
@@ -415,6 +463,18 @@ export default function Join() {
     	'description': 'This group is responsible for the planning and logistics of competitions, testing and other activities. Nordlys is going to participate in competitions abroad and needs you to help us plan everything from travel, accomodations and food',
     	//'description': 'This completely new group is responsible for all the planning and logistics of the competition of 2025. Nordlys is going to Australia for the first time and need you to help us plan everything from the travel, the accommodations and the food.',
        // 'logisticsEngineer': {name: 'Logistics Engineer', text: "As a logistics engineer you will be part of the small team responsible for the entire travel arrangements for the team going to Bridgestone World Solar Challenge 2025. This includes making sure we have enough food and water, that car is shipped on time and that all the members know where to be at what times. You will be working in a close group and no previous knowledge is needed.", supervisor: 'Not Decided'},
+       'logistics-2026': {
+        name: 'Logistics Engineer for Project 2026',
+        text: <>
+          As a Logistics Engineer for Project 2026 at Nordlys NTNU, you will be responsible for planning and coordinating all logistical tasks related to Nordlys NTNU’s participation in the iLumen European Solar Challenge in Belgium. With the competition taking place in September, the role will focus on planning testing, preparing required equipment and resources, and ensuring that all practical needs are in place before and during the competition. The position involves identifying logistical requirements, coordinating services, and maintaining communication with external companies to secure necessary support.
+        </>
+       },
+       'logistics-2027': {
+        name: 'Logistics Engineer for Project 2027',
+        text: <>
+          As a Logistics Engineer for Project 2026 at Nordlys NTNU, you will be responsible for planning and coordinating all logistical tasks related to Nordlys NTNU’s participation in the iLumen European Solar Challenge in Belgium. With the competition taking place in September, the role will focus on planning testing, preparing required equipment and resources, and ensuring that all practical needs are in place before and during the competition. The position involves identifying logistical requirements, coordinating services, and maintaining communication with external companies to secure necessary support.
+        </>
+       }
     },
     'finance': {
       'name': 'Finance',
@@ -422,7 +482,13 @@ export default function Join() {
       'description': '',
       'finance-member': {
         name: 'Finance Member',
-        text: 'As a finance member in Nordlys, you will contribute to data-driven decision-making by working with the team’s financial foundation, with a primary focus on financial analysis alongside budgeting and accounting. \n\nYou will work primarily in Google Sheets, where you will maintain budgets and accounting overviews, analyze liquidity needs over time, and assess how resources can be allocated as efficiently as possible. This includes transforming financial data into clear visualizations, such as graphs and financial models, that support planning and strategic discussions across the team. \n\nThe role provides hands-on experience with practical financial management in a student-driven engineering project, and close collaboration with other departments to ensure sound financial planning.'
+        text: <>
+          As a finance member in Nordlys, you will contribute to data-driven decision-making by working with the team’s financial foundation, with a primary focus on financial analysis alongside budgeting and accounting. 
+          <br/>
+          You will work primarily in Google Sheets, where you will maintain budgets and accounting overviews, analyze liquidity needs over time, and assess how resources can be allocated as efficiently as possible. This includes transforming financial data into clear visualizations, such as graphs and financial models, that support planning and strategic discussions across the team. 
+          <br/>
+          The role provides hands-on experience with practical financial management in a student-driven engineering project, and close collaboration with other departments to ensure sound financial planning.
+        </>
       }
     }
   };
