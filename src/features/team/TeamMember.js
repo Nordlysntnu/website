@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Image from 'next/image'
 import styles from './styles/TeamMember.module.css';
 import ContactRibbon from './ContactRibbon';
+import Link from 'next/link';
 
 const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,15 +16,27 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
     }, []);
 
     if (name == "You?") { return (
+        //<div className={styles.container}>
+            //<Image className={styles.image} 
+		//src={image} 
+		//alt={`${name}'s profile`} 
+		//onClick={() => window.location.href = "/join"}/>
+            //<div className={styles.textContainer}>
+                //<p className={styles.name}>{name}</p>
+                //<p className={styles.position}>{title}</p>
+                //<a href={`https://nordlysntnu.no/join`} className={styles.link}>Click here!</a>
+            //</div>
+        //</div>
         <div className={styles.container}>
-            <Image className={styles.image} 
-		src={image} 
-		alt={`${name}'s profile`} 
-		onClick={() => window.location.href = "/join"}/>
-            <div className={styles.textContainer}>
-                <p className={styles.name}>{name}</p>
-                <p className={styles.position}>{title}</p>
-                <a href={`https://nordlysntnu.no/join`} className={styles.link}>Click here!</a>
+            <div className="topGroup">
+                <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => window.location.href = "/join"}/>
+                <div className={styles.textContainer}>
+                    <p className={styles.name}>{name}</p>
+                    <p className={styles.position}>{title}</p>
+                </div>
+            </div>
+            <div style={{'margin': 'auto', 'text-align': 'center'}}>
+                <Link href="/join" className={styles.joinButton}><p style={{'color': 'rgb(255,255,255)'}}>Join!</p></Link>
             </div>
         </div>
     );}

@@ -14,6 +14,7 @@
     margin-bottom: 1.5em;
 }
 
+
 .image {
     width: 100%;
     aspect-ratio: 4 / 5;
@@ -45,15 +46,15 @@
 }
 
 .link {
+    display: flex;
+    width: 240px;
+    max-width: 200px;
     color: rgb(178, 11, 58);
     transition: 250ms ease all;
     font-size: 0.8em;
-    position: absolute;
-    display: inline-block;
+    position: relative;
     bottom: 0.5em;
-    left: 50%;
     text-align: center;
-    transform: translateX(-50%);
 }
 
 .link::after {
@@ -127,4 +128,29 @@
 @keyframes fadein {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+.joinButton {
+    /*
+    font-size: 1.2em;
+    padding: 0.5em 2em;
+    background-color: rgb(255, 16, 83, 0.8);
+    transition: 250ms ease all;
+    border-radius: 1000px;
+    */
+    padding: 0.2em 3em;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /*background-color: rgb(255, 16, 83, 0.8);*/
+    background-color: #FF1053;
+    width: 120px;
+}
+
+
+
+.joinButton:hover {
+    background-color: rgba(255, 16, 83, 1);
 }
