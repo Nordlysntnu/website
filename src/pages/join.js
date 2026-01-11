@@ -6,7 +6,7 @@ import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import PartHeader from '@shared/components/PartHeader';
 
-import { parseGroupsMarkdownSimple } from '@features/join/markdownParserJoin';
+import { markdownParserJoin } from '@features/join/markdownParserJoin';
 
 import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
 import Chassis from '@assets/symbols-and-logos/Chassis.png';
@@ -531,7 +531,7 @@ export async function getStaticProps() {
     finance: Management.src
   };
 
-  const groups = parseGroupsMarkdownSimple("src/markdown/join.md", imageMap);
+  const groups = await markdownParserJoin("src/markdown/join.md", imageMap);
 
   return { props: { groups } };
 }
@@ -551,7 +551,7 @@ export default function Join({ groups }) {
         <></>
         <PageHeader title="Join" />
         <Content dark={true}>
-              <PartHeader darkColor={false} title="Apply" text={text} />
+              <PartHeader darkColor={false} title="Apply" text={<div dangerouslySetInnerHTML={{ __html: text }} />} />
               <JoinForm groups={groups} />
               <br></br>
               * The data you submit will be stored by Nordlys until the application is processed. The data will be stored no longer than six months.
