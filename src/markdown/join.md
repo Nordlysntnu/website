@@ -3,7 +3,6 @@
 # Electrical
 
 description:
-The electrical group is responsible for all the electrical systems on board the car. This includes both the high and low voltage systems.
 
 ## Battery Electrical Engineer
 
@@ -33,7 +32,6 @@ Hands-on experience with embedded systems
 Opportunity to innovate new solutions for real-world applications
 Developing components and making them work together in a complex system
 
----
 
 # Mechanical
 
@@ -45,7 +43,6 @@ The mechanical group designs and builds all the dynamic mechanical systems of th
 text:
 As a Steering System Engineer you will be responsible for designing and developing a new steering system for our already existing car. The steering system needs to be both reliable and safe during a competition as well as being lightweight. The steering system as of now is based on a rack and pinion design. Your work will involve design and production of the new steering system. The design process will mostly be in CAD and structural analysis programs. You will also be able to do lots of practical work during the production of the system
 
----
 
 # Chassis
 
@@ -66,7 +63,6 @@ As a Body Mechanisms Engineer, you will design and develop the moving components
 
 You will be responsible for creating functional, manufacturable mechanisms that integrate cleanly with the chassis and body structure. The work includes CAD design, kinematic analysis, material selection, and close collaboration with the structural and aerodynamics teams to ensure that all mechanisms are lightweight, robust, and competition-ready.
 
----
 
 # Strategy
 
@@ -99,9 +95,8 @@ Creating graphical user interfaces for other software projects.
 Computer science (Datatek/dataing/informatikk) 
 Marketing
 
----
 
-## Marketing 
+# Marketing 
 
 description:
 The Marketing group is responsible for the development of the overall brand of Nordlys. Given the young age of the organization, this is an important group that does not require a lot of previous experience.
@@ -121,7 +116,6 @@ As a Content Creator in the Marketing Group at Nordlys NTNU, you will be respons
 text:
 As an Event Manager in the Marketing Group at Nordlys NTNU, you will be responsible for planning, coordinating, and executing events that promote Nordlys NTNU and engage students, partners, and other stakeholders. The role includes developing event concepts, managing logistics, coordinating with internal teams and external collaborators, and ensuring smooth execution from planning to completion. You will play a key role in creating professional and well-organized events that strengthen Nordlys NTNU’s visibility and reputation.
 
----
 
 # Logistics
 
@@ -138,7 +132,6 @@ As a Logistics Engineer for Project 2026 at Nordlys NTNU, you will be responsibl
 text:
 As a Logistics Engineer for Project 2026 at Nordlys NTNU, you will be responsible for planning and coordinating all logistical tasks related to Nordlys NTNU’s participation in the iLumen European Solar Challenge in Belgium. With the competition taking place in September, the role will focus on planning testing, preparing required equipment and resources, and ensuring that all practical needs are in place before and during the competition. The position involves identifying logistical requirements, coordinating services, and maintaining communication with external companies to secure necessary support.
 
----
 
 # Finance
 
@@ -150,5 +143,3 @@ text:
 As a finance member in Nordlys, you will contribute to data-driven decision-making by working with the team’s financial foundation, with a primary focus on financial analysis alongside budgeting and accounting. 
 You will work primarily in Google Sheets, where you will maintain budgets and accounting overviews, analyze liquidity needs over time, and assess how resources can be allocated as efficiently as possible. This includes transforming financial data into clear visualizations, such as graphs and financial models, that support planning and strategic discussions across the team. 
 The role provides hands-on experience with practical financial management in a student-driven engineering project, and close collaboration with other departments to ensure sound financial planning.
-
---- 
