@@ -538,7 +538,7 @@ export async function getStaticProps() {
 
 
 export default function Join({ groups }) {
-  const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>
+  const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>;
 
   return (
     <>
@@ -551,7 +551,7 @@ export default function Join({ groups }) {
         <></>
         <PageHeader title="Join" />
         <Content dark={true}>
-              <PartHeader darkColor={false} title="Apply" text={<div dangerouslySetInnerHTML={{ __html: text }} />} />
+              <PartHeader darkColor={false} title="Apply" text={text} />
               <JoinForm groups={groups} />
               <br></br>
               * The data you submit will be stored by Nordlys until the application is processed. The data will be stored no longer than six months.

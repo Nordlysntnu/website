@@ -47,7 +47,7 @@ export default function Group({ image, groupName, theses, description }) {
                 </svg>  
             </h2>
             <div className={styles.thesesContainer} ref={ref} style={{ height: bottom }}>
-                <div className={styles.groupDescription}>{description}</div>
+                <div className={styles.groupDescription} dangerouslySetInnerHTML={{ __html: description }} />
                 {
                     Object.keys(theses).map((thesisName, j) => (
                         (thesisName != 'image' && thesisName != 'name' && thesisName != 'description')? (

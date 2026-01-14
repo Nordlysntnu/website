@@ -52,7 +52,7 @@ The chassis group designs and builds the structural components of the solar car.
 ## Structural and Safety Enginner
 
 text:
-As a Structural & Safety Engineer, you will be responsible for the car’s primary load-bearing structure, including the chassis, occupant cell, and other critical composite and metallic components. Safety is one of our highest priorities, and you will contribute to ensuring that every structural element meets competition regulations and provides a robust and reliable foundation for the vehicle.
+As a Structural and Safety Engineer, you will be responsible for the car’s primary load-bearing structure, including the chassis, occupant cell, and other critical composite and metallic components. Safety is one of our highest priorities, and you will contribute to ensuring that every structural element meets competition regulations and provides a robust and reliable foundation for the vehicle.
 
 Your work will involve designing and validating static structural components, performing analyses to verify strength and stiffness, and ensuring that the car’s structural solutions integrate well with other subsystems. You will collaborate closely with teammates across aerodynamics, mechanical, and electronics to ensure a safe and well-engineered final product.
 

@@ -7,10 +7,12 @@ export default function({ dark, groups }) {
         <Content id="groups" dark={dark}>
             <div className={styles.container}>
                 {
-                    Object.keys(groups).map((groupName, i) => (
-                        <Group image={groups[groupName]['image']} groupName={groups[groupName].name} description={groups[groupName]['description']} theses={groups[groupName]} />
-                    ))
-                }
+                    Object.keys(groups).map((groupName) => {
+                        const group = groups[groupName];
+                        return (
+                        <Group key={groupName} image={group.image} groupName={group.name} description={group.description} theses={group} />
+                    );
+                })}
             </div>
         </Content>
     )
