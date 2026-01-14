@@ -43,6 +43,18 @@
     display: inline-block;
 }
 
+.groupDescription ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.groupDescription li {
+    padding-left: "2em";
+    margin-Top: "0.4em";
+    line-Height: "1.4em";
+}
+
 .thesesContainer {
     overflow: hidden;
     transition: 250ms ease all;
@@ -81,4 +93,16 @@
 
 .thesisDescription {
 
+}
+
+.thesisDescription ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.thesisDescription li {
+    padding-left: "2em";
+    margin-Top: "0.4em";
+    line-Height: "1.4em";
 }
