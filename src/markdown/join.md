@@ -11,13 +11,14 @@ text:
 As a Battery Electrical Engineer, you will focus on the design, development, and optimization of the electrical systems within the battery pack, in a team of both electrical and mechanical engineers. You will work closely with the battery mechanical engineers to ensure a safe and efficient battery system, focusing on the electrical busbar, precharge and safety systmes. Integrating the battery with the car's electrical HV and LV systems, ensuring electrical safety and testing the electrical components and battery cells will be some of your main tasks.
         
 *Areas of responsibility*
-Design and development of battery electrical systems
-Integration of battery systems with the car's electrical HV and LV systems
-Testing and validation of battery electrical components including busbars, fuses, precharge resistors, contactors and battery cells.
+- Design and development of battery electrical systems
+- Integration of battery systems with the car's electrical HV and LV systems
+- Testing and validation of battery electrical components including busbars, fuses, precharge resistors, contactors and battery cells.
+
 *What do you get out of being a Battery Electrical Engineer in Nordlys NTNU?*
-Hands-on experience with advanced battery technologies
-Collaboration with a multidisciplinary team          
-Challenge your engineering skills in a real-world application
+- Hands-on experience with advanced battery technologies
+- Collaboration with a multidisciplinary team          
+- Challenge your engineering skills in a real-world application
 
 ## Embedded Engineer
 
@@ -25,13 +26,14 @@ text:
 As an embedded software developer you will work on writing code for our STM32-based data accusation modules (DAMs) and steering wheel (DSW). The code for these systems is critical for the core functionality of the car, and controls the car based on input from the driver. The tasks will be mostly writing robust state machine based application code, but also driver development integrating new hardware or improving current solutions. 
 
 *Areas of responsibility*
-Development of embedded software and hardware. 
-Integration of hardware and software systems into our distributed system in the car using CAN-bus.
-Testing and debugging of embedded systems
+- Development of embedded software and hardware. 
+- Integration of hardware and software systems into our distributed system in the car using CAN-bus.
+- Testing and debugging of embedded systems
+
 *What do you get out of being an Embedded Engineer in Nordlys NTNU?*
-Hands-on experience with embedded systems
-Opportunity to innovate new solutions for real-world applications
-Developing components and making them work together in a complex system
+- Hands-on experience with embedded systems
+- Opportunity to innovate new solutions for real-world applications
+- Developing components and making them work together in a complex system
 
 
 # Mechanical
@@ -76,25 +78,29 @@ text:
 As a Software Developer, you will focus on the development of an advanced simulation software in Python which can accurately model our cars in competition and calculate how the car should drive to win the race. To do this, you will learn how the car works inside and out, translate technology to code, work with optimization, control, data analysis, and neural networks and write software which solves real world problems.
 
 *Areas of responsibility:*
-Taking part in the planning, design, and writing of software for optimizing race strategy.
+- Taking part in the planning, design, and writing of software for optimizing race strategy.
+
 *What do you get out of being a Software Developer at Nordlys NTNU?*
-Experience with software development and design, Python programming, control theory and optimization, data analysis and neural networks. 
-Participate in Hackathons with the team
+- Experience with software development and design, Python programming, control theory and optimization, data analysis and neural networks. 
+- Participate in Hackathons with the team
+
 *This role is perfect for you if you study:*
-Computer science (Datatek/dataing/informatikk), cybernetics, mathematics.
+- Computer science (Datatek/dataing/informatikk), cybernetics, mathematics.
 
 
 ## Web Developer
 
 text:
 As a web developer at Nordlys NTNU, you will sit at the crossroads of marketing and technology, where you combine coding skills with creativity to fullfill our ambition of creating the best and coolest website on the internet. Here, you may also develop graphical user interfaces for our internal tools.
+
 *Areas of responsibility:*
-Planning and designing how the website should look. 
-Coding the website in React. 
-Creating graphical user interfaces for other software projects.
+- Planning and designing how the website should look. 
+- Coding the website in React. 
+- Creating graphical user interfaces for other software projects.
+
 *This role is perfect for you if you study:*
-Computer science (Datatek/dataing/informatikk) 
-Marketing
+- Computer science (Datatek/dataing/informatikk) 
+- Marketing
 
 
 # Marketing 
