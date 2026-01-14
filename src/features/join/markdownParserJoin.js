@@ -19,6 +19,7 @@ export async function markdownParserJoin(relativePath, imageMap) {
   //TODO: seperate processAsHtml so it can work for other md pages (about)
 
   async function processAsHtml() {
+
     const text = buffer.join("\n").trim();
     buffer = [];
     if (!text) return "";
@@ -52,6 +53,8 @@ export async function markdownParserJoin(relativePath, imageMap) {
       continue;
     }
 
+    //<div style={{paddingLeft: "2em", marginTop: "0.4em", lineHeight: "1.4em"}}> <- use styling for lists somehow
+
     // Role (##)
     if (line.startsWith("## ")) {
       if (currentRole && buffer.length > 0) {
@@ -78,6 +81,10 @@ export async function markdownParserJoin(relativePath, imageMap) {
     if (line.startsWith("text:")) {
         buffer.push(line.replace("text:", "").trim());
       continue;
+    }
+
+    if (line.startsWith("-")) {
+        
     }
 
     buffer.push(line);
