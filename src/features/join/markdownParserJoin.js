@@ -2,13 +2,10 @@ import fs from "fs";
 import path from "path";
 import { remark } from "remark";
 import html from "remark-html";
+import breaks from "remark-breaks";
 
-/**
- * Parse Markdown into the object shape JoinForm expects
- * @param {string} relativePath Path to Markdown file
- * @param {object} imageMap Mapping of group keys to image src
- */
 export async function markdownParserJoin(relativePath, imageMap) {
+
   const fullPath = path.join(process.cwd(), relativePath);
   const content = fs.readFileSync(fullPath, "utf8");
 
@@ -23,28 +20,29 @@ export async function markdownParserJoin(relativePath, imageMap) {
     const text = buffer.join("\n").trim();
     buffer = [];
     if (!text) return "";
-    const result = await remark().use(html).process(text);
+
+    const result = await remark().use(breaks).use(html).process(text);
     return result.toString();
   }
 
   for (let line of lines) {
     line = line.trim();
     if (!line) {
-        buffer.push("");
-        continue;
+      buffer.push("");
+      continue;
     }
 
-    // GROUP (#)
+    // Group (#)
     if (line.startsWith("# ") && !line.startsWith("##")) {
+      if (currentRole && buffer.length > 0) {
+        groups[currentGroup][currentRole].text = await processAsHtml();
+      } else if (currentGroup && buffer.length > 0) {
+        groups[currentGroup].description = await processAsHtml();
+      }
 
-        if (currentRole && buffer.length > 0) {
-            groups[currentGroup][currentRole].text = await processAsHtml();
-        } else if (currentGroup && buffer.length > 0) {
-            groups[currentGroup].description = await processAsHtml();
-        }
-
-      const name = line.replace("# ", "").trim();
+      const name = line.replace("#", "").trim();
       const key = name.toLowerCase().replace(/\s+/g, "-");
+
       groups[key] = { name, image: imageMap[key], description: "" };
       currentGroup = key;
       currentRole = null;
@@ -52,15 +50,14 @@ export async function markdownParserJoin(relativePath, imageMap) {
       continue;
     }
 
-    // ROLE (##)
+    // Role (##)
     if (line.startsWith("## ")) {
+      if (currentRole && buffer.length > 0) {
+        groups[currentGroup][currentRole].text = await processAsHtml();
+      } else if (currentGroup && buffer.length > 0) {
+        groups[currentGroup].description = await processAsHtml();
+      }
 
-        if (currentRole && buffer.length > 0) {
-            groups[currentGroup][currentRole].text = await processAsHtml();
-        } else if (currentGroup && buffer.length > 0) {
-            groups[currentGroup].description = await processAsHtml();
-        }
-    
       const name = line.replace("## ", "").trim();
       const key = name.toLowerCase().replace(/\s+/g, "-");
       groups[currentGroup][key] = { name, text: "" };
@@ -69,10 +66,10 @@ export async function markdownParserJoin(relativePath, imageMap) {
       continue;
     }
 
-    // DESCRIPTION OR TEXT
+    // Description or text
     if (line.startsWith("description:")) {
       const text = line.replace("description:", "").trim();
-      groups[currentGroup].description = await remark().use(html).processSync(text).toString();
+      groups[currentGroup].description = await remark().use(breaks).use(html).processSync(text).toString();
       continue;
     }
 
@@ -82,13 +79,13 @@ export async function markdownParserJoin(relativePath, imageMap) {
     }
 
     buffer.push(line);
-}
+  }
 
-if (currentRole && buffer.length > 0) {
-        groups[currentGroup][currentRole].text = await processAsHtml();
-    } else if (currentGroup && buffer.length > 0) {
-        groups[currentGroup].description = await processAsHtml();
-    }
+  if (currentRole && buffer.length > 0) {
+    groups[currentGroup][currentRole].text = await processAsHtml();
+  } else if (currentGroup && buffer.length > 0) {
+    groups[currentGroup].description = await processAsHtml();
+  }
 
-    return groups;
+  return groups;
 }
