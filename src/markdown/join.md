@@ -2,7 +2,8 @@
 
 # Electrical
 
-description:
+description: 
+The electrical group is responsible for all the electrical systems on board the car. This includes both the high and low voltage systems.
 
 ## Battery Electrical Engineer
 
