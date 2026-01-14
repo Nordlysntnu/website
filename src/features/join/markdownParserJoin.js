@@ -16,6 +16,8 @@ export async function markdownParserJoin(relativePath, imageMap) {
   let currentRole = null;
   let buffer = [];
 
+  //TODO: seperate processAsHtml so it can work for other md pages (about)
+
   async function processAsHtml() {
     const text = buffer.join("\n").trim();
     buffer = [];
