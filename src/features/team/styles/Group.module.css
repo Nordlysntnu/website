@@ -43,18 +43,6 @@
     display: inline-block;
 }
 
-.groupDescription ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.groupDescription li {
-    padding-left: "2em";
-    margin-Top: "0.4em";
-    line-Height: "1.4em";
-}
-
 .thesesContainer {
     overflow: hidden;
     transition: 250ms ease all;
@@ -91,18 +79,18 @@
     content: ':'
 }
 
-.thesisDescription {
-
+.thesisDescription p:first-child {
+    display: inline;
 }
 
 .thesisDescription ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    list-style-type: none;
+    padding-left: 2em;
+    margin-Top: 0.4em;
+    line-Height: 1.4em;
 }
 
-.thesisDescription li {
-    padding-left: "2em";
-    margin-Top: "0.4em";
-    line-Height: "1.4em";
+.thesisDescription em {
+    display: inline-block;
+    margin-top: 1em;
 }

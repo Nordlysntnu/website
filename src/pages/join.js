@@ -525,7 +525,7 @@ export async function getStaticProps() {
     electrical: EmbeddedElectronics.src,
     mechanical: Mechanical.src,
     chassis: Chassis.src,
-    strategy: Software.src,
+    software: Software.src,
     marketing: Marketing.src,
     logistics: Logistics.src,
     finance: Management.src
