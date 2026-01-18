@@ -124,7 +124,6 @@ As a Logistics Engineer for Project 2026 at Nordlys NTNU, you will be responsibl
 
 # Finance
 
-
 ## Finance Member
 
 As a finance member in Nordlys, you will contribute to data-driven decision-making by working with the team’s financial foundation, with a primary focus on financial analysis alongside budgeting and accounting. 

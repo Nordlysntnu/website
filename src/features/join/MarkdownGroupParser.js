@@ -1,10 +1,8 @@
 import fs from "fs";
 import path from "path";
-import { remark } from "remark";
-import html from "remark-html";
-import breaks from "remark-breaks";
+import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
 
-export async function markdownParserJoin(relativePath, imageMap) {
+export async function MarkdownGroupParser(relativePath, imageMap) {
 
   const fullPath = path.join(process.cwd(), relativePath);
   const content = fs.readFileSync(fullPath, "utf8");
@@ -18,7 +16,7 @@ export async function markdownParserJoin(relativePath, imageMap) {
 
   //TODO: seperate processAsHtml so it can work for other md pages (about)
 
-  async function processAsHtml() {
+  async function flushBuffer() {
   
     const text = buffer.join("\n").trim();
     buffer = [];
@@ -26,9 +24,7 @@ export async function markdownParserJoin(relativePath, imageMap) {
     if (!text) {
       return "";
     }
-
-    const result = await remark().use(breaks).use(html).process(text);
-    return result.toString();
+    return await MarkdownToHtml(text);
   }
 
   for (let line of lines) {
@@ -41,9 +37,9 @@ export async function markdownParserJoin(relativePath, imageMap) {
     // Group (#)
     if (line.startsWith("# ") && !line.startsWith("##")) {
       if (currentRole && buffer.length > 0) {
-        groups[currentGroup][currentRole].text = await processAsHtml();
+        groups[currentGroup][currentRole].text = await flushBuffer();
       } else if (currentGroup && buffer.length > 0) {
-        groups[currentGroup].description = await processAsHtml();
+        groups[currentGroup].description = await flushBuffer();
       }
 
       const name = line.replace("#", "").trim();
@@ -59,9 +55,9 @@ export async function markdownParserJoin(relativePath, imageMap) {
     // Role (##)
     if (line.startsWith("## ")) {
       if (currentRole && buffer.length > 0) {
-        groups[currentGroup][currentRole].text = await processAsHtml();
+        groups[currentGroup][currentRole].text = await flushBuffer();
       } else if (currentGroup && buffer.length > 0) {
-        groups[currentGroup].description = await processAsHtml();
+        groups[currentGroup].description = await flushBuffer();
       }
 
       const name = line.replace("##", "").trim();
@@ -76,9 +72,9 @@ export async function markdownParserJoin(relativePath, imageMap) {
   }
 
   if (currentRole && buffer.length > 0) {
-    groups[currentGroup][currentRole].text = await processAsHtml();
+    groups[currentGroup][currentRole].text = await flushBuffer();
   } else if (currentGroup && buffer.length > 0) {
-    groups[currentGroup].description = await processAsHtml();
+    groups[currentGroup].description = await flushBuffer();
   }
 
   return groups;

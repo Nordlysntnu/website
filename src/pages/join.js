@@ -6,7 +6,7 @@ import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import PartHeader from '@shared/components/PartHeader';
 
-import { markdownParserJoin } from '@features/join/markdownParserJoin';
+import { MarkdownGroupParser } from '@features/join/MarkdownGroupParser';
 
 import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
 import Chassis from '@assets/symbols-and-logos/Chassis.png';
@@ -531,7 +531,7 @@ export async function getStaticProps() {
     finance: Management.src
   };
 
-  const groups = await markdownParserJoin("src/markdown/join.md", imageMap);
+  const groups = await MarkdownGroupParser("src/markdown/join.md", imageMap);
 
   return { props: { groups } };
 }

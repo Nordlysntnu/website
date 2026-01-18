@@ -6,7 +6,11 @@ import Route from '@features/about/Route';
 import SubPartVideo from '@shared/components/SubPartVideo';
 import SubPart1 from '@shared/components/SubPart1';
 
-export default function About() {
+import fs from "fs";
+import path from "path";
+import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
+
+export default function About({ missionHtml }) {
   return (
       <>
       <Head>
@@ -16,10 +20,18 @@ export default function About() {
       <Layout current="About">
         <></>
         <PageHeader title="About us" />
-        <Mission dark={true} />
+        <Mission dark={true} htmlContent={missionHtml} />
         <SubPartVideo dark={false} video="/videos/compressed/AboutVideo.mp4" link="https://www.youtube.com/watch?v=R_lVdrHnbYo" linkText="Watch more" poster="/posters/compressed/AboutVideo.png" title="Solar Racing" text="To solve the problems of tomorrow, nothing is more important than thinking new. Solar racing pushes the limit of technology and solar energy innovation through competition. Who can drive the fastest and get to the finish line before running out of energy?" />
         <Route dark={true} />
       </Layout>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const filePath = path.join(process.cwd(), "src/markdown/about.md");
+  const mdContent = fs.readFileSync(filePath, "utf8");
+  const htmlContent = await MarkdownToHtml(mdContent);
+
+  return { props: {missionHtml: htmlContent }};
 }
