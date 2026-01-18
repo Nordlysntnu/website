@@ -5,7 +5,6 @@ import Education from '@assets/symbols-and-logos/Education.png';
 import Solar from '@assets/symbols-and-logos/Solar.png';
 import Sustainability from '@assets/symbols-and-logos/Sustainability.png';
 
-
 export default function Mission({ dark, htmlContent }) {
     return (
         <Content dark={dark}>
