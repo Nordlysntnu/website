@@ -31,3 +31,26 @@
 .link:hover.link::after {
     margin-left: 0.2em;
 }
+
+.markdown a {
+    color: rgb(178, 11, 58);
+    transition: 250ms ease all;
+}
+
+.markdown a::after {
+    content: ' >';
+    margin-left: 0;
+    transition: 250ms ease all;
+}
+
+.markdown a:hover {
+    color: rgb(255, 16, 83);
+}
+
+.markdown a:hover.a::after {
+    margin-left: 0.2em;
+}
+
+.markdown p {
+    margin-bottom: 1em;
+}

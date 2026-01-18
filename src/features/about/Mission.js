@@ -11,7 +11,7 @@ export default function Mission({ dark, htmlContent }) {
         <Content dark={dark}>
             <div className={styles.container}>
                 <div className={styles.textContainer}>
-                    <div dangerouslySetInnerHTML={{__html: htmlContent}} />
+                    <div className={styles.markdown} dangerouslySetInnerHTML={{__html: htmlContent}} />
                 </div>
                 <div className={styles.imageContainer}>
                     <GoalCard delay={200} image={Sustainability.src} title="Sustainability" text="Nordlys believes that a sustainable society is a prerequisite for a prosperous future. Our generation's way of life should not come at the cost of future generations’ welfare. We support the UNs sustainable development goals, and directly work towards 8 of them." />
