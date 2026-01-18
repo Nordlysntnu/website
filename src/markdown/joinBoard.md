@@ -66,16 +66,16 @@ As Head of Finance in Nordlys NTNU you get the opportunity to develop skills in 
 Head of Marketing is the person in charge of the marketing, sponsoring work, event planning, graphical design and general branding of Nordlys NTNU. You should not pass up this opportunity to help build our organizations external image, gain experience in management and being in touch with external partners. As a newly established organization, you have a great opportunity to put your mark on the organization, and help steer its direction for years to come!
 
 *Areas of responsibility*
-- Marketing
-  1. Developing a marketing plan/strategy
-  2. Plan and conduct recruitment
-  3. Plan and conduct events (external and internal)
-  4. Control social media-accounts
-- Sponsors
-  1. Acquiring new partners and sponsors
-  2. Follow up acquired partners and sponsors
-- Graphical design
-  1. Defining and maintaining graphical profile
+1. Marketing
+  - Developing a marketing plan/strategy
+  - Plan and conduct recruitment
+  - Plan and conduct events (external and internal)
+  - Control social media-accounts
+2. Sponsors
+  - Acquiring new partners and sponsors
+  - Follow up acquired partners and sponsors
+3. Graphical design
+  - Defining and maintaining graphical profile
 
 *What do you get out of being Head of Marketing in Nordlys NTNU?*
 - Great skills in financial management
