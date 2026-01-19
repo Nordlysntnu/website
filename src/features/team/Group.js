@@ -47,17 +47,19 @@ export default function Group({ image, groupName, theses, description }) {
                 </svg>  
             </h2>
             <div className={styles.thesesContainer} ref={ref} style={{ height: bottom }}>
-                <div className={styles.groupDescription}>{description}</div>
+                <div className={styles.groupDescription} dangerouslySetInnerHTML={{ __html: description }} />
                 {
-                    Object.keys(theses).map((thesisName, j) => (
+                    Object.keys(theses).map((thesisName) => {
+                        const thesis = theses[thesisName];
+                        return (
                         (thesisName != 'image' && thesisName != 'name' && thesisName != 'description')? (
                             <div className={styles.thesis}>
-                                <span className={styles.thesisTitle}>{theses[thesisName].name}</span>
-                                <span className={styles.thesisDescription}>{theses[thesisName].text}</span>
+                                <span className={styles.thesisTitle}>{thesis.name}</span>
+                                <span className={styles.thesisDescription}  dangerouslySetInnerHTML={{ __html: thesis.text}} />
                             </div>
                         ) : (<></>)
-                    ))
-                }
+                    );
+                })}
             </div>
         </div>
         </AnimationOnScroll>

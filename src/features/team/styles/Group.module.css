@@ -79,6 +79,24 @@
     content: ':'
 }
 
-.thesisDescription {
+.thesisDescription p:first-child {
+    display: inline;
+}
 
+.thesisDescription ul {
+    list-style-type: none;
+    padding-left: 2em;
+    margin-Top: 0.4em;
+    line-Height: 1.4em;
+}
+
+.thesisDescription ol {
+    list-style-type: none;
+    margin-Top: 0.4em;
+    line-Height: 1.4em;
+}
+
+.thesisDescription em {
+    display: inline-block;
+    margin-top: 1em;
 }
