@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function NavBar({ current }) {
-    const pages = [["Home", "/"], ["About", "/about"], ["Team", "/team"], ["Partners", "/partners"], ["Blog", "/blog"]]
+    const pages = [["Home", "/"], ["About", "/about"], ["Team", "/team"], ["Partners", "/partners"], ["Blog", "/blog"], ["Wiki", "https://wiki.nordlysntnu.no"]]
     const [clicked, setClicked] = useState(false);
     const [displayState, setDisplayState] = useState('none')
     const [topLine, setTopLine] = useState(`${styles.topLine}`)
