@@ -1,21 +1,21 @@
 export const members = [
 
     //Board
-	{
-		id: 1000,
-		project: [2026],
-		name: "You?",
-		image: "/members/2026/Questionmark.png",
-		fulLImage: "/members/2026/Questionmark.png",
-		email: "",
-		history: [
-			{
-				year: 2026,
-				title: "Become part of the team this semester!",
-				group: ["Software", "Electrical", "Mechanical", "Chassis", "Marketing"]
-			}
-		]
-	},
+//	{
+//		id: 1000,
+//		project: [2026],
+//		name: "You?",
+//		image: "/members/2026/Questionmark.png",
+//		fulLImage: "/members/2026/Questionmark.png",
+//		email: "",
+//		history: [
+//			{
+//				year: 2026,
+//				title: "Become part of the team this semester!",
+//				group: ["Software", "Electrical", "Mechanical", "Chassis", "Marketing"]
+//			}
+//		]
+//	},
     {
         id: 1,
 	project: [2025],
