@@ -74,8 +74,8 @@ const TeamOverview = () => {
   }, [group]); // Når 'group' endres i URL-en, oppdater 'selectedGroup'
   const handleGroupChange = (group) => {
       setSelectedGroup(group);
-     router.push({ pathname: router.pathname, query: { ...router.query, group: group.toLowerCase() }}, undefined, { shallow: true, scroll: false });
-     setMenuOpen(false);
+     router.push({ pathname: router.pathname, query: { ...router.query, group: group.toLowerCase() }}, undefined, { shallow: true, scroll: false }); //Oppdtaer URL-parameteren
+     setMenuOpen(false); // Lukk dropdown når et valg er gjort
   };
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 1050);
