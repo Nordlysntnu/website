@@ -7,6 +7,8 @@ import SubPart1 from '@shared/components/SubPart1';
 import { useRouter } from 'next/router';
 
 const teamGroups = [
+  'Project 2026',
+  'Project 2025',
   'Board',
   'Electrical',
   'Mechanical',
@@ -15,8 +17,7 @@ const teamGroups = [
   'Marketing',
   'Logistics',
   'Technical advisor',
-  'Alumni',
-  'All active members'
+  'Alumni'
 ];
       //<b>The Strategy group</b> is responsible for analyzing data and developing race plans to maximize the car’s performance during competitions. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. Without good race plans and strategies, even the best of solar cars will be left behind, which makes the strategy group vital for Nordlys’ chase to become world leading.
 
@@ -61,7 +62,7 @@ const groupDescriptions = {
 };
 
 const TeamOverview = () => {
-    const [selectedGroup, setSelectedGroup] = useState('Board');
+    const [selectedGroup, setSelectedGroup] = useState('Project 2026');
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const router = useRouter(); // Bruker useRouter for å få tilgang til URL-query
@@ -127,7 +128,7 @@ const TeamOverview = () => {
             <h2 className={styles.groupTitle}>{selectedGroup}</h2>
 
             {/* Display group members */}
-	    {!["Alumni", "Technical advisor"].includes(selectedGroup) ? 
+	    {!["Alumni", "Project 2025", "Project 2026", "Technical advisor"].includes(selectedGroup) ? 
 	    	<div><h3 className={styles.groupTitle}>Project 2026</h3>
             	<TeamGroup 
 	    	    year={2026} 
@@ -139,7 +140,7 @@ const TeamOverview = () => {
 	    	)}/></div>
 	    : null}
 	
-	    {!["Chassis", "All active members", "Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
+	    {!["Chassis", "Alumni", "Project 2025", "Project 2026", "Technical advisor"].includes(selectedGroup) ? <div>
 	    	<h3 className={styles.groupTitle}>Project 2025</h3>
             	<TeamGroup 
 	    	    year={2025} 
@@ -161,6 +162,28 @@ const TeamOverview = () => {
 	    	    	)
 	    	)}/></div>
 	    : null}	
+
+      {["Project 2026"].includes(selectedGroup) ? <div>
+        <TeamGroup
+        year={2026}
+        members={members.filter(member=>
+          member.history.some(
+            h => h.year == 2026
+          )
+        )}
+        /></div>
+        : null}
+
+        {["Project 2025"].includes(selectedGroup) ? <div>
+        <TeamGroup
+        year={2025}
+        members={members.filter(member=>
+          member.history.some(
+            h => h.year == 2025
+          )
+        )}
+        /></div>
+        : null}
 
             {/* Information section */}
             {groupDescriptions[selectedGroup] && (
