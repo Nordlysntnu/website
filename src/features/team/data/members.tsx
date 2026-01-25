@@ -1237,7 +1237,7 @@ export const members = [
         email: 'aurora.vinslid@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
         		title: 'Co-founder', 
         		group: ['Alumni'], 
 		}
@@ -1252,7 +1252,7 @@ export const members = [
         email: 'oliver.angerman@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1267,7 +1267,7 @@ export const members = [
         email: 'emil.ornes@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1282,7 +1282,7 @@ export const members = [
         email: 'benjamin.tryggestad@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1297,7 +1297,7 @@ export const members = [
         email: 'immanuel.leps@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1312,7 +1312,7 @@ export const members = [
         email: 'mathieu.pelissier@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1327,7 +1327,7 @@ export const members = [
         email: 'erik.ohlckers@nordlysntnu.no' ,
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1342,7 +1342,7 @@ export const members = [
         email: 'kristian.ostensen@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1357,7 +1357,7 @@ export const members = [
         email: 'andrea.almuktash@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1372,7 +1372,7 @@ export const members = [
         email: 'darius.salehi@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1387,7 +1387,7 @@ export const members = [
         email: 'boris.bajla@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1402,7 +1402,7 @@ export const members = [
         email: 'mathilde.skaset-haarr@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1417,7 +1417,7 @@ export const members = [
         email: 'johan.storesund@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1432,7 +1432,7 @@ export const members = [
         email: 'birger.bjelke@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}
@@ -1447,7 +1447,7 @@ export const members = [
         email: 'hilmi.yasik@nordlysntnu.no', 
 	history: [
 		{
-			year: 2025,
+			year: 2024,
 		        title: '', 
 		        group: ['Alumni'], 
 		}

@@ -7,8 +7,9 @@ import SubPart1 from '@shared/components/SubPart1';
 import { useRouter } from 'next/router';
 
 const teamGroups = [
-  'Project 2026',
-  'Project 2025',
+  'Team 2026',
+  'Team 2025',
+  'Team 2024',
   'Board',
   'Electrical',
   'Mechanical',
@@ -62,7 +63,7 @@ const groupDescriptions = {
 };
 
 const TeamOverview = () => {
-    const [selectedGroup, setSelectedGroup] = useState('Project 2026');
+    const [selectedGroup, setSelectedGroup] = useState('Team 2026');
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const router = useRouter(); // Bruker useRouter for å få tilgang til URL-query
@@ -128,7 +129,7 @@ const TeamOverview = () => {
             <h2 className={styles.groupTitle}>{selectedGroup}</h2>
 
             {/* Display group members */}
-	    {!["Alumni", "Project 2025", "Project 2026", "Technical advisor"].includes(selectedGroup) ? 
+	    {!["Alumni", "Team 2024", "Team 2025", "Team 2026", "Technical advisor"].includes(selectedGroup) ? 
 	    	<div><h3 className={styles.groupTitle}>Project 2026</h3>
             	<TeamGroup 
 	    	    year={2026} 
@@ -140,7 +141,7 @@ const TeamOverview = () => {
 	    	)}/></div>
 	    : null}
 	
-	    {!["Chassis", "Alumni", "Project 2025", "Project 2026", "Technical advisor"].includes(selectedGroup) ? <div>
+	    {!["Chassis", "Alumni", "Team 2024", "Team 2025", "Team 2026", "Technical advisor"].includes(selectedGroup) ? <div>
 	    	<h3 className={styles.groupTitle}>Project 2025</h3>
             	<TeamGroup 
 	    	    year={2025} 
@@ -163,7 +164,7 @@ const TeamOverview = () => {
 	    	)}/></div>
 	    : null}	
 
-      {["Project 2026"].includes(selectedGroup) ? <div>
+      {["Team 2026"].includes(selectedGroup) ? <div>
         <TeamGroup
         year={2026}
         members={members.filter(member=>
@@ -174,12 +175,23 @@ const TeamOverview = () => {
         /></div>
         : null}
 
-        {["Project 2025"].includes(selectedGroup) ? <div>
+        {["Team 2025"].includes(selectedGroup) ? <div>
         <TeamGroup
         year={2025}
         members={members.filter(member=>
           member.history.some(
             h => h.year == 2025
+          )
+        )}
+        /></div>
+        : null}
+
+        {["Team 2024"].includes(selectedGroup) ? <div>
+        <TeamGroup
+        year={2024}
+        members={members.filter(member=>
+          member.history.some(
+            h => h.year == 2024
           )
         )}
         /></div>
