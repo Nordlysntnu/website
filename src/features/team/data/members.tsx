@@ -806,6 +806,21 @@ export const members = [
 		}
 		]
     },
+    {
+        id: 118,
+		project: [2026],
+        name: "Erik Holmeide",
+        image: "/members/2025/Unknown.png",
+		fullImage: "/members/2025/Unknown.jpg",
+        email: "erik.holmeide@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
 
     //Software
     {
