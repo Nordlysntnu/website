@@ -8,6 +8,8 @@ import GroupMenu from "./GroupMenu";
 import styles from "./styles/TeamOverview.module.css";
 import SubPart1 from '@shared/components/SubPart1';
 
+//TODO: re-add mobile view
+
 export const getMembersForYear = (members, year) =>
   members.filter(member =>
     Array.isArray(member.history) &&
@@ -114,6 +116,8 @@ const TeamOverview = (descriptions) => {
         <>
         <h2 className={styles.groupHeading}>{selectedGroup}</h2>
         <TeamGroup year={selectedYear} members={getMembersForGroup(members, selectedYear, selectedGroup)}/>
+
+        //TODO: fix SubPart1 not rendering
 
         {selectedGroup !== "all" && descriptions[selectedGroup] && (
           <SubPart1

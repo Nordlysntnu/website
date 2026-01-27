@@ -1,5 +1,7 @@
 import styles from "./styles/TeamOverview.module.css";
 
+//Temporary file
+
 export default function GroupMenu({ groups, selectedGroup, onSelect }) {
   return (
     <ul className={styles.groupMenu}>
