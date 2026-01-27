@@ -25,7 +25,7 @@ export async function getStaticProps() {
 
     for (const group of teamStructure[year].groups) {
       const slug = group.toLowerCase().replace(/\s+/g, "-");
-      const filePath = path.join(process.cwd(), "src/markdown/groupsDescriptions", year, `${slug}.md`);
+      const filePath = path.join(process.cwd(), "src/markdown/groups", `${slug}.md`);
 
       if (fs.existsSync(filePath)) {
         const md = fs.readFileSync(filePath, "utf8");
