@@ -15,8 +15,7 @@ export default function SubPart1({ dark, image, title, text, link, linkText }) {
                 </div>
                 <div className={styles.textContainer}>
                     <h1 className={styles.title}>{title}</h1>
-                    <div className={styles.text} dangerouslySetInnerHTML={{ __html: text }}/>
-                    {/*<p className={styles.text}>{text}</p>*/}
+                    <p className={styles.text}>{text}</p>
                     {link? <Link href={link} className={styles.link}>{linkText? linkText : "Read more"}</Link> : <></>}
                 </div>
             </div>
