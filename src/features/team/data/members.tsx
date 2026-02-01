@@ -98,6 +98,8 @@ export const members = [
         image: "/members/2026/compressed/Rasmus.jpg",
 		fullImage: "/members/2026/Rasmus.jpg",
         email: "rasmus.nummelin@nordlysntnu.no",
+	linkedin: "https://www.linkedin.com/in/rasmus-nummelin-310b07331/",
+	phone: "+4798054190",
 	history: [
 		{
 			year: 2025,
@@ -796,8 +798,9 @@ export const members = [
 		project: [2026],
         name: "Petter Sørkilflå",
         image: "/members/2026/compressed/Petter.jpg",
-		fullImage: "/members/2026/Petter.jpg",
+	fullImage: "/members/2026/Petter.jpg",
         email: "petter.sorkilfla@nordlysntnu.no",
+	linkedin: "https://www.linkedin.com/in/psorkilfla/",
 		history: [
 		{
 			year: 2026,
