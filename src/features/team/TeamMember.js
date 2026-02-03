@@ -5,6 +5,10 @@ import ContactRibbon from './ContactRibbon';
 import Link from 'next/link';
 
 const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) => {
+
+    const personWidth = 152;
+    const personHeight = 190;
+
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
@@ -29,7 +33,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
         //</div>
         <div className={styles.container}>
             <div className="topGroup">
-                <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => window.location.href = "/join"}/>
+                <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} width={personWidth} height={personHeight} onClick={() => window.location.href = "/join"}/>
                 <div className={styles.textContainer}>
                     <p className={styles.name}>{name}</p>
                     <p className={styles.position}>{title}</p>
@@ -45,7 +49,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
         <>
         <div className={styles.container}>
             <div className="topGroup">
-            <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`} onClick={() => setIsModalOpen(true)}/>
+            <Image className={`${styles.image} ${styles.clickable}`}  src={image} alt={`${name}'s profile`}width={personWidth} height={personHeight} onClick={() => setIsModalOpen(true)}/>
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
@@ -60,7 +64,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
                     <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
                         x
                     </button>
-                    <Image src={fullImage || image} alt={`${name}'s profile (full size)`} fill className={styles.fullImage}/>
+                    <Image src={fullImage || image} alt={`${name}'s profile (full size)` } fill={true} className={styles.fullImage}/>
                 </div>
             </div>
         )}

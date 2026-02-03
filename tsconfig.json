@@ -16,13 +16,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
     "paths": {
-      "@features/*": ["features/*"],
-      "@shared/*": ["shared/*"],
-      "@assets/*": ["assets/*"]
+      "@features/*": [
+        "features/*"
+      ],
+      "@shared/*": [
+        "shared/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ]
     }
   },
   "include": [
