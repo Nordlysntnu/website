@@ -1084,6 +1084,36 @@ export const members = [
 		}
 	]
     },
+    {
+        id: 1009,
+	project: [2026],
+        name: "William Fosser",
+        image: "/members/2026/compressed/William.webp",
+		fullImage: "/members/2026/William.jpg",
+        email: "william.fosser@nordlysntnu.no",
+	history: [
+		{
+			year: 2026,
+		        title: "Angle grinder guy",
+		        group: ["Mechanical"]
+		}
+	]
+    },
+    {
+        id: 1010,
+	project: [2026],
+        name: "William Fosser",
+        image: "/members/2026/compressed/William.webp",
+		fullImage: "/members/2026/William.jpg",
+        email: "william.fosser@nordlysntnu.no",
+	history: [
+		{
+			year: 2026,
+		        title: "Head of Cowboying",
+		        group: ["Board"]
+		}
+	]
+    },
 
     //Brand
     {
