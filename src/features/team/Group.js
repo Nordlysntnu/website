@@ -39,7 +39,7 @@ export default function Group({ image, groupName, theses, description }) {
         <AnimationOnScroll animateIn="animate__fadeInUp" offset={50} animateOnce >
         <div className={styles.group} onClick={handleClick}>
             <h2 className={styles.titleContainer}>
-                <Image className={styles.titleImage} src={image} />
+                <Image className={styles.titleImage} width={50} height={50} src={image} />
                 {groupName}
                 <div className={styles.fillContainer}></div>
                 <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" fill="none">

@@ -37,7 +37,7 @@ const TeamGroupPage = () => {
   }, [size]);
 
   useEffect(() => {
-    switch (group.toLowerCase()) {
+    switch (String(group).toLowerCase()) {
       case 'board':
         setImageFront(ImageFrontBig);
         setImageBack(ImageBackBig);
