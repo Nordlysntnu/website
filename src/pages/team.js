@@ -12,31 +12,7 @@ import { useState, useEffect } from 'react';
 import TeamOverview from "@features/team/TeamOverview";
 import DoubleImage from "@features/team/DoubleImage";
 
-import fs from "fs";
-import path from "path";
-import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
-import { teamStructure } from "@features/team/TeamStructure";
-
-export async function getStaticProps() {
-  const descriptions = {};
-
-  for (const year of Object.keys(teamStructure)) {
-    descriptions[year] = {};
-
-    for (const group of teamStructure[year].groups) {
-      const slug = group.toLowerCase().replace(/\s+/g, "-");
-      const filePath = path.join(process.cwd(), "src/markdown/groups", `${slug}.md`);
-
-      if (fs.existsSync(filePath)) {
-        const md = fs.readFileSync(filePath, "utf8");
-        descriptions[year][group] = await MarkdownToHtml(md);
-      }
-    }
-  }
-  return { props: { descriptions } };
-}
-
-export default function Team({ descriptions }) {
+export default function Team() {
     const [size, setSize] = useState('big');
     const [imageFront, setImageFront] = useState(ImageFrontBig.src);
     const [imageBack, setImageBack] = useState(ImageBackBig.src);
@@ -74,7 +50,7 @@ export default function Team({ descriptions }) {
                 <br />
                 <Link href="/join" className={styles.link}>Apply here</Link>
             </Content>
-            <TeamOverview descriptions={descriptions}/>
+            <TeamOverview />
             <Content dark={false}>
                 <DoubleImage imageFront={imageFront} imageBack={imageBack} />
             </Content>
