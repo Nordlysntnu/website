@@ -2,11 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import TeamGroup from './TeamGroup';
 import { members } from './data/members';
-import { teamStructure } from './TeamStructure';
 import styles from './styles/TeamOverview.module.css';
 import SubPart1 from '@shared/components/SubPart1';
 import { useRouter } from 'next/router';
-import { type } from 'os';
 
 const teamGroups = [
   'All members',
@@ -65,8 +63,8 @@ const groupDescriptions = {
 };
 
 const TeamOverview = () => {
-    const router = useRouter(); // Bruker useRouter for å få tilgang til URL-query
-    const { group } = router.query;
+    const router = useRouter(); // Use useRouter to get access to the URL-query
+    const { group } = router.query; // Retrieve the query-parameter 'group'
 
     const [selectedYear, setSelectedYear] = useState(years[0]);
     const [selectedGroup, setSelectedGroup] = useState("All members");
@@ -101,16 +99,17 @@ const TeamOverview = () => {
       );
     };
 
+    // When 'group' in the URL changes, update selected group
     useEffect(() => {
       if (group && teamGroups.includes(group.charAt(0).toUpperCase() + group.slice(1))) {
         setSelectedGroup(group.charAt(0).toUpperCase() + group.slice(1));
       }
-    }, [group]);
+    }, [group]); 
 
     const handleGroupChange = (group) => {
       setSelectedGroup(group);
       router.push({ pathname: router.pathname, query: { ...router.query, group: group.toLowerCase() }}, undefined, { shallow: true, scroll: false });
-      setMenuOpen(false);
+      setMenuOpen(false); // Close dropdown when a choice is made
     };
 
     useEffect(() => {
@@ -129,6 +128,7 @@ const TeamOverview = () => {
 
     return (
       <div className={styles.container}>
+        {/* Navigation bar */}
         <nav className={styles.navbar}>
           <div className={styles.mobileToggle} onClick={() => setMenuOpen(!menuOpen)}>
             {isMobile && (
@@ -136,7 +136,7 @@ const TeamOverview = () => {
                 {selectedGroup}
                 <span className={styles.arrow} styke={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>
                   ▼
-                </span>
+                </span> {/* ▼ ⌄ 𐣼 */}
               </span>
             )}
           </div>
@@ -163,25 +163,27 @@ const TeamOverview = () => {
 
         <div className={styles.headerSection}>
 
+          {/* Group name as title */}
           {selectedGroup !== "All members" && (
             <h2 className={styles.groupTitle}>{selectedGroup}</h2>
-
           )}
 
+        {/* Year navigation */}
         {selectedGroup === "All members" && (
           <div className={styles.yearNav}>
-            <button onClick={goToPrevYear} disabled={currentYearIndex === years.length - 1}>
+            <button className={styles.prevButton} onClick={goToPrevYear} disabled={currentYearIndex === years.length - 1}>
               ◀
             </button>
 
             <h3 className={styles.yearTitle}>Project {selectedYear}</h3>
 
-            <button onClick={goToNextYear} disabled={currentYearIndex === 0}>
+            <button className={styles.nextButton} onClick={goToNextYear} disabled={currentYearIndex === 0}>
               ▶
             </button>
           </div>
         )}
 
+        {/* Group members by group */}
         {selectedGroup === "All members" && (
           <div>
             {groupsToShow.map(group => {
@@ -197,7 +199,8 @@ const TeamOverview = () => {
             })}
             </div>
         )}
-
+        
+        {/* Display group members */}
         {!["Alumni", "All members", "Technical advisor"].includes(selectedGroup) ? 
 	    	<div><h3 className={styles.groupTitle}>Project 2026</h3>
             	<TeamGroup 
@@ -235,6 +238,7 @@ const TeamOverview = () => {
 
         </div>
 
+      {/* Information section */}
       {groupDescriptions[selectedGroup] && (
                 <SubPart1 
                 dark={true} 
