@@ -7,6 +7,7 @@ import SubPart1 from '@shared/components/SubPart1';
 import { useRouter } from 'next/router';
 
 const teamGroups = [
+  'All members',
   'Board',
   'Electrical',
   'Mechanical',
@@ -16,9 +17,10 @@ const teamGroups = [
   'Logistics',
   'Technical advisor',
   'Alumni',
-  'All active members'
 ];
       //<b>The Strategy group</b> is responsible for analyzing data and developing race plans to maximize the car’s performance during competitions. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. Without good race plans and strategies, even the best of solar cars will be left behind, which makes the strategy group vital for Nordlys’ chase to become world leading.
+
+const years =[2026, 2025];
 
 const groupDescriptions = {
   'Board': (
@@ -61,73 +63,145 @@ const groupDescriptions = {
 };
 
 const TeamOverview = () => {
-    const [selectedGroup, setSelectedGroup] = useState('Board');
+    const router = useRouter(); // Use useRouter to get access to the URL-query
+    const { group } = router.query; // Retrieve the query-parameter 'group'
+
+    const [selectedYear, setSelectedYear] = useState(years[0]);
+    const [selectedGroup, setSelectedGroup] = useState("All members");
+
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const router = useRouter(); // Bruker useRouter for å få tilgang til URL-query
-    const { group } = router.query; // Hent query-parameteren 'group'
-    // Når 'group' i URL-en endres, oppdater valgt gruppe
+
+    const currentYearIndex = years.indexOf(selectedYear);
+
+    const goToPrevYear = () => {
+      if (currentYearIndex < years.length - 1) {
+        setSelectedYear(years[currentYearIndex + 1]);
+      }
+    };
+
+    const goToNextYear = () => {
+      if (currentYearIndex > 0) {
+        setSelectedYear(years[currentYearIndex - 1]);
+      }
+    };
+
+    const groupsToShow = teamGroups.filter(
+      g => !["All members", "Alumni", "Technical advisor"].includes(g)
+    );
+
+    const getMembersByGroupAndYear = (group, year) => {
+      return members.filter(member => 
+        Array.isArray(member.history) &&
+        member.history.some(
+          h => h.year === year && h.group.includes(group)
+        )
+      );
+    };
+
+    // When 'group' in the URL changes, update selected group
     useEffect(() => {
       if (group && teamGroups.includes(group.charAt(0).toUpperCase() + group.slice(1))) {
-          setSelectedGroup(group.charAt(0).toUpperCase() + group.slice(1)); // Oppdater valgt gruppe med riktig format
+        setSelectedGroup(group.charAt(0).toUpperCase() + group.slice(1));
       }
-  }, [group]); // Når 'group' endres i URL-en, oppdater 'selectedGroup'
-  const handleGroupChange = (group) => {
-      setSelectedGroup(group);
-     router.push({ pathname: router.pathname, query: { ...router.query, group: group.toLowerCase() }}, undefined, { shallow: true, scroll: false }); //Oppdtaer URL-parameteren
-     setMenuOpen(false); // Lukk dropdown når et valg er gjort
-  };
-    useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth <= 1050);
-        if (typeof window !== 'undefined') {
-            handleResize();
-            window.addEventListener('resize', handleResize);
-        }
-        return () => {
-            if (typeof window !== 'undefined') {
-                window.removeEventListener('resize', handleResize);
-            }
-        };
-    }, []);
-    return (
-        <div className={styles.container}>
-            {/* Navigation bar */}
-            <nav className={styles.navbar}>
-                <div className={styles.mobileToggle} onClick={() => setMenuOpen(!menuOpen)}>
-                    {isMobile && (
-                        <span>
-                            {selectedGroup}
-                            <span className={styles.arrow} style={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>
-                            ▼
-                              </span> {/* ▼ ⌄ 𐣼 */}
-                        </span>
-                    )}
-                </div>
-                {isMobile ? (
-                    menuOpen && (
-                        <ul className={styles.mobileNav}>
-                            {teamGroups.map(group => (
-                                <li key={group} onClick={() => handleGroupChange(group)} className={selectedGroup === group ? styles.active : ''}>
-                                    {group}
-                                </li>
-                            ))}
-                        </ul>
-                    )
-                ) : (
-                    <ul className={styles.navList}>
-                        {teamGroups.map(group => (
-                            <li key={group} onClick={() => handleGroupChange(group)} className={selectedGroup === group ? styles.active : ''}>
-                                {group}
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </nav>
-            {/* Group name as title */}
-            <h2 className={styles.groupTitle}>{selectedGroup}</h2>
+    }, [group]); 
 
-            {/* Display group members */}
-	    {!["Alumni", "Technical advisor"].includes(selectedGroup) ? 
+    const handleGroupChange = (group) => {
+      setSelectedGroup(group);
+      router.push({ pathname: router.pathname, query: { ...router.query, group: group.toLowerCase() }}, undefined, { shallow: true, scroll: false });
+      setMenuOpen(false); // Close dropdown when a choice is made
+    };
+
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth <= 1050);
+      if (typeof window !== 'undefined') {
+        handleResize();
+        window.addEventListener('resize', handleResize);
+      }
+
+      return () => {
+        if (typeof window !== 'undefined') {
+          window.removeEventListener('resize', handleResize);
+        }
+      };
+    }, []);
+
+    return (
+      <div className={styles.container}>
+        {/* Navigation bar */}
+        <nav className={styles.navbar}>
+          <div className={styles.mobileToggle} onClick={() => setMenuOpen(!menuOpen)}>
+            {isMobile && (
+              <span>
+                {selectedGroup}
+                <span className={styles.arrow} styke={{ transform: menuOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease-in-out' }}>
+                  ▼
+                </span> {/* ▼ ⌄ 𐣼 */}
+              </span>
+            )}
+          </div>
+          {isMobile ? (
+            menuOpen && (
+              <ul className={styles.mobileNav}>
+                {teamGroups.map(group => (
+                  <li key={group} onClick={() => handleGroupChange(group)} className={selectedGroup === group ? styles.active : ''}>
+                    {group}
+                  </li>
+                ))}
+              </ul>
+            )
+          ) : (
+            <ul className={styles.navList}>
+              {teamGroups.map(group => (
+                <li key={group} onClick={() => handleGroupChange(group)} className={selectedGroup === group ? styles.active : ''}>
+                  {group}
+                  </li>
+              ))}
+            </ul>
+          )}
+        </nav>
+
+        <div className={styles.headerSection}>
+
+          {/* Group name as title */}
+          {selectedGroup !== "All members" && (
+            <h2 className={styles.groupTitle}>{selectedGroup}</h2>
+          )}
+
+        {/* Year navigation */}
+        {selectedGroup === "All members" && (
+          <div className={styles.yearNav}>
+            <button className={styles.prevButton} onClick={goToPrevYear} disabled={currentYearIndex === years.length - 1}>
+              ◀
+            </button>
+
+            <h3 className={styles.yearTitle}>Project {selectedYear}</h3>
+
+            <button className={styles.nextButton} onClick={goToNextYear} disabled={currentYearIndex === 0}>
+              ▶
+            </button>
+          </div>
+        )}
+
+        {/* Group members by group */}
+        {selectedGroup === "All members" && (
+          <div>
+            {groupsToShow.map(group => {
+              const groupMembers = getMembersByGroupAndYear(group, selectedYear);
+              if (groupMembers.length === 0) return null;
+
+              return (
+                <div key={group}>
+                  <h3 className={styles.groupTitle}>{group}</h3>
+                  <TeamGroup year={selectedYear} members={groupMembers}/>
+                  </div>
+              );
+            })}
+            </div>
+        )}
+        
+        {/* Display group members */}
+        {!["Alumni", "All members", "Technical advisor"].includes(selectedGroup) ? 
 	    	<div><h3 className={styles.groupTitle}>Project 2026</h3>
             	<TeamGroup 
 	    	    year={2026} 
@@ -138,8 +212,8 @@ const TeamOverview = () => {
 	    	    	)
 	    	)}/></div>
 	    : null}
-	
-	    {!["Chassis", "All active members", "Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
+
+      {!["Chassis", "All members", "Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
 	    	<h3 className={styles.groupTitle}>Project 2025</h3>
             	<TeamGroup 
 	    	    year={2025} 
@@ -151,7 +225,7 @@ const TeamOverview = () => {
 	    	)}/></div>
 	   : null}
 
-	    {["Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
+     {["Alumni", "Technical advisor"].includes(selectedGroup) ? <div>
             	<TeamGroup 
 	    	    year={2025} 
 	    	    members={members.filter(member => 
@@ -162,8 +236,10 @@ const TeamOverview = () => {
 	    	)}/></div>
 	    : null}	
 
-            {/* Information section */}
-            {groupDescriptions[selectedGroup] && (
+        </div>
+
+      {/* Information section */}
+      {groupDescriptions[selectedGroup] && (
                 <SubPart1 
                 dark={true} 
                 image={`/images/compressed/${selectedGroup}team.jpg`} 
@@ -173,8 +249,8 @@ const TeamOverview = () => {
                 linkText="" 
               />
             )}
-        </div>
+      </div>
     );
-};
-export default TeamOverview;
+  };
 
+  export default TeamOverview;
