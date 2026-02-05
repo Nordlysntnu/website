@@ -28,7 +28,7 @@ const BlogPreview = () => {
         <div className={styles.container} style = {{'height': bgHeight}}>
             <div className={styles.ribbonContainer}>
                 <video autoPlay muted loop playsInline poster="/posters/Ribbon.png" className={styles.ribbon}>
-                    <source src="/videos/RibbonWStars.mp4" type="video/mp4" />
+                    <source src="/videos/compressed/Stars.webm" type="video/webm" />
                 </video>
             </div>
             <div ref={ref} className={styles.blogEntryContainer}>
