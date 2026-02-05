@@ -136,11 +136,29 @@
     border: none;
     cursor: pointer;
     color: #3A486A;
+
+    transition: transform 250ms ease, opacity 150ms ease;
 }
 
 .yearNav button:disabled {
     opacity: 0.3;
     cursor: default;
+}
+
+.prevButton:hover:not(:disabled) {
+    transform: translateX(-4px);
+}
+
+.prevButton:active:not(:disabled) {
+    transform: translateX(-2px);
+}
+
+.nextButton:hover:not(:disabled) {
+    transform: translateX(4px);
+}
+
+.nextButton:active:not(:disabled) {
+    transform: translateX(2px);
 }
 
 .yearTitle {
