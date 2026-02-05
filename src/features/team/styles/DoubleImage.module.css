@@ -11,6 +11,7 @@
 
 .image {
     width: 100%;
+    height: auto;
     opacity: 1;
     transition: 100ms ease all;
     display: block;

@@ -8,8 +8,8 @@ export default function DoubleImage({ imageFront, imageBack }) {
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
-                <Image src={imageFront} className={styles.image} loading="lazy" width={imageWidth} height={imageHeight} placeholder="empty" />
-                <Image src={imageBack} className={styles.image} loading="lazy" width={imageWidth} height={imageHeight} placeholder="empty" />
+                <Image src={imageFront} className={styles.image} loading="lazy" fill width={0} height={0} placeholder="empty" />
+                <Image src={imageBack} className={styles.image} loading="lazy" width={0} height={0} placeholder="empty" />
             </div>
         </div>
     )
