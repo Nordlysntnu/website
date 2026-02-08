@@ -3,4 +3,5 @@
     justify-content: center;
     margin-top: -3em;
     margin-bottom: -2.5em;
+    overflow: hidden;
 }

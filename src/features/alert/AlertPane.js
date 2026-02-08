@@ -1,4 +1,4 @@
-import { AnimationOnScroll } from "react-animation-on-scroll";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Content from "@shared/components/Content";
 import Alert from "./Alert";
@@ -34,15 +34,16 @@ export default function AlertPane() {
         setVisible(false);
     };
 
-    if (!visible) return null;
-
     return (
         <Content dark={true}>
-            <AnimationOnScroll animateIn="animate__fadeInUp" animateOnce>
-                <div className={styles.container}>
-                    <Alert alert={alerts.recruitment} onClose={closeAlert} />
-                </div>
-            </AnimationOnScroll>
-        </Content>
+            <AnimatePresence>
+                         {visible && (
+                         <motion.div key="recruitment-alert" className={styles.container} initial={{ opacity: 0, y: 20, height: "auto" }} animate={{ opacity: 1, y: 0, height: "auto" }} exit={{ opacity: 0, y: -20, height: 0 }} transition={{ duration: 0.5 }}>
+                              <Alert alert={alerts.recruitment} onClose={closeAlert} />
+                         </motion.div>
+                         )}
+                    
+            </AnimatePresence>
+       </Content>
     );
 }
