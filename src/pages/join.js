@@ -5,6 +5,7 @@ import JoinForm from '@features/join/JoinForm';
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import PartHeader from '@shared/components/PartHeader';
+import AlertPane from '@features/alert/AlertPane';
 
 import { MarkdownGroupParser } from '@features/join/MarkdownGroupParser';
 
@@ -45,7 +46,11 @@ export default function Join({ groups }) {
 
       <Layout current="Join">
         <></>
+        
         <PageHeader title="Join" />
+
+        <AlertPane />
+
         <Content dark={true}>
               <PartHeader darkColor={false} title="Apply" text={text} />
               <JoinForm groups={groups} />
