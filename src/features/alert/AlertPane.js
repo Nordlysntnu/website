@@ -15,8 +15,8 @@ export default function AlertPane() {
         },
         recruitment: {
             name: "Recruitment period ended",
-            info: "Ended 18.01",
-            description: "The next recruitment period will be 16.02 to 01.03 and will be for Board positions. You’re still welcome to submit an open application in the meantime. We’d love to hear from you!",
+            info: "Updated 08.02",
+            description: "The next recruitment period will be 16.02 to 01.03 and will be for Board positions. You’re still welcome to submit an open application in the meantime!",
             link: "#applicationForm",
             linkText: "Apply below"
         }
@@ -35,10 +35,10 @@ export default function AlertPane() {
     };
 
     return (
-        <Content dark={true}>
+        <Content dark={true} nopad={true}>
             <AnimatePresence>
                          {visible && (
-                         <motion.div key="recruitment-alert" className={styles.container} initial={{ opacity: 0, y: 20, height: "auto" }} animate={{ opacity: 1, y: 0, height: "auto" }} exit={{ opacity: 0, y: -20, height: 0 }} transition={{ duration: 0.5 }}>
+                         <motion.div key="recruitment-alert" className={styles.container} initial={{ opacity: 0, y: 20, height: "auto", marginTop: "1rem" }} animate={{ opacity: 1, y: 0, height: "auto", marginTop: "1rem" }} exit={{ opacity: 0, y: -20, height: 0, marginTop: 0 }} transition={{ duration: 0.5 }}>
                               <Alert alert={alerts.recruitment} onClose={closeAlert} />
                          </motion.div>
                          )}

@@ -1,6 +1,6 @@
 .container {
     position: relative;
-    background-color: rgba(255, 16, 83, 0.75);
+    background-color: rgba(255, 16, 83, 0.85);
     backdrop-filter: blur(6px);
     color: white;
     padding: 1.5em 2em;
