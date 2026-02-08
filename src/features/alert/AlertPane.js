@@ -15,10 +15,10 @@ export default function AlertPane() {
         },
         recruitment: {
             name: "Recruitment period ended",
-            info: "This is info",
-            description: "Feel free to send in an open application :) Next recruitment period: 16.02 - 01.03 Recruitment for a new board",
-            link: "",
-            linkText: ""
+            info: "Ended 18.01",
+            description: "The next recruitment period will be 16.02 to 01.03 and will be for Board positions. You’re still welcome to submit an open application in the meantime. We’d love to hear from you!",
+            link: "#applicationForm",
+            linkText: "Apply below"
         }
     }
 

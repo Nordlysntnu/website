@@ -12,7 +12,7 @@ export default function Alert({ alert, onClose }) {
                 <div className={styles.info}>{info}</div>
             </div>
             <div className={styles.description}>{description}</div>
-            {/* <Link className={styles.link} href={link}>{linkText}</Link> {/*target="_blank"*/}
+            <Link className={styles.link} href={link} scroll={true}>{linkText}</Link> {/*target="_blank"*/}
         </div>
     );
 }

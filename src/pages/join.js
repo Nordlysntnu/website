@@ -46,14 +46,16 @@ export default function Join({ groups }) {
 
       <Layout current="Join">
         <></>
+
+        <AlertPane />
         
         <PageHeader title="Join" />
 
-        <AlertPane />
-
         <Content dark={true}>
-              <PartHeader darkColor={false} title="Apply" text={text} />
-              <JoinForm groups={groups} />
+              <div id="applicationForm">
+                <PartHeader darkColor={false} title="Apply" text={text} />
+                <JoinForm groups={groups} />
+              </div>
               <br></br>
               * The data you submit will be stored by Nordlys until the application is processed. The data will be stored no longer than six months.
           </Content>
