@@ -15,6 +15,7 @@ const teamGroups = [
   'Software',
   'Marketing',
   'Logistics',
+  'Finance',
   'Technical advisor',
   'Alumni',
 ];

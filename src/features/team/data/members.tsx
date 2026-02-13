@@ -403,6 +403,36 @@ export const members = [
 		]
     },
     {
+		id: 125,
+		project: [2026],
+		name: "Eskil Tollefsrud",
+ 	   image: "/members/2025/Unknown.png",
+	   fullImage: "/members/2025/Unknown.png",
+		email: "eskil.tollefsrud@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Mechanical", "All active members"]
+			}
+		]
+    },
+    {
+		id: 126,
+		project: [2026],
+		name: "Mathias Rasmussen",
+ 	    image: "/members/2025/Unknown.png",
+	    fullImage: "/members/2025/Unknown.png",
+		email: "mathias.rasmussen@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Mechanical", "All active members"]
+			}
+		]
+    },
+    {
         id: 132,
 		project: [2026],
         name: "Andreas Hareide",
@@ -469,6 +499,36 @@ export const members = [
         image: "/members/2025/Unknown.png",
         fullImage: "/members/2025/Unknown.png",
 		email: "linnea.gateman@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Chassis", "All active members"]
+			}
+	]
+    },
+    {
+		id: 137,
+		project: [2026],
+		name: "Rebekka Bakkemo",
+        image: "/members/2025/Unknown.png",
+        fullImage: "/members/2025/Unknown.png",
+		email: "rebekka.bakkemo@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Chassis", "All active members"]
+			}
+	]
+    },
+    {
+		id: 138,
+		project: [2026],
+		name: "Anders Monstad",
+        image: "/members/2025/Unknown.png",
+        fullImage: "/members/2025/Unknown.png",
+		email: "anders.monstad@nordlysntnu.no",
 		history: [
 			{
 				year: 2026,
@@ -884,12 +944,12 @@ export const members = [
 		{
 			year: 2025,
 		        title: "Head of Finance",
-		        group: ["Board", "All active members"]
+		        group: ["Board", "Finance", "All active members"]
 		},
 		{
 			year: 2026,
 		        title: "Head of Finance & Deputy Project Manager",
-		        group: ["Board", "All active members"]
+		        group: ["Board", "Finance", "All active members"]
 		}
 	]
     },
@@ -1084,6 +1144,20 @@ export const members = [
 		}
 	]
     },
+	{
+		id: 104,
+		project: [2026],
+		name: "Tushar Narendra",
+		image: "/members/2025/Unknown.png",
+		email: "tushar.narendra@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Software Developer",
+				group: ["Software", "All active members"]
+			}
+		]
+	},
 
     //Brand
     {
@@ -1156,11 +1230,52 @@ export const members = [
 		{
 			year: 2026,
 			title: "",
+			group: ["Alumni"]
+		}
+		]
+	},
+	{
+		id: 142,
+		project: [2026],
+		name: "Mathias Karlsson",
+		image: "/members/2025/Unknown.png",
+		email: "mathias.karlsson@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+			title: "Marketing Member",
 			group: ["Marketing", "All active members"]
 		}
 		]
 	},
-
+	{
+		id: 143,
+		project: [2026],
+		name: "Håkon Teigene",
+		image: "/members/2025/Unknown.png",
+		email: "haakon.teigene@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+			title: "Marketing Member",
+			group: ["Marketing", "All active members"]
+		}
+		]
+	},
+	{
+		id: 144,
+		project: [2026],
+		name: "Ole Jakob Kleive-Andersen",
+		image: "/members/2025/Unknown.png",
+		email: "ole.andersen@nordlysntnu.no",
+		history: [
+		{
+			year: 2026,
+			title: "Marketing Member",
+			group: ["Marketing", "All active members"]
+		}
+		]
+	},
     //Logistics
     {
         id: 45,
@@ -1169,21 +1284,6 @@ export const members = [
         image: "/members/2025/compressed/HeddaReinskou.webp",
 		fullImage: "/members/2025/HeddaReinskou.jpg",
         email: "hedda.reinskou@nordlysntnu.no",
-	history: [
-		{
-			year: 2025,
-		        title: "Logistics Engineer",
-		        group: ["Logistics", "Alumni"]
-		}
-	]
-    },
-    {
-        id: 46,
-	project: [2025],
-        name: "Sven Amberg",
-        image: "/members/2025/compressed/SvenAmberg.webp",
-		fullImage: "/members/2025/SvenAmberg.jpg",
-        email: "sven.amberg@nordlysntnu.no",
 	history: [
 		{
 			year: 2025,
@@ -1212,6 +1312,57 @@ export const members = [
 		}
 	]
     },
+    {
+        id: 46,
+	project: [2025],
+        name: "Sven Amberg",
+        image: "/members/2025/compressed/SvenAmberg.webp",
+		fullImage: "/members/2025/SvenAmberg.jpg",
+        email: "sven.amberg@nordlysntnu.no",
+	history: [
+		{
+			year: 2025,
+		        title: "Logistics Engineer",
+		        group: ["Logistics"]
+		},
+		{
+			year: 2026,
+		        title: "Logistics Engineer",
+		        group: ["Logistics"]
+		}
+	]
+    },
+	{
+		id: 151,
+		project: [2026],
+		name: "Sindre Viken",
+		image: "/members/2025/Unknown.png",
+		fullImage: "/members/2025/Unknown.png",
+		email: "sindre.viken@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Logistics Engineer",
+				group: ["Logistics"]
+			}
+		]
+	},
+	// Finance
+	{
+		id: 161,
+		project: [2026],
+		name: "Sigurd Lye",
+		image: "/members/2025/Unknown.png",
+		fullImage: "/members/2025/Unknown.png",
+		email: "sigurd.lye@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Finance Member",
+				group: ["Finance"]
+			}
+		]
+	},
 
     //Technical leader
     { 
