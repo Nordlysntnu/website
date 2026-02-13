@@ -25,10 +25,11 @@ export async function getStaticProps() {
     software: Software.src,
     marketing: Marketing.src,
     logistics: Logistics.src,
-    finance: Management.src
+    finance: Management.src,
+    board: Management.src
   };
 
-  const groups = await MarkdownGroupParser("src/markdown/join.md", imageMap);
+  const groups = await MarkdownGroupParser("src/markdown/board_and_leaders_2026.md", imageMap);
 
   return { props: { groups } };
 }
