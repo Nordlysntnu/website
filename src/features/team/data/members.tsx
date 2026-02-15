@@ -1299,6 +1299,8 @@ export const members = [
         image: "/members/2026/compressed/Sigve.webp",
 		fullImage: "/members/2026/Sigve.jpg",
         email: "sigve.isaksen@nordlysntnu.no",
+		phone: "+4746837789",
+		linkedin: "https://www.linkedin.com/in/sigve-isaksen-2084621a4/",
 	history: [
 		{
 			year: 2025,
