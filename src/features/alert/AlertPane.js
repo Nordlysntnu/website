@@ -31,13 +31,7 @@ export default function AlertPane() {
 
     const [visible, setVisible] = useState(true);
 
-    useEffect(() => {
-        const dismissed = localStorage.getItem("joinAlertDismissed");
-        if(dismissed) setVisible(false);
-    }, []);
-
     const closeAlert = () => {
-        localStorage.setItem("joinAlertDismissed", "true");
         setVisible(false);
     };
 
@@ -48,8 +42,7 @@ export default function AlertPane() {
                          <motion.div key="recruitment-alert" className={styles.container} initial={{ opacity: 0, y: 20, height: "auto", marginTop: "1rem" }} animate={{ opacity: 1, y: 0, height: "auto", marginTop: "1rem" }} exit={{ opacity: 0, y: -20, height: 0, marginTop: 0 }} transition={{ duration: 0.5 }}>
                               <Alert alert={alerts.boardrecruitment} onClose={closeAlert} />
                          </motion.div>
-                         )}
-                    
+                         )}                    
             </AnimatePresence>
        </Content>
     );

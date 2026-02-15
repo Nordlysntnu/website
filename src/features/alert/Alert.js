@@ -3,7 +3,8 @@ import styles from './styles/Alert.module.css';
 
 export default function Alert({ alert, onClose }) {
     const {name, info, description, link, linkText} = alert;
-    return (
+
+    return ( 
         <div className={styles.container}>
             <button className={styles.close} onClick={onClose}>x</button>
 
