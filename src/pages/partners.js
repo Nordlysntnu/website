@@ -48,12 +48,12 @@ export default function About() {
     'CSEM': {
       link: 'https://www.csem.ch/en/',
       image: CSEM.src,
-      description: <>Founded in 1984 and headquartered in Neuchâtel, CSEM is an internationally recognized innovation specialist with over 600 employees across six locations in Switzerland and more than 200 registered patents. They develop disruptive technologies with a high societal impact in the fields of precision manufacturing, digitalization, ultra-low-power electronics, optical elements, AI, and sustainable energy. They then transfer these innovations to industry partners in a variety of sectors, including renewable energy, healthcare, watchmaking, and aerospace, or encourage start-up creations.<br /><br />CSEM is contributing to the project of 2025 by integrating AIKOs high-efficiency solar cells into ultra light-weight and flexible solar modules.</>
+      description: <>Founded in 1984 and headquartered in Neuchâtel, CSEM is an internationally recognized innovation specialist with over 600 employees across six locations in Switzerland and more than 200 registered patents. They develop disruptive technologies with a high societal impact in the fields of precision manufacturing, digitalization, ultra-low-power electronics, optical elements, AI, and sustainable energy. They then transfer these innovations to industry partners in a variety of sectors, including renewable energy, healthcare, watchmaking, and aerospace, or encourage start-up creations.<br /><br />CSEM is contributing to our cars by integrating AIKOs high-efficiency solar cells into ultra light-weight and flexible solar modules.</>
     },
     'Holmefjord': {
       link: 'https://www.holmefjord.no/',
       image: Holmefjord.src,
-      description: ""
+      description: <>Founded by Jørgen Holmefjord in 1984, Holmefjord is one of the leading providers of signals cabling in Norway, and deliver cabling and related equipment to various industries, such as communication, electronics, automation, and data centers. <br></br><br></br> Holmefjord contributes to Nordlys by delivering high-quality cabling that we use to deliver power and signals between different systems within our car.</> 
     },
   }
   const goldSponsors = {
