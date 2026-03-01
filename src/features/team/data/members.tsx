@@ -433,6 +433,21 @@ export const members = [
 		]
     },
     {
+        id: 127,
+	project: [2026],
+        name: "William Fosser",
+        image: "/members/2026/compressed/William.webp",
+		fullImage: "/members/2026/William.jpg",
+        email: "william.fosser@nordlysntnu.no",
+	history: [
+		{
+			year: 2026,
+		        title: "Angle Grinder Guy",
+		        group: ["Mechanical"]
+		}
+	]
+    },
+    {
         id: 132,
 		project: [2026],
         name: "Andreas Hareide",
@@ -591,7 +606,7 @@ export const members = [
 			year: 2026,
 		        title: "Group Leader Electrical",
 		        group: ["Electrical", "All active members"]
-		}
+		},
 	]
     },
     {
@@ -1349,6 +1364,21 @@ export const members = [
 			}
 		]
 	},
+    {
+        id: 152,
+	project: [2026],
+        name: "William Fosser",
+        image: "/members/2026/compressed/William.webp",
+		fullImage: "/members/2026/William.jpg",
+        email: "william.fosser@nordlysntnu.no",
+	history: [
+		{
+			year: 2026,
+		        title: "Man With a Van",
+		        group: ["Logistics"]
+		}
+	]
+    },
 	// Finance
 	{
 		id: 161,
