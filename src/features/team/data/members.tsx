@@ -1387,6 +1387,8 @@ export const members = [
 		image: "/members/2025/Unknown.png",
 		fullImage: "/members/2025/Unknown.png",
 		email: "sigurd.lye@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/sigurd-lye-a3096a384/",
+		phone: "45909513",
 		history: [
 			{
 				year: 2026,
