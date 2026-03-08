@@ -57,7 +57,7 @@ We found it very interesting and had the opportunity to ask many questions, rece
 ⚡ We appreciate that they took the time to share their expertise with us. 🙏`,
 		images: [
 			"/blog/compressed/brynaarflot.webp",
-			"/blog/compressed/bryn-bilde2.gif"
+			"/blog/compressed/bryn-bilde2.webp"
 		],
 		date: "April 2025"
 	}
