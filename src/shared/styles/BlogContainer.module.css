@@ -6,7 +6,7 @@
   justify-content: center;
   overflow: hidden;
   min-height: 80vh;
-  background-color: #152242;
+  background-color: rgba(21, 34, 66, 1);
 }
 
 .ribbonContainer {
@@ -17,7 +17,7 @@
   height: 62vh;
   max-height: 600px;
   overflow: hidden;
-  background-color: #152242;
+  background-color: rgba(21, 34, 66, 1);
   transform: translateY(-50%);
 }
 
