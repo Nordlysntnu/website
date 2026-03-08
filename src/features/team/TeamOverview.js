@@ -114,7 +114,7 @@ const TeamOverview = () => {
     };
 
     useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth <= 1050);
+      const handleResize = () => setIsMobile(window.innerWidth <= 1225);
       if (typeof window !== 'undefined') {
         handleResize();
         window.addEventListener('resize', handleResize);
