@@ -433,10 +433,11 @@ export default function JoinForm({ groups }) {
                         <div className={styles.subForm}>
                             <label className={styles.label} htmlFor="field">Tell us about yourself in a few words:</label>
                             <textarea className={styles.input} id={styles.description} name="description" placeholder="Something about yourself" />
+                            
+                            <center><button className={styles.submit} type="submit">{loading ? "Loading..." : "Submit"}</button></center>
                             {formError && (
                                 <div className={styles.formError}>{formError}</div>
                             )}
-                            <center><button className={styles.submit} type="submit">{loading ? "Loading..." : "Submit"}</button></center>
                         </div>
                     </div>
                     <center>

@@ -20,6 +20,8 @@
 
 .formError {
     color: rgba(255, 16, 83, 0.7);
+    text-align: center;
+    margin-top: 0.2rem;
 }
 
 .success {
