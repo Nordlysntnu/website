@@ -12,6 +12,18 @@
     flex-direction: column;
 }
 
+.errorText {
+    color: rgba(255, 16, 83, 0.7);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+
+.formError {
+    color: rgba(255, 16, 83, 0.7);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
 .success {
     padding: 2em 0;
     background-color: rgba(45, 176, 54, 0.5);
@@ -119,6 +131,15 @@
 
 .input:focus {
     border: 2px solid rgba(255, 16, 83, 0.4);
+}
+
+.requiredInput {
+    padding: 0.1em 0.5em;
+    border: none;
+    font-size: 1em;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    font-family: inherit;
 }
 
 #first {
