@@ -184,11 +184,11 @@ export default function JoinForm({ groups }) {
        }
 
        if (!form.study?.value?.trim()) {
-        newErrors.study = "Fild of study is required"
+        newErrors.study = "Field of study is required"
        }
 
        if (form.group1 && form.group1.value === "none") {
-        newErrors.group1 = "Please select a group"
+        newErrors.group1 = "You must select at least one group"
        }
 
        setErrors(newErrors)
@@ -286,30 +286,34 @@ export default function JoinForm({ groups }) {
                     <h2 className={styles.title}>Application form</h2>
                     <div className={pageStyles[currentPage]}>
                         <div className={styles.subForm}>
-                            <label className={styles.label} htmlFor="first">First name :*</label>
+                            <label className={styles.labelRequired} htmlFor="first">First name:</label>
                             <input className={styles.input} type="text" id={styles.first} name="first" placeholder='Ola'/>
                             {errors.first && (
                                 <div className={styles.errorText}>{errors.first}</div>
                             )}
-                            <label className={styles.label} htmlFor="last">Last name :*</label>
+                            <label className={styles.labelRequired} htmlFor="last">Last name:</label>
                             <input className={styles.input} type="text" id={styles.last} name="last" placeholder='Nordmann'/>
                             {errors.last && (
                                 <div className={styles.errorText}>{errors.last}</div>
                             )}
-                            <label className={styles.label} htmlFor="contact">Contact information :*</label>
-                            <input className={styles.input} type="text" id={styles.phone} name="phone" placeholder='+47 123 45 678' />
-                            <input className={styles.input} type="text" id={styles.email} name="email" placeholder='example@example.com' />
-                            {errors.phone && (
-                                <div className={styles.errorText}>{errors.phone}</div>
-                            )}
-                            {errors.email && (
-                                <div className={styles.errorText}>{errors.email}</div>
-                            )}
-                            <label className={styles.label} htmlFor="study">Field of study :*</label>
+                            <label className={styles.labelRequired} htmlFor="contact">Contact information:</label>
+                            <div style={{ display: "flex", gap: "5px" }}>
+                                <div style={{ flex: "0 0 40%" }}>
+                                <input className={styles.input} type="text" id={styles.phone} name="phone" placeholder='+47 123 45 678' />
+                                {errors.phone && (
+                                    <div className={styles.errorText}>{errors.phone}</div>
+                                )}
+                            </div>
+                            <div style={{ flex: "0 0 60%" }}>
+                                <input className={styles.input} type="text" id={styles.email} name="email" placeholder='example@example.com' />
+                                {errors.email && (
+                                    <div className={styles.errorText}>{errors.email}</div>
+                                )}
+                            </div>
+                            </div>
+                            
+                            <label className={styles.labelRequired} htmlFor="study">Field of study:</label>
                             <input className={styles.input} type="text" id={styles.study} name="study" placeholder='Energi og Miljø' />
-                            {errors.study && (
-                                <div className={styles.errorText}>{errors.study}</div>
-                            )}
                             <select className={styles.input} name="year" id={styles.year}>
                                 <option value="1">1st</option>
                                 <option value="2">2nd</option>
@@ -317,6 +321,9 @@ export default function JoinForm({ groups }) {
                                 <option value="4">4th</option>
                                 <option value="5">5th</option>
                             </select>
+                            {errors.study && (
+                                <div className={styles.errorText}>{errors.study}</div>
+                            )}
                         </div>
                         <div className={styles.subForm}>
                             {/* <div className={styles.chooseContainer}>
@@ -367,7 +374,7 @@ export default function JoinForm({ groups }) {
                                 </div>
                             </div> */}
                             <div style={{display: normalDisplay}}>
-                                <label className={styles.label} htmlFor="field">First choice :*</label>
+                                <label className={styles.labelRequired} htmlFor="field">First choice:</label>
                                 <select className={styles.input} name="group1" onChange={(e) => {setChosen1(e.target.value)}} id={styles.group}>
                                     {getGroups()}
                                 </select>
@@ -377,6 +384,7 @@ export default function JoinForm({ groups }) {
                                 {errors.group1 && (
                                 <div className={styles.errorText}>{errors.group1}</div>
                                 )}
+
                                 <label className={styles.label} htmlFor="field">Second choice:</label>
                                 <select className={styles.input} name="group2" onChange={(e) => {setChosen2(e.target.value)}} id={styles.group}>
                                     {getGroups()}

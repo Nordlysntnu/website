@@ -20,8 +20,6 @@
 
 .formError {
     color: rgba(255, 16, 83, 0.7);
-    margin-bottom: 1rem;
-    font-weight: bold;
 }
 
 .success {
@@ -120,6 +118,20 @@
     font-family: inherit;
 }
 
+.labelRequired {
+    display: block;
+    color: #444;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+    font-family: inherit;
+}
+
+.labelRequired::after {
+    content: " *";
+    color: rgba(255, 16, 83, 0.7);
+    margin-left: 2px;
+}
+
 .input {
     padding: 0.1em 0.5em;
     border: none;
@@ -133,15 +145,6 @@
     border: 2px solid rgba(255, 16, 83, 0.4);
 }
 
-.requiredInput {
-    padding: 0.1em 0.5em;
-    border: none;
-    font-size: 1em;
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    font-family: inherit;
-}
-
 #first {
     width: 100%;
 }
@@ -151,18 +154,16 @@
 }
 
 #phone {
-    margin-right: 5px;
-    width: calc(40% - 5px);
+    width: 100%;
 }
 
 #email {
-    width: 60%;
+    width: 100%;
 }
 
 #study {
     width: calc(70% - 5px);
     margin-right: 5px;
-
 }
 
 #year {
