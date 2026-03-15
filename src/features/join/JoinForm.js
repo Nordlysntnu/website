@@ -153,8 +153,8 @@ export default function JoinForm({ groups }) {
         }
     }
 
-    const [errors, setErrors] = useState({});
-    const [formError, setFormError] = useState("");
+    const [errors, setErrors] = useState({})
+    const [formError, setFormError] = useState("")
 
     function handleValidation() {
        const form = formRef.current
@@ -194,7 +194,8 @@ export default function JoinForm({ groups }) {
        setErrors(newErrors)
 
        if (Object.keys(newErrors).length > 0) {
-        setFormError("Please fill in all required fields")
+        setFormError("");
+        setTimeout(() => setFormError("Please fill in all required fields"))
         return false
        }
 
