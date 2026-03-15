@@ -174,7 +174,7 @@
     background-color: #FFFFFF;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1225px) {
 
     .navbar ul {
         flex-direction: column;
