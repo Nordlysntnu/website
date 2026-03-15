@@ -152,6 +152,29 @@ export default function JoinForm({ groups }) {
         }
     }
 
+    function handleValidation() {
+       const form = formRef.current
+
+       const requiredFields = [
+        form.first.value,
+        form.last.value,
+        form.phone.value,
+        form.email.value,
+        form.study.value,
+        form.group1.value,
+        form.position1.value,
+        form.description.value
+       ]
+
+       for (let field of requiredFields) {
+        if (!field || field === "none") {
+            alert("Please fill in all required fields.")
+            return false
+        }
+       }
+       return true
+    }
+
     function toForm() {
         setShow('form')
         setLightOne(`${styles.light} ${styles.current}`)
@@ -168,6 +191,11 @@ export default function JoinForm({ groups }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        if (!handleValidation()) {
+            return
+        }
+        
         setLoading(true)
 
         const today = new Date()
