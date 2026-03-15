@@ -5,7 +5,7 @@
     color: white;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 10;
     background-color: rgba(21, 34, 66, 0.8);
 }
 
