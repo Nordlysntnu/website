@@ -191,6 +191,10 @@ export default function JoinForm({ groups }) {
         newErrors.group1 = "You must select at least one group"
        }
 
+       if (!form.description?.value?.trim()) {
+        newErrors.description = "Description is required"
+       }
+
        setErrors(newErrors)
 
        if (Object.keys(newErrors).length > 0) {
@@ -432,9 +436,11 @@ export default function JoinForm({ groups }) {
                             </div>
                         </div>
                         <div className={styles.subForm}>
-                            <label className={styles.label} htmlFor="field">Tell us about yourself in a few words:</label>
+                            <label className={styles.labelRequired} htmlFor="field">Tell us about yourself in a few words:</label>
                             <textarea className={styles.input} id={styles.description} name="description" placeholder="Something about yourself" />
-                            
+                            {errors.description && (
+                                    <div className={styles.errorText}>{errors.description}</div>
+                                )}
                             <center><button className={styles.submit} type="submit">{loading ? "Loading..." : "Submit"}</button></center>
                             {formError && (
                                 <div className={styles.formError}>{formError}</div>
