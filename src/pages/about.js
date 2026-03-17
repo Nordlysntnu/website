@@ -10,8 +10,9 @@ import FAQSection from '@features/about/FAQ';
 import fs from "fs";
 import path from "path";
 import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
+import { MarkdownToFAQHtml } from '@features/about/MarkdownToFAQHtml';
 
-export default function About({ missionHtml, faqHtml }) {
+export default function About({ missionHtml, faqData }) {
   return (
       <>
       <Head>
@@ -24,7 +25,7 @@ export default function About({ missionHtml, faqHtml }) {
         <Mission dark={true} htmlContent={missionHtml} />
         <SubPartVideo dark={false} video="/videos/compressed/AboutVideo.mp4" link="https://www.youtube.com/watch?v=R_lVdrHnbYo" linkText="Watch more" poster="/posters/compressed/AboutVideo.png" title="Solar Racing" text="To solve the problems of tomorrow, nothing is more important than thinking new. Solar racing pushes the limit of technology and solar energy innovation through competition. Who can drive the fastest and get to the finish line before running out of energy?" />
         <Route dark={true} />
-        <FAQSection htmlContent={faqHtml} />
+        <FAQSection faqData={faqData} />
       </Layout>
     </>
   )
@@ -38,7 +39,7 @@ export async function getStaticProps() {
   const faqMdContent = fs.readFileSync(faqFilePath, "utf8");
 
   const aboutHtmlContent = await MarkdownToHtml(aboutMdContent);
-  const faqHtmlContent = await MarkdownToHtml(faqMdContent);
+  const faqData = await MarkdownToFAQHtml(faqMdContent);
 
-  return { props: { missionHtml: aboutHtmlContent, faqHtml: faqHtmlContent }};
+  return { props: { missionHtml: aboutHtmlContent, faqData }};
 }
