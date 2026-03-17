@@ -12,6 +12,18 @@
     flex-direction: column;
 }
 
+.errorText {
+    color: rgba(255, 16, 83, 0.7);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+
+.formError {
+    color: rgba(255, 16, 83, 0.7);
+    text-align: center;
+    margin-top: 0.2rem;
+}
+
 .success {
     padding: 2em 0;
     background-color: rgba(45, 176, 54, 0.5);
@@ -108,6 +120,20 @@
     font-family: inherit;
 }
 
+.labelRequired {
+    display: block;
+    color: #444;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+    font-family: inherit;
+}
+
+.labelRequired::after {
+    content: " *";
+    color: rgba(255, 16, 83, 0.7);
+    margin-left: 2px;
+}
+
 .input {
     padding: 0.1em 0.5em;
     border: none;
@@ -130,18 +156,16 @@
 }
 
 #phone {
-    margin-right: 5px;
-    width: calc(40% - 5px);
+    width: 100%;
 }
 
 #email {
-    width: 60%;
+    width: 100%;
 }
 
 #study {
     width: calc(70% - 5px);
     margin-right: 5px;
-
 }
 
 #year {

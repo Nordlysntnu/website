@@ -116,6 +116,7 @@ export default function JoinForm({ groups }) {
     }
 
     function handleForward() {
+
         if (currentPage != 3) {
             setCurrentPage(currentPage + 1)
             setBackButton(`${styles.actButton} ${styles.button}`)
@@ -152,6 +153,61 @@ export default function JoinForm({ groups }) {
         }
     }
 
+    const [errors, setErrors] = useState({})
+    const [formError, setFormError] = useState("")
+
+    function handleValidation() {
+       const form = formRef.current
+       let newErrors = {}
+
+       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+       const phoneRegex = /^\+\d[\d\s]{6,14}$/;
+
+       if (!form.first?.value?.trim()) {
+        newErrors.first = "First name is required"
+       }
+
+       if (!form.last?.value?.trim()) {
+        newErrors.last = "Last name is required"
+       }
+
+       if (!form.email?.value?.trim()) {
+        newErrors.email = "Email is required"
+       } else if (!emailRegex.test(form.email?.value?.trim())) {
+        newErrors.email = "Please input a valid email address"
+       }
+
+       if (!form.phone?.value?.trim()) {
+        newErrors.phone = "Phone number is required"
+       } else if (!phoneRegex.test(form.phone?.value?.trim())) {
+        newErrors.phone = "Please enter a valid phone number"
+       }
+
+       if (!form.study?.value?.trim()) {
+        newErrors.study = "Field of study is required"
+       }
+
+       if (form.group1 && form.group1.value === "none") {
+        newErrors.group1 = "You must select at least one group"
+       }
+
+       if (!form.description?.value?.trim()) {
+        newErrors.description = "Description is required"
+       }
+
+       setErrors(newErrors)
+
+       if (Object.keys(newErrors).length > 0) {
+        setFormError("");
+        setTimeout(() => setFormError("Please fill in all required fields"))
+        return false
+       }
+
+       setFormError("")
+
+       return true
+    }
+
     function toForm() {
         setShow('form')
         setLightOne(`${styles.light} ${styles.current}`)
@@ -168,6 +224,11 @@ export default function JoinForm({ groups }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        if (!handleValidation()) {
+            return
+        }
+
         setLoading(true)
 
         const today = new Date()
@@ -230,14 +291,33 @@ export default function JoinForm({ groups }) {
                     <h2 className={styles.title}>Application form</h2>
                     <div className={pageStyles[currentPage]}>
                         <div className={styles.subForm}>
-                            <label className={styles.label} htmlFor="first">First name:</label>
-                            <input className={styles.input} type="text" id={styles.first} name="first" placeholder='Ola' />
-                            <label className={styles.label} htmlFor="last">Last name:</label>
-                            <input className={styles.input} type="text" id={styles.last} name="last" placeholder='Nordmann' />
-                            <label className={styles.label} htmlFor="contact">Contact information:</label>
-                            <input className={styles.input} type="text" id={styles.phone} name="phone" placeholder='+47 123 45 678' />
-                            <input className={styles.input} type="email" id={styles.email} name="email" placeholder='example@example.com' />
-                            <label className={styles.label} htmlFor="study">Field of study:</label>
+                            <label className={styles.labelRequired} htmlFor="first">First name:</label>
+                            <input className={styles.input} type="text" id={styles.first} name="first" placeholder='Ola'/>
+                            {errors.first && (
+                                <div className={styles.errorText}>{errors.first}</div>
+                            )}
+                            <label className={styles.labelRequired} htmlFor="last">Last name:</label>
+                            <input className={styles.input} type="text" id={styles.last} name="last" placeholder='Nordmann'/>
+                            {errors.last && (
+                                <div className={styles.errorText}>{errors.last}</div>
+                            )}
+                            <label className={styles.labelRequired} htmlFor="contact">Contact information:</label>
+                            <div style={{ display: "flex", gap: "5px" }}>
+                                <div style={{ flex: "0 0 40%" }}>
+                                <input className={styles.input} type="text" id={styles.phone} name="phone" placeholder='+47 123 45 678' />
+                                {errors.phone && (
+                                    <div className={styles.errorText}>{errors.phone}</div>
+                                )}
+                            </div>
+                            <div style={{ flex: "0 0 60%" }}>
+                                <input className={styles.input} type="text" id={styles.email} name="email" placeholder='example@example.com' />
+                                {errors.email && (
+                                    <div className={styles.errorText}>{errors.email}</div>
+                                )}
+                            </div>
+                            </div>
+                            
+                            <label className={styles.labelRequired} htmlFor="study">Field of study:</label>
                             <input className={styles.input} type="text" id={styles.study} name="study" placeholder='Energi og Miljø' />
                             <select className={styles.input} name="year" id={styles.year}>
                                 <option value="1">1st</option>
@@ -246,6 +326,9 @@ export default function JoinForm({ groups }) {
                                 <option value="4">4th</option>
                                 <option value="5">5th</option>
                             </select>
+                            {errors.study && (
+                                <div className={styles.errorText}>{errors.study}</div>
+                            )}
                         </div>
                         <div className={styles.subForm}>
                             {/* <div className={styles.chooseContainer}>
@@ -296,13 +379,17 @@ export default function JoinForm({ groups }) {
                                 </div>
                             </div> */}
                             <div style={{display: normalDisplay}}>
-                                <label className={styles.label} htmlFor="field">First choice:</label>
+                                <label className={styles.labelRequired} htmlFor="field">First choice:</label>
                                 <select className={styles.input} name="group1" onChange={(e) => {setChosen1(e.target.value)}} id={styles.group}>
                                     {getGroups()}
                                 </select>
                                 <select className={styles.input} name="position1" id={styles.position}>
                                     {getChoices(chosen1)}
                                 </select>
+                                {errors.group1 && (
+                                <div className={styles.errorText}>{errors.group1}</div>
+                                )}
+
                                 <label className={styles.label} htmlFor="field">Second choice:</label>
                                 <select className={styles.input} name="group2" onChange={(e) => {setChosen2(e.target.value)}} id={styles.group}>
                                     {getGroups()}
@@ -349,9 +436,15 @@ export default function JoinForm({ groups }) {
                             </div>
                         </div>
                         <div className={styles.subForm}>
-                            <label className={styles.label} htmlFor="field">Tell us about yourself in a few words:</label>
+                            <label className={styles.labelRequired} htmlFor="field">Tell us about yourself in a few words:</label>
                             <textarea className={styles.input} id={styles.description} name="description" placeholder="Something about yourself" />
-                            <center><button className={styles.submit}>{loading ? "Loading..." : "Submit"}</button></center>
+                            {errors.description && (
+                                    <div className={styles.errorText}>{errors.description}</div>
+                                )}
+                            <center><button className={styles.submit} type="submit">{loading ? "Loading..." : "Submit"}</button></center>
+                            {formError && (
+                                <div className={styles.formError}>{formError}</div>
+                            )}
                         </div>
                     </div>
                     <center>
