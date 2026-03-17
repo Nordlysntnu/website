@@ -12,11 +12,6 @@
   transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.accordionItem.active {
-  border-color: rgb(178, 11, 58);
-  box-shadow: 0 5px 15px rgba(58, 134, 255, 0.1);
-}
-
 .accordionHeader {
   display: flex;
   align-items: center;
@@ -27,8 +22,8 @@
   transition: background-color 0.3s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.accordionHeader:hover {
-  background-color: rgba(58, 134, 255, 0.03);
+.accordionHeader:hover .accordionTitle {
+  color: rgb(178, 11, 58);
 }
 
 .accordionTitle {
@@ -91,18 +86,4 @@
   padding: 0 24px 24px 24px;
   color: #495057;
   line-height: 1.7;
-}
-
-@media (max-width: 640px) {
-  .accordionHeader {
-    padding: 15px 20px;
-  }
-
-  .accordionTitle {
-    font-size: 0.95rem;
-  }
-
-  .accordionContent > div {
-    padding: 0 20px 20px 20px;
-  }
 }

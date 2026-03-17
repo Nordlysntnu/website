@@ -11,7 +11,7 @@ export default function FAQSection({ faqData = [] }) {
 
   return (
     <Content dark={true}>
-        <h1>FAQs</h1>
+        <h1>Frequently Asked Questions</h1>
         <div className={styles.faqAccordion}>
             {faqData.map((item, index) => {
                 const contentRef = useRef(null);
