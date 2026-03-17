@@ -1,45 +1,34 @@
-import Content from "@shared/components/Content";
+import { useState, useRef } from "react";
 import styles from "./styles/FAQ.module.css";
-import { useState } from "react";
+import Content from "@shared/components/Content"
 
-export default function FAQSection({ faqData }) {
-    const [openIndex, setOpenIndex] = useState(null);
+export default function FAQSection({ faqData = [] }) {
+  const [openIndex, setOpenIndex] = useState(null);
 
-    const toggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
-    return (
-        <Content dark={true}>
-            <div className={styles.container}>
-                <h1>FAQs</h1>
-      {faqData.map((item, index) => (
-        <div key={index} className={styles.item}>
-          
-          <div
-            className={styles.question}
-            onClick={() => toggle(index)}
-          >
-            {item.question}
-            <span className={styles.icon}>
-              {openIndex === index ? "−" : "+"}
-            </span>
-          </div>
-
-          <div
-            className={`${styles.answer} ${
-              openIndex === index ? styles.open : ""
-            }`}
-          >
-            <div
-              dangerouslySetInnerHTML={{ __html: item.answerHtml }}
-            />
-          </div>
-
+  return (
+    <Content dark={true}>
+        <h1>FAQs</h1>
+        <div className={styles.faqAccordion}>
+            {faqData.map((item, index) => {
+                const contentRef = useRef(null);
+                const isOpen = openIndex === index;
+                return (
+                    <div key={index} className={`${styles.accordionItem} ${isOpen ? styles.active : ""}`}>
+                        <div className={styles.accordionHeader} onClick={() => toggle(index)}>
+                            <div className={styles.accordionTitle}>{item.question}</div>
+                            <div className={styles.accordionIcon}></div>
+                        </div>
+                        <div className={styles.accordionContent} style={{ height: isOpen ? contentRef.current?.scrollHeight : 0, }}>
+                            <div ref={contentRef} dangerouslySetInnerHTML={{ __html: item.answerHtml }}/>
+                        </div>
+                    </div>
+                );
+            })}
         </div>
-      ))}
-    </div>
-        </Content>
-    
+    </Content>
   );
 }
