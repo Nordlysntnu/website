@@ -1,39 +1,108 @@
-.container {
-  width: 100%;
+.faqAccordion {
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
-.item {
-  border-bottom: 1px solid #ddd;
-  padding: 1em 0;
-}
-
-.question {
-  cursor: pointer;
-  font-weight: bold;
-  color: #222;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 1em;
-}
-
-.question:hover {
-  color: rgba(255, 16, 83, 0.8);
-}
-
-.answer {
-  max-height: 0;
+.accordionItem {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 15px;
   overflow: hidden;
-  transition: max-height 0.3s ease;
-  white-space: pre-line;
-  color: #444;
+  transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.answer.open {
-    max-height: 1000px;
+.accordionItem.active {
+  border-color: rgb(178, 11, 58);
+  box-shadow: 0 5px 15px rgba(58, 134, 255, 0.1);
 }
 
-.open {
-  max-height: 200px;
-  margin-top: 0.5em;
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.accordionHeader:hover {
+  background-color: rgba(58, 134, 255, 0.03);
+}
+
+.accordionTitle {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #141b41;
+  flex: 1;
+  padding-right: 40px;
+}
+
+.accordionItem.active .accordionTitle {
+  color: rgb(178, 11, 58);
+}
+
+.accordionIcon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.accordionIcon::before,
+.accordionIcon::after {
+  content: '';
+  position: absolute;
+  background-color: #141b41;
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.accordionIcon::before {
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.accordionIcon::after {
+  width: 2px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.accordionItem.active .accordionIcon::after {
+  transform: translateX(-50%) scaleY(0);
+  background-color: rgb(178, 11, 58);
+}
+
+.accordionItem.active .accordionIcon::before {
+  background-color: rgb(178, 11, 58);
+}
+
+.accordionContent {
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.accordionContent > div {
+  padding: 0 24px 24px 24px;
+  color: #495057;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .accordionHeader {
+    padding: 15px 20px;
+  }
+
+  .accordionTitle {
+    font-size: 0.95rem;
+  }
+
+  .accordionContent > div {
+    padding: 0 20px 20px 20px;
+  }
 }
