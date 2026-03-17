@@ -11,6 +11,7 @@ import FAQSection from '@features/about/FAQ';
 import fs from "fs";
 import path from "path";
 import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
+import { MarkdownToFAQHtml } from '@features/about/MarkdownToFAQHtml';
 
 //TODO: add pictures or something on the right of comp info
 export default function About({ missionHtml, competitionsHtml, faqHtml }) {
