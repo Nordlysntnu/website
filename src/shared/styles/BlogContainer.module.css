@@ -1,78 +1,74 @@
 .container {
-    width: 100%;
-    position: relative;
-  	display: flex;
-  	align-items: center;
-  	justify-content: center;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 80vh;
+  background-color: rgba(21, 34, 66, 1);
 }
 
 .ribbonContainer {
-    width: 100%;
-	object-fit: contain;
-	max-height: 200px;
-	transform: translate(0%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 62vh;
+  max-height: 600px;
+  overflow: hidden;
+  background-color: rgba(21, 34, 66, 1);
+  transform: translateY(-50%);
 }
 
 .ribbon {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.blogEntryContainer {
-	position: absolute;
-	inset: 0;
-	align-items: center;
-	justify-content: center;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-
-.blogdiv {
-	background: #eeeeee;
-	border: 2px solid #ccc;
-	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.overlay {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1000px;
+  padding: 5vh 1rem;
+  box-sizing: border-box;
+  min-height: 80vh;
 }
 
 .headline {
-	text-align: center;
-	max-width: 80%;
-	margin-top: 2pc;
-	margin-bottom: 1.5pc;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 50px;
-	color: #ffffff;
+  font-size: 50px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2vh;
 }
 
+.blogWrapper {
+  width: 100%;
+  background: rgba(238, 238, 238, 0.95);
+  border: 0.1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 0.1rem;
+  box-sizing: border-box;
+  margin: 2vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.linkContainer {
+  margin-top: 2vh;
+  text-align: center;
+}
 
 .link {
-	text-align: center;
-	font-size: 25px;
-	margin-bottom: 2pc;
-	margin-top: 2pc;
-	color: #ffffff;
-}
-
-.title {
-    font-size: 3em;
-    line-height: 1em;
-    margin-bottom: 1rem;
-    color: white
-}
-
-.text {
-    font-size: 1.2em;
-    margin-bottom: 1.5rem;
-}
-
-.button {
-    font-size: 1.2em;
-    padding: 0.5em 2em;
-    background-color: rgb(255, 16, 83, 0.8);
-    transition: 250ms ease all;
-    border-radius: 1000px;
+  font-size: 25px;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
 }

@@ -1,43 +1,44 @@
 import styles from '@shared/styles/BlogContainer.module.css';
-import { useState, useEffect, useRef } from 'react';
 import BlogEntry from '@shared/components/BlogEntry';
 import { blogs } from '@shared/data/blog';
-import Content from '@shared/components/Content'
-import Link from 'next/link';
 
 const BlogPreview = () => {
-	const BlogText = blogs[0].text;
-	const BlogImages = blogs[0].images;
-	const BlogDate = blogs[0].date;
+  const BlogText = blogs[0].text;
+  const BlogImages = blogs[0].images;
+  const BlogDate = blogs[0].date;
 
-	const [bgHeight, setBgHeight] = useState(0);
+  return (
+    <div className={styles.container}>
+      {/* Ribbon video background */}
+      <div className={styles.ribbonContainer}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/posters/Ribbon.png"
+          className={styles.ribbon}
+        >
+          <source src="/videos/compressed/Stars.webm" type="video/webm" />
+        </video>
+      </div>
 
-	const ref = useRef(null);
-	useEffect(() => {
-		if(ref.current) {
-			setBgHeight(parseFloat(ref.current.scrollHeight));
-			console.log("offsetHeight: ", ref.current.scrollHeight);
-		}
-	}, []);
+      {/* Overlay content */}
+      <div className={styles.overlay}>
+        <h1 className={styles.headline}>What have we done recently?</h1>
 
-	useEffect(() => {
-		console.log("height: ", bgHeight);
-	}, [bgHeight]);
-
-    return (
-        <div className={styles.container} style = {{'height': bgHeight}}>
-            <div className={styles.ribbonContainer}>
-                <video autoPlay muted loop playsInline poster="/posters/Ribbon.png" className={styles.ribbon}>
-                    <source src="/videos/compressed/Stars.webm" type="video/webm" />
-                </video>
-            </div>
-            <div ref={ref} className={styles.blogEntryContainer}>
-				<h1 className={styles.headline}>What have we done recently?</h1>
-				<div className={styles.blogdiv}><BlogEntry text={BlogText} images={BlogImages} date={BlogDate}/></div>
-	    		<a href="/blog"><p className={styles.link}>See more on our blog &gt; </p></a>
-            </div>
+        <div className={styles.blogWrapper}>
+          <BlogEntry text={BlogText} images={BlogImages} date={BlogDate} />
         </div>
-    )
-}
+
+        <div className={styles.linkContainer}>
+          <a href="/blog" className={styles.link}>
+            See more on our blog &gt;
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default BlogPreview;
