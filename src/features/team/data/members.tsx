@@ -307,24 +307,6 @@ export const members = [
 		}
 	]
     },
-	// Chassis
-    {
-	id: 131,
-	project: [2026],
-	name: "Iver Garli",
-        image: "/members/2026/compressed/Iver.webp",
-		fullImage: "/members/2026/Iver.jpg",
-	    email: "iver.garli@nordlysntnu.no",
-		linkedin: "https://www.linkedin.com/in/iver-garli-a746a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-		phone: "+4745476553",
-	history: [
-		{
-			year: 2026,
-			title: "Group Leader Chassis",
-			group: ["Chassis", "All active members"]
-		}
-	]
-    },
 	    {
 	id: 120,
 	project: [2026],
@@ -447,6 +429,7 @@ export const members = [
 			}
 		]
     },
+	// Chassis
     {
         id: 132,
 		project: [2026],
@@ -457,10 +440,27 @@ export const members = [
 		history: [
 		{
 			year: 2026,
-		        title: "Mechanical Engineer",
+		        title: "Group Leader Chassis",
 		        group: ["Chassis", "All active members"]
 		}
 		]
+    },
+    {
+	id: 131,
+	project: [2026],
+	name: "Iver Garli",
+        image: "/members/2026/compressed/Iver.webp",
+		fullImage: "/members/2026/Iver.jpg",
+	    email: "iver.garli@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/iver-garli-a746a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		phone: "+4745476553",
+	history: [
+		{
+			year: 2026,
+			title: "Mechanical Engineer",
+			group: ["Chassis", "All active members"]
+		}
+	]
     },
     {
 		id: 133,
@@ -548,7 +548,7 @@ export const members = [
 			{
 				year: 2026,
 				title: "Mechanical Engineer",
-				group: ["Chassis", "All active members"]
+				group: ["Alumni"]
 			}
 	]
     },
