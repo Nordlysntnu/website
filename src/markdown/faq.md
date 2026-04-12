@@ -7,9 +7,9 @@ Typically we estimate that members contribute around 16-20 hours per week, with 
 
 ## How is a project period structured?
 Each project period typically starts in the fall and concludes after a competition the following year. The workflow is loosely divided into three main phases:
-- Design phase - developing concepts and engineering solutions
-- Build phase - manufacturing and assembling the car
-- Testing and competition phase - validating the performance and competing
+- *Design phase* - developing concepts and engineering solutions
+- *Build phase* - manufacturing and assembling the car
+- *Testing and competition phase* - validating the performance and competing
 
 ## Do I need prior experience to join Nordlys?
 No, you do not need to have any prior experience to join Nordlys.
@@ -20,9 +20,9 @@ Nordlys is funded through financial support and in-kind contributions from our s
 
 ## How is the organization structured?
 Nordlys is governed by three main bodies:
-- The Annual Meeting, which is the highest authority and is attended by all members of Nordlys
-- The Board, responsible for day-to-day management of the team and projects
-- The Alumnni Board (being set into motion in August 2026), which provides continuity and strategic support for Nordlys' long term goals
+- *The Annual Meeting* - the highest authority within the organization, the annual meeting is attended by all members of Nordlys
+- *The Board* - responsible for day-to-day management of the team and projects
+- *The Alumnni Board* - (being set into motion in August 2026) provides continuity and strategic support for Nordlys' long term goals
 
 ## Have you built any cars so far?
 Yes. We have built one solar car so far, Lumholtz, which is currently being updated to meet the regulations of the [iLumen European Solar Challenge](https://europeansolarchallenge.eu/). The car is not currently operational due to these upgrades but is expected to be ready around summer 2026.
@@ -32,9 +32,4 @@ We have also already started designing some systems for our next-generation car,
 Solar racing is an exiting and innovative field focused on advancing sustainable transportation. Solar racing events higlight and promote innovation in electric vehicles, energy efficiency, and sustainable technology. 
 
 ## Why should I join Nordlys?
-Being a member of Nordlys gives you the opportunity to:
-- Gain hands-on experience in a real engineering project
-- Develop technical and teamwork skills
-- Work in a multidisciplinary environment
-- Contribute to a meaningful and innovative product
-And just as importantly, it's a fun and rewarding experience!
+Being a member of Nordlys gives you the opportunity to gain hands-on experience in a real engineering project, develop technical and teamwork skills, work in a multidisciplinary environment, and cntribute to a meaningful and innovative product. And on top of all that, it's great fun!

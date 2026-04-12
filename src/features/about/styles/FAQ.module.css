@@ -87,3 +87,35 @@
   color: #495057;
   line-height: 1.7;
 }
+
+.accordionContent ul {
+    list-style-type: none;
+    padding-left: 2em;
+    margin-Top: 0.4em;
+    line-Height: 1.4em;
+}
+
+.accordionContent ol {
+    list-style-type: none;
+    margin-Top: 0.4em;
+    line-Height: 1.4em;
+}
+
+.accordionContent a {
+    color: rgb(178, 11, 58);
+    transition: 250ms ease all;
+}
+
+.accordionContent a::after {
+    content: ' >';
+    margin-left: 0;
+    transition: 250ms ease all;
+}
+
+.accordionContent a:hover {
+    color: rgb(255, 16, 83);
+}
+
+.accordionContent a:hover::after {
+    margin-left: 0.2em;
+}
