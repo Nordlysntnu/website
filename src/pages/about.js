@@ -7,6 +7,8 @@ import SubPartVideo from '@shared/components/SubPartVideo';
 import SubPart1 from '@shared/components/SubPart1';
 import Competitions from '@features/about/Competitions';
 import FAQSection from '@features/about/FAQ';
+import Competitions from '@features/about/Competitions';
+
 
 import fs from "fs";
 import path from "path";
@@ -37,12 +39,15 @@ export default function About({ missionHtml, competitionsHtml, faqHtml }) {
 export async function getStaticProps() {
   const missionPath = path.join(process.cwd(), "src/markdown/about.md");
   const competitionsPath = path.join(process.cwd(), "src/markdown/competitions.md");
+  const faqFilePath = path.join(process.cwd(), "src/markdown/faq.md");
 
   const missionMd = fs.readFileSync(missionPath, "utf8");
   const competitionsMd = fs.readFileSync(competitionsPath, "utf8");
+  const faqMdContent = fs.readFileSync(faqFilePath, "utf8");
 
   const missionHtml = await MarkdownToHtml(missionMd);
   const competitionsHtml = await MarkdownToHtml(competitionsMd);
+  const faqData = await MarkdownToFAQHtml(faqMdContent);
 
-  return { props: {missionHtml, competitionsHtml }};
+  return { props: {missionHtml, competitionsHtml, faqData }};
 }
