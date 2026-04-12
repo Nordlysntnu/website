@@ -11,6 +11,7 @@ import fs from "fs";
 import path from "path";
 import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
 
+//TODO: add pictures or something on the right of comp info
 export default function About({ missionHtml, competitionsHtml }) {
   return (
       <>
