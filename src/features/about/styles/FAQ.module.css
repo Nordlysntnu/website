@@ -7,7 +7,7 @@
   background: white;
   border-radius: 12px;
   border: 1px solid #e9ecef;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -27,7 +27,7 @@
 }
 
 .accordionTitle {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.05rem;
   color: #141b41;
   flex: 1;

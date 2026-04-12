@@ -29,6 +29,7 @@ export default function FAQSection({ faqData = [] }) {
                 );
             })}
         </div>
+        <p>Still have unanswered questions? Feel free to contact us through the contact sheet below.</p>
     </Content>
   );
 }
