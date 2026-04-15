@@ -307,24 +307,6 @@ export const members = [
 		}
 	]
     },
-	// Chassis
-    {
-	id: 131,
-	project: [2026],
-	name: "Iver Garli",
-        image: "/members/2026/compressed/Iver.webp",
-		fullImage: "/members/2026/Iver.jpg",
-	    email: "iver.garli@nordlysntnu.no",
-		linkedin: "https://www.linkedin.com/in/iver-garli-a746a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-		phone: "+4745476553",
-	history: [
-		{
-			year: 2026,
-			title: "Group Leader Chassis",
-			group: ["Chassis", "All active members"]
-		}
-	]
-    },
 	    {
 	id: 120,
 	project: [2026],
@@ -403,26 +385,11 @@ export const members = [
 		]
     },
     {
-		id: 125,
-		project: [2026],
-		name: "Eskil Tollefsrud",
- 	   image: "/members/2025/Unknown.png",
-	   fullImage: "/members/2025/Unknown.png",
-		email: "eskil.tollefsrud@nordlysntnu.no",
-		history: [
-			{
-				year: 2026,
-				title: "Mechanical Engineer",
-				group: ["Mechanical", "All active members"]
-			}
-		]
-    },
-    {
 		id: 126,
 		project: [2026],
 		name: "Mathias Rasmussen",
- 	    image: "/members/2025/Unknown.png",
-	    fullImage: "/members/2025/Unknown.png",
+ 	    image: "/members/2026/MechMathias.jpg",
+ 	    fullImage: "/members/2026/MechMathias.jpg",
 		email: "mathias.rasmussen@nordlysntnu.no",
 		history: [
 			{
@@ -448,6 +415,22 @@ export const members = [
 	]
     },
     {
+		id: 125,
+		project: [2026],
+		name: "Eskil Tollefsrud",
+ 	   image: "/members/2025/Unknown.png",
+	   fullImage: "/members/2025/Unknown.png",
+		email: "eskil.tollefsrud@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Mechanical", "All active members"]
+			}
+		]
+    },
+	// Chassis
+    {
         id: 132,
 		project: [2026],
         name: "Andreas Hareide",
@@ -457,10 +440,27 @@ export const members = [
 		history: [
 		{
 			year: 2026,
-		        title: "Mechanical Engineer",
+		        title: "Group Leader Chassis",
 		        group: ["Chassis", "All active members"]
 		}
 		]
+    },
+    {
+	id: 131,
+	project: [2026],
+	name: "Iver Garli",
+        image: "/members/2026/compressed/Iver.webp",
+		fullImage: "/members/2026/Iver.jpg",
+	    email: "iver.garli@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/iver-garli-a746a7343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		phone: "+4745476553",
+	history: [
+		{
+			year: 2026,
+			title: "Mechanical Engineer",
+			group: ["Chassis", "All active members"]
+		}
+	]
     },
     {
 		id: 133,
@@ -478,12 +478,12 @@ export const members = [
 		]
     },
     {
-		id: 134,
+		id: 135,
 		project: [2026],
-		name: "Tommaso Gori",
-        image: "/members/2025/Unknown.png",
-		email: "tommaso.gori@nordlysntnu.no",
-		linkedin: "https://www.linkedin.com/in/tommaso-gori-2695ba210?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		name: "Vivik Holmbukt",
+        image: "/members/2026/compressed/Vivik.webp",
+		fullImage: "/members/2026/Vivik.jpg",
+		email: "vivik.holmbukt@nordlysntnu.no",
 		history: [
 			{
 				year: 2026,
@@ -493,12 +493,27 @@ export const members = [
 	]
     },
     {
-		id: 135,
+		id: 137,
 		project: [2026],
-		name: "Vivik Holmbukt",
-        image: "/members/2026/compressed/Vivik.webp",
-		fullImage: "/members/2026/Vivik.jpg",
-		email: "vivik.holmbukt@nordlysntnu.no",
+		name: "Rebekka Bakkemo",
+        image: "/members/2026/Rebekka.jpg",
+        fullImage: "/members/2026/Rebekka.jpg",
+		email: "rebekka.bakkemo@nordlysntnu.no",
+		history: [
+			{
+				year: 2026,
+				title: "Mechanical Engineer",
+				group: ["Chassis", "All active members"]
+			}
+	]
+    },
+    {
+		id: 134,
+		project: [2026],
+		name: "Tommaso Gori",
+        image: "/members/2025/Unknown.png",
+		email: "tommaso.gori@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/tommaso-gori-2695ba210?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 		history: [
 			{
 				year: 2026,
@@ -523,21 +538,6 @@ export const members = [
 	]
     },
     {
-		id: 137,
-		project: [2026],
-		name: "Rebekka Bakkemo",
-        image: "/members/2025/Unknown.png",
-        fullImage: "/members/2025/Unknown.png",
-		email: "rebekka.bakkemo@nordlysntnu.no",
-		history: [
-			{
-				year: 2026,
-				title: "Mechanical Engineer",
-				group: ["Chassis", "All active members"]
-			}
-	]
-    },
-    {
 		id: 138,
 		project: [2026],
 		name: "Anders Monstad",
@@ -548,7 +548,7 @@ export const members = [
 			{
 				year: 2026,
 				title: "Mechanical Engineer",
-				group: ["Chassis", "All active members"]
+				group: ["Alumni"]
 			}
 	]
     },
@@ -840,21 +840,6 @@ export const members = [
 		]
     },
     {
-        id: 115,
-		project: [2026],
-        name: "Mattis Hempelmann",
-        image: "/members/2025/Unknown.png",
-        email: "mattis.hempelmann@nordlysntnu.no",
-		linkedin: "https://www.linkedin.com/in/mattis-hempelmann?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
-		history: [
-		{
-			year: 2026,
-		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
-		}
-		]
-    },
-    {
         id: 116,
 		project: [2026],
         name: "Ole Bondahl",
@@ -876,6 +861,21 @@ export const members = [
 	fullImage: "/members/2026/Petter.jpg",
         email: "petter.sorkilfla@nordlysntnu.no",
 	linkedin: "https://www.linkedin.com/in/psorkilfla/",
+		history: [
+		{
+			year: 2026,
+		        title: "Electrical Engineer",
+		        group: ["Electrical", "All active members"]
+		}
+		]
+    },
+    {
+        id: 115,
+		project: [2026],
+        name: "Mattis Hempelmann",
+        image: "/members/2025/Unknown.png",
+        email: "mattis.hempelmann@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/mattis-hempelmann?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
 		history: [
 		{
 			year: 2026,
@@ -1074,7 +1074,7 @@ export const members = [
 		id: 104,
 		project: [2026],
 		name: "Jacob Connelly",
-		image: "/members/2025/Unknown.png",
+		image: "/members/2026/Jacob.jpg",
 		email: "jacob.connely@nordlysntnu.no",
 		history: [
 			{
@@ -1163,7 +1163,7 @@ export const members = [
 		id: 104,
 		project: [2026],
 		name: "Tushar Narendra",
-		image: "/members/2025/Unknown.png",
+		image: "/members/2026/Tushar.jpg",
 		email: "tushar.narendra@nordlysntnu.no",
 		history: [
 			{
@@ -1253,7 +1253,7 @@ export const members = [
 		id: 142,
 		project: [2026],
 		name: "Mathias Karlsson",
-		image: "/members/2025/Unknown.png",
+		image: "/members/2026/MarkMathias.jpg",
 		email: "mathias.karlsson@nordlysntnu.no",
 		history: [
 		{
@@ -1267,7 +1267,7 @@ export const members = [
 		id: 143,
 		project: [2026],
 		name: "Håkon Teigene",
-		image: "/members/2025/Unknown.png",
+		image: "/members/2026/Håkon.jpg",
 		email: "haakon.teigene@nordlysntnu.no",
 		history: [
 		{
@@ -1281,7 +1281,7 @@ export const members = [
 		id: 144,
 		project: [2026],
 		name: "Ole Jakob Kleive-Andersen",
-		image: "/members/2025/Unknown.png",
+		image: "/members/2026/OleJacob.jpg",
 		email: "ole.andersen@nordlysntnu.no",
 		history: [
 		{
@@ -1353,8 +1353,8 @@ export const members = [
 		id: 151,
 		project: [2026],
 		name: "Sindre Viken",
-		image: "/members/2025/Unknown.png",
-		fullImage: "/members/2025/Unknown.png",
+		image: "/members/2026/Sindre.jpg",
+		fullImage: "/members/2026/Sindre.jpg",
 		email: "sindre.viken@nordlysntnu.no",
 		history: [
 			{
@@ -1384,8 +1384,8 @@ export const members = [
 		id: 161,
 		project: [2026],
 		name: "Sigurd Lye",
-		image: "/members/2025/Unknown.png",
-		fullImage: "/members/2025/Unknown.png",
+		image: "/members/2026/Sigurd.jpg",
+		fullImage: "/members/2026/Sigurd.jpg",
 		email: "sigurd.lye@nordlysntnu.no",
 		linkedin: "https://www.linkedin.com/in/sigurd-lye-a3096a384/",
 		phone: "45909513",
