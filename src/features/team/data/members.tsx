@@ -495,7 +495,7 @@ export const members = [
     {
 		id: 137,
 		project: [2026],
-		name: "Rebekka Bakkemo",
+		name: "Rebekka Bergundhaugen Bakkemo",
         image: "/members/2026/Rebekka.jpg",
         fullImage: "/members/2026/Rebekka.jpg",
 		email: "rebekka.bakkemo@nordlysntnu.no",
