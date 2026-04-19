@@ -1,4 +1,4 @@
-import { MarkdownToHtml } from "../../shared/utils/MarkdownToHtml";
+import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
 
 export async function MarkdownToFAQHtml(markdown) {
     if (!markdown || !markdown.trim()) return [];
