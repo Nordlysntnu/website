@@ -18,12 +18,12 @@
 }
 
 .text p {
+    margin: 0 0 0.5rem 0;
     line-height: 1.6;
 }
 
 .text p:last-child {
-    margin-top: 0.5rem;
-    font-style: italic;
+    margin-bottom: 0;
 }
 
 .imageContainer {

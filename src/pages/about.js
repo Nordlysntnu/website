@@ -7,7 +7,6 @@ import SubPartVideo from '@shared/components/SubPartVideo';
 import Competitions from '@features/about/Competitions';
 import FAQSection from '@features/about/FAQ';
 
-
 import fs from "fs";
 import path from "path";
 import { MarkdownToHtml } from "@shared/utils/MarkdownToHtml";
