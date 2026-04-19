@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import styles from "./styles/FAQ.module.css";
 import Content from "@shared/components/Content"
 
-export default function FAQSection({ faqData = [] }) {
+export default function FAQSection({ dark, faqData = [] }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -10,7 +10,7 @@ export default function FAQSection({ faqData = [] }) {
   };
 
   return (
-    <Content dark={true}>
+    <Content dark={dark}>
         <h1>Frequently Asked Questions</h1>
         <div className={styles.faqAccordion}>
             {faqData.map((item, index) => {
