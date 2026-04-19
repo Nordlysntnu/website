@@ -7,7 +7,6 @@ import SubPartVideo from '@shared/components/SubPartVideo';
 import SubPart1 from '@shared/components/SubPart1';
 import Competitions from '@features/about/Competitions';
 import FAQSection from '@features/about/FAQ';
-import Competitions from '@features/about/Competitions';
 
 
 import fs from "fs";
