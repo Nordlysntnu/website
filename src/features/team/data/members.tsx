@@ -418,8 +418,8 @@ export const members = [
 		id: 125,
 		project: [2026],
 		name: "Eskil Tollefsrud",
- 	   image: "/members/2025/Unknown.png",
-	   fullImage: "/members/2025/Unknown.png",
+ 	   image: "/members/2026/compressed/Eskil.webp",
+	   fullImage: "/members/2026/Eskil.png",
 		email: "eskil.tollefsrud@nordlysntnu.no",
 		history: [
 			{
@@ -508,12 +508,12 @@ export const members = [
 	]
     },
     {
-		id: 134,
+		id: 136,
 		project: [2026],
-		name: "Tommaso Gori",
-        image: "/members/2025/Unknown.png",
-		email: "tommaso.gori@nordlysntnu.no",
-		linkedin: "https://www.linkedin.com/in/tommaso-gori-2695ba210?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+		name: "Linnea Gateman",
+        image: "/members/2026/compressed/Linnea.webp",
+        fullImage: "/members/2026/Linnea.png",
+		email: "linnea.gateman@nordlysntnu.no",
 		history: [
 			{
 				year: 2026,
@@ -522,13 +522,12 @@ export const members = [
 			}
 	]
     },
-    {
-		id: 136,
+    { id: 134,
 		project: [2026],
-		name: "Linnea Gateman",
+		name: "Tommaso Gori",
         image: "/members/2025/Unknown.png",
-        fullImage: "/members/2025/Unknown.png",
-		email: "linnea.gateman@nordlysntnu.no",
+		email: "tommaso.gori@nordlysntnu.no",
+		linkedin: "https://www.linkedin.com/in/tommaso-gori-2695ba210?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 		history: [
 			{
 				year: 2026,
@@ -873,7 +872,8 @@ export const members = [
         id: 115,
 		project: [2026],
         name: "Mattis Hempelmann",
-        image: "/members/2025/Unknown.png",
+        image: "/members/2026/compressed/Mattis.webp",
+        fullImage: "/members/2026/Mattis.jpg",
         email: "mattis.hempelmann@nordlysntnu.no",
 		linkedin: "https://www.linkedin.com/in/mattis-hempelmann?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", 
 		history: [
@@ -895,7 +895,7 @@ export const members = [
 		{
 			year: 2026,
 		        title: "Electrical Engineer",
-		        group: ["Electrical", "All active members"]
+		        group: ["Alumni"]
 		}
 		]
     },

@@ -23,7 +23,7 @@ import Aiko from '@features/partners/sponsor-logos/Aiko.png';
 import Valvoline from  '@features/partners/sponsor-logos/Valvoline.png';
 import Verktøyboden from  '@features/partners/sponsor-logos/Verktøyboden.png';
 import Easycomposites from '@features/partners/sponsor-logos/Easycomposites.png';
-import KongsbergMaritime from '@features/partners/sponsor-logos/KongsbergMaritime.svg';
+import KongsbergMaritime from '@features/partners/sponsor-logos/KongsbergMaritime.png';
 import CSEM from '@features/partners/sponsor-logos/CSEM.svg';
 import FREJA from '@features/partners/sponsor-logos/FREJA.svg';
 import SKF from '@features/partners/sponsor-logos/SKF.svg';
@@ -39,6 +39,7 @@ import CNC from '@features/partners/sponsor-logos/cncc.png';
 import Melbye from '@features/partners/sponsor-logos/melbye.png';
 import IMS from '@features/partners/sponsor-logos/IMS.png';
 import Connexion from '@features/partners/sponsor-logos/3dconnexion.png';
+import Tampnet from '@features/partners/sponsor-logos/Tampnet.png';
 
 
 
@@ -98,6 +99,11 @@ export default function About() {
       link: 'https://skf.com/no',
       image: SKF.src,
       description: ""
+    },
+    'Tampnet': {
+      link: 'https://www.tampnet.com/',
+      image: Tampnet.src,
+      description: ""
     }
   }
   const bronzeSponsors = {
@@ -133,7 +139,8 @@ export default function About() {
       link: 'https://edrmedeso.com/',
       image: EDR.src,
       description: ''
-    }
+    },
+
   }
   return (
       <>
