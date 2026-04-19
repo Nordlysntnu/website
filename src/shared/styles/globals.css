@@ -30,3 +30,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   color: #152242;
 }
+
+::selection {
+  background-color: 	#FF1053;
+  color: #ffffff
+}
