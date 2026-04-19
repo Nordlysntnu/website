@@ -23,9 +23,9 @@ export default function About({ missionHtml, faqData }) {
         <></>
         <PageHeader title="About us" />
         <Mission dark={true} htmlContent={missionHtml} />
-        <SubPartVideo dark={false} video="/videos/compressed/AboutVideo.mp4" link="https://www.youtube.com/watch?v=R_lVdrHnbYo" linkText="Watch more" poster="/posters/compressed/AboutVideo.png" title="Solar Racing" text="To solve the problems of tomorrow, nothing is more important than thinking new. Solar racing pushes the limit of technology and solar energy innovation through competition. Who can drive the fastest and get to the finish line before running out of energy?" />
-        <Route dark={true} />
-        <FAQSection faqData={faqData} />
+        <FAQSection faqData={faqData} dark={false}/>
+        <SubPartVideo dark={true} video="/videos/compressed/AboutVideo.mp4" link="https://www.youtube.com/watch?v=R_lVdrHnbYo" linkText="Watch more" poster="/posters/compressed/AboutVideo.png" title="Solar Racing" text="To solve the problems of tomorrow, nothing is more important than thinking new. Solar racing pushes the limit of technology and solar energy innovation through competition. Who can drive the fastest and get to the finish line before running out of energy?" />
+        <Route dark={false} />
       </Layout>
     </>
   )
