@@ -8,8 +8,46 @@ export default function ContactPane() {
 
     const [show, setShow] = useState('none')
 
+
+    const [errors, setErrors] = useState({})
+    const [formError, setFormError] = useState("")
+
+    function handleValidation() {
+       const form = formRef.current
+       let newErrors = {}
+
+       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+       if (!form.email?.value?.trim()) {
+        newErrors.email = "Email is required"
+       } else if (!emailRegex.test(form.email?.value?.trim())) {
+        newErrors.email = "Please input a valid email address"
+       }
+
+       if (!form.message?.value?.trim()) {
+        newErrors.message = "A message is required"
+       }
+
+       setErrors(newErrors)
+
+       if (Object.keys(newErrors).length > 0) {
+        setFormError("");
+        setTimeout(() => setFormError("Please fill in all required fields"))
+        return false
+       }
+
+       setFormError("")
+
+       return true
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
+
+        if (!handleValidation()) {
+            return
+        }
+
         setLoading(true)
         setShow("none")
 
@@ -26,7 +64,7 @@ export default function ContactPane() {
         const currentDateTime = currentDate + " " + currentTime
 
         const rawData = {
-            from: formRef.current.from.value,
+            email: formRef.current.email.value,
             first: formRef.current.first.value,
             last: formRef.current.last.value,
             topic: formRef.current.topic.value,
@@ -63,14 +101,20 @@ export default function ContactPane() {
             <p className={styles.textContainer}>Do you want to come in contact with us? The easiest way is to fill in the form!</p>
             <div className={styles.vertLine}></div>
             <form className={styles.formContainer} ref={formRef} onSubmit={handleSubmit}>
-                <label className={styles.label} htmlFor="from">From:</label>
-                <input className={styles.input} type="text" id={styles.from} name="from" placeholder='example@example.com' />
+                <label className={styles.labelRequired} htmlFor="from">From:</label>
+                <input className={styles.input} type="text" id={styles.email} name="email" placeholder='example@example.com' />
+                {errors.email && (
+                    <div className={styles.errorText}>{errors.email}</div>
+                    )}
                 <input className={styles.input} type="text" id={styles.first} name="first" placeholder='Ola' />
                 <input className={styles.input} type="text" id={styles.last} name="last" placeholder='Nordmann' />
                 <label className={styles.label} htmlFor="topic">Topic:</label>
                 <input className={styles.input} type="text" id={styles.topic} name="topic" placeholder='Topic' />
-                <label className={styles.label} htmlFor="message">Message:</label>
+                <label className={styles.labelRequired} htmlFor="message">Message:</label>
                 <textarea className={styles.input} id={styles.message} name="message" placeholder="Write your message here" />
+                {errors.message && (
+                    <div className={styles.errorText}>{errors.message}</div>
+                )}
                 <button className={styles.submit}>{loading ? "Loading..." : "Submit"}</button>
                 <label className={styles.error} style={{display: (show === "error")? "inline-block" : "none"}}><span className={styles.icon}>!</span>Something went wrong. Please try again</label>
                 <label className={styles.success} style={{display: (show === "success")? "inline-block" : "none"}}><span className={styles.icon}>&#10003;</span>Success</label>
