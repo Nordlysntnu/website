@@ -1,9 +1,9 @@
 import Content from "@shared/components/Content";
 import styles from './styles/Competitions.module.css';
 
-export default function Competitions({ dark, introHtml, competitions }) {
+export default function Competitions({ dark, introHtml, competitions, ref }) {
     return (
-        <Content dark={dark}>
+        <Content id="competitions-pane" dark={dark}>
             <div className={styles.container}>
                 <div className={styles.intro} dangerouslySetInnerHTML={{ __html: introHtml }} />
 

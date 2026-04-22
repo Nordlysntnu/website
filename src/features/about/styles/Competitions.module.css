@@ -1,3 +1,7 @@
+#competitions-pane {
+    scroll-margin-top: 100px;
+}
+
 .container {
     display: flex;
     flex-direction: column;

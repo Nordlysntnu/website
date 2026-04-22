@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import styles from "./styles/FAQ.module.css";
 import Content from "@shared/components/Content"
 
-export default function FAQSection({ dark, faqData = [] }) {
+export default function FAQSection({ dark, faqData = [], competitionJumpFun }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
@@ -17,8 +17,7 @@ export default function FAQSection({ dark, faqData = [] }) {
                 const contentRef = useRef(null);
                 const isOpen = openIndex === index;
                 return (
-                    <div key={index} className={`${styles.accordionItem} ${isOpen ? styles.active : ""}`}>
-                        <div className={styles.accordionHeader} onClick={() => toggle(index)}>
+                    <div key={index} className={`${styles.accordionItem} ${isOpen ? styles.active : ""}`}> <div className={styles.accordionHeader} onClick={() => toggle(index)}>
                             <div className={styles.accordionTitle}>{item.question}</div>
                             <div className={styles.accordionIcon}></div>
                         </div>
@@ -28,6 +27,15 @@ export default function FAQSection({ dark, faqData = [] }) {
                     </div>
                 );
             })}
+	  
+
+            <div className={`${styles.accordionItem}`}> <div className={styles.accordionHeader} onClick={() => {
+		document.getElementById("competitions-pane").scrollIntoView({ behavior: "smooth", block: "center" });
+	    }}>
+        	<div className={styles.accordionTitle}>What competitions do we compete in?</div>
+            </div>
+	  </div>
+
         </div>
 
         <br></br>

@@ -30,8 +30,5 @@ Yes. We have built one solar car so far, Lumholtz, which is currently being upda
 ## What is the purpose of solar racing?
 Solar racing is an exiting and innovative field focused on advancing sustainable transportation. Solar racing events higlight and promote innovation in electric vehicles, energy efficiency, and sustainable technology. 
 
-## Which competitions do we compete in?
-We participate in competitions every year. On even-numbered years we participate in the 24-hour race [iLumen European Solar Challenge](https://europeansolarchallenge.eu/), and on odd-numbered years we participate in the [Bridgestone World Solar Challenge](https://worldsolarchallenge.org/) across Australia.
-
 ## Why should I join Nordlys?
 Being a member of Nordlys gives you the opportunity to gain hands-on experience in a real engineering project, develop technical and teamwork skills, work in a multidisciplinary environment, and contribute to a meaningful and innovative product. And on top of all that, it's great fun!
