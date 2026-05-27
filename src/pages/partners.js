@@ -40,7 +40,10 @@ import Melbye from '@features/partners/sponsor-logos/melbye.png';
 import IMS from '@features/partners/sponsor-logos/IMS.png';
 import Connexion from '@features/partners/sponsor-logos/3dconnexion.png';
 import Tampnet from '@features/partners/sponsor-logos/Tampnet.png';
-
+import AIL from '@features/partners/sponsor-logos/AIL.png';
+import Newtracks from '@features/partners/sponsor-logos/newtracks.avif';
+import Meracing from '@features/partners/sponsor-logos/meracing.jpg';
+import Diab from '@features/partners/sponsor-logos/Diab_Group.webp';
 
 
 
@@ -104,7 +107,12 @@ export default function About() {
       link: 'https://www.tampnet.com/',
       image: Tampnet.src,
       description: ""
-    }
+    },
+    'Newtracks': {
+      link: 'https://www.newtracks.no',
+      image: Newtracks.src,
+      description: ""
+    },
   }
   const bronzeSponsors = {
     'CNC Consult': {
@@ -140,7 +148,21 @@ export default function About() {
       image: EDR.src,
       description: ''
     },
-
+    'ME Racing': {
+      link: 'https://meracing.com',
+      image: Meracing.src,
+      description: ''
+    },
+    'Diab Group': {
+      link: 'https://diabgroup.com',
+      image: Diab.src,
+      desctiption: ''
+    },
+    'Alf I. Larsen': {
+      link: 'https://ail.no',
+      image: AIL.src,
+      description: ''
+    },
   }
   return (
       <>
