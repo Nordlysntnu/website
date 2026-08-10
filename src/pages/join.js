@@ -29,7 +29,7 @@ export async function getStaticProps() {
     board: Management.src
   };
 
-  const groups = await MarkdownGroupParser("src/markdown/board_and_leaders_2026.md", imageMap);
+  const groups = await MarkdownGroupParser("src/markdown/join.md", imageMap);
 
   return { props: { groups } };
 }
@@ -47,8 +47,6 @@ export default function Join({ groups }) {
 
       <Layout current="Join">
         <></>
-
-        <AlertPane />
         
         <PageHeader title="Join" />
 

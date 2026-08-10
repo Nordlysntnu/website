@@ -2,6 +2,20 @@
 
 The electrical group is responsible for all the electrical systems on board the car. This includes both the high and low voltage systems.
 
+## Group Leader Electrical
+
+The Group Leader Electrical is responsible for the electrical components and development of the car. The work consists of directing a large and varied group of electrical engineers, ensuring quality and safety, and often taking the responsibility of one subsystem as well.
+
+*Areas of responsibility*
+- Lead the group responsible for battery, circuits, embedded development, solar panels, and other electrical systems on the car
+- Ensuring that the electrical group produces reliable, safe designs in accordance with competition regulations
+- Maintaining contact with sponsors and vendors of electrical components
+
+*What do you get out of being Group Leader Electrical?*
+- Experience with multiple subdisciplines of electrical engineering
+- Extensive contact with various companies in the electrical engineering world
+- Strong leadership experience
+
 ## Battery Electrical Engineer
 
 As a Battery Electrical Engineer, you will focus on the design, development, and optimization of the electrical systems within the battery pack, in a team of both electrical and mechanical engineers. You will work closely with the battery mechanical engineers to ensure a safe and efficient battery system, focusing on the electrical busbar, precharge and safety systmes. Integrating the battery with the car's electrical HV and LV systems, ensuring electrical safety and testing the electrical components and battery cells will be some of your main tasks.
@@ -41,6 +55,19 @@ As a Steering System Engineer you will be responsible for designing and developi
 
 
 # Chassis
+## Group Leader Chassis
+
+The Group Leader Chassis is responsible for the shell and internal structure of the car. This entails making and designing the shape of the car, designing and producing the rollcage, and interfacing with the electrical and mechanical components
+
+*Areas of responsibility*
+- Lead the group responsible for shell, rollcage and high-level design of the vehicle
+- Ensuring that the chassis group produces reliable, safe designs in accordance with competition regulations
+- Maintaining contact with sponsors and vendors of mechanical components
+
+*What do you get out of being Group Leader Electrical?*
+- Experience with multiple subdisciplines of mechanical engineering
+- Extensive contact with various companies in the mechanical engineering world
+- Strong leadership experience
 
 The chassis group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.
 
@@ -112,10 +139,6 @@ As an Event Manager in the Marketing Group at Nordlys NTNU, you will be responsi
 # Logistics
 
 This group is responsible for the planning and logistics of competitions, testing and other activities. Nordlys is going to participate in competitions abroad and needs you to help us plan everything from travel, accomodations and food
-
-## Logistics Engineer for Project 2026
-
-As a Logistics Engineer for Project 2026 at Nordlys NTNU, you will be responsible for planning and coordinating all logistical tasks related to Nordlys NTNU’s participation in the iLumen European Solar Challenge in Belgium. With the competition taking place in September, the role will focus on planning testing, preparing required equipment and resources, and ensuring that all practical needs are in place before and during the competition. The position involves identifying logistical requirements, coordinating services, and maintaining communication with external companies to secure necessary support.
 
 ## Logistics Engineer for Project 2027
 
