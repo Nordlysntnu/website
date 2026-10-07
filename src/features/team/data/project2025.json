@@ -1,0 +1,416 @@
+{
+    "name": "project 2025",
+    "groups": [
+        {
+            "name": "Board",
+            "description": "The Board of Nordlys is the deciding and guiding force of our organization, consisting of group leaders and exceptional students. Every major decision goes either thru, or is made by the board, which makes its members exposed to great responsibility. With this responsibility also comes power, which the board members are expected to handle with care and respect. The board is the very pilar of which the other groups stand, and what nurtures their ability to grow and preform."
+        },
+        {
+            "name": "Electrical",
+            "description": "The Electrical group is responsible for every electrical component of the car. They design, implement, and monitor complex electrical systems to ensure optimal energy efficiency and reliability. As a top two group size-wise within Nordlys, the electrical group is a major part of the organization. Preforming electrical components is vital in a good solar car, which causes the members focus in details to be unprecedented. The electrical group is fundamentally important in our chase to become world-leading in our field."
+        },
+        {
+            "name": "Mechanical",
+            "description": "The Mechanical group is responsible for every non-electrical, physical component in the car. From suspension to roll cage, the mechanical group does it all. The significant drive to make the cars lighter and sturdier than ever before, pushes the mechanical group to the edge as they balance reliability, sturdiness, weight and performance. As a top two group size-wise within Nordlys, the mechanical group is undeniably vital in the ultimate performance of our car."
+        },
+        {
+            "name": "Strategy",
+            "description": "The Strategy group is responsible for analyzing data and developing race plans to maximize the car’s performance during competitions. The group uses insight in weather patterns, energy consumption, and road conditions to create plans for the most efficient way to complete a competition. Without good race plans and strategies, even the best of solar cars will be left behind, which makes the strategy group vital for Nordlys’ chase to become world leading."
+        },
+        {
+            "name": "Brand",
+            "description": "The Marketing group shapes the public image of Nordlys, aiming to build awareness and excitement in our team’s mission. Through social media, stands, financial connections and web solutions the brand group works towards gaining sponsorships, recruiting talent and improving the overall brand of Nordlys. As in-house talent and sponsorships are vital for our organization’s survival, the brand makes up an important supporting pilar in our organization."
+        },
+        {
+            "name": "Logistics",
+            "description": "The Logistics group is responsible for all transportation and logistics related to the competition in a cost-effective manner. This includes everything from transportation planning, customs clearance, documentation, equipment handling, supply chain logistics, and compliance with various regulations that must be followed. The team also ensures that every piece of equipment, from the solar car itself to the smallest tools, arrives on time and in perfect condition. They manage both international and domestic logistics, coordinating with shipping companies, airlines, and local service providers to streamline the process. The group is essential in allowing the rest of the team to focus solely on the competition without having to worry about the practicalities of transport and logistics. Their work guarantees that all resources are in the right place at the right time, enabling the team to perform at their best."
+        },
+        {
+            "name": "Finance",
+            "description": ""
+        },
+        {
+            "name": "Technical advisor",
+            "description": ""
+        }
+    ],
+    "members": [
+        {
+            "name": "Sivert Sande Kverme",
+            "image": "/members/2025/compressed/SivertKverme.webp",
+            "fullImage": "/members/2025/SivertKverme.jpg",
+            "email": "sivert.kverme@nordlysntnu.no",
+            "group": "Board",
+            "title": "Co-founder and Team Leader"
+        },
+        {
+            "name": "Aare Hoholm",
+            "image": "/members/2025/compressed/AareHoholm.webp",
+            "fullImage": "/members/2025/AareHoholm.jpg",
+            "email": "aare.hoholm@nordlysntnu.no",
+            "group": "Board",
+            "title": "Technical Leader"
+        },
+        {
+            "name": "Sebastian Jacobsen",
+            "image": "/members/2025/compressed/SebastianJacobsen.webp",
+            "fullImage": "/members/2025/SebastianJacobsen.jpg",
+            "email": "sebastian.jacobsen@nordlysntnu.no",
+            "group": "Board",
+            "title": "Co-founder and Head of Competition"
+        },
+        {
+            "name": "Maren Henæs Sand",
+            "image": "/members/2025/compressed/MarenSand.webp",
+            "fullImage": "/members/2025/MarenSand.jpg",
+            "email": "maren.sand@nordlysntnu.no",
+            "group": "Marketing",
+            "title": "Head of Brand"
+        },
+        {
+            "name": "Erik Fougner Arnesen",
+            "image": "/members/2025/compressed/ErikArnesen.webp",
+            "fullImage": "/members/2025/ErikArnesen.jpg",
+            "email": "erik.arnesen@nordlysntnu.no",
+            "group": "Board",
+            "title": "Head of Production"
+        },
+        {
+            "name": "Rasmus Nummelin",
+            "image": "/members/2026/compressed/Rasmus.webp",
+            "fullImage": "/members/2026/Rasmus.jpg",
+            "email": "rasmus.nummelin@nordlysntnu.no",
+            "linkedin": "https://www.linkedin.com/in/rasmus-nummelin-310b07331/",
+            "phone": "+4798054190",
+            "group": "Software",
+            "title": "Software Developer"
+        },
+        {
+            "name": "Daniel Nicolai Grønn",
+            "image": "/members/2025/compressed/DanielGrønn.webp",
+            "fullImage": "/members/2025/DanielGrønn.jpg",
+            "email": "daniel.gronn@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Group Leader Mechanical"
+        },
+        {
+            "name": "Tord Østmo",
+            "image": "/members/2025/compressed/TordØstmo.webp",
+            "fullImage": "/members/2025/TordØstmo.jpg",
+            "email": "tord.ostmo@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Coordinator & Design Engineer"
+        },
+        {
+            "name": "Julian Boerakker",
+            "image": "/members/2025/compressed/JulianBoerakker.webp",
+            "fullImage": "/members/2025/JulianBoerakker.jpg",
+            "email": "julian.boerakker@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Coordinator & Mechanical Engineer Composites"
+        },
+        {
+            "name": "Cato Bergan",
+            "image": "/members/2025/compressed/CatoBergan.webp",
+            "fullImage": "/members/2025/CatoBergan.jpg",
+            "email": "cato.bergan@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Coordinator & Mechanical Engineer Structure"
+        },
+        {
+            "name": "Sander Ranbø",
+            "image": "/members/2026/compressed/Sander.webp",
+            "fullImage": "/members/2026/Sander.jpg",
+            "email": "sander.ranbo@nordlysntnu.no",
+            "linkedin": "www.linkedin.com/in/sander-ranbø-b35496327",
+            "phone": "+4741499065",
+            "group": "Mechanical",
+            "title": "Coordinator & Mechanical Engineer Steering and Brakes"
+        },
+        {
+            "name": "Paul Gustav Aparico Lofsberg",
+            "image": "/members/2026/compressed/Gustav.webp",
+            "fullImage": "/members/2026/Gustav.jpg",
+            "email": "paul.lofsberg@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Coordinator & Mechanical Engineer Suspension"
+        },
+        {
+            "name": "Oscar Skjelvik",
+            "image": "/members/2025/compressed/OscarSkjelvik.webp",
+            "fullImage": "/members/2025/OscarSkjelvik.jpg",
+            "email": "oscar.skjelvik@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Mechanical Engineer Suspension"
+        },
+        {
+            "name": "Aslak Aarflot Jønsson",
+            "image": "/members/2025/compressed/AslakJønsson.webp",
+            "fullImage": "/members/2025/AslakJønsson.jpg",
+            "email": "aslak.jonsson@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Mechanical Engineer Suspension"
+        },
+        {
+            "name": "Joachim Gulliksen",
+            "image": "/members/2025/compressed/JoachimGulliksen.webp",
+            "fullImage": "/members/2025/JoachimGulliksen.jpg",
+            "email": "joachim.gulliksen@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Mechanical Engineer Brakes"
+        },
+        {
+            "name": "Sjur Weider",
+            "image": "/members/2025/compressed/SjurWeider.webp",
+            "fullImage": "/members/2025/SjurWeider.jpg",
+            "email": "sjur.weider@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Mechanical Engineer Suspension"
+        },
+        {
+            "name": "Johannes Holden",
+            "image": "/members/2025/Unknown.png",
+            "email": "johannes.holden@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Mechanical Engineer Steering"
+        },
+        {
+            "name": "Andreas Olaisen",
+            "image": "/members/2025/compressed/AndreasOlaisen.webp",
+            "fullImage": "/members/2025/AndreasOlaisen.jpg",
+            "email": "andreas.olaisen@nordlysntnu.no",
+            "group": "Mechanical",
+            "title": "Mechanical Engineer Composites"
+        },
+        {
+            "name": "Kristian Sæberg",
+            "image": "/members/2026/compressed/Kristian.webp",
+            "fullImage": "/members/2026/Kristian.jpg",
+            "email": "kristian.saeberg@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Group Leader Electrical"
+        },
+        {
+            "name": "Sukhman Singh Sidhu",
+            "image": "/members/2025/compressed/SukhmanSidhu.webp",
+            "fullImage": "/members/2025/SukhmanSidhu.jpg",
+            "email": "sukhman.sidhu@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "William Fosser",
+            "image": "/members/2026/compressed/William.webp",
+            "fullImage": "/members/2026/William.jpg",
+            "email": "william.fosser@nordlysntnu.no",
+            "phone": "+4746533924",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Odin Sandlie Mellingsæter",
+            "image": "/members/2025/compressed/OdinMellingsæter.webp",
+            "fullImage": "/members/2025/OdinMellingsæter.jpg",
+            "email": "odin.mellingsaeter@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Øystein Økland",
+            "image": "/members/2025/compressed/ØysteinØkland.webp",
+            "fullImage": "/members/2025/ØysteinØkland.jpg",
+            "email": "oystein.okland@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Georg Hofstad",
+            "image": "/members/2025/compressed/GeorgHofstad.webp",
+            "fullImage": "/members/2025/GeorgHofstad.jpg",
+            "email": "georg.hofstad@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Sander Mikkelhaug",
+            "image": "/members/2025/compressed/SanderMikkelhaug.webp",
+            "fullImage": "/members/2025/SanderMikkelhaug.jpg",
+            "email": "sander.mikkelhaug@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Natalia Chwiejczak",
+            "image": "/members/2025/compressed/NataliaChwiejczak.webp",
+            "fullImage": "/members/2025/NataliaChwiejczak.jpg",
+            "email": "natalia.chwiejczak@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Elias Alsos",
+            "image": "/members/2025/compressed/EliasAlsos.webp",
+            "fullImage": "/members/2025/EliasAlsos.jpg",
+            "email": "elias.alsos@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Simon Jaccard Buggeland",
+            "image": "/members/2025/compressed/SimonBuggeland.webp",
+            "fullImage": "/members/2025/SimonBuggeland.jpg",
+            "email": "simon.buggeland@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Vetle Vatnem",
+            "image": "/members/2025/compressed/VetleVatnem.webp",
+            "fullImage": "/members/2025/VetleVatnem.jpg",
+            "email": "vetle.vatnem@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Johanne Mjøs Bertelsen",
+            "image": "/members/2025/compressed/JohanneBertelsen.webp",
+            "fullImage": "/members/2025/JohanneBertelsen.jpg",
+            "email": "johanne.bertelsen@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Markus Emil Eriksson",
+            "image": "/members/2025/compressed/MarkusEriksson.webp",
+            "fullImage": "/members/2025/MarkusEriksson.jpg",
+            "email": "markus.eriksson@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Ivar Hansgård",
+            "image": "/members/2025/compressed/IvarHansgård.webp",
+            "fullImage": "/members/2025/IvarHansgård.jpg",
+            "email": "ivar.hansgaard@nordlysntnu.no",
+            "group": "Electrical",
+            "title": "Electrical Engineer"
+        },
+        {
+            "name": "Jakob Behrens",
+            "image": "/members/2025/compressed/JakobBehrens.webp",
+            "fullImage": "/members/2025/JakobBehrens.jpg",
+            "email": "jakob.behrens@nordlysntnu.no",
+            "group": "Strategy",
+            "title": "Group Leader Strategy"
+        },
+        {
+            "name": "Bjørn Vik Henriksen",
+            "image": "/members/2025/compressed/BjørnHenriksen.webp",
+            "fullImage": "/members/2025/BjørnHenriksen.jpg",
+            "email": "bjorn.henriksen@nordlysntnu.no",
+            "group": "Strategy",
+            "title": "Software Developer"
+        },
+        {
+            "name": "Natalie Vo",
+            "image": "/members/2025/compressed/NatalieVo.webp",
+            "fullImage": "/members/2025/NatalieVo.jpg",
+            "email": "natalie.vo@nordlysntnu.no",
+            "group": "Strategy",
+            "title": "Software Developer"
+        },
+        {
+            "name": "Paul Våge",
+            "image": "/members/2025/compressed/PaulVåge.webp",
+            "fullImage": "/members/2025/PaulVåge.jpg",
+            "email": "paul.vaage@nordlysntnu.no",
+            "linkedin": "https://www.linkedin.com/in/paul-v%C3%A5ge-77831b28b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+            "group": "Finance",
+            "title": "Head of Finance"
+        },
+        {
+            "name": "Mathias Sagerup",
+            "image": "/members/2026/compressed/Mathias.webp",
+            "fullImage": "/members/2026/Mathias.jpg",
+            "email": "mathias.sagerup@nordlysntnu.no",
+            "group": "Strategy",
+            "title": "Software Developer"
+        },
+        {
+            "name": "Aleksander Kvitle",
+            "image": "/members/2025/compressed/AleksanderKvitle.webp",
+            "fullImage": "/members/2025/AleksanderKvitle.jpg",
+            "email": "aleksander.kvitle@nordlysntnu.no",
+            "group": "Strategy",
+            "title": "Software Developer"
+        },
+        {
+            "name": "Oliver Hovden",
+            "image": "/members/2026/compressed/Oliver.webp",
+            "fullImage": "/members/2026/Oliver.jpg",
+            "email": "oliver.hovden@nordlysntnu.no",
+            "linkedin": "https://www.linkedin.com/in/oliver-hovden-2aa9b0379",
+            "phone": "+4745913303",
+            "group": "Strategy",
+            "title": "Software Developer"
+        },
+        {
+            "name": "Johannes Tunli Moe",
+            "image": "/members/2025/compressed/JohannesMoe.webp",
+            "fullImage": "/members/2025/JohannesMoe.jpg",
+            "email": "johannes.moe@nordlysntnu.no",
+            "group": "Brand",
+            "title": "Key Account Manager"
+        },
+        {
+            "name": "Leonardo Lind-Milekvist",
+            "image": "/members/2025/compressed/LeonardoLind-Milekvist.webp",
+            "fullImage": "/members/2025/LeonardoLind-Milekvist.jpg",
+            "email": "leonardo.lind-milekvist@nordlysntnu.no",
+            "group": "Brand",
+            "title": "Web Developer"
+        },
+        {
+            "name": "Emil Vellan",
+            "image": "/members/2025/compressed/EmilVellan.webp",
+            "fullImage": "/members/2025/EmilVellan.jpg",
+            "email": "emil.vellan@nordlysntnu.no",
+            "group": "Brand",
+            "title": "Web Developer"
+        },
+        {
+            "name": "Hedda Christine Reinskou",
+            "image": "/members/2025/compressed/HeddaReinskou.webp",
+            "fullImage": "/members/2025/HeddaReinskou.jpg",
+            "email": "hedda.reinskou@nordlysntnu.no",
+            "group": "Logistics",
+            "title": "Logistics Engineer"
+        },
+        {
+            "name": "Sigve Isaksen",
+            "image": "/members/2026/compressed/Sigve.webp",
+            "fullImage": "/members/2026/Sigve.jpg",
+            "email": "sigve.isaksen@nordlysntnu.no",
+            "phone": "+4746837789",
+            "linkedin": "https://www.linkedin.com/in/sigve-isaksen-2084621a4/",
+            "group": "Logistics",
+            "title": "Logistics Engineer"
+        },
+        {
+            "name": "Sven Amberg",
+            "image": "/members/2025/compressed/SvenAmberg.webp",
+            "fullImage": "/members/2025/SvenAmberg.jpg",
+            "email": "sven.amberg@nordlysntnu.no",
+            "group": "Logistics",
+            "title": "Logistics Engineer"
+        },
+        {
+            "name": "Shivaraj Chandrakant Patil",
+            "image": "/members/2025/compressed/ShivarajPatil.webp",
+            "fullImage": "/members/2025/ShivarajPatil.jpg",
+            "email": "shivaraj.c.patil@ntnu.no", 
+            "group": "Technical Advisor",
+            "title": "Technical Advisor"
+        }
+    ]
+}

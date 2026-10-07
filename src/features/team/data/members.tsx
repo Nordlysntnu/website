@@ -536,6 +536,7 @@ export const members = [
 			}
 	]
     },
+	// Where do i put this guy??
     {
 		id: 138,
 		project: [2026],
@@ -838,6 +839,7 @@ export const members = [
 		}
 		]
     },
+	// Igjen, where do i put this??
     {
         id: 116,
 		project: [2026],
@@ -884,6 +886,7 @@ export const members = [
 		}
 		]
     },
+	// ??
     {
         id: 118,
 		project: [2026],
@@ -1415,7 +1418,7 @@ export const members = [
 	]
     },
 
-    //Alumni
+    //Alumni - Again, not sure where to put those without any title or group?
     { 
         id: 49, 
 	project: [2025],
