@@ -1,5 +1,7 @@
+import { event } from "next/dist/build/output/log";
 import { supabase } from "../../lib/supabaseClient";
 import { useEffect, useState } from "react"
+import { event } from "next/dist/build/output/log";
 
 
 export default function CvPortal() {
@@ -7,20 +9,68 @@ export default function CvPortal() {
     const [password, setPassword] = useState("")
     const [message, setMessage] = useState("")
     const [user, setUser] = useState(null)
-    const [fullName, setfFullName] = useState("");
+    const [fullName, setFullName] = useState("");
+    const [studyProgram, setStudyProgram] = useState("");
+    const [graduationYear, setGraduationYear] = useState("");
+    const [cvFile, seCvFile] = useState("");
 
     useEffect(() => {
-            async function restoreSession() {
-            const { data, error } = await supabase.auth.getSession();   
-            
+        async function restoreSession() {
+            const { data, error } = await supabase.auth.getSession();
+
             if (error) {
                 setMessage(error.message);
             } else {
                 setUser(data.session?.user ?? null);
             }
         }
-    restoreSession();
-    }, [])
+
+        restoreSession();
+    }, []);
+
+    useEffect(() => {
+        let cancelled = false;
+
+        async function loadProfile() {
+            setFullName("");
+            setGraduationYear("");
+
+            if (!user) {
+                return;
+            }
+
+            const { data, error } = await supabase
+                .from('member')
+                .select('full_name, study_program, graduation_year')
+                .eq('user_id', user.id)
+                .maybeSingle();
+
+            if (cancelled) {
+                return;
+            }
+
+            if (error) {
+                setMessage(error.message);
+            } else {
+                setFullName(data?.full_name ?? '');
+                setStudyProgram(data?.study_program ?? "");
+                setGraduationYear(
+                    data?.graduation_year == null
+                        ? ""
+                        : String(data.graduation_year)
+                    )
+            }
+        }
+
+        loadProfile();
+        setStudyProgram();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [user]);
+
+
 
     async function handlelogin(event) {
         event.preventDefault();
@@ -35,6 +85,7 @@ export default function CvPortal() {
             setMessage(error.message);
 
         } else {
+
             setUser(data.user);
             setMessage(`Logged in as ${data.user.email}`);
         }
@@ -77,6 +128,47 @@ export default function CvPortal() {
         }
     }
 
+    async function handleSaveProfile() {
+        if (!user) {
+            setMessage("Please log in first")
+            return;
+        }
+
+        if (!fullName.trim()) {
+            setMessage("Please enter your full name".trim())
+            return;
+        }
+
+        setMessage("Saving profile")
+
+        const { error } = await supabase
+            .from("member")
+            .upsert(
+                {
+                    user_id: user.id,
+                    full_name: fullName.trim(),
+                    email: user.email,
+                    study_program: studyProgram.trim(),
+                    graduation_year: graduationYear === ""
+                        ? null
+                        : Num(graduationYear),
+                },
+                {
+                    onConflict: "user_id",
+                }
+            )
+        
+        if (error) {
+            setMessage(error.message);
+
+        } else {
+
+            setMessage(`Profile ${user.id} saved`);
+        }
+    };
+
+
+
 return (
     <div>
         <h1>CV portal</h1>
@@ -94,10 +186,47 @@ return (
                     />
 
                 <p>You profile name: { fullName }</p>
+                
+                <label htmlFor="study-program">Studyprogram</label>
+                    <input
+                        id="study-program"
+                        type="text"
+                        value={studyProgram}
+                        onChange={event => setStudyProgram(event.target.value)}
+                    />
+                
+                <label htmlFor="graduation-year">graduation-year</label>
+                    <input
+                        id="graduation-year"
+                        type="number"
+                        min="2000"
+                        max="2100"
+                        value={graduationYear}
+                        onChange={event => setGraduationYear(event.target.value)}
+                    />
+                
+
 
                 <button type="button" onClick={handleLogout}>
                     Log out
                 </button>
+
+                <button type="button" onClick={ handleSaveProfile }>
+                    Save Profile 
+                </button>
+            
+            <h2>Your CV</h2>
+
+            <label htmlFor="cv-file">Your CV (PDF)</label>
+            <input
+                id="cv-file"
+                type="file"
+                accept=".pdf,application/pdf"
+                onChange={ event => setCvFile(event.target.files?.[0] ?? null)}
+                />
+
+                {cvFile && <p>Selected file: { cvFile.name }</p>}
+
             </div>
         ) : (
             <form onSubmit={handlelogin}>
