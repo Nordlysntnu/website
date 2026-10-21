@@ -1,7 +1,5 @@
-import { event } from "next/dist/build/output/log";
 import { supabase } from "../../lib/supabaseClient";
 import { useEffect, useState } from "react"
-import { event } from "next/dist/build/output/log";
 
 
 export default function CvPortal() {
@@ -12,7 +10,9 @@ export default function CvPortal() {
     const [fullName, setFullName] = useState("");
     const [studyProgram, setStudyProgram] = useState("");
     const [graduationYear, setGraduationYear] = useState("");
-    const [cvFile, seCvFile] = useState("");
+    const [cvFile, setCvFile] = useState(null);
+    const [uploading, setUploading] = useState(false);
+    const [cvs, setCvs] = useState([])
 
     useEffect(() => {
         async function restoreSession() {
@@ -33,6 +33,7 @@ export default function CvPortal() {
 
         async function loadProfile() {
             setFullName("");
+            setStudyProgram("")
             setGraduationYear("");
 
             if (!user) {
@@ -63,13 +64,44 @@ export default function CvPortal() {
         }
 
         loadProfile();
-        setStudyProgram();
 
         return () => {
             cancelled = true;
         };
     }, [user]);
 
+useEffect(() => {
+        let cancelled = false;
+
+        async function loadCvs() {
+            setCvs([]);
+
+            if (!user) {
+                return;
+            }
+
+        
+        const { data, error } = await supabase
+        .from("cv")
+        .select("id, original_filename, file_path, uploaded_at")
+        .order("uploaded_at", { ascending: false });
+        }
+    
+    if (cancelled) {
+        return;
+    }
+
+    if (error) {
+        setMessage(message.error)
+    } else {
+        setCvs(data ?? []);
+    }
+    loadCvs();
+
+    return () => {
+        cancelled = true;
+    };
+}, [user]);
 
 
     async function handlelogin(event) {
@@ -102,8 +134,7 @@ export default function CvPortal() {
 
 
         if (error){
-            setMessage(error.message);
-        
+            setMessage(error.message);      
         } else if (data.session) {
 
             setUser(data.user);
@@ -124,6 +155,7 @@ export default function CvPortal() {
         } else {
             setUser(null);
             setPassword("");
+            setCvFile(null);
             setMessage("Your are logged out.")
         }
     }
@@ -151,7 +183,7 @@ export default function CvPortal() {
                     study_program: studyProgram.trim(),
                     graduation_year: graduationYear === ""
                         ? null
-                        : Num(graduationYear),
+                        : Number(graduationYear),
                 },
                 {
                     onConflict: "user_id",
@@ -166,6 +198,78 @@ export default function CvPortal() {
             setMessage(`Profile ${user.id} saved`);
         }
     };
+
+async function handleUploadCv() {
+    if (!user || !cvFile) {
+        setMessage('Log in and select a PDF first.');
+        return;
+    }
+
+    if (cvFile.type !== 'application/pdf') {
+        setMessage('Please select a PDF file.');
+        return;
+    }
+
+    if (cvFile.size > 5 * 1024 * 1024) {
+        setMessage('The PDF must be 5 MB or smaller.');
+        return;
+    }
+
+    setUploading(true);
+    setMessage('Uploading CV...');
+
+    try {
+        const filePath = `${user.id}/${crypto.randomUUID()}.pdf`;
+
+        const { data: profile, error: profileError } = await supabase
+            .from("member")
+            .select("id")
+            .eq("user_id", user.id)
+            .maybeSingle();
+
+        if (profileError) {
+            throw profileError;
+        }
+
+        if (!profile) {
+            throw new Error("Please save your member profile first");
+        }   
+
+        const { error } = await supabase.storage
+            .from('cvs')
+            .upload(filePath, cvFile, {
+                contentType: 'application/pdf',
+                upsert: false,
+            });
+
+        if (error) {
+            throw error;
+        }
+
+    const { error: recordError } = await supabase
+        .from('cv')
+        .insert({
+            profile_id: profile.id,
+            file_path: filePath,
+            original_filename: cvFile.name,
+            uploaded_at: new Date().toISOString(),
+            is_active: true,
+        });
+
+if (recordError) {
+    throw new Error(
+        `PDF uploaded, but saving its record failed: ${recordError.message}`
+    );
+}
+
+setMessage('CV uploaded and linked to your profile!');
+
+    } catch (error) {
+        setMessage(error.message || 'Upload failed. Please try again.');
+    } finally {
+        setUploading(false);
+    }
+}
 
 
 
@@ -222,13 +326,36 @@ return (
                 id="cv-file"
                 type="file"
                 accept=".pdf,application/pdf"
-                onChange={ event => setCvFile(event.target.files?.[0] ?? null)}
-                />
+                disabled={uploading}
+                onChange={event => setCvFile(event.target.files?.[0] ?? null)}
+            />
 
-                {cvFile && <p>Selected file: { cvFile.name }</p>}
+            {cvFile && <p>Selected file: {cvFile.name}</p>}
 
+            <button
+                type="button"
+                onClick={handleUploadCv}
+                disabled={uploading || !cvFile}
+            >
+                {uploading ? 'Uploading...' : 'Upload CV'}
+            </button>
+            
+            <h3>Your uploaded CVs</h3>
+
+            {cvs.length === 0 ? (
+                <p>No CV records found.</p>
+            ) : (
+                <ul>
+                    {cvs.map(cv => (
+                        <li key={cv.id}>
+                            {cv.original_filename}
+                        </li>
+                    ))}
+                </ul>
+            )}
             </div>
         ) : (
+
             <form onSubmit={handlelogin}>
                 <label htmlFor="email">Email</label>
                 <input
@@ -261,4 +388,3 @@ return (
     </div>
 );
 }
-
