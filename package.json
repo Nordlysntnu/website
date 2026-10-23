@@ -16,7 +16,7 @@
     "react-animate-on-scroll": "^2.1.9",
     "react-animation-on-scroll": "^5.1.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "^6.8.1",
+    "react-router-dom": "^6.30.6",
     "remark": "^15.0.1",
     "remark-breaks": "^4.0.0",
     "remark-html": "^16.0.1",
