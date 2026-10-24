@@ -2,6 +2,8 @@
 
 Member profiles live in `members.json`. Each project has a separate file in `projects/`, containing its groups, roles and member IDs. The team page uses the selected project's data.
 
+`projects/2027.json` is ready for the new team list. Its groups and members are empty until the confirmed roster is added, so the page shows "Team overview coming soon." for Project 2027.
+
 ## Updating a member
 
 Edit the person's name, photos and contact details in `members.json`. IDs must be unique positive integers and stay the same when a member returns for another year. Several existing records have the same name but different roles; match records by ID.
@@ -22,8 +24,8 @@ For example, a future project file could contain:
 
 ```json
 {
-  "year": 2027,
-  "name": "Project 2027",
+  "year": 2028,
+  "name": "Project 2028",
   "groups": ["Electrical"],
   "members": [
     {

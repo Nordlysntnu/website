@@ -162,7 +162,9 @@ const TeamOverview = () => {
           </button>
         </div>
 
-        {selectedGroup === ALL_MEMBERS ? (
+        {project.members.length === 0 ? (
+          <p className={styles.emptyState}>Team overview coming soon.</p>
+        ) : selectedGroup === ALL_MEMBERS ? (
           <div>
             {groupsToShow.map(group => {
               const groupMembers = getGroupMembers(project, group);
