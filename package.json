@@ -20,7 +20,7 @@
     "remark": "^15.0.1",
     "remark-breaks": "^4.0.0",
     "remark-html": "^16.0.1",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.5",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {
