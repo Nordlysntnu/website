@@ -2,7 +2,7 @@
 
 Member profiles live in `members.json`. Each project has a separate file in `projects/`, containing its groups, roles and member IDs. The team page uses the selected project's data.
 
-`projects/2027.json` is ready for the new team list. Its groups and members are empty until the confirmed roster is added, so the page shows "Team overview coming soon." for Project 2027.
+`projects/2027.json` contains the new team's groups and memberships. Add the remaining roster there as it becomes available. Projects without members display "Team overview coming soon."
 
 ## Updating a member
 

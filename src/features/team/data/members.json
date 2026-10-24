@@ -1109,5 +1109,14 @@
     "image": "/members/2025/compressed/EirikReiestad.webp",
     "fullImage": "/members/2025/EirikReiestad.jpg",
     "email": "eirik.reiestad@nordlysntnu.no"
+  },
+  {
+    "id": 164,
+    "project": [
+      2027
+    ],
+    "name": "Can Arif Oraz",
+    "image": "/members/2027/compressed/Can.webp",
+    "fullImage": "/members/2027/Can.png"
   }
 ]

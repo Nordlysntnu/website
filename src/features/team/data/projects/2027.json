@@ -1,6 +1,12 @@
 {
   "year": 2027,
   "name": "Project 2027",
-  "groups": [],
-  "members": []
+  "groups": ["Software"],
+  "members": [
+    {
+      "id": 164,
+      "title": "Group Leader Software",
+      "group": ["Software", "All active members"]
+    }
+  ]
 }
