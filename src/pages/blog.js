@@ -23,8 +23,8 @@ export default function Blog() {
       		    <PageHeader title="Blog" />
 					<Content dark={true}><p>{pagetext}</p></Content>
       		    <Content dark={true} nopad={true}>
-			        {blogs.map(blog => {
-			        	return <div style={{"width": "100%", "margin-bottom": "3pc"}}>
+			        {blogs.map((blog, index) => {
+                    return <div key={blog.date + '-' + index} id={index === 0 ? 'latest-post' : undefined} style={{width: '100%', marginBottom: '3pc', scrollMarginTop: '6rem'}}>
 						 <BlogEntry
                             			 text={blog.text}
                             			 images={blog.images} 

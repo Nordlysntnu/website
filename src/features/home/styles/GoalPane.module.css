@@ -1,6 +1,44 @@
 .container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+.goal {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 2em;
+    align-items: center;
+    gap: 1.25rem;
+    min-width: 0;
+}
+
+.image {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.title {
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.text {
+    max-width: 32ch;
+    color: #4c566b;
+    font-size: 0.875rem;
+    line-height: 1.65;
+}
+
+@media (max-width: 899px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .text {
+        max-width: none;
+    }
 }

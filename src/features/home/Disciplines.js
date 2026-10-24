@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './styles/Disciplines.module.css';
 import Discipline from './Discipline';
 import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
@@ -9,22 +10,24 @@ import Logistics from '@assets/symbols-and-logos/Logistics.png';
 import Management from '@assets/symbols-and-logos/Management.png';
 import Content from '@shared/components/Content';
 
-export default function Disciplines({ dark }) {return (
+export default function Disciplines({ dark }) {
+    return (
         <Content dark={dark}>
-            <div className={styles.container}>
-                <div className={styles.innerContainer}>
-                    <h1 className={styles.title}>Our groups</h1>
-                    <div className={styles.contentContainer}>
-                        <Discipline delay={100} image={EmbeddedElectronics.src} title="Electrical" />
-                        <Discipline delay={100} image={Software.src} title="Software" />
-                        <Discipline delay={100} image={Logistics.src} title="Logistics" />
-                        <Discipline delay={100} image={Mechanical.src} title="Mechanical" />
-                        <Discipline delay={300} image={Chassis.src} title="Chassis" />
-                        <Discipline delay={300} image={Marketing.src} title="Marketing" />
-                        <Discipline delay={300} image={Management.src} title="Board" />
-                    </div>
+            <section aria-labelledby="home-groups-title">
+                <div className={styles.header}>
+                    <h2 id="home-groups-title" className={styles.title}>Our groups</h2>
+                    <Link href="/team" className={styles.link}>Meet the team <span aria-hidden="true">→</span></Link>
                 </div>
-            </div>
+                <div className={styles.contentContainer}>
+                    <Discipline image={EmbeddedElectronics.src} title="Electrical" />
+                    <Discipline image={Software.src} title="Software" />
+                    <Discipline image={Logistics.src} title="Logistics" />
+                    <Discipline image={Mechanical.src} title="Mechanical" />
+                    <Discipline image={Chassis.src} title="Chassis" />
+                    <Discipline image={Marketing.src} title="Marketing" />
+                    <Discipline image={Management.src} title="Board" />
+                </div>
+            </section>
         </Content>
-    )
+    );
 }
