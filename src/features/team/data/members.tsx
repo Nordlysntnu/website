@@ -989,7 +989,7 @@ export const members = [
 	]
     },
     {
-        id: 65,
+        id: 162,
 	project: [2025],
         name: "Aleksander Kvitle",
         image: "/members/2025/compressed/AleksanderKvitle.webp",
@@ -1160,7 +1160,7 @@ export const members = [
 	]
     },
 	{
-		id: 104,
+		id: 163,
 		project: [2026],
 		name: "Tushar Narendra",
 		image: "/members/2026/Tushar.jpg",
