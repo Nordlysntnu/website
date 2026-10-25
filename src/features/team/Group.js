@@ -1,67 +1,57 @@
 import styles from './styles/Group.module.css'
 import { useState, useRef, useEffect } from "react";
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import ScrollReveal from '@shared/components/ScrollReveal';
 import "animate.css/animate.min.css";
 import Image from 'next/image';
 
 export default function Group({ image, groupName, theses, description }) {
-    const [path, setPath] = useState(styles.openIcon)
     const [open, setOpen] = useState(false)
     const [elementHeight, setElementHeight] = useState(0)
-    const [bottom, setBottom] = useState(0)
-    const ref = useRef(null)
+    const contentRef = useRef(null)
 
     function handleClick() {
-        if (open) {
-            setPath(styles.openIcon)
-            setBottom(0)
-            setOpen(false)
-        } else {
-            setPath(styles.closeIcon)
-            setBottom(elementHeight)
-            setOpen(true)
-        }
+        setOpen((previous) => !previous)
     }
 
     useEffect(() => {
         function handleResize() {
-          const h = ref.current.scrollHeight
-          setElementHeight(h)
-          if (open) {
-            setBottom(h)
-          }
+            if (!contentRef.current) return
+            setElementHeight(contentRef.current.scrollHeight)
         }
         handleResize()
         window.addEventListener('resize', handleResize)
-    })
+        return () => window.removeEventListener('resize', handleResize)
+    }, [description, theses])
 
     return (
-        <AnimationOnScroll animateIn="animate__fadeInUp" offset={50} animateOnce >
+        <ScrollReveal animateIn="animate__fadeInUp" offset={50}>
         <div className={styles.group} onClick={handleClick}>
             <h2 className={styles.titleContainer}>
                 <Image className={styles.titleImage} width={50} height={50} src={image} />
                 {groupName}
                 <div className={styles.fillContainer}></div>
                 <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" fill="none">
-                    <path className={path} fill="#152242"/>
+                    <path className={open ? styles.closeIcon : styles.openIcon} fill="#152242"/>
                 </svg>  
             </h2>
-            <div className={styles.thesesContainer} ref={ref} style={{ height: bottom }}>
+            <div className={styles.thesesContainer} style={{ height: open ? elementHeight : 0 }}>
+                <div ref={contentRef}>
                 <div className={styles.groupDescription} dangerouslySetInnerHTML={{ __html: description }} />
                 {
                     Object.keys(theses).map((thesisName) => {
                         const thesis = theses[thesisName];
                         return (
                         (thesisName != 'image' && thesisName != 'name' && thesisName != 'description')? (
-                            <div className={styles.thesis}>
+                            <div className={styles.thesis} key={thesisName}>
                                 <span className={styles.thesisTitle}>{thesis.name}</span>
                                 <span className={styles.thesisDescription}  dangerouslySetInnerHTML={{ __html: thesis.text}} />
                             </div>
-                        ) : (<></>)
+                        ) : null
                     );
                 })}
+                </div>
             </div>
         </div>
-        </AnimationOnScroll>
+        </ScrollReveal>
     )
 }
