@@ -2,7 +2,7 @@ import Content from '@shared/components/Content';
 import styles from './styles/MemberPresentation.module.css';
 import Hans from '../../../public/members/HansDreyerHysing-compressed.jpg';
 import Wilhelm from '../../../public/members/WilhelmBorgersen-compressed.jpg';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import ScrollReveal from '@shared/components/ScrollReveal';
 import Image from 'next/image'
 import Link from 'next/link';
 
@@ -12,14 +12,14 @@ export default function MemberPresentation({ dark }) {
             <div className={styles.container}>
                 <div className={styles.imageOuterContainer}>
                     <div className={styles.imageContainer}>
-                        <AnimationOnScroll animateIn='animate__fadeIn' delay={0} animateOnce>
+                        <ScrollReveal animateIn='animate__fadeIn' delay={0}>
                             <Image width={250} height={250} className={styles.image} src={Hans.src} />
-                        </AnimationOnScroll>
+                        </ScrollReveal>
                     </div>
                     <div className={styles.imageContainer}>
-                        <AnimationOnScroll animateIn='animate__fadeIn' delay={200} animateOnce>
+                        <ScrollReveal animateIn='animate__fadeIn' delay={200}>
                             <Image width={250} height={250} className={styles.image} src={Wilhelm.src} />
-                        </AnimationOnScroll>
+                        </ScrollReveal>
                     </div>
                 </div>
                 <div className={styles.textContainer}>

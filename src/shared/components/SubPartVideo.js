@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from '../styles/SubPart1.module.css';
 import Content from './Content';
-import { AnimationOnScroll } from 'react-animation-on-scroll';
+import ScrollReveal from './ScrollReveal';
 import { useEffect, useRef, useState } from 'react';
 
 
@@ -10,11 +10,11 @@ export default function SubPartVideo({ dark, video, poster, title, text, link, l
         <Content dark={dark}>
             <div className={styles.container}>
                 <div className={styles.imageContainer}>
-                    <AnimationOnScroll animateIn='animate__fadeIn' animateOnce>
+                    <ScrollReveal animateIn='animate__fadeIn'>
                         <video autoPlay muted loop playsInline poster={poster} className={styles.image}>
                             <source src={video} type="video/mp4" />
                         </video>
-                    </AnimationOnScroll>
+                    </ScrollReveal>
                 </div>
                 <div className={styles.textContainer}>
                     <h1 className={styles.title}>{title}</h1>
