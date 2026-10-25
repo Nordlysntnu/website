@@ -1,101 +1,165 @@
 # The Nordlys website
 
-(Written September 2025)
+Source code for [Nordlys NTNU's website](https://www.nordlysntnu.no/).
 
-This repository contains the code for the Nordlys website. 
+The site is built with Next.js and React, using the Next.js Pages Router. Production builds export static files. Content is currently maintained in Markdown, JavaScript and TypeScript files in this repository.
 
-The website is built with [Next.js](https://nextjs.org/learn) and [React.js](https://react.dev/learn).
+## Getting started
 
-## URL
+Install [Git](https://git-scm.com/downloads) and [Node.js](https://nodejs.org/en/download), which includes npm. The latest local validation used Node.js 24.15.0 and npm 11.12.1.
 
-[nordlysntnu.no](https://www.nordlysntnu.no/)
+Clone the repository, install dependencies and start the development server:
 
-## Downloading
-
-### Prerequisites
-
-In order to run the code you will need to have [Node.js](https://nodejs.org/en/download) downloaded. 
-
-### Installation
-
-- To download and setup the repository you have to first configure ssh and add your ssh key to GutHub.
-- Then you clone the repository:
 ```bash
-git clone git@github.com:Nordlysntnu/website.git
-```
-- And cd into the workspace:
-```bash
+git clone https://github.com/Nordlysntnu/website.git
 cd website
-```
-- Then install packages and dependencies: 
-```bash
-npm install
-```
-### Running the repo
-- To run the code you will need to run the development server: 
-```
+npm ci
 npm run dev
 ```
-- Build the production server: 
-```
+
+Open [localhost:3000](http://localhost:3000), or the address printed in the terminal. Source changes normally appear automatically. Stop the server with Ctrl+C.
+
+`npm ci` uses the versions recorded in `package-lock.json`. When intentionally adding or updating dependencies, use `npm install` and commit the updated package files together.
+
+## Building and previewing
+
+Build the production site:
+
+```bash
 npm run build
 ```
-- And start the production server: 
-```
-npm start
+
+If Turbopack reports a filesystem error on Windows, use Webpack:
+
+```bash
+npm run build -- --webpack
 ```
 
-## Explanation of file structure
+The Webpack command passed the latest local production build and static export.
 
-The file structure follows a feature based project structure
+The project has `output: "export"` in [next.config.js](next.config.js), so the build generates an `out/` folder containing HTML, CSS, JavaScript and media files. See the [Next.js static export documentation](https://nextjs.org/docs/pages/guides/static-exports).
 
+Preview those files with a static file server, for example [serve](https://github.com/vercel/serve):
+
+```bash
+npx serve@latest out
 ```
+
+Open the address printed in the terminal. Check direct page URLs such as `/about` and `/blog`, as well as navigation from the homepage.
+
+The existing `npm start` script runs `next start`, which is incompatible with this static export. The separate `npm run export` script is also obsolete; exporting happens during the build.
+
+## Where to update content
+
+All paths below are relative to the repository root.
+
+| Content | Location |
+| --- | --- |
+| Homepage sections | [src/pages/index.js](src/pages/index.js) and [src/features/home/](src/features/home/) |
+| Homepage opening text and image | [src/shared/components/Landing.js](src/shared/components/Landing.js) |
+| Team members, roles, contact details and membership history | [src/features/team/data/members.tsx](src/features/team/data/members.tsx) |
+| Team groups, project years and filtering | [src/features/team/TeamOverview.js](src/features/team/TeamOverview.js) |
+| Team photos | [public/members/](public/members/) |
+| About text | [src/markdown/about.md](src/markdown/about.md) |
+| Competition history | [src/markdown/competitions.md](src/markdown/competitions.md) |
+| Frequently asked questions | [src/markdown/faq.md](src/markdown/faq.md) |
+| Recruitment groups and positions | [src/markdown/join.md](src/markdown/join.md) |
+| Recruitment introduction and page layout | [src/pages/join.js](src/pages/join.js) |
+| Footer contact information | [src/features/ui/Footer.js](src/features/ui/Footer.js) |
+| Blog posts | [src/shared/data/blog.tsx](src/shared/data/blog.tsx) |
+| Blog images | [public/blog/](public/blog/) |
+| Sponsor lists, links and descriptions | [src/pages/partners.js](src/pages/partners.js) |
+| Sponsor logos | [src/features/partners/sponsor-logos/](src/features/partners/sponsor-logos/) |
+
+### Team and contact details
+
+Each person must have a unique ID across the whole member list. When someone continues into another project year, update their existing record and add the membership history while keeping previous years' information.
+
+Adding a project year also requires updating the year handling in `TeamOverview.js`. Check the relevant groups and years in the browser after making changes.
+
+Contact information appears in both the footer and individual member records. Check both when changing the main contact person.
+
+### Blog posts and images
+
+Add new posts at the beginning of the `blogs` array. The homepage uses `blogs[0]` as the latest update and links to the full post on the blog page.
+
+Place images in `public/blog/` and reference them with URLs such as `/blog/compressed/example.webp`. Files in `public/` are served from the site root, so the URL does not include `public/`. Match filenames and capitalisation exactly, and check the images in the preview.
+
+## Project structure
+
+```text
 website/
-├── public/ # Static images and videos
-├── components/
+├── public/                  # Public images, videos and other static files
+├── components/              # Additional components
+├── docs/                    # Reports and supporting documentation
 ├── src/
-│ ├── assets/ # Non-public assets 
-│ ├── features/ # Each feature contains relevant styles, data and components
-│ │ ├── about/
-│ │ ├── alert/
-│ │ ├── blog/
-│ │ ├── error/
-│ │ ├── home/
-│ │ ├── join/
-│ │ ├── partners/
-│ │ ├── team/
-│ │ └── ui/
-│ ├── not-in-use/
-│ ├── pages/
-│ └── shared/
-│ │ ├── components/ # Reusable components 
-│ │ ├── data/ 
-│ │ └── styles/ 
-├── next.config.js
-├── package.json
-├── restart.sh
-└── tsconfig.json # Path aliases (@features, @shared, @assets)
+│   ├── assets/              # Assets imported by components
+│   ├── features/            # Components, styles and data grouped by feature
+│   ├── markdown/            # Editable page content
+│   ├── pages/               # Next.js pages and routes
+│   └── shared/              # Shared components, styles, data and utilities
+├── next.config.js           # Next.js and static export configuration
+├── package.json             # Dependencies and npm scripts
+├── package-lock.json        # Locked dependency versions
+└── tsconfig.json            # TypeScript configuration and path aliases
 ```
 
-## Path aliases
-This project uses path aliases defined in tsconfig.json to avoid long relative imports (../../../).
-### Usage
-Instead of 
+The `.next/`, `out/` and `node_modules/` folders are generated locally and excluded from Git.
+
+Path aliases are defined in [tsconfig.json](tsconfig.json):
+
+| Alias | Location |
+| --- | --- |
+| `@features/*` | `src/features/*` |
+| `@shared/*` | `src/shared/*` |
+| `@assets/*` | `src/assets/*` |
+
+For example:
+
+```javascript
+import Layout from '@shared/components/Layout';
 ```
-import Layout from "../../../shared/components/Layout";
-```
-You can write
-```
-import Layout from "@shared/components/Layout";
-```
-This keeps imports clean and easy to maintain. 
 
 ## Contributing
-### Updating and navigating the repo
-Whenever working on the project, it it a good idea to run  ```git pull``` often as this ensures that your local copy of the repository is synced with the online GitHub repository. When you intend on adding features or making changes to the repository, create a new branch on GitHub, run ```git fetch``` and then ```git checkout name-of-branch``` to start working.
 
-### Committing changes
-After making changes to the code, run ```git pull``` then ```git add -A``` to make git aware of which files you have changed. Alternatively, you may replace ```-A``` with the specific name(s) of the changed file(s). Then, run the command ```git commit -m ""``` and place a descriptive commit message between the quotation marks. Afterwards, run ```git push``` to sync the GitHub repository with your changes to the branch. 
+Start from an updated `main` and create a branch for the change:
 
-### Merging code changes into main
-Once you are finished with making your changes or adding a feature, you want to merge your working branch into main. On your computer, run ```git merge origin main``` and resolve any potential merge conflicts. Add, push, and commit any changes you have made, then go to the branch's page on GitHub and open a pull request. Write a bullet point list describing your changes and additions.
+```bash
+git status
+git switch main
+git pull --ff-only
+git switch -c your-branch-name
+```
+
+Review any existing local changes before switching branches. Choose a branch name that describes the work, such as `update-team-2027` or `fix-team-filtering`.
+
+Check the affected pages on desktop and mobile, including links and images. For team changes, also check switching between groups and project years. Run a production build using the commands above before opening a pull request.
+
+Review, commit and push the intended files:
+
+```bash
+git status
+git diff
+git add path/to/changed-file
+git commit -m "Describe the change"
+git push -u origin HEAD
+```
+
+Open a pull request on GitHub with `main` as the base. Describe what changed and how you checked it, then review the diff before merging.
+
+If your working branch needs changes from `main`, run these commands while on that branch:
+
+```bash
+git fetch origin
+git merge origin/main
+```
+
+Resolve any conflicts, repeat the relevant checks and push the updated branch.
+
+## Forms and deployment
+
+The contact and recruitment forms send data to external Google Apps Script services. The browser code is in [ContactPane.js](src/features/ui/ContactPane.js) and [JoinForm.js](src/features/join/JoinForm.js); the Apps Script server code is not included here. A successful local build does not verify form delivery.
+
+Production hosting must serve the contents of `out/` and resolve page URLs such as `/about` to their generated HTML files. The production destination, deployment method and rollback procedure still need to be documented. Keep credentials and server access details in Nordlys' internal documentation and link to the deployment instructions once confirmed.
+
+After deploying, check the affected live pages, navigation, images and forms. Merging a pull request confirms the code change; deployment must be verified separately.
