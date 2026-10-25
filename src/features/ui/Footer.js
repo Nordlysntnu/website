@@ -31,8 +31,10 @@ export default function Footer() {
                 </div>
                 <div className={styles.textContainer}>
                     <p>Contact information:</p>
-                    <Link href="mailto:rasmus.nummelin@nordlysntnu.no">rasmus.nummelin@nordlysntnu.no</Link>
-                    <p><Link href="tel:004798054190">+47 980 54 190</Link></p>
+                    <p><strong>Tobias Johnsen Skånseng</strong></p>
+                    <p>Project Leader Nordlys NTNU</p>
+                    <Link href="mailto:tobias.skanseng@nordlysntnu.no">tobias.skanseng@nordlysntnu.no</Link>
+                    <p><Link href="tel:+4747884360">+47 478 84 360</Link></p>
                 </div>
             </div>
             <center>Created by and for students.</center>
