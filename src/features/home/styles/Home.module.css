@@ -1,0 +1,31 @@
+.home {
+    --content-max-width: 82rem;
+    --content-padding-inline: clamp(1.25rem, 4vw, 4rem);
+    --content-padding-block: clamp(2rem, 3.5vw, 3rem);
+    --content-background: #ffffff;
+    --content-muted-background: #f3f5f8;
+    --nav-padding-inline: var(--content-padding-inline);
+    color: #152242;
+    line-height: 1.6;
+}
+
+.skipLink {
+    position: fixed;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 20;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    background: #b20b3a;
+    border-radius: 0.25rem;
+    transform: translateY(-200%);
+}
+
+.skipLink:focus {
+    transform: translateY(0);
+}
+
+.home :is(a, button):focus-visible {
+    outline: 3px solid #ff1053;
+    outline-offset: 5px;
+}

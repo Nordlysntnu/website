@@ -1,0 +1,153 @@
+.container {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(2.5rem, 4vw, 3.5rem) var(--content-padding-inline, 1.5rem);
+    color: #ffffff;
+    background: #152242;
+    scroll-margin-top: 6rem;
+}
+
+.background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.16;
+    pointer-events: none;
+    background: url('/posters/compressed/Ribbon.jpg') center / cover;
+}
+
+.background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.innerContainer {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+    max-width: var(--content-max-width, 82rem);
+    margin: 0 auto;
+}
+
+.copy,
+.figure {
+    min-width: 0;
+}
+
+.eyebrow {
+    margin-bottom: 1rem;
+    color: #ced6e9;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.title {
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+    font-size: clamp(3rem, 5.1vw, 4.75rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+}
+
+.text {
+    max-width: 42ch;
+    color: #e0e5f0;
+    font-size: clamp(1rem, 1.25vw, 1.125rem);
+    line-height: 1.75;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.75rem;
+    margin-top: 1.75rem;
+}
+
+.primaryLink,
+.secondaryLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    min-height: 48px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.primaryLink {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+    color: #ffffff;
+    background: #ce1046;
+    transition: background-color 150ms ease;
+}
+
+.primaryLink:hover {
+    background: #b20b3a;
+}
+
+.secondaryLink {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+    text-decoration-color: #7d8ba8;
+}
+
+.secondaryLink:hover {
+    text-decoration-color: #ffffff;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.caption {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    margin-top: 0.75rem;
+    color: #cad2e3;
+    font-size: 0.75rem;
+}
+
+.caption span:first-child {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+@media (max-width: 899px) {
+    .innerContainer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .copy {
+        max-width: 36rem;
+    }
+
+    .title {
+        font-size: clamp(2.75rem, 7vw, 4rem);
+    }
+
+    .image {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .background video {
+        display: none;
+    }
+}
