@@ -1,7 +1,7 @@
 # Wider desktop homepage: issue #38
 
-Local proposal on `fix/38-wide-desktop-layout`, based on `main` at `99325ac`.
-The design is ready for review. Nothing has been pushed or deployed, and #38 is still open.
+Proposal on `fix/38-wide-desktop-layout`, based on `main` at `99325ac`.
+The design is ready for review before merging or deploying, and #38 is still open.
 
 ![Proposed desktop homepage](after-desktop-top.jpg)
 
