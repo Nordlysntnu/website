@@ -13,6 +13,9 @@ export default function CvPortal() {
     const [cvFile, setCvFile] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [cvs, setCvs] = useState([])
+    const [cvListVersion, setCvListVersion] = useState(0);
+    const [deletingId, setDeletingId] = useState(null);
+    const [visibleToRecruiters, setVisibleToRecruiters] = useState(false);
 
     useEffect(() => {
         async function restoreSession() {
@@ -24,7 +27,6 @@ export default function CvPortal() {
                 setUser(data.session?.user ?? null);
             }
         }
-
         restoreSession();
     }, []);
 
@@ -35,6 +37,7 @@ export default function CvPortal() {
             setFullName("");
             setStudyProgram("")
             setGraduationYear("");
+            setVisibleToRecruiters(false);
 
             if (!user) {
                 return;
@@ -42,7 +45,7 @@ export default function CvPortal() {
 
             const { data, error } = await supabase
                 .from('member')
-                .select('full_name, study_program, graduation_year')
+                .select('full_name, study_program, graduation_year, visible_to_recruiters')
                 .eq('user_id', user.id)
                 .maybeSingle();
 
@@ -51,7 +54,7 @@ export default function CvPortal() {
             }
 
             if (error) {
-                setMessage(error.message);
+                setMessage(message.error);
             } else {
                 setFullName(data?.full_name ?? '');
                 setStudyProgram(data?.study_program ?? "");
@@ -60,7 +63,7 @@ export default function CvPortal() {
                         ? ""
                         : String(data.graduation_year)
                     )
-            }
+                setVisibleToRecruiters(data?.visible_to_recruiters ?? false);            }
         }
 
         loadProfile();
@@ -70,7 +73,7 @@ export default function CvPortal() {
         };
     }, [user]);
 
-useEffect(() => {
+    useEffect(() => {
         let cancelled = false;
 
         async function loadCvs() {
@@ -80,28 +83,28 @@ useEffect(() => {
                 return;
             }
 
-        
-        const { data, error } = await supabase
-        .from("cv")
-        .select("id, original_filename, file_path, uploaded_at")
-        .order("uploaded_at", { ascending: false });
+            const { data, error } = await supabase
+                .from("cv")
+                .select("id, original_filename, file_path, uploaded_at")
+                .order("uploaded_at", { ascending: false });
+
+            if (cancelled) {
+                return;
+            }
+
+            if (error) {
+                setMessage(error.message);
+            } else {
+                setCvs(data ?? []);
+            }
         }
-    
-    if (cancelled) {
-        return;
-    }
 
-    if (error) {
-        setMessage(message.error)
-    } else {
-        setCvs(data ?? []);
-    }
-    loadCvs();
+        loadCvs();
 
-    return () => {
-        cancelled = true;
-    };
-}, [user]);
+        return () => {
+            cancelled = true;
+        };
+    }, [user, cvListVersion]);
 
 
     async function handlelogin(event) {
@@ -184,6 +187,7 @@ useEffect(() => {
                     graduation_year: graduationYear === ""
                         ? null
                         : Number(graduationYear),
+                    visible_to_recruiters: visibleToRecruiters,
                 },
                 {
                     onConflict: "user_id",
@@ -262,6 +266,9 @@ if (recordError) {
     );
 }
 
+setCvListVersion(previous => + 1)
+setMessage("CV uploaded and linked to your profile")
+
 setMessage('CV uploaded and linked to your profile!');
 
     } catch (error) {
@@ -271,7 +278,73 @@ setMessage('CV uploaded and linked to your profile!');
     }
 }
 
+async function handleOpenCvs(filePath) {
+    setMessage("Opening CV...")
 
+    try {
+        const { data, error } = await supabase.storage
+            .from("cvs")
+            .createSignedUrl(filePath, 60);
+
+        if (error) {
+            throw error;
+        }
+
+        window.location.assign(data.signedUrl);
+    } catch (error) {
+        setMessage(error.message || "Unable to upload CV.")
+    }
+}
+
+
+async function handleDeleteCv(cv) {
+    if (!user || deletingId !== null) {
+        return;
+    }
+
+    const confirmed = window.confirm(
+        `Permanently delete "${cv.original_filename}"?`
+    );
+
+    if (!confirmed) {
+        return;
+    }
+
+    setDeletingId(cv.id);
+    setMessage("Deleting CV...");
+
+    try {
+
+        const { error: fileError } = await supabase.storage
+            .from("cvs")
+            .remove([cv.file_path]);
+
+        if (fileError) {
+            throw fileError;
+        }
+
+        const { data, error: recordError } = await supabase
+            .from("cv")
+            .delete()
+            .eq("id", cv.id)
+            .select("id")
+            .single();
+
+
+        if (recordError) {
+            throw new Error(
+                `The file removal finished, but deleting its record failed: ${recordError.message}`
+            );
+        }
+
+        setCvs(previous => previous.filter(item => item.id !== data.id));
+        setMessage("CV deleted");
+    } catch (error) {
+        setMessage(error.message || "Unable to delete the CV");
+    } finally {
+        setDeletingId(null);
+    }
+}
 
 return (
     <div>
@@ -318,6 +391,15 @@ return (
                 <button type="button" onClick={ handleSaveProfile }>
                     Save Profile 
                 </button>
+
+                <label>
+                <input
+                    type="checkbox"
+                    checked={visibleToRecruiters}
+                    onChange={event => setVisibleToRecruiters(event.target.checked)}
+                />
+                Allow approved recruiters to view my profile and CV.
+            </label>
             
             <h2>Your CV</h2>
 
@@ -349,6 +431,19 @@ return (
                     {cvs.map(cv => (
                         <li key={cv.id}>
                             {cv.original_filename}
+
+                            <button
+                            type="button"
+                            onClick={() => handleOpenCvs(cv.file_path)}>
+                                Open CV
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => handleDeleteCv(cv)}
+                                disabled={deletingId !== null}>
+                                {deletingId === cv.id ? 'Deleting...' : 'Delete CV'}
+                            </button>
                         </li>
                     ))}
                 </ul>
