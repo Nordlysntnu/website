@@ -16,6 +16,9 @@ const projects = {
   2027: project2027,
 };
 
+// TODO: Update JSON to allow multiple groups per member
+// TODO: Update JSON image paths for missing images
+
 const TeamOverview = () => {
   const router = useRouter();
 
