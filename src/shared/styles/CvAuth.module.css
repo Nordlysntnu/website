@@ -1,102 +1,730 @@
-.section {
-    background: #f4f6fa;
-    padding: 48px 20px 72px;
-}
-
-.card {
-    max-width: 480px;
-    margin: auto;
-    padding: 32px;
-    background: white;
-    border-radius: 12px;
+.portal {
+    background: #eef0f4;
     color: #152242;
-    box-shadow: 0 8px 32px #15224212;
-}
-
-.card h2 {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-.card p {
     line-height: 1.6;
-    margin-bottom: 20px;
-    overflow-wrap: anywhere;
 }
 
-.fields {
-    border: 0;
+.container {
+    width: min(1100px, calc(100% - 64px));
+    margin: 0 auto;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 64px 0 0;
+    background: #152242;
+    color: #d4dbea;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -90px;
+    width: 380px;
+    height: 380px;
+    border: 1px solid #ffffff12;
+    border-radius: 50%;
+    box-shadow: 0 0 0 65px #ffffff03, 0 0 0 130px #ffffff03;
+    pointer-events: none;
+}
+
+.eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    line-height: 1.6;
+}
+
+.hero .eyebrow {
+    color: #ff729a;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: clamp(48px, 7vw, 86px);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+    margin: 16px 0 22px;
+    text-shadow: -3px 3px 0 #ff1053;
+}
+
+.intro {
+    max-width: 570px;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+}
+
+.heroFoot {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 0;
+    margin-top: 44px;
+    border-top: 1px solid #ffffff20;
+    font-size: 11px;
+    color: #b1bdd3;
 }
 
-.fields label {
+.heroLabel {
+    color: white;
+    letter-spacing: .12em;
     font-weight: 500;
 }
 
-.fields input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #7c879d;
-    border-radius: 6px;
-    font: inherit;
-    margin-bottom: 8px;
+.workspace {
+    padding: 36px 0 0;
 }
 
-.card button {
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #d4d9e3;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 5px;
+    border: 1px solid #d6dce7;
+    border-radius: 100px;
+    background: #e3e7ee;
+}
+
+.portal button {
+    font: inherit;
     cursor: pointer;
-    font: inherit;
-    border-radius: 6px;
-    padding: 12px 16px;
+    transition: background-color 150ms, color 150ms, box-shadow 150ms;
 }
 
-.primary {
-    background: #152242;
-    color: white;
+.tabs button {
     border: 0;
+    background: transparent;
+    border-radius: 100px;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: #4b5871;
+}
+
+.tabs .activeTab {
+    background: #152242;
+    color: #fff;
+    box-shadow: 0 2px 5px #15224220;
+}
+
+.account {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+    font-size: 12px;
+    min-width: 0;
+}
+
+.account > span {
+    max-width: 240px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.textButton {
+    border: 0;
+    background: transparent;
+    color: #152242;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    padding: 6px 0;
+}
+
+.textButton:hover {
+    color: #bc0d40;
+}
+
+.sectionHeading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 34px 0 24px;
+}
+
+.sectionHeading .eyebrow, .loginIntro .eyebrow {
+    color: #b30e3d;
+}
+
+.sectionHeading h2 {
+    font-size: 44px;
+    line-height: 1.15;
     margin-top: 8px;
 }
 
-.switch {
+.sectionHeading > p {
+    color: #59667c;
+    font-size: 13px;
+    text-align: right;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: start;
+    gap: 24px;
+}
+
+.card {
+    min-width: 0;
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #dce1ea;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px #15224204;
+}
+
+.card h3 {
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.cardHeading {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e8ebf0;
+}
+
+.cardHeading p, .cardIntro {
+    color: #5c687d;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.step {
+    display: grid;
+    place-items: center;
+    flex: 0 0 38px;
+    height: 38px;
+    background: #fcebf0;
+    color: #b30e3d;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 50%;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.field label span {
+    color: #667389;
+    font-size: 11px;
+    font-weight: 400;
+    margin-left: 8px;
+}
+
+.field input {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    border: 1px solid #c7cfdd;
+    border-radius: 6px;
+    background: #fbfcfe;
     color: #152242;
-    background: transparent;
-    border: 0;
-    margin-top: 20px;
-    text-decoration: underline;
+    font: inherit;
+    font-size: 14px;
 }
 
-.card button:disabled {
-    opacity: .6;
-    cursor: wait;
+.field input::placeholder {
+    color: #7b8699;
 }
 
-.card input:focus-visible, .card button:focus-visible {
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px;
+    margin: 6px 0 24px;
+    border: 1px solid #e0e5ee;
+    border-radius: 8px;
+    background: #f5f7fa;
+    cursor: pointer;
+}
+
+.consent input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    accent-color: #152242;
+}
+
+.consent strong, .consent span span {
+    display: block;
+    font-size: 12px;
+}
+
+.consent span span {
+    color: #59667c;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+.primary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 13px 22px;
+    border: 1px solid #152242;
+    border-radius: 100px;
+    background: #152242;
+    color: white;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+.primary:hover:not(:disabled) {
+    background: #2a3c64;
+    box-shadow: -3px 3px 0 #ff1053;
+}
+
+.portal button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.portal input:focus-visible, .portal button:focus-visible {
     outline: 3px solid #ff1053;
     outline-offset: 3px;
 }
 
-.card .error {
-    background: #fff0f3;
-    color: #991b36;
-    padding: 12px;
-    border-radius: 6px;
+.cvColumn {
+    display: grid;
+    gap: 24px;
+    min-width: 0;
 }
 
-.card .message {
-    background: #edf8f2;
-    color: #185b3a;
-    padding: 12px;
-    border-radius: 6px;
+.uploadBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 14px;
+    border: 1px dashed #aab6ca;
+    border-radius: 8px;
+    background: #f8f9fc;
+    margin-bottom: 20px;
 }
 
-.card .hint {
+.fileSymbol {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d1d9e7;
+    border-radius: 50%;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.uploadBox label {
     font-size: 14px;
-    margin-bottom: 0;
+    font-weight: 500;
 }
 
-@media (max-width: 480px) {
-    .card {
+.uploadBox p {
+    color: #59667c;
+    font-size: 12px;
+    margin: 6px 0 14px;
+}
+
+.uploadBox input {
+    font: inherit;
+    font-size: 12px;
+    max-width: 100%;
+}
+
+.uploadBox input::file-selector-button {
+    border: 1px solid #c6cfde;
+    background: white;
+    color: #152242;
+    border-radius: 100px;
+    padding: 8px 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    font: inherit;
+}
+
+.selectedFile {
+    font-size: 12px;
+    margin-bottom: 16px;
+    overflow-wrap: anywhere;
+}
+
+.caption {
+    font-size: 11px;
+    color: #667389;
+    line-height: 1.7;
+    margin-top: 16px;
+}
+
+.listHeading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.count {
+    display: grid;
+    place-items: center;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #edf0f5;
+    font-size: 12px;
+}
+
+.empty {
+    padding: 22px 0 6px;
+    border-top: 1px solid #e6eaf1;
+}
+
+.empty p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.empty span {
+    font-size: 12px;
+    color: #667389;
+}
+
+.fileList {
+    list-style: none;
+}
+
+.fileList li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 0;
+    border-top: 1px solid #e6eaf1;
+}
+
+.pdfBadge {
+    padding: 10px 6px;
+    border-radius: 5px;
+    background: #fcebf0;
+    color: #a90e3a;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.fileDetails {
+    flex: 1;
+    min-width: 0;
+}
+
+.fileDetails strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.fileDetails > span {
+    display: block;
+    font-size: 11px;
+    color: #667389;
+    margin-top: 4px;
+}
+
+.fileActions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.fileActions button {
+    border: 0;
+    background: transparent;
+    color: #152242;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.fileActions button:hover {
+    background: #edf0f5;
+}
+
+.fileActions .deleteButton {
+    color: #aa244a;
+}
+
+.recruiterGrid, .loginGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.recruiterAside {
+    position: relative;
+    padding: 36px;
+    border-radius: 12px;
+    background: #152242;
+    color: #c4cee1;
+    overflow: hidden;
+}
+
+.asideLabel {
+    font-size: 10px;
+    font-weight: 500;
+    color: #ff86a8;
+    letter-spacing: .12em;
+}
+
+.recruiterAside h3 {
+    color: white;
+    font-size: 44px;
+    line-height: 1.15;
+    margin: 24px 0 18px;
+}
+
+.recruiterAside > p {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.steps {
+    list-style: none;
+    margin-top: 36px;
+}
+
+.steps li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-top: 1px solid #ffffff20;
+    padding: 18px 0;
+    font-size: 12px;
+}
+
+.steps li > span {
+    color: #ff86a8;
+    font-size: 11px;
+}
+
+.badge {
+    display: inline-block;
+    color: #ac103d;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    margin-bottom: 16px;
+}
+
+.cardIntro {
+    margin-bottom: 28px;
+}
+
+.applicationEmail {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px;
+    background: #f5f7fa;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    overflow-wrap: anywhere;
+}
+
+.applicationEmail > span {
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: #667389;
+}
+
+.applicationEmail strong {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.loginGrid {
+    align-items: center;
+    padding: 28px 0 20px;
+    gap: 80px;
+}
+
+.loginIntro h2 {
+    font-size: clamp(42px, 5vw, 62px);
+    line-height: 1.12;
+    margin: 18px 0 24px;
+}
+
+.loginIntro > p:not(.eyebrow) {
+    font-size: 15px;
+    color: #59667c;
+    line-height: 1.9;
+    max-width: 390px;
+}
+
+.introRule {
+    width: 64px;
+    height: 3px;
+    background: #ff1053;
+    margin: 30px 0 20px;
+}
+
+.loginIntro > span {
+    color: #59667c;
+    font-size: 11px;
+}
+
+.registerRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 22px;
+    font-size: 12px;
+}
+
+.registerRow > span {
+    color: #667389;
+}
+
+.notice {
+    background: #fff;
+    border: 1px solid #d5dce8;
+    border-left: 3px solid #ff1053;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 13px;
+    margin: 24px 0;
+    overflow-wrap: anywhere;
+}
+
+.loading {
+    padding: 80px 0;
+    text-align: center;
+    color: #59667c;
+}
+
+.bottomNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #667389;
+    font-size: 11px;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.smallDot {
+    flex: 0 0 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff1053;
+}
+
+@media (max-width: 850px) {
+    .dashboard, .recruiterGrid, .loginGrid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .loginIntro {
+        padding-bottom: 16px;
+    }
+
+    .loginIntro > p:not(.eyebrow) {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 540px) {
+    .container {
+        width: calc(100% - 32px);
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .heroFoot {
+        flex-direction: column;
+        margin-top: 30px;
+        padding: 20px 0;
+    }
+
+    .heroFoot > span:last-child {
+        display: none;
+    }
+
+    .sectionHeading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sectionHeading > p {
+        text-align: left;
+    }
+
+    .sectionHeading > p br {
+        display: none;
+    }
+
+    .card, .recruiterAside {
         padding: 24px 20px;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+
+    .tabs button {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .account {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .bottomNote {
+        padding: 30px 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portal button {
+        transition: none;
     }
 }
