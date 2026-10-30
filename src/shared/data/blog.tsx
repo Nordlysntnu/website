@@ -1,5 +1,26 @@
 export const blogs = [
 	{
+		text: "Last week we competed in our first competition, the ilumen European Solar Challenge. We completed 120 laps throughout the race, totaling 480 km, powered only by solar energy. This is a huge milestone for us. We have learned a lot and are excited to continue to get better. With Belgium behind us, we now set our sights on the Bridgestone World Solar Challenge in Australia next year.\n\nWe would like to thank our sponsors and partners for their invaluable support during this project, and NTNU for backing us along the way. Their belief in us made it possible to take Nordlys from the drawing board to the racetrack. We also want to thank every team member for the long hours and hard work that went into the car and the race.",
+		images: [
+			"/blog/iesc-2026/01-team-belgium.webp",
+			"/blog/iesc-2026/02-sponsors.webp",
+			"/blog/iesc-2026/03-daytime.webp",
+			"/blog/iesc-2026/04-lumholtz-open.webp",
+			"/blog/iesc-2026/05-nighttime.webp",
+			"/blog/iesc-2026/06-passed-scrutineering.webp"
+		],
+		imageAlts: [
+			"Nordlys NTNU celebrating with Lumholtz at the ilumen European Solar Challenge in Belgium",
+			"Project 2026 sponsors and collaboration partners",
+			"Lumholtz racing on the circuit during the day",
+			"Lumholtz with its canopy open in the pit lane",
+			"Lumholtz racing on the circuit at night",
+			"Nordlys NTNU team with Lumholtz after passing scrutineering"
+		],
+		imageFit: "contain",
+		date: "Wednesday 23 September 2026"
+	},
+	{
 		text: "Some shots of Lumholtz from our test drive at Dragvoll NTNU ☀️ #SolarRacing #NordlysNTNU",
 		images: ["/blog/compressed/dragvoll5.webp", "/blog/compressed/dragvoll1.webp", "/blog/compressed/dragvoll2.webp", "/blog/compressed/dragvoll3.webp", "/blog/compressed/dragvoll4.webp"],
 		date: "October 2025"

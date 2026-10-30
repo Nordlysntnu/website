@@ -28,6 +28,8 @@ export default function Blog() {
 						 <BlogEntry
                             			 text={blog.text}
                             			 images={blog.images} 
+						 imageAlts={blog.imageAlts}
+						 imageFit={blog.imageFit}
 						 date={blog.date}/>
 					       </div>
 			        })}
