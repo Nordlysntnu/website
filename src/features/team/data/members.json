@@ -112,7 +112,7 @@
     "image": "/members/2026/compressed/Sander.webp",
     "fullImage": "/members/2026/Sander.jpg",
     "email": "sander.ranbo@nordlysntnu.no",
-    "linkedin": "www.linkedin.com/in/sander-ranbø-b35496327",
+    "linkedin": "https://www.linkedin.com/in/sander-ranb%C3%B8-b35496327",
     "phone": "+4741499065"
   },
   {
@@ -204,7 +204,9 @@
     "name": "Fredrik Falk",
     "image": "/members/2026/compressed/Fredrik.webp",
     "fullImage": "/members/2026/Fredrik.jpg",
-    "email": "fredrik.falk@nordlysntnu.no"
+    "email": "fredrik.falk@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/fredrikfalk/",
+    "phone": "+4790984272"
   },
   {
     "id": 122,
@@ -265,7 +267,8 @@
     "name": "Eskil Tollefsrud",
     "image": "/members/2026/compressed/Eskil.webp",
     "fullImage": "/members/2026/Eskil.png",
-    "email": "eskil.tollefsrud@nordlysntnu.no"
+    "email": "eskil.tollefsrud@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/eskil-tollefsrud-5b8327380"
   },
   {
     "id": 132,
@@ -1117,6 +1120,298 @@
     ],
     "name": "Can Arif Oraz",
     "image": "/members/2027/compressed/Can.webp",
-    "fullImage": "/members/2027/Can.png"
+    "fullImage": "/members/2027/Can.png",
+    "linkedin": "https://www.linkedin.com/in/arif-can-oraz-782a58299/",
+    "email": "arif.oraz@nordlysntnu.no",
+    "phone": "+4791798306"
+  },
+  {
+    "id": 165,
+    "project": [
+      2027
+    ],
+    "name": "Lina Emilie Bakkemyr",
+    "image": "/members/2027/compressed/Lina.webp",
+    "fullImage": "/members/2027/Lina.png",
+    "email": "lina.bakkemyr@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/lina-bakkemyr"
+  },
+  {
+    "id": 166,
+    "project": [
+      2027
+    ],
+    "name": "Martyna Bielat",
+    "image": "/members/2027/compressed/Martyna.webp",
+    "fullImage": "/members/2027/Martyna.png"
+  },
+  {
+    "id": 167,
+    "project": [
+      2027
+    ],
+    "name": "Jonas Hjertmoen",
+    "image": "/members/2027/compressed/Jonas.webp",
+    "fullImage": "/members/2027/Jonas.png",
+    "linkedin": "https://www.linkedin.com/in/jonas-unsg%C3%A5rd-hjertmoen-58430a3b7"
+  },
+  {
+    "id": 168,
+    "project": [
+      2027
+    ],
+    "name": "Henrik Druglimo Grinde",
+    "image": "/members/2027/compressed/Henrik.webp",
+    "fullImage": "/members/2027/Henrik.png",
+    "email": "henrik.grinde@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/henrikdgrinde"
+  },
+  {
+    "id": 169,
+    "project": [
+      2027
+    ],
+    "name": "Nicolas Storbekkrønning",
+    "image": "/members/2027/compressed/Nicolas.webp",
+    "fullImage": "/members/2027/Nicolas.png",
+    "email": "nicolas.storbekkronning@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/nicolas-storbekkr%C3%B8nning-6b47ba326",
+    "phone": "+4794132917"
+  },
+  {
+    "id": 170,
+    "project": [
+      2027
+    ],
+    "name": "Tobias Johnsen Skånseng",
+    "image": "/members/2027/compressed/Tobias.webp",
+    "fullImage": "/members/2027/Tobias.png",
+    "email": "tobias.skanseng@nordlysntnu.no",
+    "phone": "+4747884360",
+    "linkedin": "https://www.linkedin.com/in/tobias-johnsen-sk%C3%A5nseng"
+  },
+  {
+    "id": 171,
+    "project": [
+      2027
+    ],
+    "name": "Filip Nøkleby",
+    "image": "/members/2027/compressed/Filip.webp",
+    "fullImage": "/members/2027/Filip.png",
+    "email": "filip.nokleby@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/filip-nokleby/",
+    "phone": "+4794802898"
+  },
+  {
+    "id": 172,
+    "project": [
+      2027
+    ],
+    "name": "Maria Torgersen",
+    "image": "/members/2027/compressed/MariaTorgersen.webp",
+    "fullImage": "/members/2027/MariaTorgersen.png",
+    "email": "maria.torgersen@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/maria-torgersen-203033246"
+  },
+  {
+    "id": 173,
+    "project": [
+      2027
+    ],
+    "name": "Maximilian Gjerstad Valdersnes",
+    "image": "/members/2027/compressed/Maximilian.webp",
+    "fullImage": "/members/2027/Maximilian.png",
+    "email": "maximilian.valdersnes@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/maximilian-gjerstad-valdersnes-78376625a/"
+  },
+  {
+    "id": 174,
+    "project": [
+      2027
+    ],
+    "name": "Oda Malmin",
+    "image": "/members/2027/compressed/Oda.webp",
+    "fullImage": "/members/2027/Oda.png",
+    "email": "oda.malmin@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/oda-malmin-a4bbb9444/"
+  },
+  {
+    "id": 175,
+    "project": [
+      2027
+    ],
+    "name": "Natalie Rian Myrli",
+    "image": "/members/2027/photo-coming-soon.svg",
+    "fullImage": "/members/2027/photo-coming-soon.svg",
+    "email": "natalie.myrli@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/natalie-rian-myrli"
+  },
+  {
+    "id": 176,
+    "project": [
+      2027
+    ],
+    "name": "Yazan Alhalabi",
+    "image": "/members/2027/photo-coming-soon.svg",
+    "fullImage": "/members/2027/photo-coming-soon.svg"
+  },
+  {
+    "id": 177,
+    "project": [
+      2027
+    ],
+    "name": "Adrian Falch",
+    "image": "/members/2027/compressed/Adrian.webp",
+    "fullImage": "/members/2027/Adrian.png",
+    "email": "adrian.falch@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/adrian-falch-9b1ab6329/"
+  },
+  {
+    "id": 178,
+    "project": [
+      2027
+    ],
+    "name": "Andrei Tuluca",
+    "image": "/members/2027/compressed/Andrei.webp",
+    "fullImage": "/members/2027/Andrei.png",
+    "email": "Andrei.taluca@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/andrei-tuluca-a62265413",
+    "phone": "+4746372866"
+  },
+  {
+    "id": 179,
+    "project": [
+      2027
+    ],
+    "name": "Wilgrim Aker Warming",
+    "image": "/members/2027/compressed/Wilgrim.webp",
+    "fullImage": "/members/2027/Wilgrim.png"
+  },
+  {
+    "id": 180,
+    "project": [
+      2027
+    ],
+    "name": "Alexander Strandvik Bertheau",
+    "image": "/members/2027/compressed/Alexander.webp",
+    "fullImage": "/members/2027/Alexander.png",
+    "email": "alexander.strandvik@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/alexander-strandvik-bertheau-14ba8338b/"
+  },
+  {
+    "id": 181,
+    "project": [
+      2027
+    ],
+    "name": "Julian Svenningsen Nordang",
+    "image": "/members/2027/compressed/Julian.webp",
+    "fullImage": "/members/2027/Julian.png"
+  },
+  {
+    "id": 182,
+    "project": [
+      2027
+    ],
+    "name": "Oskar Gjervan",
+    "image": "/members/2027/photo-coming-soon.svg",
+    "fullImage": "/members/2027/photo-coming-soon.svg"
+  },
+  {
+    "id": 183,
+    "project": [
+      2027
+    ],
+    "name": "Miriam Amsen",
+    "image": "/members/2027/compressed/Miriam.webp",
+    "fullImage": "/members/2027/Miriam.png"
+  },
+  {
+    "id": 184,
+    "project": [
+      2027
+    ],
+    "name": "Håvar Benestvedt",
+    "image": "/members/2027/compressed/Havar.webp",
+    "fullImage": "/members/2027/Havar.png",
+    "email": "haavar.benestvedt@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/h%C3%A5var-benestvedt-6847953b7"
+  },
+  {
+    "id": 185,
+    "project": [
+      2027
+    ],
+    "name": "Johannes Haugstad",
+    "image": "/members/2027/compressed/Johannes.webp",
+    "fullImage": "/members/2027/Johannes.png"
+  },
+  {
+    "id": 186,
+    "project": [
+      2027
+    ],
+    "name": "Melina Maledhi",
+    "image": "/members/2027/compressed/Melina.webp",
+    "fullImage": "/members/2027/Melina.png"
+  },
+  {
+    "id": 187,
+    "project": [
+      2027
+    ],
+    "name": "Marius Flaten Børøsund",
+    "image": "/members/2027/compressed/Marius.webp",
+    "fullImage": "/members/2027/Marius.png",
+    "email": "marius.flaten@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/marius-borosund/"
+  },
+  {
+    "id": 188,
+    "project": [
+      2027
+    ],
+    "name": "Saron K. Debessay",
+    "image": "/members/2027/compressed/Saron.webp",
+    "fullImage": "/members/2027/Saron.png"
+  },
+  {
+    "id": 189,
+    "project": [
+      2027
+    ],
+    "name": "Patrick Barsi",
+    "image": "/members/2027/compressed/Patrick.webp",
+    "fullImage": "/members/2027/Patrick.png"
+  },
+  {
+    "id": 190,
+    "project": [
+      2027
+    ],
+    "name": "Stefan Næss",
+    "image": "/members/2027/compressed/Stefan.webp",
+    "fullImage": "/members/2027/Stefan.png",
+    "email": "stefan.naess@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/stefan-naess-a573a1266"
+  },
+  {
+    "id": 191,
+    "project": [
+      2027
+    ],
+    "name": "August Hauge Smevold",
+    "image": "/members/2027/compressed/August.webp",
+    "fullImage": "/members/2027/August.png",
+    "email": "august.smevold@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/august-hauge-smevold-25136b327/"
+  },
+  {
+    "id": 192,
+    "project": [
+      2027
+    ],
+    "name": "Tahir Adil",
+    "image": "/members/2027/compressed/Tahir.webp",
+    "fullImage": "/members/2027/Tahir.png"
   }
 ]

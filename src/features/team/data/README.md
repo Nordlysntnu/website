@@ -2,7 +2,19 @@
 
 Member profiles live in `members.json`. Each project has a separate file in `projects/`, containing its groups, roles and member IDs. The team page uses the selected project's data.
 
+Members awaiting photos use `/members/2027/photo-coming-soon.svg`, a shared neutral silhouette in Nordlys colours with the text "Photo coming soon". Natalie, Yazan and Oskar currently use it; their names, roles and contacts display normally. Replace their `image` and `fullImage` paths when portraits arrive.
+
 `projects/2027.json` contains the new team's groups and memberships. Add the remaining roster there as it becomes available. Projects without members display "Team overview coming soon."
+
+The current 2027 roster contains 39 members from the supplied team list. All supplied photos have been added: ten returning members reuse their 2026 photos, Can keeps his approved 2027 portrait, and 25 members have matching new 2027 portraits. This gives 36 members with photos. Natalie Rian Myrli, Yazan Alhalabi and Oskar Gjervan still use the existing placeholder. The supplied file named `nicholas .cr2` is confirmed to show Nicolas Storbekkrønning and is used only for Nicolas's profile.
+
+Supplied titles and contacts come from the completed contact table; blank contact fields preserve existing information. Ordinary 2027 members use their group name followed by `Member`, such as `Electrical Member` and `Software Member`, rather than Engineer or Developer titles. Keep confirmed leadership, Board and named Business roles, such as Key Account Manager and Event Manager. Tobias is Project Leader. Jonas, Andrei, Fredrik, Can and Ole Jakob are Group Leaders for Aero & Composites, Electrical, Mechanical, Software and Marketing respectively. Nicolas is Head of Competition & Group Leader Logistics, with one membership covering both Board and Logistics. Oskar is a Logistics Member. Filip is Head of Finance & Group Leader Business, with one membership covering both Board and Business. Use `Group Leader` consistently for group leadership roles. Keep the Project Leader and Group Leaders before other members in each project file.
+
+Board roles include Oliver as HR, Lukas as Production Leader and Rebekka as Testing Leader. These keep their specific Board titles rather than Group Leader titles.
+
+The "Alt mulig rart" group and its member were removed from 2027; historical memberships are preserved.
+
+The supplied names Arif Oraz, Maria Olafsdottir, Rebekka Bakkemo and Ole Jakob Kleive-Anderesn map to the existing profiles Can Arif Oraz, María Kristín Ólafsdóttir, Rebekka Bergundhaugen Bakkemo and Ole Jakob Kleive-Andersen. William Fosser uses the existing Electrical profile (ID 127), with one membership in 2027.
 
 ## Updating a member
 
@@ -11,6 +23,8 @@ Edit the person's name, photos and contact details in `members.json`. IDs must b
 The existing `project` field is historical metadata carried over from the old file. It does not choose which year a person appears under. Displayed membership comes from the files in `projects/`.
 
 Edit the title and groups for a specific year in that project's file. A member can belong to several groups, but their ID must appear only once in each project's member list.
+
+Only Board members and confirmed group leaders display phone numbers in Project 2027. Other 2027 memberships explicitly set `phone` to `null`, overriding any phone number on their shared historical profile. Keep this override when updating their membership. The submitted email `Andrei.taluca@nordlysntnu.no` was explicitly confirmed by the user; do not change it to match the spelling of the surname.
 
 Keep previous project memberships when adding a returning member to a new project.
 
