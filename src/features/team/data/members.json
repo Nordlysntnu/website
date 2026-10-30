@@ -1153,7 +1153,9 @@
     "name": "Jonas Hjertmoen",
     "image": "/members/2027/compressed/Jonas.webp",
     "fullImage": "/members/2027/Jonas.png",
-    "linkedin": "https://www.linkedin.com/in/jonas-unsg%C3%A5rd-hjertmoen-58430a3b7"
+    "linkedin": "https://www.linkedin.com/in/jonas-unsg%C3%A5rd-hjertmoen-58430a3b7",
+    "email": "jonas.hjertmoen@nordlysntnu.no",
+    "phone": "+4741651454"
   },
   {
     "id": 168,
@@ -1412,6 +1414,37 @@
     ],
     "name": "Tahir Adil",
     "image": "/members/2027/compressed/Tahir.webp",
-    "fullImage": "/members/2027/Tahir.png"
+    "fullImage": "/members/2027/Tahir.png",
+    "linkedin": "https://www.linkedin.com/in/tahir-adil-ba0501284",
+    "email": "tahir.adil@nordlysntnu.no"
+  },
+  {
+    "id": 193,
+    "project": [
+      2027
+    ],
+    "name": "Elias Hatleskog",
+    "image": "/members/2027/photo-coming-soon.svg",
+    "fullImage": "/members/2027/photo-coming-soon.svg"
+  },
+  {
+    "id": 194,
+    "project": [
+      2027
+    ],
+    "name": "Steve Völler",
+    "image": "/members/2027/photo-coming-soon.svg",
+    "fullImage": "/members/2027/photo-coming-soon.svg",
+    "email": "steve.voller@ntnu.no"
+  },
+  {
+    "id": 195,
+    "project": [
+      2027
+    ],
+    "name": "Rafael Bölsterli",
+    "image": "/members/2027/photo-coming-soon.svg",
+    "fullImage": "/members/2027/photo-coming-soon.svg",
+    "email": "rafael.bolsterli@ntnu.no"
   }
 ]
