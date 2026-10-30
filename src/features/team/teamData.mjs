@@ -1,6 +1,12 @@
 export const ALL_MEMBERS = 'All members';
 
 const membershipMarkers = new Set(['All active members']);
+const groupAliases = new Map([['aero- and composites', 'aero & composites']]);
+
+function normalizeGroupName(name) {
+  const normalized = name.trim().toLowerCase();
+  return groupAliases.get(normalized) ?? normalized;
+}
 
 export function buildProjects(profiles, definitions) {
   const profilesById = new Map();
@@ -66,9 +72,9 @@ export function selectProject(projects, yearQuery, groupQuery) {
 
   // Existing links without a year still open a project that contains the group.
   if (yearQuery === undefined && typeof groupQuery === 'string') {
-    const group = groupQuery.trim().toLowerCase();
+    const group = normalizeGroupName(groupQuery);
     const matchingProject = projects.find(project =>
-      project.groups.some(name => name.toLowerCase() === group)
+      project.groups.some(name => normalizeGroupName(name) === group)
     );
     if (matchingProject) return matchingProject;
   }
@@ -78,8 +84,8 @@ export function selectProject(projects, yearQuery, groupQuery) {
 
 export function selectGroup(project, groupQuery) {
   if (typeof groupQuery !== 'string') return ALL_MEMBERS;
-  const group = groupQuery.trim().toLowerCase();
-  return getProjectGroups(project).find(name => name.toLowerCase() === group) ?? ALL_MEMBERS;
+  const group = normalizeGroupName(groupQuery);
+  return getProjectGroups(project).find(name => normalizeGroupName(name) === group) ?? ALL_MEMBERS;
 }
 
 export function getGroupMembers(project, group) {

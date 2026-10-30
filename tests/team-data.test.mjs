@@ -93,6 +93,24 @@ test('existing group links without a year can open an older project', () => {
   assert.equal(selectProject(projects, undefined, 'chassis').year, 2026);
 });
 
+test('old Aero group links still select the renamed group and its members', () => {
+  const projects = buildProjects(profiles, [...definitions, {
+    year: 2027,
+    name: 'Project 2027',
+    groups: ['Aero & Composites'],
+    members: [{ id: 1, title: 'Aero & Composites Member', group: ['Aero & Composites'] }],
+  }]);
+
+  for (const query of ['aero- and composites', 'aero & composites']) {
+    const project = selectProject(projects, undefined, query);
+    const group = selectGroup(project, query);
+    assert.equal(project.year, 2027);
+    assert.equal(group, 'Aero & Composites');
+    assert.deepEqual(getGroupMembers(project, group).map(member => member.id), [1]);
+    assert.equal(selectGroup(selectProject(projects, '2027'), query), group);
+  }
+});
+
 test('invalid URL parameters select a valid project and group', () => {
   const projects = buildProjects(profiles, definitions);
   for (const year of ['not-a-year', '1900', ['2025', '2026']]) {

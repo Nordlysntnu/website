@@ -3,13 +3,14 @@
   "name": "Project 2027",
   "groups": [
     "Board",
-    "Aero- and composites",
+    "Aero & Composites",
     "Business",
     "Electrical",
     "Logistics",
     "Marketing",
     "Mechanical",
-    "Software"
+    "Software",
+    "Technical advisor"
   ],
   "members": [
     {
@@ -40,7 +41,7 @@
       "id": 167,
       "title": "Group Leader Aero & Composites",
       "group": [
-        "Aero- and composites",
+        "Aero & Composites",
         "All active members"
       ]
     },
@@ -91,7 +92,7 @@
       "id": 165,
       "title": "Aero & Composites Member",
       "group": [
-        "Aero- and composites",
+        "Aero & Composites",
         "All active members"
       ],
       "phone": null
@@ -100,7 +101,7 @@
       "id": 166,
       "title": "Aero & Composites Member",
       "group": [
-        "Aero- and composites",
+        "Aero & Composites",
         "All active members"
       ],
       "phone": null
@@ -109,14 +110,23 @@
       "id": 168,
       "title": "Aero & Composites Member",
       "group": [
-        "Aero- and composites",
+        "Aero & Composites",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 193,
+      "title": "Aero & Composites Member",
+      "group": [
+        "Aero & Composites",
         "All active members"
       ],
       "phone": null
     },
     {
       "id": 14,
-      "title": "Technical Leader",
+      "title": "Head of Technical",
       "group": [
         "Board",
         "All active members"
@@ -124,7 +134,7 @@
     },
     {
       "id": 137,
-      "title": "Testing Leader",
+      "title": "Head of Testing",
       "group": [
         "Board",
         "All active members"
@@ -132,7 +142,7 @@
     },
     {
       "id": 123,
-      "title": "Production Leader",
+      "title": "Head of Production",
       "group": [
         "Board",
         "All active members"
@@ -140,7 +150,7 @@
     },
     {
       "id": 66,
-      "title": "HR",
+      "title": "Head of HR",
       "group": [
         "Board",
         "All active members"
@@ -350,6 +360,30 @@
       "group": [
         "Software",
         "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 194,
+      "title": "Electrical Advisor",
+      "group": [
+        "Technical advisor"
+      ],
+      "phone": null
+    },
+    {
+      "id": 48,
+      "title": "Mechanical Advisor",
+      "group": [
+        "Technical advisor"
+      ],
+      "phone": null
+    },
+    {
+      "id": 195,
+      "title": "Previous Member of ACE Solar Racing",
+      "group": [
+        "Technical advisor"
       ],
       "phone": null
     }
