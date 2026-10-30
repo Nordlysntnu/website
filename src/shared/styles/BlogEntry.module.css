@@ -33,6 +33,11 @@
   color: #b20b3a;
 }
 
+.pcollapsed,
+.pexpanded {
+  white-space: pre-line;
+}
+
 .blogEntry h1 {
   color: #b20b3a;
   margin-top: 0pc;
@@ -117,6 +122,15 @@
 .thumbnailWrapper:hover {
   opacity: 0.85;
   transition: opacity 0.2s ease;
+}
+
+.uncroppedImages {
+  aspect-ratio: 4 / 3;
+  background: #fff;
+}
+
+.uncroppedImages img {
+  object-fit: contain;
 }
 
 .moreOverlay {
