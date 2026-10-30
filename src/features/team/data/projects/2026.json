@@ -1,0 +1,434 @@
+{
+  "year": 2026,
+  "name": "Project 2026",
+  "groups": [
+    "Board",
+    "Electrical",
+    "Mechanical",
+    "Chassis",
+    "Software",
+    "Marketing",
+    "Logistics",
+    "Finance",
+    "Alumni"
+  ],
+  "members": [
+    {
+      "id": 6,
+      "title": "Team Leader",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Group Leader Mechanical",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Mechanical Engineer Brake System",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 120,
+      "title": "Mechanical Engineer Suspension",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 121,
+      "title": "Mechanical Engineer Suspension",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 122,
+      "title": "Mechanical Engineer Brake System & Suspension",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 123,
+      "title": "Mechanical Engineer Steering System",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 124,
+      "title": "Mechanical Engineer Steering System",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 126,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 127,
+      "title": "Angle Grinder Guy",
+      "group": [
+        "Mechanical"
+      ]
+    },
+    {
+      "id": 125,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 132,
+      "title": "Group Leader Chassis",
+      "group": [
+        "Chassis",
+        "All active members"
+      ]
+    },
+    {
+      "id": 131,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Chassis",
+        "All active members"
+      ]
+    },
+    {
+      "id": 133,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Chassis",
+        "All active members"
+      ]
+    },
+    {
+      "id": 135,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Chassis",
+        "All active members"
+      ]
+    },
+    {
+      "id": 137,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Chassis",
+        "All active members"
+      ]
+    },
+    {
+      "id": 136,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Chassis",
+        "All active members"
+      ]
+    },
+    {
+      "id": 134,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Chassis",
+        "All active members"
+      ]
+    },
+    {
+      "id": 138,
+      "title": "Mechanical Engineer",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Technical Leader",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Group Leader Electrical",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 110,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 112,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 113,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 114,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 116,
+      "title": "Electrical Engineer",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 117,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 115,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 118,
+      "title": "Electrical Engineer",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Head of Finance & Deputy Project Manager",
+      "group": [
+        "Board",
+        "Finance",
+        "All active members"
+      ]
+    },
+    {
+      "id": 40,
+      "title": "Head of Production",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 66,
+      "title": "Group Leader Software",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 101,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 102,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 103,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 104,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 105,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 106,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 107,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 108,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 109,
+      "title": "Website Quality Assurance",
+      "group": [
+        "Software"
+      ]
+    },
+    {
+      "id": 163,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 140,
+      "title": "Head of Marketing",
+      "group": [
+        "Board",
+        "Marketing",
+        "All active members"
+      ]
+    },
+    {
+      "id": 141,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 142,
+      "title": "Marketing Member",
+      "group": [
+        "Marketing",
+        "All active members"
+      ]
+    },
+    {
+      "id": 143,
+      "title": "Marketing Member",
+      "group": [
+        "Marketing",
+        "All active members"
+      ]
+    },
+    {
+      "id": 144,
+      "title": "Marketing Member",
+      "group": [
+        "Marketing",
+        "All active members"
+      ]
+    },
+    {
+      "id": 47,
+      "title": "Head of Competition",
+      "group": [
+        "Board",
+        "Logistics",
+        "All active members"
+      ]
+    },
+    {
+      "id": 46,
+      "title": "Logistics Engineer",
+      "group": [
+        "Logistics"
+      ]
+    },
+    {
+      "id": 151,
+      "title": "Logistics Engineer",
+      "group": [
+        "Logistics"
+      ]
+    },
+    {
+      "id": 152,
+      "title": "Man With a Van",
+      "group": [
+        "Logistics"
+      ]
+    },
+    {
+      "id": 161,
+      "title": "Finance Member",
+      "group": [
+        "Finance"
+      ]
+    }
+  ]
+}

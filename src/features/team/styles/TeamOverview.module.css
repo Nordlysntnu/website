@@ -174,6 +174,13 @@
     background-color: #FFFFFF;
 }
 
+.emptyState {
+    padding: 1.5em 1em 3em;
+    margin: 0;
+    text-align: center;
+    color: #3A486A;
+}
+
 @media (max-width: 1225px) {
 
     .navbar ul {

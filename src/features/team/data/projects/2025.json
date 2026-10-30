@@ -1,0 +1,533 @@
+{
+  "year": 2025,
+  "name": "Project 2025",
+  "groups": [
+    "Board",
+    "Electrical",
+    "Mechanical",
+    "Software",
+    "Marketing",
+    "Logistics",
+    "Finance",
+    "Technical advisor",
+    "Alumni"
+  ],
+  "members": [
+    {
+      "id": 1,
+      "title": "Co-founder and Team Leader",
+      "group": [
+        "Board",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Technical Leader",
+      "group": [
+        "Board",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Co-founder and Head of Competition",
+      "group": [
+        "Board",
+        "Logistics",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Head of Brand",
+      "group": [
+        "Board",
+        "Marketing",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Head of Production",
+      "group": [
+        "Board",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Group Leader Mechanical",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Coordinator & Design Engineer",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Coordinator & Mechanical Engineer Composites",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Coordinator & Mechanical Engineer Structure",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Coordinator & Mechanical Engineer Steering and Brakes",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Coordinator & Mechanical Engineer Suspension",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Mechanical Engineer Suspension",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Mechanical Engineer Suspension",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Mechanical Engineer Brakes",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Mechanical Engineer Suspension",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 64,
+      "title": "Mechanical Engineer Steering",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 65,
+      "title": "Mechanical Engineer Composites",
+      "group": [
+        "Mechanical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Group Leader Electrical",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 31,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 33,
+      "title": "Electrical Engineer",
+      "group": [
+        "Electrical",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 34,
+      "title": "Group Leader Strategy",
+      "group": [
+        "Software",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 35,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 38,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Head of Finance",
+      "group": [
+        "Board",
+        "Finance",
+        "All active members"
+      ]
+    },
+    {
+      "id": 40,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 162,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 66,
+      "title": "Software Developer",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 41,
+      "title": "Key Account Manager",
+      "group": [
+        "Marketing",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 43,
+      "title": "Web Developer",
+      "group": [
+        "Marketing",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 44,
+      "title": "Web Developer",
+      "group": [
+        "Marketing",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 45,
+      "title": "Logistics Engineer",
+      "group": [
+        "Logistics",
+        "Alumni"
+      ]
+    },
+    {
+      "id": 47,
+      "title": "Logistics Engineer",
+      "group": [
+        "Logistics",
+        "All active members"
+      ]
+    },
+    {
+      "id": 46,
+      "title": "Logistics Engineer",
+      "group": [
+        "Logistics"
+      ]
+    },
+    {
+      "id": 48,
+      "title": "Technical Advisor",
+      "group": [
+        "Technical advisor"
+      ]
+    },
+    {
+      "id": 49,
+      "title": "Co-founder",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 50,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 51,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 52,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 53,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 54,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 55,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 56,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 57,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 58,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 59,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 60,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 61,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 62,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 63,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 37,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 42,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    },
+    {
+      "id": 36,
+      "title": "",
+      "group": [
+        "Alumni"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "year": 2027,
+  "name": "Project 2027",
+  "groups": [
+    "Board",
+    "Aero- and composites",
+    "Business",
+    "Electrical",
+    "Logistics",
+    "Marketing",
+    "Mechanical",
+    "Software"
+  ],
+  "members": [
+    {
+      "id": 170,
+      "title": "Project Leader",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 164,
+      "title": "Group Leader Software",
+      "group": [
+        "Software",
+        "All active members"
+      ]
+    },
+    {
+      "id": 178,
+      "title": "Group Leader Electrical",
+      "group": [
+        "Electrical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 167,
+      "title": "Group Leader Aero & Composites",
+      "group": [
+        "Aero- and composites",
+        "All active members"
+      ]
+    },
+    {
+      "id": 171,
+      "title": "Head of Finance & Group Leader Business",
+      "group": [
+        "Board",
+        "Business",
+        "All active members"
+      ]
+    },
+    {
+      "id": 121,
+      "title": "Group Leader Mechanical",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ]
+    },
+    {
+      "id": 144,
+      "title": "Group Leader Marketing",
+      "group": [
+        "Marketing",
+        "All active members"
+      ]
+    },
+    {
+      "id": 169,
+      "title": "Head of Competition & Group Leader Logistics",
+      "group": [
+        "Board",
+        "Logistics",
+        "All active members"
+      ]
+    },
+    {
+      "id": 182,
+      "title": "Logistics Member",
+      "group": [
+        "Logistics",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 165,
+      "title": "Aero & Composites Member",
+      "group": [
+        "Aero- and composites",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 166,
+      "title": "Aero & Composites Member",
+      "group": [
+        "Aero- and composites",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 168,
+      "title": "Aero & Composites Member",
+      "group": [
+        "Aero- and composites",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 14,
+      "title": "Technical Leader",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 137,
+      "title": "Testing Leader",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 123,
+      "title": "Production Leader",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 66,
+      "title": "HR",
+      "group": [
+        "Board",
+        "All active members"
+      ]
+    },
+    {
+      "id": 172,
+      "title": "Key Account Manager & Nordlysdagen Event Manager",
+      "group": [
+        "Business",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 173,
+      "title": "Key Account Manager",
+      "group": [
+        "Business",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 174,
+      "title": "Key Account Manager",
+      "group": [
+        "Business",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 161,
+      "title": "Key Account Manager",
+      "group": [
+        "Business",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 175,
+      "title": "Key Account Manager & Sponsorship Committee Lead",
+      "group": [
+        "Business",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 176,
+      "title": "Electrical Member",
+      "group": [
+        "Electrical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 177,
+      "title": "Electrical Member",
+      "group": [
+        "Electrical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 127,
+      "title": "Electrical Member",
+      "group": [
+        "Electrical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 179,
+      "title": "Electrical Member",
+      "group": [
+        "Electrical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 180,
+      "title": "Electrical Member",
+      "group": [
+        "Electrical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 181,
+      "title": "Electrical Member",
+      "group": [
+        "Electrical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 183,
+      "title": "Marketing Member",
+      "group": [
+        "Marketing",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 184,
+      "title": "Mechanical Member",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 125,
+      "title": "Mechanical Member",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 185,
+      "title": "Mechanical Member",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 186,
+      "title": "Mechanical Member",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 187,
+      "title": "Mechanical Member",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 188,
+      "title": "Mechanical Member",
+      "group": [
+        "Mechanical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 106,
+      "title": "Software Member",
+      "group": [
+        "Software",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 189,
+      "title": "Software Member",
+      "group": [
+        "Software",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 190,
+      "title": "Software Member",
+      "group": [
+        "Software",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 191,
+      "title": "Software Member",
+      "group": [
+        "Software",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 192,
+      "title": "Software Member",
+      "group": [
+        "Software",
+        "All active members"
+      ],
+      "phone": null
+    }
+  ]
+}
