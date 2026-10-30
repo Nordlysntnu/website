@@ -18,7 +18,7 @@ export const blogs = [
 			"Nordlys NTNU team with Lumholtz after passing scrutineering"
 		],
 		imageFit: "contain",
-		date: "Wednesday 23 September 2026"
+		date: "September 2026"
 	},
 	{
 		text: "Some shots of Lumholtz from our test drive at Dragvoll NTNU ☀️ #SolarRacing #NordlysNTNU",
