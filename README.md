@@ -57,7 +57,8 @@ All paths below are relative to the repository root.
 | --- | --- |
 | Homepage sections | [src/pages/index.js](src/pages/index.js) and [src/features/home/](src/features/home/) |
 | Homepage opening text and image | [src/shared/components/Landing.js](src/shared/components/Landing.js) |
-| Team members, roles, contact details and membership history | [src/features/team/data/members.tsx](src/features/team/data/members.tsx) |
+| Team profiles, photos and contact details | [src/features/team/data/members.json](src/features/team/data/members.json) |
+| Project groups, roles and memberships | [src/features/team/data/projects/](src/features/team/data/projects/) |
 | Team groups, project years and filtering | [src/features/team/TeamOverview.js](src/features/team/TeamOverview.js) |
 | Team photos | [public/members/](public/members/) |
 | About text | [src/markdown/about.md](src/markdown/about.md) |
@@ -73,9 +74,9 @@ All paths below are relative to the repository root.
 
 ### Team and contact details
 
-Each person must have a unique ID across the whole member list. When someone continues into another project year, update their existing record and add the membership history while keeping previous years' information.
+Each person must have a unique ID in `members.json`. When someone continues into another project year, reuse that ID in the project's membership file and keep previous years' memberships. Ordinary members use titles such as `Software Member`; confirmed group leaders appear first.
 
-Adding a project year also requires updating the year handling in `TeamOverview.js`. Check the relevant groups and years in the browser after making changes.
+To add a project year, create its JSON file under `src/features/team/data/projects/` and register it in `projects.js`. The newest project and its group menu are selected automatically. See the [team data guide](src/features/team/data/README.md) for details, including temporary photo placeholders and phone visibility. Check the relevant groups and years in the browser after making changes.
 
 Contact information appears in both the footer and individual member records. Check both when changing the main contact person.
 
