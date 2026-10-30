@@ -39,47 +39,48 @@ export default function NavBar({ current }) {
             }
         }
         window.addEventListener('resize', handleResize)
-    })
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     return (
-        <div className={styles.navbar}>
+        <nav className={styles.navbar} aria-label="Main navigation">
                 <div className={styles.innerContainer}>
                     <Link href="/" className={styles.logoContainer}>
-                        <img className={styles.logo} src={Logo.src} />
+                        <img className={styles.logo} src={Logo.src} alt="" />
                         Nordlys
                     </Link>
                     <div className={styles.menu}>
                         {
                             pages.map((page) => {
                                 if (current == page[0]) {
-                                    return <Link className={`${styles.menuLink} ${styles.currentLink}`} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[0]} className={`${styles.menuLink} ${styles.currentLink}`} href={page[1]}>{page[0]}</Link>
                                 } else {
-                                    return <Link className={styles.menuLink} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[0]} className={styles.menuLink} href={page[1]}>{page[0]}</Link>
                                 }
                             })
                         }
                         <Link className={`${styles.menuLink} ${styles.joinLink}`} href="/join">Join</Link>
-                        <a className={styles.hamburgerContainer} onClick={openMenu}>
-                            <svg className={styles.hamburger} viewBox="-150 -150 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button type="button" className={styles.hamburgerContainer} onClick={openMenu} aria-label={clicked ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={clicked} aria-controls="mobile-main-menu">
+                            <svg className={styles.hamburger} viewBox="-150 -150 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect className={topLine} x="-150" y="-150" width="300" height="30" fill="white"/>
                                 <rect className={midLine} x="-150" y="-15" width="300" height="30" fill="white"/>
                                 <rect className={botLine} x="-150" y="120" width="300" height="30" fill="white"/>
                             </svg>
-                        </a>
+                        </button>
                     </div>
-                    <div className={styles.smallMenu} style={{display: displayState}}>
+                    <div id="mobile-main-menu" className={styles.smallMenu} style={{display: displayState}}>
                         {
                             pages.map((page) => {
                                 if (current == page[0]) {
-                                    return <Link className={`${styles.menuLink} ${styles.currentLink}`} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[0]} className={`${styles.menuLink} ${styles.currentLink}`} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
                                 } else {
-                                    return <Link className={styles.menuLink} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[0]} className={styles.menuLink} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
                                 }
                             })
                         }
                         <Link className={`${styles.menuLink} ${styles.joinLink}`} style={{display: 'inline-block'}} href="/join">Join</Link>
                     </div>
                 </div>
-            </div>
+            </nav>
     )
 }

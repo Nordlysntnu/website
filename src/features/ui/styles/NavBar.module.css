@@ -1,6 +1,6 @@
 .navbar {
     width: 100%;
-    padding: 1.2rem 1.5rem;
+    padding: 1.2rem var(--nav-padding-inline, 1.5rem);
     position: sticky;
     color: white;
     top: 0;
@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1000px;
+    max-width: var(--content-max-width, 1000px);
     margin: 0 auto;
 }
 
@@ -62,15 +62,21 @@
 }
 
 .hamburgerContainer {
-    height: 1.5em;
+    min-width: 44px;
+    min-height: 44px;
     cursor: pointer;
-    padding: 0 0.6rem;
+    padding: 0.5rem;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
     display: none;
     opacity: 0.8;
     transition: 250ms all ease;
 }
 
 .hamburger {
+    display: block;
     height: 1.5em;
 }
 

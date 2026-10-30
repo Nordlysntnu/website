@@ -2,7 +2,7 @@ import Content from "@shared/components/Content";
 import styles from './styles/Route.module.css';
 import "animate.css/animate.min.css";
 import { useEffect, useRef, useState } from "react";
-import { AnimationOnScroll } from "react-animation-on-scroll";
+import ScrollReveal from '@shared/components/ScrollReveal';
 
 export default function Route({ dark }) {
     const path = useRef(null)
@@ -80,7 +80,11 @@ export default function Route({ dark }) {
 
         window.addEventListener('scroll', onScroll)
         window.addEventListener('resize', onResize)
-    }, {once : true})
+        return () => {
+            window.removeEventListener('scroll', onScroll)
+            window.removeEventListener('resize', onResize)
+        }
+    }, [])
 
     return (
         <Content dark={dark}>
@@ -102,11 +106,11 @@ export default function Route({ dark }) {
                         Competition
                     </div>
                 </div>
-                <AnimationOnScroll animateIn="animate__fadeInUp" offset={50} delay={200} animateOnce>
+                <ScrollReveal animateIn="animate__fadeInUp" offset={50} delay={200}>
                     <div className={styles.textContainer}>
                         The road to success and innovation is never straight forward. Our biannual projects are therefore modelled after sound engineering practices to streamline development and limit faults, containing concept development, design development, construction and testing. A lot of testing. 
                     </div>
-                </AnimationOnScroll>
+                </ScrollReveal>
             </div>
 
         </Content>
