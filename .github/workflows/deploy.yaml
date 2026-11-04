@@ -67,5 +67,5 @@ jobs:
           rsync -a --delete-delay --delay-updates \
           site/ /var/www/nextapp/
 
-          echo "Deployment dry run successful!"
+          echo "Deployment run successful!"
           echo "Commit: $GITHUB_SHA"
