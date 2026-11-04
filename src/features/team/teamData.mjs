@@ -1,7 +1,10 @@
 export const ALL_MEMBERS = 'All members';
 
 const membershipMarkers = new Set(['All active members']);
-const groupAliases = new Map([['aero- and composites', 'aero & composites']]);
+const groupAliases = new Map([
+  ['aero- and composites', 'aero & composites'],
+  ['chassis', 'aero & composites'],
+]);
 
 function normalizeGroupName(name) {
   const normalized = name.trim().toLowerCase();
@@ -89,5 +92,10 @@ export function selectGroup(project, groupQuery) {
 }
 
 export function getGroupMembers(project, group) {
-  return project.members.filter(member => member.group.includes(group));
+  const hasPhoto = member => Boolean(member.image)
+    && !/(photo-coming-soon|missing[-_ ]?picture|placeholder)/i.test(member.image);
+
+  return project.members
+    .filter(member => member.group.includes(group))
+    .sort((first, second) => Number(!hasPhoto(first)) - Number(!hasPhoto(second)));
 }

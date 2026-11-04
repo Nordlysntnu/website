@@ -54,14 +54,14 @@ The mechanical group designs and builds all the dynamic mechanical systems of th
 As a Steering System Engineer you will be responsible for designing and developing a new steering system for our already existing car. The steering system needs to be both reliable and safe during a competition as well as being lightweight. The steering system as of now is based on a rack and pinion design. Your work will involve design and production of the new steering system. The design process will mostly be in CAD and structural analysis programs. You will also be able to do lots of practical work during the production of the system
 
 
-# Chassis
-## Group Leader Chassis
+# Aero & Composites
+## Group Leader Aero & Composites
 
-The Group Leader Chassis is responsible for the shell and internal structure of the car. This entails making and designing the shape of the car, designing and producing the rollcage, and interfacing with the electrical and mechanical components
+The Group Leader Aero & Composites is responsible for the shell and internal structure of the car. This entails making and designing the shape of the car, designing and producing the rollcage, and interfacing with the electrical and mechanical components
 
 *Areas of responsibility*
 - Lead the group responsible for shell, rollcage and high-level design of the vehicle
-- Ensuring that the chassis group produces reliable, safe designs in accordance with competition regulations
+- Ensuring that the Aero & Composites group produces reliable, safe designs in accordance with competition regulations
 - Maintaining contact with sponsors and vendors of mechanical components
 
 *What do you get out of being Group Leader Electrical?*
@@ -69,7 +69,7 @@ The Group Leader Chassis is responsible for the shell and internal structure of 
 - Extensive contact with various companies in the mechanical engineering world
 - Strong leadership experience
 
-The chassis group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.
+The Aero & Composites group designs and builds the structural components of the solar car. Systems include the roll cage and the outer shell of the car.
 
 ## Structural and Safety Enginner
 

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './styles/Disciplines.module.css';
 import Discipline from './Discipline';
 import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
-import Chassis from '@assets/symbols-and-logos/Chassis.png';
+import AeroAndComposites from '@assets/symbols-and-logos/Chassis.png';
 import Software from '@assets/symbols-and-logos/Software.png';
 import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.png';
 import Marketing from '@assets/symbols-and-logos/Marketing.png';
@@ -23,7 +23,7 @@ export default function Disciplines({ dark }) {
                     <Discipline image={Software.src} title="Software" />
                     <Discipline image={Logistics.src} title="Logistics" />
                     <Discipline image={Mechanical.src} title="Mechanical" />
-                    <Discipline image={Chassis.src} title="Chassis" />
+                    <Discipline image={AeroAndComposites.src} title="Aero & Composites" />
                     <Discipline image={Marketing.src} title="Marketing" />
                     <Discipline image={Management.src} title="Board" />
                 </div>

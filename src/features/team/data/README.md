@@ -2,11 +2,11 @@
 
 Member profiles live in `members.json`. Each project has a separate file in `projects/`, containing its groups, roles and member IDs. The team page uses the selected project's data.
 
-Members awaiting photos use `/members/2027/photo-coming-soon.svg`, a shared neutral silhouette in Nordlys colours with the text "Photo coming soon". Natalie, Yazan, Oskar, Elias Hatleskog, Steve Völler and Rafael Bölsterli currently use it; their names, roles and contacts display normally. Replace their `image` and `fullImage` paths when portraits arrive.
+Members awaiting photos use `/members/2027/photo-coming-soon.svg`, a shared neutral silhouette in Nordlys colours with the text "Photo coming soon". Natalie, Yazan, Oskar, Elias Hatleskog, Oliver Vanem, Steve Völler and Rafael Bölsterli currently use it; their names, roles and contacts display normally. Replace their `image` and `fullImage` paths when portraits arrive.
 
 `projects/2027.json` contains the new team's groups and memberships. Add the remaining roster there as it becomes available. Projects without members display "Team overview coming soon."
 
-The current 2027 roster contains 40 team members and three technical advisors from the supplied team list. All supplied photos have been added: ten returning members reuse their 2026 photos, Can keeps his approved 2027 portrait, 25 members have matching new 2027 portraits, and Shivaraj reuses his existing advisor portrait. This gives 37 profiles with photos and six with the existing placeholder. The supplied file named `nicholas .cr2` is confirmed to show Nicolas Storbekkrønning and is used only for Nicolas's profile.
+The current 2027 roster contains 42 team members and three technical advisors from the supplied team list. All supplied photos have been added: eleven returning members reuse their 2026 photos, Can keeps his approved 2027 portrait, 25 members have matching new 2027 portraits, and Shivaraj reuses his existing advisor portrait. This gives 38 profiles with photos and seven with the existing placeholder. The supplied file named `nicholas .cr2` is confirmed to show Nicolas Storbekkrønning and is used only for Nicolas's profile.
 
 Supplied titles and contacts come from the completed contact table; blank contact fields preserve existing information. Ordinary 2027 members use their group name followed by `Member`, such as `Electrical Member` and `Software Member`, rather than Engineer or Developer titles. Keep confirmed leadership, Board and named Business roles, such as Key Account Manager and Event Manager. Tobias is Project Leader. Jonas, Andrei, Fredrik, Can and Ole Jakob are Group Leaders for Aero & Composites, Electrical, Mechanical, Software and Marketing respectively. Nicolas is Head of Competition & Group Leader Logistics, with one membership covering both Board and Logistics. Oskar is a Logistics Member. Filip is Head of Finance & Group Leader Business, with one membership covering both Board and Business. Use `Group Leader` consistently for group leadership roles. Keep the Project Leader and Group Leaders before other members in each project file.
 
@@ -73,3 +73,5 @@ npm run build
 ```
 
 The data loader rejects duplicate IDs, missing profiles, duplicate years and memberships pointing to undeclared groups. Also check the team page on desktop and mobile, including year changes, group changes, photos and contact links.
+
+Profiles without a photo are displayed last within each group. Members with photos retain their existing order, including confirmed leaders. Kristian Sæberg reuses his existing profile and 2026 portrait; Oliver Vanem uses the shared placeholder until a portrait is supplied. The legacy Chassis group link resolves to Aero & Composites.

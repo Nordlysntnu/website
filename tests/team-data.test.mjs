@@ -153,3 +153,33 @@ test('duplicate years and invalid group navigation entries are rejected', () => 
 test('a team must contain at least one project', () => {
   assert.throws(() => buildProjects(profiles, []), /At least one team project/);
 });
+
+test('profiles without portraits appear last while photo and placeholder order stays stable', () => {
+  const orderedMembers = [
+    { id: 1, group: ['Electrical'], image: '/members/2027/photo-coming-soon.svg' },
+    { id: 2, group: ['Electrical'], title: 'Group Leader Electrical', image: '/members/leader.webp' },
+    { id: 3, group: ['Mechanical'], image: '/members/other.webp' },
+    { id: 4, group: ['Electrical'], image: '/members/member.webp' },
+    { id: 5, group: ['Electrical'] },
+  ];
+  const project = { members: orderedMembers };
+  assert.deepEqual(getGroupMembers(project, 'Electrical').map(member => member.id), [2, 4, 1, 5]);
+  assert.deepEqual(project.members.map(member => member.id), [1, 2, 3, 4, 5]);
+  assert.deepEqual(getGroupMembers(project, 'Unknown'), []);
+});
+
+test('legacy Chassis links select Aero & Composites in both current and historical projects', () => {
+  const projects = buildProjects(profiles, [2026, 2027].map(year => ({
+    year,
+    name: 'Project ' + year,
+    groups: ['Aero & Composites'],
+    members: [{ id: 1, title: 'Aero & Composites Member', group: ['Aero & Composites'] }],
+  })));
+  assert.equal(selectProject(projects, undefined, 'chassis').year, 2027);
+  for (const year of ['2026', '2027']) {
+    const project = selectProject(projects, year, 'Chassis');
+    const group = selectGroup(project, 'Chassis');
+    assert.equal(group, 'Aero & Composites');
+    assert.deepEqual(getGroupMembers(project, group).map(member => member.id), [1]);
+  }
+});

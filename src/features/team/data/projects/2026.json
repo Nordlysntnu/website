@@ -5,7 +5,7 @@
     "Board",
     "Electrical",
     "Mechanical",
-    "Chassis",
+    "Aero & Composites",
     "Software",
     "Marketing",
     "Logistics",
@@ -102,9 +102,9 @@
     },
     {
       "id": 132,
-      "title": "Group Leader Chassis",
+      "title": "Group Leader Aero & Composites",
       "group": [
-        "Chassis",
+        "Aero & Composites",
         "All active members"
       ]
     },
@@ -112,7 +112,7 @@
       "id": 131,
       "title": "Mechanical Engineer",
       "group": [
-        "Chassis",
+        "Aero & Composites",
         "All active members"
       ]
     },
@@ -120,7 +120,7 @@
       "id": 133,
       "title": "Mechanical Engineer",
       "group": [
-        "Chassis",
+        "Aero & Composites",
         "All active members"
       ]
     },
@@ -128,7 +128,7 @@
       "id": 135,
       "title": "Mechanical Engineer",
       "group": [
-        "Chassis",
+        "Aero & Composites",
         "All active members"
       ]
     },
@@ -136,7 +136,7 @@
       "id": 137,
       "title": "Mechanical Engineer",
       "group": [
-        "Chassis",
+        "Aero & Composites",
         "All active members"
       ]
     },
@@ -144,7 +144,7 @@
       "id": 136,
       "title": "Mechanical Engineer",
       "group": [
-        "Chassis",
+        "Aero & Composites",
         "All active members"
       ]
     },
@@ -152,7 +152,7 @@
       "id": 134,
       "title": "Mechanical Engineer",
       "group": [
-        "Chassis",
+        "Aero & Composites",
         "All active members"
       ]
     },

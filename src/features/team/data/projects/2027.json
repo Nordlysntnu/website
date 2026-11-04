@@ -38,6 +38,15 @@
       ]
     },
     {
+      "id": 20,
+      "title": "Electrical Member",
+      "group": [
+        "Electrical",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
       "id": 167,
       "title": "Group Leader Aero & Composites",
       "group": [
@@ -117,6 +126,15 @@
     },
     {
       "id": 193,
+      "title": "Aero & Composites Member",
+      "group": [
+        "Aero & Composites",
+        "All active members"
+      ],
+      "phone": null
+    },
+    {
+      "id": 196,
       "title": "Aero & Composites Member",
       "group": [
         "Aero & Composites",

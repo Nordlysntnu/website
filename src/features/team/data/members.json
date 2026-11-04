@@ -1307,7 +1307,9 @@
     ],
     "name": "Julian Svenningsen Nordang",
     "image": "/members/2027/compressed/Julian.webp",
-    "fullImage": "/members/2027/Julian.png"
+    "fullImage": "/members/2027/Julian.png",
+    "email": "julian.nordang@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/julian-nordang-75984a343"
   },
   {
     "id": 182,
@@ -1316,7 +1318,9 @@
     ],
     "name": "Oskar Gjervan",
     "image": "/members/2027/photo-coming-soon.svg",
-    "fullImage": "/members/2027/photo-coming-soon.svg"
+    "fullImage": "/members/2027/photo-coming-soon.svg",
+    "email": "oskar.gjervan@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/oskar-gjervan-3195152ab/"
   },
   {
     "id": 183,
@@ -1374,7 +1378,9 @@
     ],
     "name": "Saron K. Debessay",
     "image": "/members/2027/compressed/Saron.webp",
-    "fullImage": "/members/2027/Saron.png"
+    "fullImage": "/members/2027/Saron.png",
+    "email": "saron.debessay@nordlysntnu.no",
+    "linkedin": "https://www.linkedin.com/in/saron-kibrom-debessay-40aa362a7"
   },
   {
     "id": 189,
@@ -1425,7 +1431,8 @@
     ],
     "name": "Elias Hatleskog",
     "image": "/members/2027/photo-coming-soon.svg",
-    "fullImage": "/members/2027/photo-coming-soon.svg"
+    "fullImage": "/members/2027/photo-coming-soon.svg",
+    "email": "elias.hatleskog@nordlysntnu.no"
   },
   {
     "id": 194,
@@ -1446,5 +1453,14 @@
     "image": "/members/2027/photo-coming-soon.svg",
     "fullImage": "/members/2027/photo-coming-soon.svg",
     "email": "rafael.bolsterli@ntnu.no"
+  },
+  {
+    "id": 196,
+    "project": [
+      2027
+    ],
+    "name": "Oliver Vanem",
+    "image": "/members/2027/photo-coming-soon.svg",
+    "fullImage": "/members/2027/photo-coming-soon.svg"
   }
 ]
