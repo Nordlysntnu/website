@@ -1,7 +1,6 @@
-
-name: Test Nordlys Website Deployment
-
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -63,10 +62,10 @@ jobs:
         run: |
           set -euo pipefail
 
-          echo "Starting Nordlys deployment dry run..."
+          echo "Starting Nordlys deployment run..."
 
-          rsync -avhn --delete \
-            site/ /var/www/nextapp/
+          rsync -a --delete-delay --delay-updates \
+          site/ /var/www/nextapp/
 
-          echo "Deployment dry run successful!"
+          echo "Deployment run successful!"
           echo "Commit: $GITHUB_SHA"
