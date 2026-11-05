@@ -3,12 +3,12 @@
   "name": "Project 2027",
   "groups": [
     "Board",
-    "Aero & Composites",
     "Business",
-    "Electrical",
-    "Logistics",
     "Marketing",
+    "Logistics",
+    "Aero & Composites",
     "Mechanical",
+    "Electrical",
     "Software",
     "Technical advisor"
   ],
@@ -144,7 +144,7 @@
     },
     {
       "id": 14,
-      "title": "Head of Technical",
+      "title": "Technical Leader",
       "group": [
         "Board",
         "All active members"

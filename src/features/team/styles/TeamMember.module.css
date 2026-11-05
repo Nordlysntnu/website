@@ -154,3 +154,14 @@
 .joinButton:hover {
     background-color: rgba(255, 16, 83, 1);
 }
+.photoCredit {
+    margin: 0.35rem 0 0;
+    font-size: 0.7rem;
+    line-height: 1.35;
+}
+
+.photoCredit a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}

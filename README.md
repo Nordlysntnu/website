@@ -164,3 +164,7 @@ The contact and recruitment forms send data to external Google Apps Script servi
 Production hosting must serve the contents of `out/` and resolve page URLs such as `/about` to their generated HTML files. The production destination, deployment method and rollback procedure still need to be documented. Keep credentials and server access details in Nordlys' internal documentation and link to the deployment instructions once confirmed.
 
 After deploying, check the affected live pages, navigation, images and forms. Merging a pull request confirms the code change; deployment must be verified separately.
+
+## Automated checks
+
+`npm test` checks team data, recruitment, content and scroll behaviour. After `npm run build`, run `npm run test:export` to check the generated home, team, About, Join and blog pages. The Website checks workflow runs these on pull requests to main and on the small-fixes branch. Its page-preview artifact contains HTML, Next.js assets and the new article/advisor photos; it is not a complete archive of every existing public image. The existing deploy workflow remains unchanged and runs after a push or merge to main.

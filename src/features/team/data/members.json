@@ -899,9 +899,11 @@
       2025
     ],
     "name": "Shivaraj Chandrakant Patil",
-    "image": "/members/2025/compressed/ShivarajPatil.webp",
-    "fullImage": "/members/2025/ShivarajPatil.jpg",
-    "email": "shivaraj.c.patil@ntnu.no"
+    "image": "/members/advisors/shivaraj-patil.jpg",
+    "fullImage": "/members/advisors/shivaraj-patil.jpg",
+    "email": "shivaraj.c.patil@ntnu.no",
+    "imageSource": "https://www.ntnu.no/ansatte/shivaraj.c.patil",
+    "imageCredit": "NTNU"
   },
   {
     "id": 49,
@@ -1440,9 +1442,11 @@
       2027
     ],
     "name": "Steve Völler",
-    "image": "/members/2027/photo-coming-soon.svg",
-    "fullImage": "/members/2027/photo-coming-soon.svg",
-    "email": "steve.voller@ntnu.no"
+    "image": "/members/advisors/steve-voller.png",
+    "fullImage": "/members/advisors/steve-voller.png",
+    "email": "steve.voller@ntnu.no",
+    "imageSource": "https://www.ntnu.no/ansatte/voller",
+    "imageCredit": "NTNU"
   },
   {
     "id": 195,
@@ -1450,9 +1454,11 @@
       2027
     ],
     "name": "Rafael Bölsterli",
-    "image": "/members/2027/photo-coming-soon.svg",
-    "fullImage": "/members/2027/photo-coming-soon.svg",
-    "email": "rafael.bolsterli@ntnu.no"
+    "image": "/members/advisors/rafael-bolsterli.png",
+    "fullImage": "/members/advisors/rafael-bolsterli.png",
+    "email": "rafael.bolsterli@ntnu.no",
+    "imageSource": "https://www.ntnu.no/ansatte/rafael.bolsterli",
+    "imageCredit": "Maren Agdestein/NTNU"
   },
   {
     "id": 196,

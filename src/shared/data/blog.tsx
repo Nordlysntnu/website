@@ -1,4 +1,17 @@
 export const blogs = [
+{
+  "text": "This week we held our first concept review. The concept review is an important part of the project period, as it gives every group the opportunity to present their ideas for the project, both technical and non-technical groups such as Logistics, Business and Board. Getting feedback on your work is important in a large organisation, and everyone got the chance to present their ideas and receive feedback.\n\nThanks to everyone who showed up and gave feedback on the presentations, especially the alumni who took the time to share their thoughts. And a big thanks to Rafael, Shivaraj and Steve, our technical advisors, who gave valuable insights afterwards.",
+  "images": [
+    "/blog/concept-review-2026/01-concept-review.jpg",
+    "/blog/concept-review-2026/02-presentations.jpg"
+  ],
+  "imageAlts": [
+    "Nordlys members attending the first concept review, with a presentation about the 2027 solar racing competition.",
+    "Presenters discussing lessons from Project 2026 during the Nordlys concept review."
+  ],
+  "imageFit": "contain",
+  "date": "October 2026"
+},
 	{
 		text: "Last week we competed in our first competition, the ilumen European Solar Challenge. We completed 120 laps throughout the race, totaling 480 km, powered only by solar energy. This is a huge milestone for us. We have learned a lot and are excited to continue to get better. With Belgium behind us, we now set our sights on the Bridgestone World Solar Challenge in Australia next year.\n\nWe would like to thank our sponsors and partners for their invaluable support during this project, and NTNU for backing us along the way. Their belief in us made it possible to take Nordlys from the drawing board to the racetrack. We also want to thank every team member for the long hours and hard work that went into the car and the race.",
 		images: [

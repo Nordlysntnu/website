@@ -5,7 +5,9 @@
     "build": "next build",
     "test:team": "node --test tests/team-data.test.mjs",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "test": "node --test tests/*.test.mjs",
+    "test:export": "node --test tests/export-smoke.mjs"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
