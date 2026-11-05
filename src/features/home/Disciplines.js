@@ -19,13 +19,14 @@ export default function Disciplines({ dark }) {
                     <Link href="/team" className={styles.link}>Meet the team <span aria-hidden="true">→</span></Link>
                 </div>
                 <div className={styles.contentContainer}>
+                    <Discipline image={Management.src} title="Board" />
+                    <Discipline image={Management.src} title="Business" />
+                    <Discipline image={Marketing.src} title="Marketing" />
+                    <Discipline image={Logistics.src} title="Logistics" />
+                    <Discipline image={AeroAndComposites.src} title="Aero & Composites" />
+                    <Discipline image={Mechanical.src} title="Mechanical" />
                     <Discipline image={EmbeddedElectronics.src} title="Electrical" />
                     <Discipline image={Software.src} title="Software" />
-                    <Discipline image={Logistics.src} title="Logistics" />
-                    <Discipline image={Mechanical.src} title="Mechanical" />
-                    <Discipline image={AeroAndComposites.src} title="Aero & Composites" />
-                    <Discipline image={Marketing.src} title="Marketing" />
-                    <Discipline image={Management.src} title="Board" />
                 </div>
             </section>
         </Content>

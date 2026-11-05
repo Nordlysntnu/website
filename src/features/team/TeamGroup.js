@@ -13,6 +13,8 @@ const TeamGroup = ({ members }) => {
                         title={member.title}
                         image={member.image}
                         fullImage={member.fullImage}
+                        imageCredit={member.imageCredit}
+                        imageSource={member.imageSource}
                         email={member.email}
                         linkedin={member.linkedin}
                         phone={member.phone}

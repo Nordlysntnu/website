@@ -4,7 +4,7 @@ import styles from './styles/TeamMember.module.css';
 import ContactRibbon from './ContactRibbon';
 import Link from 'next/link';
 
-const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) => {
+const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone, imageCredit, imageSource }) => {
 
     const personWidth = 152;
     const personHeight = 190;
@@ -53,6 +53,7 @@ const TeamMember = ({ name, title, image, fullImage, email, linkedin, phone }) =
             <div className={styles.textContainer}>
                 <p className={styles.name}>{name}</p>
                 <p className={styles.position}>{title}</p>
+                {imageCredit && <p className={styles.photoCredit}>Photo: <a href={imageSource} target="_blank" rel="noopener noreferrer">{imageCredit}</a></p>}
             </div>
             </div>
             <ContactRibbon email={email} linkedin={linkedin} phone={phone} />

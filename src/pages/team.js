@@ -10,7 +10,12 @@ import ImageBackSmall from '../../public/members/group-photos/compressed/P2026_G
 import styles from '@shared/styles/SubPart1.module.css';
 import { useState, useEffect } from 'react';
 import TeamOverview from "@features/team/TeamOverview";
+import { projects } from "@features/team/data/projects";
+
 import DoubleImage from "@features/team/DoubleImage";
+
+const activeGroups = projects[0].groups.filter(group => !["Technical advisor", "Alumni"].includes(group));
+const groupList = new Intl.ListFormat("en", { style: "long", type: "conjunction" }).format(activeGroups);
 
 export default function Team() {
     const [size, setSize] = useState('big');
@@ -42,7 +47,7 @@ export default function Team() {
             <></>
             <PageHeader title="Team" />
             <Content dark={true}>
-                In September of 2023 the first ever full Solar Racing team from Norway was finally formed. The team consists of a highly multi-disciplinary team, distributed between the groups of Mechanical, Electrical, Software, Marketing, Logistics and the Board. This marks an outstanding achievement in Norwegian Solar racing history!
+                In September 2023, Norway’s first full solar racing team was formed. Nordlys brings together students across {groupList}. Our technical advisors support the team with experience from research, engineering and solar racing.
                 <br />
                 <br />
                 Do you want to become part of the team?
