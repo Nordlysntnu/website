@@ -1,0 +1,26 @@
+[Unit]
+Description=Nordlys CMS
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nordlys-cms
+Group=nordlys-cms
+WorkingDirectory=/opt/nordlys/website/cms
+Environment=NODE_ENV=production
+Environment=CMS_ENV=production
+EnvironmentFile=/etc/nordlys-cms.env
+ExecStart=/usr/bin/npm run start
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/nordlys-cms /opt/nordlys/website/cms/.next/cache
+
+[Install]
+WantedBy=multi-user.target

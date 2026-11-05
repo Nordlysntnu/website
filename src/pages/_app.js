@@ -17,9 +17,12 @@ const khand = Khand({
 export default function App({ Component, pageProps }) {
     return (
         <>
+            {process.env.NEXT_PUBLIC_LOCAL_PREVIEW === 'true' && <aside style={{ background: '#b20b3a', color: '#fff', padding: '0.7rem 1rem', textAlign: 'center', position: 'relative', zIndex: 10000 }}>
+                LOCAL TEST · Changes stay on this laptop · Forms do not send · <a style={{ color: '#fff' }} href="http://127.0.0.1:3010/admin" target="_blank" rel="noreferrer">Open CMS</a>
+            </aside>}
             {/* Google tag (gtag.js) */}
 
-            <Script
+            {process.env.NEXT_PUBLIC_LOCAL_PREVIEW !== 'true' && <><Script
                 strategy='afterInteractive'
                 src='https://www.googletagmanager.com/gtag/js?id=G-3FFKC00053'
             />
@@ -30,7 +33,7 @@ export default function App({ Component, pageProps }) {
                     gtag('js', new Date());
                     gtag('config', 'G-3FFKC00053');
                 `}
-            </Script>
+            </Script></>}
 
             <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
 
