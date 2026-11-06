@@ -19,6 +19,18 @@ async function login(page:Page,account:Account){
   await page.getByRole('button',{name:/^Log ?in$/i}).click()
   await expect(page.getByRole('heading',{name:/Good stories|Your next story/})).toBeVisible()
 }
+async function leaveEditor(page:Page,id:number){
+  // Use normal client navigation so Payload can finish releasing its editing lease.
+  // A hard page.goto can abandon the asynchronous unlock request on a fast runner.
+  await page.getByRole('link',{name:'Nordlys',exact:true}).click()
+  await expect(page).toHaveURL(/\/admin$/)
+  await expect.poll(async()=>{
+    const query=new URLSearchParams({'where[document.relationTo][equals]':'posts','where[document.value][equals]':String(id)})
+    const response=await page.request.get('/api/payload-locked-documents?'+query,{headers:{Origin:'http://127.0.0.1:3010'}})
+    expect(response.ok()).toBe(true)
+    return (await response.json()).totalDocs
+  }).toBe(0)
+}
 async function noOverflow(page:Page){
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1)).toBe(true)
 }
@@ -123,6 +135,7 @@ test('invite, write, request changes, resubmit, publish and protect the public c
   await page.getByRole('button',{name:'Send for review',exact:true}).click()
   await expect(page.getByRole('button',{name:'Withdraw review request',exact:true})).toBeVisible()
   await page.screenshot({path:path.join(screenshotDir,'writer-review-desktop.png'),fullPage:true})
+  await leaveEditor(page,id)
   await page.goto('/my-posts')
   await expect(page.getByText(title,{exact:true})).toBeVisible()
   await expect(page.getByText('Waiting for review',{exact:false})).toBeVisible()
@@ -136,12 +149,13 @@ test('invite, write, request changes, resubmit, publish and protect the public c
   await review.getByLabel('What should the writer change?').fill(feedback)
   await review.getByRole('button',{name:'Save and request changes',exact:true}).click()
   await expect(review.getByText('Changes requested',{exact:true}).last()).toBeVisible()
-  await review.goto('/admin') // Release the editor lock before the writer opens it.
+  await leaveEditor(review,id)
   await page.goto('/admin/collections/posts/'+id)
   await expect(page.getByText(feedback,{exact:true})).toBeVisible()
   await page.locator('[contenteditable="true"]').first().fill('The team completed 24 laps during the local test. This approved article demonstrates writing, useful feedback and a successful second review.')
   await page.getByRole('button',{name:'Send again for review',exact:true}).click()
   await expect(page.getByRole('button',{name:'Withdraw review request',exact:true})).toBeVisible()
+  await leaveEditor(page,id)
   await page.goto('/my-posts')
   await review.goto('/admin/collections/posts/'+id)
   await review.getByRole('button',{name:/^Publish changes$/i}).click()
@@ -150,7 +164,7 @@ test('invite, write, request changes, resubmit, publish and protect the public c
     const value=await response.json()
     return value._status
   }).toBe('published')
-  await review.goto('/admin')
+  await leaveEditor(review,id)
   await expect(review.getByRole('region',{name:'Website publication'})).toContainText(/Waiting for a website update/)
   await publishOnce()
   await review.reload()
@@ -181,6 +195,7 @@ test('invite, write, request changes, resubmit, publish and protect the public c
   await page.goto('/admin/collections/posts/'+id)
   await page.getByLabel(/Article title/).fill('PRIVATE_UNPUBLISHED_BROWSER_REVISION')
   await expect.poll(async()=>{const response=await page.request.get('/api/posts/'+id+'?draft=true&depth=0',{headers:{Origin:'http://127.0.0.1:3010'}});return (await response.json()).title}).toBe('PRIVATE_UNPUBLISHED_BROWSER_REVISION')
+  await leaveEditor(page,id)
   await page.goto('/my-posts')
   await publishOnce()
   expect(JSON.parse(await readFile(path.join(dataDir,'publishing/active.json'),'utf8'))).toEqual(before)
