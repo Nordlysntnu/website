@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "setup": "node scripts/setup.mjs && npm run generate && npm run seed",
+    "setup": "node scripts/setup.mjs && npm run generate && npm run seed && npm run import:legacy",
     "generate": "payload generate:importmap && payload generate:types",
     "seed": "cross-env NODE_ENV=development CMS_SCHEMA_PUSH=true tsx scripts/seed.ts",
     "schema:sync": "cross-env NODE_ENV=development CMS_SCHEMA_PUSH=true tsx scripts/sync-schema.ts",
@@ -21,7 +21,15 @@
     "db:status": "payload migrate:status",
     "bootstrap:admins": "tsx scripts/bootstrap-admins.ts",
     "backup": "node scripts/backup.mjs",
-    "restore": "node scripts/restore.mjs"
+    "restore": "node scripts/restore.mjs",
+    "legacy:keys": "tsx scripts/assign-legacy-keys.ts",
+    "import:legacy": "tsx scripts/import-legacy.ts",
+    "publish:worker": "tsx scripts/publish-worker.ts",
+    "publish:once": "tsx scripts/publish-worker.ts --once",
+    "test:publication": "tsx --test tests/publication.test.ts",
+    "test:browser": "node scripts/test-browser.mjs",
+    "publish:preview": "tsx scripts/publish-preview.ts",
+    "publish:rollback": "tsx scripts/publish-rollback.ts"
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "3.92.1",
@@ -33,13 +41,16 @@
     "graphql": "16.11.0",
     "next": "16.4.3",
     "payload": "3.92.1",
+    "proper-lockfile": "4.1.2",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "sharp": "0.35.5",
     "tsx": "^4.20.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.65.0",
     "@types/node": "^24.0.0",
+    "@types/proper-lockfile": "4.1.4",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "cross-env": "10.1.0",

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { localBlogProps } from '@features/cms/local-posts.mjs';
+import { websiteBlogProps } from '@features/cms/snapshot-posts.mjs';
 import { CmsPostList } from '@features/cms/CmsBlog';
 import Content from '@shared/components/Content';
 import Groups from '@features/team/Groups';
@@ -12,7 +12,7 @@ import React from 'react'
 import { blogs } from '@shared/data/blog';
 
 export async function getStaticProps() {
-    return { props: await localBlogProps() };
+    return { props: await websiteBlogProps(blogs) };
 }
 
 export default function Blog({ cmsPosts = null, cmsError = null }) {

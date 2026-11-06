@@ -1,5 +1,6 @@
+import { blogs } from '@shared/data/blog';
 import Head from 'next/head';
-import { localBlogProps } from '@features/cms/local-posts.mjs';
+import { websiteBlogProps } from '@features/cms/snapshot-posts.mjs';
 import Landing from '@shared/components/Landing';
 import Layout from '@shared/components/Layout';
 import GoalPane from '@features/home/GoalPane';
@@ -9,7 +10,7 @@ import Disciplines from '@features/home/Disciplines';
 import styles from '@features/home/styles/Home.module.css';
 
 export async function getStaticProps() {
-    return { props: await localBlogProps() };
+    return { props: await websiteBlogProps(blogs) };
 }
 
 export default function Home({ cmsPosts = null, cmsError = null }) {

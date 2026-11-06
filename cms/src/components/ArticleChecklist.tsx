@@ -25,7 +25,7 @@ export function ArticleChecklist() {
       <p>{hasPublishedDoc ? 'Draft edits stay private until a publisher publishes the revision.' : 'Only signed-in editors can see this draft.'}</p>
       {hasPublishedDoc && id && <a href={`/blog/${id}`} target="_blank" rel="noreferrer">View the published article ↗</a>}
     </div>
-    <p className="review-action__help">Publishing here updates the local demo only.</p>
+    <p className="review-action__help">After publishing, check Website publication on the overview to confirm the website update.</p>
     {data?.lastEditedBy && <p className="review-action__help">Last saved by {data.lastEditedBy}</p>}
   </section>
 }

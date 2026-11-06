@@ -1,3 +1,5 @@
+import { publicationConfig } from '../publishing/config'
+import { PublicationStatus } from './PublicationStatus'
 import Link from 'next/link'
 import type { ServerProps, Where } from 'payload'
 import type { Post } from '../payload-types'
@@ -26,6 +28,7 @@ export async function DemoGuide({ payload, user }: ServerProps) {
   if (!user || !['marketing', 'publisher', 'admin'].includes(user.role) || user.active === false) return null
   const publisher = ['publisher', 'admin'].includes(user.role)
   const local = process.env.CMS_ENV !== 'production'
+  const connected = publicationConfig().enabled
   const queue = (review: string) => payload.find({ collection: 'posts', overrideAccess: false, user, draft: true, depth: 0,
     where: { and: [{ _status: { equals: 'draft' } }, { review: { equals: review } }] }, limit: 4, sort: '-updatedAt' })
   const publishedWhere: Where = { _status: { equals: 'published' } }
@@ -44,7 +47,7 @@ export async function DemoGuide({ payload, user }: ServerProps) {
         <div className="editorial-hero__links"><Link href="/admin/collections/posts/create">Write an article →</Link>
           <Link href="/my-posts">My articles →</Link>
           <Link href="/blog" target="_blank" rel="noreferrer">View CMS blog ↗</Link></div>
-      </div><div className="editorial-environment"><span className="editorial-environment__dot" />{local ? 'Local CMS' : 'Website connection pending'}<span>{local ? 'Publishing here only updates this local CMS.' : 'Publication here does not yet update nordlysntnu.no.'}</span></div>
+      </div><div className="editorial-environment"><span className="editorial-environment__dot" />{local ? 'Local test environment' : connected ? 'Website publishing connected' : 'Website connection pending'}<span>{local ? connected ? 'Publishing updates your local website preview. The public website is unchanged.' : 'Publishing here only updates this local CMS.' : connected ? 'Approved articles are built before the website is updated.' : 'Publication here does not yet update nordlysntnu.no.'}</span></div>
     </section>
     <nav className="editorial-stats" aria-label="Article status">
       {[{ label: 'Ready for review', count: ready.totalDocs, value: 'ready' }, { label: 'Changes requested', count: changes.totalDocs, value: 'changes' },
@@ -54,6 +57,7 @@ export async function DemoGuide({ payload, user }: ServerProps) {
       <Link href="/blog" target="_blank" rel="noreferrer"><strong>{published.totalDocs}</strong><span>Published in CMS ↗</span></Link>
     </nav>
     <NotificationInbox />
+    <PublicationStatus />
     {assigned && <section className="editorial-queue" aria-label="Assigned to you">
       <h2>Assigned to you ({assigned.totalDocs})</h2>
       {assigned.docs.length ? <ul className="editorial-queue__list">{assigned.docs.map((post) => <li key={post.id}>

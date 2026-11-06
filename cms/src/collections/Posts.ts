@@ -1,3 +1,4 @@
+import { afterPostChange, afterPostDelete } from '../publishing/queue'
 import { APIError, type CollectionConfig } from 'payload'
 import { isEditor, editorsOnly, editorField, editDraftsOrPublish, publishedOrEditor, publishersOnly, publishField } from '../access'
 import { departments } from '../lib/blog'
@@ -12,7 +13,7 @@ export const Posts: CollectionConfig = {
     useAsTitle: 'title',
     group: 'Content',
     defaultColumns: ['title', 'department', 'review', '_status', 'updatedAt'],
-    description: 'Write, preview and send for review. Publishers can leave feedback or publish to the local demo blog.',
+    description: 'Write, preview and send for review. Publishers can leave feedback or publish the approved article.',
     components: { beforeList: ['/components/WorkflowLinks#WorkflowLinks'] },
     preview: (data) => `/preview/${data.id ?? 'new'}`,
     livePreview: {
@@ -32,6 +33,7 @@ export const Posts: CollectionConfig = {
   },
   versions: { drafts: { autosave: { interval: 1500 } }, maxPerDoc: 30 },
   hooks: {
+    afterChange: [afterPostChange], afterDelete: [afterPostDelete],
     beforeOperation: [({ args, operation, req }) => {
       if (req.user?.role === 'marketing' && operation === 'restoreVersion') {
         throw new APIError('Ask a leader to restore a previous version.', 403)
@@ -44,6 +46,7 @@ export const Posts: CollectionConfig = {
         args.draft = true
         args.data = { ...args.data, _status: 'draft' }
       }
+      if (operation === 'create' || operation === 'update') req.context.websiteDraftSave = Boolean(args.draft) && args.data?._status !== 'published'
       return args
     }],
     beforeChange: [({ data, req }) => {
@@ -52,6 +55,7 @@ export const Posts: CollectionConfig = {
     }, applyReviewWorkflow],
   },
   fields: [
+    { name:'legacyKey', type:'text', unique:true, access:{ create:()=>false, update:()=>false }, admin:{hidden:true} },
     {
       name: 'title', type: 'text', required: true,
       label: 'Article title',

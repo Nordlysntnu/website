@@ -9,6 +9,10 @@ import { cmsEmail } from './lib/email'
 import { Users } from './collections/Users'
 import { Posts } from './collections/Posts'
 import { Media } from './collections/Media'
+import { LegacyImports } from './collections/LegacyImports'
+import { WebsitePublication } from './globals/WebsitePublication'
+import { publishWebsiteTask } from './publishing/task'
+import { publicationEndpoints } from './publishing/endpoints'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 const runtime = cmsRuntime()
@@ -31,8 +35,11 @@ export default buildConfig({
       graphics: { Logo: '/components/Logo#Logo', Icon: '/components/Logo#Icon' },
     },
   },
-  collections: [Users, Posts, Media],
-  endpoints: [{ path: '/health', method: 'get', handler: async (req) => {
+  collections: [Users, Posts, Media, LegacyImports],
+  globals: [WebsitePublication],
+  jobs: { tasks: [publishWebsiteTask], enableConcurrencyControl: true, deleteJobOnComplete: false,
+    access: { run: () => false, queue: () => false, cancel: () => false } },
+  endpoints: [...publicationEndpoints, { path: '/health', method: 'get', handler: async (req) => {
     try {
       await req.payload.count({ collection: 'users', overrideAccess: true, req })
       return Response.json({ status: 'ok' }, { headers: { 'Cache-Control': 'no-store' } })

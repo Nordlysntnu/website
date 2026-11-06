@@ -1,3 +1,5 @@
+import { requestPublication } from '../publishing/queue'
+import { publicationConfig } from '../publishing/config'
 import path from 'node:path'
 import type { Access, CollectionConfig, PayloadRequest, Where } from 'payload'
 import { editorsOnly, isEditor, isPublisher } from '../access'
@@ -31,7 +33,13 @@ export const Media: CollectionConfig = {
   slug: 'media', labels: { singular: 'Photo', plural: 'Photos' },
   admin: { useAsTitle: 'alt', group: 'Content' },
   access: { create: editorsOnly, read: visibleMedia, update: editableMedia, delete: deletableMedia },
-  hooks: { beforeChange: [({ data, operation, originalDoc, req }) => {
+  hooks: { afterChange: [async ({doc,req}) => {
+    if (publicationConfig().enabled && !req.context.skipWebsitePublication && (await publishedPhotoIDs(req)).includes(doc.id)) {
+      try { await requestPublication(req.payload,req) } catch(error) {req.payload.logger.error({err:error,msg:'Photo publication will be reconciled by the worker.'})}
+    }
+    return doc
+  }], beforeChange: [({ data, operation, originalDoc, req }) => {
+    if (operation === 'update' && !req.context.legacyImport) data.legacySource = null
     data.ownerId = operation === 'create' ? req.user?.id ?? null : originalDoc?.ownerId ?? null
     return data
   }] },
@@ -42,6 +50,7 @@ export const Media: CollectionConfig = {
     adminThumbnail: 'thumbnail',
   },
   fields: [
+    { name:'legacySource', type:'text', unique:true, access:{read:()=>false,create:()=>false,update:()=>false}, admin:{hidden:true} },
     { name: 'alt', type: 'text', required: true, label: 'Describe the photo',
       admin: { description: 'Short description for people using a screen reader.' } },
     { name: 'ownerId', type: 'number', access: { read: ({ req }) => isEditor(req), create: () => false, update: () => false }, admin: { hidden: true } },

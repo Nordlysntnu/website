@@ -1,3 +1,4 @@
+import { preparePublicationSchema } from './prepare-publication-schema'
 import { getPayload } from 'payload'
 import { prepareLocalSchema } from './prepare-local-schema'
 
@@ -5,6 +6,7 @@ import { prepareLocalSchema } from './prepare-local-schema'
 // Unlike seed.ts, this never creates or edits accounts, articles or photos.
 process.loadEnvFile('.env.local')
 prepareLocalSchema()
+await preparePublicationSchema()
 const { default: config } = await import('../src/payload.config')
 const payload = await getPayload({ config })
 await payload.destroy()

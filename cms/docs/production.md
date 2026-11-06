@@ -6,7 +6,7 @@ This is a deployment preparation guide. Nothing in this branch provisions the VM
 
 Use the existing NTNU OpenStack VM. Keep the static public website and CMS separate. The supplied systemd unit is a proposed service for an ordinary Linux VM; use it after inspecting the current server. If the VM already uses containers, adapt the service instead of installing a second orchestration stack.
 
-v0.1 uses SQLite with WAL, a five-second busy timeout and **one CMS process/instance**. This avoids a separate database service for a small editorial team. Do not put the database on a shared/network filesystem or run replicas against it. CPU/RAM/disk capacity still needs checking on the VM. Build outside the serving process when possible.
+v0.1 uses SQLite with WAL, a five-second busy timeout and **one CMS HTTP instance and one separate local publication worker**. This avoids a separate database service for a small editorial team. Do not put the database on a shared/network filesystem or run replicas against it. CPU/RAM/disk capacity still needs checking on the VM. Build outside the serving process when possible.
 
 Keep application releases under /opt/nordlys/website, with data under /var/lib/nordlys-cms:
 - cms.db (plus SQLite-managed WAL/SHM files)
@@ -48,18 +48,18 @@ The production env file uses systemd EnvironmentFile syntax (no shell export sta
 
 ## Backups and restore
 
-The backup tool uses SQLite's backup API, integrity checking and SHA-256 checksums. Stop the CMS during backup so the database and uploads represent one consistent editorial state.
+The backup tool uses SQLite's backup API, integrity checking and SHA-256 checksums. Stop both the CMS and publishing worker during backup so the database and uploads represent one consistent editorial state.
 
-1. Stop the CMS service.
+1. Stop the CMS and publisher services.
 2. Run npm run backup -- /new/backup/location --stopped with CMS_DATA_DIR set.
-3. Restart the service even if a backup operation fails, after investigating the failure.
+3. Restart both services after investigating any backup failure.
 4. Copy/encrypt the resulting protected backup outside the VM. Choose the destination, schedule and retention with the server owner. This branch does not schedule jobs or upload data.
 5. Keep the production environment/secrets separately in your approved secret store.
 
-Restore while the CMS is stopped: npm run restore -- /backup/location /new/data/location --stopped. It checks all listed checksums and database integrity and refuses to overwrite an existing directory. Review ownership and point CMS_DATA_DIR (and DATABASE_URL, if explicitly configured) at the restored location before starting. Test this procedure on the VM before launch. Restoring the DB and uploads does not restore DNS, certificates, application code or secrets.
+Restore while both services are stopped: npm run restore -- /backup/location /new/data/location --stopped. It checks all listed checksums and database integrity and refuses to overwrite an existing directory. Review ownership and point CMS_DATA_DIR (and DATABASE_URL, if explicitly configured) at the restored location before starting. Test this procedure on the VM before launch. Restoring the DB and uploads does not restore DNS, certificates, application code or secrets.
 
 ## Publishing and remaining rollout gates
 
-Publishing currently updates the CMS blog. The public site's production build still uses its existing static blog data. The laptop preview integration remains available. A durable production publishing worker, preservation/import of all existing posts, build status feedback and rollback still need implementation and end-to-end verification. Do not describe a successful CMS publication as a deployed website update.
+The durable publisher, nine-article import, status feedback and retained releases are implemented on the cms branch. They remain disabled on the VM until a separately authorized cutover. Read [website-publication.md](website-publication.md) before enabling NORDLYS_PUBLISH_ENABLED. It covers the clean-main source requirement, public/private paths, old rsync guard, first build, Nginx switch and rollback. A successful CMS save is distinct from a successful static website update; use the publication status.
 
-Other remaining gates: production build + browser checks on an unrestricted host/CI, SSH capacity inspection, DNS/TLS, approved SMTP delivery, first accounts, 2FA, off-VM backup destination/retention and restore drill. No team/sponsor editing or LinkedIn integration is included.
+Remaining gates: SSH capacity/ownership inspection, DNS/TLS, approved SMTP delivery, first real accounts, 2FA, off-VM backup destination/retention, a VM restore drill and actual live publishing validation. Source/SQLite/browser tests do not prove those external services. No team/sponsor editing or LinkedIn integration is included.

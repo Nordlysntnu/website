@@ -146,3 +146,8 @@
 [data-theme="dark"] .review-action__feedback small { color: #e3cda9; }
 [data-theme="dark"] .checklist-done { color: #a3edcc; }
 [data-theme="dark"] .checklist-pending { color: #f8d8a8; }
+
+.publication-status { margin: 1.5rem 0 2rem; padding: 1.25rem; border: 1px solid var(--theme-elevation-200); border-radius: 8px; color: var(--theme-text); background: var(--theme-elevation-50); }
+.publication-status p { line-height: 1.6; }
+.publication-status a { color: var(--cms-accent); }
+.publication-status button { color: var(--theme-text); background: var(--theme-elevation-100); border: 1px solid var(--theme-elevation-300); border-radius: 4px; padding: .65rem; }

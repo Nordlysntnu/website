@@ -4,11 +4,11 @@ import styles from './CmsBlog.module.css';
 export function CmsPostList({ posts, error }) {
     return <section className={styles.container}><h1>Stories from the team</h1>
         {error && <p role="alert">{error}</p>}
-        {!error && !posts.length && <p>No published articles yet. Publish a draft in the local CMS, then refresh.</p>}
+        {!error && !posts.length && <p>No published articles yet.</p>}
         <div className={styles.grid}>{posts.map((post) => <article key={post.id} className={styles.card}>
-            {post.cover && <Link href={'/blog/' + post.id}><img src={post.cover.url} alt={post.cover.alt} /></Link>}
-            <p>{post.department} · {date(post.publishedAt)}</p><h2><Link href={'/blog/' + post.id}>{post.title}</Link></h2>
-            <p>{post.excerpt}</p><Link href={'/blog/' + post.id}>Read article →</Link>
+            {post.cover && <Link href={'/blog/' + (post.slug || post.id)}><img src={post.cover.url} alt={post.cover.alt} /></Link>}
+            <p>{post.department} · {date(post.publishedAt)}</p><h2><Link href={'/blog/' + (post.slug || post.id)}>{post.title}</Link></h2>
+            <p>{post.excerpt}</p><Link href={'/blog/' + (post.slug || post.id)}>Read article →</Link>
         </article>)}</div>
     </section>;
 }

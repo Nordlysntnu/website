@@ -1,3 +1,5 @@
+import { legacyKeyFor } from '../../src/features/cms/legacy-posts.mjs'
+import { preparePublicationSchema } from './prepare-publication-schema'
 import { readFileSync } from 'node:fs'
 import { randomUUID } from 'node:crypto'
 import path from 'node:path'
@@ -8,6 +10,7 @@ import { prepareLocalSchema, prepareAccountGuards } from './prepare-local-schema
 process.loadEnvFile('.env.local')
 if (process.env.CMS_ENV === 'production') throw new Error('Demo seeding is disabled in production.')
 prepareLocalSchema()
+await preparePublicationSchema()
 const { default: config } = await import('../src/payload.config')
 const { blogs } = await import('../../src/shared/data/blog')
 const payload = await getPayload({ config })
@@ -30,7 +33,9 @@ function richText(text: string) {
 }
 const title = 'Our first competition — Belgium 2026'
 const exists = await payload.find({ collection: 'posts', where: { title: { equals: title } }, limit: 1 })
-if (!exists.docs.length) {
+const sourceBelgium = blogs.find(post => post.images.some(image => image.includes('01-team-belgium')))
+const managedBelgium = sourceBelgium ? await payload.count({ collection:'legacy-imports', where:{ key:{ equals:legacyKeyFor(sourceBelgium) } } }) : { totalDocs:0 }
+if (!exists.docs.length && !managedBelgium.totalDocs) {
   const blog = blogs.find(post => post.images.some(image => image.includes('01-team-belgium')))
   if (!blog) throw new Error('Belgium source article not found; refusing to import a different article under that title.')
   const gallery = []

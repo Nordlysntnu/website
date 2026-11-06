@@ -2,11 +2,13 @@
 
 This runs both applications on the laptop. It works on a different network from the current computer and from NTNU OpenStack. No push, main-branch update, remote server access, VPN, port forwarding or deployment is needed.
 
-## Get the current unpushed source
+## Get the cms branch or a portable source copy
 
-On the computer holding this checkout, run npm run local:package from the repository root. Copy .local/portable/nordlys-local-test.zip to the laptop and extract it into a new folder.
+For the latest pushed source, use a normal Git clone/checkout of the cms branch of Nordlysntnu/website. Keep main unchanged.
 
-The source snapshot includes uncommitted work and public website assets. It excludes Git history, node_modules, builds, local CMS database/uploads, secrets and demo credentials. It is a standalone test copy, not a Git clone. A clone from GitHub alone would not contain this unpushed work.
+For a portable copy, on the computer holding this checkout run npm run local:package from the repository root. Copy .local/portable/nordlys-local-test.zip to the laptop and extract it into a new folder.
+
+The source snapshot includes uncommitted work and public website assets. It excludes Git history, node_modules, builds, local CMS database/uploads, secrets and demo credentials. It is a standalone test copy, not a Git clone. A portable ZIP can include local edits that have not yet been pushed.
 
 ## First setup on the laptop (Windows PowerShell)
 
@@ -22,7 +24,7 @@ npm run local:dev
 
 The two dependency installations are separate because the website and CMS use different React versions. Do not move or combine their node_modules folders. npm uses the lockfiles. The CMS installation also supplies the project-local Node runtime used to start both services.
 
-local:setup creates a fresh local database and two random demo logins. Read cms/.local/Demo-login.md locally; do not paste its passwords into Git or messages. Setup preserves existing accounts/content. Stop both servers and back up cms/.local and cms/.env.local before running setup on an existing test copy.
+local:setup creates a fresh local database, three random demo logins and all nine legacy articles. Read cms/.local/Demo-login.md locally; do not paste its passwords into Git or messages. Setup preserves existing accounts/content. Stop both servers and back up cms/.local and cms/.env.local before running setup on an existing test copy.
 
 Internet is needed to install dependencies and may be needed for fonts or embedded third-party content. The apps do not need the current computer or NTNU network to remain reachable.
 
@@ -52,8 +54,8 @@ The local website reader connects only to the fixed loopback CMS on port 3010. I
 
 - npm run dev without the local launcher keeps the original website content source. Production builds also retain the existing static content source, even if the local preview flag is accidentally set.
 - Local mode uses .next-local for the website and has no deployment command. The CMS database is cms/.local/cms.db; no production database is used.
-- No OpenStack publishing job is exercised. This tests the local writing/review/public-content flow, not the eventual static build/deploy/rollback pipeline.
-- Google Workspace login, real invitations/email notifications, improved image handling and scheduled publication are still deferred.
+- No OpenStack publishing job is exercised. To test the actual static build/activation pipeline locally from a Git checkout, use [the port-4178 publication preview](../cms/docs/website-publication.md). The portable ZIP has no Git history, so it uses the port-3000 development reader.
+- Local invitations/password recovery are available through Accounts; email stays in the private outbox. Google Workspace sign-in, production mail verification, improved image handling and scheduled publication remain later work.
 - The laptop gets its own fresh test content. Existing edits on the first computer are not carried in the ZIP.
 
 ## Checks and evidence
@@ -64,4 +66,4 @@ npm --prefix cms run test:api
 npm --prefix cms run typecheck
 ~~~
 
-During preparation, the 5 local-mode tests and 6 CMS REST tests passed. The CMS tests also exercised the actual website reader after publication and after a private revision. JSX syntax checks passed for the changed components. A complete running-server/browser and production-build verification remains pending because the agent execution environment has filesystem/loopback restrictions; see cms/docs/review-routing-validation.md. The laptop run is needed before treating the combined UI as verified.
+The cms branch also includes isolated account, publication and Chromium browser suites. See cms/README.md and cms/docs/website-publication.md for commands and the current evidence boundary. Local checks do not validate VM hosting, real email or form delivery.

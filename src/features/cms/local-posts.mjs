@@ -18,21 +18,21 @@ export function publicPhoto(value) {
         return { url: url.href, alt: String(value.alt || ''), width: value.width || null, height: value.height || null };
     } catch { return null; }
 }
-export function publicNodes(value, depth = 0) {
+export function publicNodes(value, depth = 0, options = {}) {
     if (!Array.isArray(value) || depth > 30) return [];
     return value.flatMap((node) => {
         if (!node || typeof node !== 'object') return [];
         if (node.type === 'text') return [{ type: 'text', text: String(node.text || ''), format: Number(node.format) || 0 }];
         if (node.type === 'linebreak') return [{ type: 'linebreak' }];
         if (node.type === 'upload' && node.relationTo === 'media') {
-            const photo = publicPhoto(node.value);
+            const photo = (options.photo || publicPhoto)(node.value);
             return photo ? [{ type: 'photo', photo, caption: String(node.fields?.caption || '') }] : [];
         }
-        const children = publicNodes(node.children, depth + 1);
+        const children = publicNodes(node.children, depth + 1, options);
         if (node.type === 'link' || node.type === 'autolink') {
             const doc = node.fields?.doc;
             const id = typeof doc?.value === 'object' ? doc.value?.id : doc?.value;
-            const url = doc?.relationTo === 'posts' && /^\d+$/.test(String(id)) ? '/blog/' + id : safeLink(node.fields?.url);
+            const url = doc?.relationTo === 'posts' ? (/^\d+$/.test(String(id)) && (!options.postIDs || options.postIDs.has(Number(id))) ? '/blog/' + id : null) : safeLink(node.fields?.url);
             return [{ type: 'link', url, children }];
         }
         if (['paragraph', 'heading', 'quote', 'list', 'listitem'].includes(node.type)) {
@@ -44,14 +44,14 @@ export function publicNodes(value, depth = 0) {
 export function nodeText(nodes) {
     return nodes.map((node) => node.type === 'text' ? node.text : nodeText(node.children || [])).join(' ').replace(/\s+/g, ' ').trim();
 }
-export function publicPost(doc) {
+export function publicPost(doc, options = {}) {
     if (doc?._status !== 'published' || !Number.isSafeInteger(doc.id) || doc.id <= 0) throw new Error('Expected a published article.');
-    const nodes = publicNodes(doc.content?.root?.children);
-    const gallery = (Array.isArray(doc.gallery) ? doc.gallery : []).map((row) => publicPhoto(row.image)).filter(Boolean);
+    const nodes = publicNodes(doc.content?.root?.children, 0, options);
+    const gallery = (Array.isArray(doc.gallery) ? doc.gallery : []).map((row) => (options.photo || publicPhoto)(row.image)).filter(Boolean);
     const inlinePhoto = (items) => items.reduce((found, item) => found || item.photo || inlinePhoto(item.children || []), null);
-    return { id: doc.id, title: String(doc.title || ''), summary: String(doc.summary || ''), author: String(doc.authorName || ''),
+    return { id: doc.id, legacyKey: doc.legacyKey || null, slug: doc.legacyKey || String(doc.id), title: String(doc.title || ''), summary: String(doc.summary || ''), author: String(doc.authorName || ''),
         department: String(doc.department || 'Team'), publishedAt: String(doc.publishedAt || ''), nodes,
-        cover: publicPhoto(doc.coverImage) || gallery[0] || inlinePhoto(nodes), gallery,
+        cover: (options.photo || publicPhoto)(doc.coverImage) || gallery[0] || inlinePhoto(nodes), gallery,
         excerpt: String(doc.summary || nodeText(nodes)).slice(0, 320) };
 }
 export async function readLocalPosts({ env = process.env, fetcher = fetch } = {}) {

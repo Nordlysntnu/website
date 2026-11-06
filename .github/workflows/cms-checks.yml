@@ -13,7 +13,7 @@ jobs:
   cms:
     name: CMS accounts, workflow and build
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -37,6 +37,8 @@ jobs:
         run: npm --prefix cms run test:runtime
       - name: Backup and restore tests
         run: npm --prefix cms run test:storage
+      - name: Publication, import and recovery tests
+        run: npm --prefix cms run test:publication
       - name: CMS production build
         run: npm --prefix cms run build
       - name: Typecheck
@@ -45,3 +47,18 @@ jobs:
         run: npm run build
       - name: Website regression tests
         run: npm test
+      - name: Website export smoke tests
+        run: npm run test:export
+      - name: Install Chromium
+        working-directory: cms
+        run: npx playwright install --with-deps chromium
+      - name: Browser editorial and static publication tests
+        run: npm --prefix cms run test:browser
+      - name: Save browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cms-browser-screenshots
+          path: cms/.local/browser/run-*/screenshots/*.png
+          if-no-files-found: ignore
+          retention-days: 7
