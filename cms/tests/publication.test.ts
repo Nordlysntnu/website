@@ -1,6 +1,5 @@
 import type { Post } from '../src/payload-types'
 import { sourceRevision } from '../src/publishing/build.mjs'
-import type { MigrateUpArgs, MigrateDownArgs } from '@payloadcms/db-sqlite'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { randomUUID, randomBytes } from 'node:crypto'
@@ -9,9 +8,8 @@ import { mkdir, readFile, writeFile, cp, readdir, rename, symlink, lstat } from 
 import path from 'node:path'
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
-import { getPayload, handleEndpoints } from 'payload'
+import { getPayload, handleEndpoints, type Payload } from 'payload'
 import sharp from 'sharp'
-import { migrations } from '../src/migrations'
 import { upgradePublicationDatabase } from '../scripts/prepare-publication-schema'
 import { importLegacy } from '../src/publishing/import-legacy'
 import { publishedContent, writePublicSnapshot } from '../src/publishing/content'
@@ -43,8 +41,7 @@ Object.assign(process.env,{
   NORDLYS_PUBLISH_ENABLED:'true',NORDLYS_PUBLISH_MODE:'preview',NORDLYS_PUBLISH_SOURCE:sourceDir,
 })
 const {default:config}=await import('../src/payload.config')
-const payload=await getPayload({config})
-payload.logger.level='fatal'
+let payload!:Payload
 const pub=publicationConfig()
 const blogs=[
   {date:'September 2025',text:'Our first preserved story. The team completed a major milestone together.',images:['/blog/photo.png'],imageAlts:['Team at the first milestone']},
@@ -81,7 +78,7 @@ async function fakeBuild(_config:unknown,workspace:string,snapshotFile:string,as
 test('durable website publication, legacy preservation and failure recovery',async t=>{
   try{
     await t.test('existing database upgrade is additive, backed up and repeatable',async()=>{
-      await payload.db.migrate({migrations:migrations.slice(0,2).map(m=>({...m,up:(args:unknown)=>m.up(args as MigrateUpArgs),down:(args:unknown)=>m.down(args as MigrateDownArgs)}))})
+      await exec(process.execPath,['--import','tsx','tests/fixtures/prepare-legacy-publication.ts'],{cwd:process.cwd(),env:process.env,windowsHide:true})
       const db=new DatabaseSync(path.join(dataDir,'cms.db'))
       db.prepare('INSERT INTO posts (id,title,content,_status) VALUES (900,?,?,?)')
         .run('A private existing draft',JSON.stringify(legacyRichText('Do not lose my draft.')),'draft')
@@ -94,13 +91,16 @@ test('durable website publication, legacy preservation and failure recovery',asy
       assert.equal(backup.prepare('SELECT title FROM posts WHERE id=900').get()?.title,'A private existing draft')
       assert.equal(backup.prepare("SELECT COUNT(*) AS n FROM pragma_table_info('posts') WHERE name='legacy_key'").get()?.n,0)
       backup.close()
-      assert.equal((await payload.findByID({collection:'posts',id:900,draft:true})).title,'A private existing draft')
       const saved=new DatabaseSync(path.join(dataDir,'cms.db'))
       assert.equal(saved.prepare('SELECT version_title FROM _posts_v WHERE parent_id=900').get()?.version_title,'Older private version')
       saved.close()
       assert.equal((await upgradePublicationDatabase(path.join(dataDir,'cms.db'))).upgraded,false)
+      payload=await getPayload({config})
+      payload.logger.level='fatal'
+      assert.equal((await payload.findByID({collection:'posts',id:900,draft:true})).title,'A private existing draft')
       await payload.db.migrate()
     })
+    if(!payload)throw new Error('The stopped-database upgrade fixture failed.')
     await t.test('live builds require clean main matching the fetched origin/main',async()=>{
       await assert.rejects(sourceRevision({...pub,mode:'live'}),/clean main/)
       await git(['branch','-m','main'])
@@ -285,5 +285,5 @@ test('durable website publication, legacy preservation and failure recovery',asy
         assert.equal((await fetch(origin+'/snapshot.json')).status,404)
       }finally{await new Promise<void>((resolve,reject)=>server.close(e=>e?reject(e):resolve()))}
     })
-  }finally{await payload.destroy()}
+  }finally{if(payload)await payload.destroy()}
 })

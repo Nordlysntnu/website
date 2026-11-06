@@ -14,8 +14,6 @@ await preparePublicationSchema()
 const { default: config } = await import('../src/payload.config')
 const { blogs } = await import('../../src/shared/data/blog')
 const payload = await getPayload({ config })
-prepareLocalSchema()
-prepareAccountGuards()
 const accounts = JSON.parse(readFileSync('.local/accounts.json', 'utf8'))
 for (const account of accounts) {
   const existing = await payload.find({ collection: 'users', where: { email: { equals: account.email } }, limit: 1 })
@@ -85,3 +83,5 @@ if (!template.docs.length) {
 }
 console.log('Demo seeded. Existing content and account passwords were preserved.')
 await payload.destroy()
+// Native SQLite schema work runs only after the libSQL connection is closed.
+prepareAccountGuards()
