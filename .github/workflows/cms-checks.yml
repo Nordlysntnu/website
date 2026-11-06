@@ -59,6 +59,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cms-browser-screenshots
-          path: cms/.local/browser/run-*/screenshots/*.png
+          path: |
+            cms/.local/browser/run-*/screenshots/*.png
+            cms/.local/browser/run-*/results/**/test-failed-*.png
           if-no-files-found: ignore
           retention-days: 7

@@ -152,18 +152,26 @@ test('invite, write, request changes, resubmit, publish and protect the public c
   await leaveEditor(review,id)
   await page.goto('/admin/collections/posts/'+id)
   await expect(page.getByText(feedback,{exact:true})).toBeVisible()
-  await page.locator('[contenteditable="true"]').first().fill('The team completed 24 laps during the local test. This approved article demonstrates writing, useful feedback and a successful second review.')
+  const revisedBody='The team completed 24 laps during the local test. This approved article demonstrates writing, useful feedback and a successful second review.'
+  await expect(page.getByLabel('Responsible reviewer')).toBeEnabled()
+  await page.locator('[contenteditable="true"]').first().fill(revisedBody)
+  await expect.poll(async()=>{
+    const response=await page.request.get('/api/posts/'+id+'?draft=true&depth=0',{headers:{Origin:'http://127.0.0.1:3010'}})
+    return JSON.stringify((await response.json()).content).includes(revisedBody)
+  }).toBe(true)
   await page.getByRole('button',{name:'Send again for review',exact:true}).click()
   await expect(page.getByRole('button',{name:'Withdraw review request',exact:true})).toBeVisible()
   await leaveEditor(page,id)
   await page.goto('/my-posts')
   await review.goto('/admin/collections/posts/'+id)
+  await expect(review.getByLabel('Responsible reviewer')).toBeEnabled()
+  await expect(review.locator('[contenteditable="true"]').first()).toContainText(revisedBody)
   await review.getByRole('button',{name:/^Publish changes$/i}).click()
   await expect.poll(async()=>{
     const response=await review.request.get('/api/posts/'+id+'?draft=false&depth=0',{headers:{Origin:'http://127.0.0.1:3010'}})
     const value=await response.json()
-    return value._status
-  }).toBe('published')
+    return {status:value._status,hasRevision:JSON.stringify(value.content).includes(revisedBody)}
+  }).toEqual({status:'published',hasRevision:true})
   await leaveEditor(review,id)
   await expect(review.getByRole('region',{name:'Website publication'})).toContainText(/Waiting for a website update/)
   await publishOnce()
@@ -180,7 +188,11 @@ test('invite, write, request changes, resubmit, publish and protect the public c
   expect(await cards.count()).toBe(10) // Nine preserved articles plus the new approved one.
   await expect.poll(()=>website.locator('article img').evaluateAll(images=>images.length===9&&images.every(image=>(image as HTMLImageElement).complete&&(image as HTMLImageElement).naturalWidth>0))).toBe(true)
   expect(await website.content()).not.toContain('PRIVATE_REVIEW_BROWSER')
+  const exportedArticle=await website.request.get('http://127.0.0.1:4178/blog/'+id)
+  expect(exportedArticle.ok()).toBe(true)
+  expect(await exportedArticle.text()).toContain(revisedBody)
   await website.getByRole('heading',{name:title,exact:true}).getByRole('link').click()
+  await expect(website).toHaveURL('http://127.0.0.1:4178/blog/'+id)
   await expect(website.getByText(/The team completed 24 laps/)).toBeVisible()
   await readableHeading(website,title)
   await website.screenshot({path:path.join(screenshotDir,'published-article-desktop.png'),fullPage:true})
