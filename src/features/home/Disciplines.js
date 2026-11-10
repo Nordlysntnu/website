@@ -8,6 +8,7 @@ import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.p
 import Marketing from '@assets/symbols-and-logos/Marketing.png';
 import Logistics from '@assets/symbols-and-logos/Logistics.png';
 import Management from '@assets/symbols-and-logos/Management.png';
+import Board from '@assets/symbols-and-logos/Board.png';
 import Content from '@shared/components/Content';
 
 export default function Disciplines({ dark }) {
@@ -19,7 +20,7 @@ export default function Disciplines({ dark }) {
                     <Link href="/team" className={styles.link}>Meet the team <span aria-hidden="true">→</span></Link>
                 </div>
                 <div className={styles.contentContainer}>
-                    <Discipline image={Management.src} title="Board" />
+                    <Discipline image={Board.src} title="Board" />
                     <Discipline image={Management.src} title="Business" />
                     <Discipline image={Marketing.src} title="Marketing" />
                     <Discipline image={Logistics.src} title="Logistics" />
