@@ -28,6 +28,14 @@ export function asPhoto(value: unknown): Media | undefined {
   return value && typeof value === 'object' && 'url' in value && typeof value.url === 'string' ? value as Media : undefined
 }
 
+/** Photos inside a photo-row block in the article body. */
+function blockPhotos(node: Record<string, unknown>): unknown[] {
+  if (node.type !== 'block') return []
+  const fields = node.fields as { blockType?: unknown; photos?: unknown } | undefined
+  if (fields?.blockType !== 'photoRow' || !Array.isArray(fields.photos)) return []
+  return fields.photos.map((row) => row && typeof row === 'object' && 'image' in row ? row.image : undefined)
+}
+
 export function coverPhoto(post: Post) {
   const chosen = asPhoto(post.coverImage)
   if (chosen) return chosen
@@ -36,6 +44,7 @@ export function coverPhoto(post: Post) {
   let inline: Media | undefined
   walk(post.content, (node) => {
     if (!inline && node.type === 'upload' && node.relationTo === 'media') inline = asPhoto(node.value)
+    if (!inline) inline = blockPhotos(node).map(asPhoto).find(Boolean)
   })
   return inline
 }
@@ -50,6 +59,9 @@ export function postPhotoIDs(post: Post) {
   }
   add(post.coverImage)
   post.gallery?.forEach(({ image }) => add(image))
-  walk(post.content, (node) => { if (node.type === 'upload' && node.relationTo === 'media') add(node.value) })
+  walk(post.content, (node) => {
+    if (node.type === 'upload' && node.relationTo === 'media') add(node.value)
+    blockPhotos(node).forEach(add)
+  })
   return [...ids]
 }

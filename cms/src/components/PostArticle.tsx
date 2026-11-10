@@ -5,6 +5,9 @@ import type { SerializedUploadNode } from '@payloadcms/richtext-lexical'
 import type { Post } from '../payload-types'
 import { asPhoto, coverPhoto, monthAndYear } from '../lib/blog'
 import { PhotoGallery } from './PhotoGallery'
+import type React from 'react'
+
+const photoLayouts = ['normal', 'wide', 'full', 'left', 'right']
 
 const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...defaultConverters,
@@ -19,10 +22,23 @@ const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
     const photo = upload.relationTo === 'media' ? asPhoto(upload.value) : undefined
     if (!photo) return null
     const caption = typeof upload.fields?.caption === 'string' ? upload.fields.caption : ''
-    return <figure className="article-figure">
+    const layout = typeof upload.fields?.layout === 'string' && photoLayouts.includes(upload.fields.layout) ? upload.fields.layout : 'normal'
+    return <figure className={`article-figure article-figure--${layout}`}>
       <img src={photo.url!} alt={photo.alt} width={photo.width || undefined} height={photo.height || undefined} />
       {caption && <figcaption>{caption}</figcaption>}
     </figure>
+  },
+  blocks: {
+    photoRow: ({ node }: { node: { fields?: { photos?: { image?: unknown }[]; caption?: string | null } } }) => {
+      const photos = (node.fields?.photos ?? []).flatMap(({ image }) => { const photo = asPhoto(image); return photo ? [photo] : [] })
+      if (!photos.length) return null
+      return <figure className="article-row" style={{ '--row-count': photos.length } as React.CSSProperties}>
+        <div className="article-row__photos">
+          {photos.map((photo) => <img key={photo.id} src={photo.url!} alt={photo.alt} width={photo.width || undefined} height={photo.height || undefined} />)}
+        </div>
+        {node.fields?.caption && <figcaption>{node.fields.caption}</figcaption>}
+      </figure>
+    },
   },
 })
 

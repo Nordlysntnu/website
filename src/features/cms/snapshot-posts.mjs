@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { combinePosts } from './legacy-posts.mjs'
-import { readLocalPosts, safeLink, localPreviewEnabled, localBlogProps } from './local-posts.mjs'
+import { readLocalPosts, safeLink, localPreviewEnabled, localBlogProps, photoLayout } from './local-posts.mjs'
 
 const safeId = value => Number.isSafeInteger(value) && value > 0
 const safeKey = value => typeof value === 'string' && /^legacy-[a-f0-9]{20}$/.test(value)
@@ -15,7 +15,13 @@ function nodes(value, depth=0) {
         if (!node || typeof node !== 'object') throw new Error('Invalid snapshot node.')
         if (node.type === 'text') return [{ type:'text', text:String(node.text || ''), format:Number(node.format)||0 }]
         if (node.type === 'linebreak') return [{ type:'linebreak' }]
-        if (node.type === 'photo') return [{ type:'photo', photo:photo(node.photo), caption:String(node.caption || '') }]
+        if (node.type === 'photo') return [{ type:'photo', photo:photo(node.photo), caption:String(node.caption || ''), layout:photoLayout(node.layout) }]
+        if (node.type === 'photoRow') {
+            if (!Array.isArray(node.photos) || node.photos.length < 1 || node.photos.length > 4) throw new Error('Invalid snapshot photo row.')
+            const photos = node.photos.map(photo)
+            if (photos.some(item => !item)) throw new Error('Invalid snapshot photo row.')
+            return [{ type:'photoRow', photos, caption:String(node.caption || '') }]
+        }
         if (!['paragraph','heading','quote','list','listitem','link'].includes(node.type)) throw new Error('Unsupported snapshot node.')
         return [{ type:node.type, tag:node.tag === 'h3' ? 'h3' : node.tag === 'ol' ? 'ol' : null,
             ...(node.type === 'link' ? { url:safeLink(node.url) } : {}), children:nodes(node.children || [],depth+1) }]
