@@ -45,8 +45,18 @@
 .editorial-how-it-works { padding: 1.25rem 1.5rem; border-left: 3px solid var(--cms-accent); background: var(--theme-elevation-100); border-radius: 0 8px 8px 0; }
 .editorial-how-it-works strong { font-size: .9rem; }
 .editorial-how-it-works p { color: var(--theme-elevation-650); max-width: 900px; font-size: .8rem; line-height: 1.7; margin: .4rem 0 0; }
-.workflow-links { display: flex; gap: .75rem 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; font-size: .8rem; }
-.workflow-links a { color: var(--cms-accent); text-underline-offset: 3px; }
+.workflow-links { display: flex; align-items: center; gap: .5rem 1rem; flex-wrap: wrap; margin: 0 var(--gutter-h, 3rem) 1.5rem; padding-bottom: .75rem; border-bottom: 1px solid var(--theme-elevation-150); font-size: .8rem; }
+.workflow-links a { text-decoration: none; transition: background-color .15s, color .15s; }
+.workflow-links a:focus-visible { outline: 2px solid var(--cms-accent); outline-offset: 2px; }
+.workflow-links__back { color: var(--theme-elevation-600); padding: .4rem 0; }
+.workflow-links__back:hover { color: var(--theme-text); }
+.workflow-links__tabs { display: flex; gap: .25rem; padding: .25rem; border-radius: 999px; background: var(--theme-elevation-50); border: 1px solid var(--theme-elevation-150); overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.workflow-links__tab { flex: none; padding: .4rem .85rem; border-radius: 999px; color: var(--theme-elevation-750); font-weight: 550; white-space: nowrap; }
+.workflow-links__tab:hover { background: var(--theme-elevation-100); color: var(--theme-text); }
+.workflow-links__tab[aria-current=page] { background: var(--cms-hover); color: var(--cms-accent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cms-accent) 35%, transparent); }
+.workflow-links__external { margin-left: auto; color: var(--cms-accent); font-weight: 600; padding: .4rem 0; }
+.workflow-links__external:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) { .workflow-links__external { margin-left: 0; } }
 .editorial-badge { display: inline-block; width: fit-content; padding: .3rem .6rem; font-size: .72rem; font-weight: 650; border-radius: 20px; line-height: 1.35; background: var(--theme-elevation-100); color: #43516b; }
 .editorial-badge--ready { color: #155b41; background: #e2f4eb; }
 .editorial-badge--changes { color: #794611; background: #fff0d7; }
