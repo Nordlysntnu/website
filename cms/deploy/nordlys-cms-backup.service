@@ -9,11 +9,13 @@ Group=nordlys-cms
 WorkingDirectory=/opt/nordlys/website/cms
 Environment=NODE_ENV=production
 Environment=CMS_ENV=production
-Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=PATH=/opt/nordlys/node/bin:/usr/bin:/bin
+Environment=HOME=/var/cache/nordlys-cms-npm
+Environment=npm_config_cache=/var/cache/nordlys-cms-npm
 EnvironmentFile=/etc/nordlys-cms.env
 UMask=0077
 # Stop the CMS and publisher so the database and uploads are one consistent state (a few seconds).
-ExecStartPre=+/usr/bin/systemctl stop nordlys-publisher.service nordlys-cms.service
+ExecStartPre=+/bin/sh -c 'systemctl stop nordlys-cms.service; systemctl stop nordlys-publisher.service 2>/dev/null || true'
 ExecStart=/opt/nordlys/website/cms/deploy/backup-run.sh
 # Always bring the services back, also when the backup fails.
 ExecStopPost=+/usr/bin/systemctl start nordlys-cms.service
@@ -22,4 +24,4 @@ NoNewPrivileges=true
 PrivateTmp=true
 ProtectHome=true
 ProtectSystem=strict
-ReadWritePaths=/var/backups/nordlys-cms /var/lib/nordlys-cms
+ReadWritePaths=/var/backups/nordlys-cms /var/lib/nordlys-cms /var/cache/nordlys-cms-npm
