@@ -9,7 +9,7 @@
     "Marketing",
     "Logistics",
     "Finance",
-    "Technical advisor",
+    "Technical advisors",
     "Alumni"
   ],
   "members": [
@@ -379,7 +379,7 @@
       "id": 48,
       "title": "Technical Advisor",
       "group": [
-        "Technical advisor"
+        "Technical advisors"
       ]
     },
     {

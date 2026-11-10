@@ -4,6 +4,8 @@ const membershipMarkers = new Set(['All active members']);
 const groupAliases = new Map([
   ['aero- and composites', 'aero & composites'],
   ['chassis', 'aero & composites'],
+  // Renamed to plural in Nov 2026; keep old links working.
+  ['technical advisor', 'technical advisors'],
 ]);
 
 function normalizeGroupName(name) {

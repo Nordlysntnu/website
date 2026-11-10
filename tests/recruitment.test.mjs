@@ -13,7 +13,7 @@ const sections = markdown.split(/^# /m).filter(Boolean).map(section => ({
 
 test('membership applications cover every current team group in the requested order', () => {
   assert.deepEqual(sections.map(section => section.name), expectedGroups);
-  assert.deepEqual(new Set(sections.map(section => section.name)), new Set(project.groups.filter(group => group !== 'Technical advisor')));
+  assert.deepEqual(new Set(sections.map(section => section.name)), new Set(project.groups.filter(group => group !== 'Technical advisors')));
 });
 
 test('each group offers one general Member choice rather than specialist vacancies', () => {

@@ -14,7 +14,7 @@ import { projects } from "@features/team/data/projects";
 
 import DoubleImage from "@features/team/DoubleImage";
 
-const activeGroups = projects[0].groups.filter(group => !["Technical advisor", "Alumni"].includes(group));
+const activeGroups = projects[0].groups.filter(group => !["Technical advisors", "Alumni"].includes(group));
 const groupList = new Intl.ListFormat("en", { style: "long", type: "conjunction" }).format(activeGroups);
 
 export default function Team() {

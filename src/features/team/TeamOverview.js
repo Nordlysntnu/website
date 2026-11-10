@@ -43,7 +43,7 @@ const groupDescriptions = {
       <b>The Logistics group</b> is responsible for all transportation and logistics related to the competition in a cost-effective manner. This includes everything from transportation planning, customs clearance, documentation, equipment handling, supply chain logistics, and compliance with various regulations that must be followed. The team also ensures that every piece of equipment, from the solar car itself to the smallest tools, arrives on time and in perfect condition. They manage both international and domestic logistics, coordinating with shipping companies, airlines, and local service providers to streamline the process. The group is essential in allowing the rest of the team to focus solely on the competition without having to worry about the practicalities of transport and logistics. Their work guarantees that all resources are in the right place at the right time, enabling the team to perform at their best.
     </p>
   ),
-  //'Technical advisor': <p></p>,
+  //'Technical advisors': <p></p>,
   /*'Alumni': (
     <p>
       <b>The Alumni</b> consists of former Nordlys members. We are proud to present our former members who all contributed to shaping Nordlys into the organization it is today.
@@ -90,7 +90,7 @@ const TeamOverview = () => {
   }, []);
 
   const groupsToShow = project.groups.filter(
-    group => !['Alumni', 'Technical advisor'].includes(group)
+    group => !['Alumni', 'Technical advisors'].includes(group)
   );
 
   return (
