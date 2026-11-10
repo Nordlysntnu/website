@@ -10,7 +10,7 @@
     "Mechanical",
     "Electrical",
     "Software",
-    "Technical advisor"
+    "Technical advisors"
   ],
   "members": [
     {
@@ -385,7 +385,7 @@
       "id": 194,
       "title": "Electrical Advisor",
       "group": [
-        "Technical advisor"
+        "Technical advisors"
       ],
       "phone": null
     },
@@ -393,7 +393,7 @@
       "id": 48,
       "title": "Mechanical Advisor",
       "group": [
-        "Technical advisor"
+        "Technical advisors"
       ],
       "phone": null
     },
@@ -401,7 +401,7 @@
       "id": 195,
       "title": "Previous Member of ACE Solar Racing",
       "group": [
-        "Technical advisor"
+        "Technical advisors"
       ],
       "phone": null
     }

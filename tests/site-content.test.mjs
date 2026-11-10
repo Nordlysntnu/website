@@ -10,7 +10,7 @@ const current = selectProject(projects);
 const order = ['Board','Business','Marketing','Logistics','Aero & Composites','Mechanical','Electrical','Software'];
 
 test('current team groups and homepage follow the requested order including Business', () => {
-  assert.deepEqual(current.groups, [...order, 'Technical advisor']);
+  assert.deepEqual(current.groups, [...order, 'Technical advisors']);
   const cards = [...read('src/features/home/Disciplines.js').matchAll(/<Discipline[^>]*title="([^"]+)"/g)].map(match => match[1]);
   assert.deepEqual(cards, order);
   const intro = read('src/pages/team.js');
@@ -26,7 +26,7 @@ test('Sander is Technical Leader and Oliver Vanem remains an Aero & Composites m
 });
 
 test('all three technical advisors have local portrait files and no published phone numbers', () => {
-  const advisors = getGroupMembers(current,'Technical advisor');
+  const advisors = getGroupMembers(current,'Technical advisors');
   assert.deepEqual(new Set(advisors.map(member=>member.name)), new Set(['Steve Völler','Shivaraj Chandrakant Patil','Rafael Bölsterli']));
   for (const advisor of advisors) {
     assert.ok(advisor.image && !advisor.image.includes('photo-coming-soon'), advisor.name);

@@ -18,7 +18,7 @@ const definitions = [
   {
     year: 2025,
     name: 'Project 2025',
-    groups: ['Mechanical', 'Technical advisor', 'Alumni'],
+    groups: ['Mechanical', 'Technical advisors', 'Alumni'],
     members: [
       { id: 1, title: 'Mechanical Engineer', group: ['Mechanical'] },
       { id: 2, title: 'Former member', group: ['Alumni'] },
@@ -182,4 +182,10 @@ test('legacy Chassis links select Aero & Composites in both current and historic
     assert.equal(group, 'Aero & Composites');
     assert.deepEqual(getGroupMembers(project, group).map(member => member.id), [1]);
   }
+});
+
+test('old Technical advisor links still open the Technical advisors group', () => {
+  const [project2025] = buildProjects(profiles, definitions).filter(project => project.year === 2025);
+  assert.equal(selectGroup(project2025, 'technical advisor'), 'Technical advisors');
+  assert.equal(selectGroup(project2025, 'Technical Advisors'), 'Technical advisors');
 });

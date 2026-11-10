@@ -14,7 +14,7 @@ Board roles use Head of titles: Sander is Technical Leader, Oliver is Head of HR
 
 Use `Aero & Composites` consistently for the 2027 group. Existing links using `Aero- and composites` still resolve to the renamed group. Elias Hatleskog is an Aero & Composites Member. Jonas's email and phone and Tahir's email and LinkedIn come from the updated contact table.
 
-The Technical advisor tab includes Steve Völler as Electrical Advisor, Shivaraj Chandrakant Patil as Mechanical Advisor and Rafael Bölsterli as Previous Member of ACE Solar Racing. Reuse Shivaraj's existing profile ID 48. Advisors are displayed in their own tab, following the existing convention for historical projects.
+The Technical advisors tab includes Steve Völler as Electrical Advisor, Shivaraj Chandrakant Patil as Mechanical Advisor and Rafael Bölsterli as Previous Member of ACE Solar Racing. Reuse Shivaraj's existing profile ID 48. Advisors are displayed in their own tab, following the existing convention for historical projects.
 
 The "Alt mulig rart" group and its member were removed from 2027; historical memberships are preserved.
 
@@ -57,7 +57,7 @@ For example, a future project file could contain:
 
 This is an example, not a confirmed roster. ID 200 would first need a corresponding profile.
 
-The newest project is selected by default. Its group list controls the menu order. `All members` is added automatically. The legacy `All active members` tag is kept in memberships but is not a menu entry. Include `Alumni` or `Technical advisor` in a project's groups when that year has those memberships.
+The newest project is selected by default. Its group list controls the menu order. `All members` is added automatically. The legacy `All active members` tag is kept in memberships but is not a menu entry. Include `Alumni` or `Technical advisors` in a project's groups when that year has those memberships.
 
 The year selector applies to individual groups as well as the full team. If a group does not exist in the next selected year, the page switches to `All members`.
 
@@ -76,6 +76,6 @@ The data loader rejects duplicate IDs, missing profiles, duplicate years and mem
 
 Profiles without a photo are displayed last within each group. Members with photos retain their existing order, including confirmed leaders. Kristian Sæberg reuses his existing profile and 2026 portrait; Oliver Vanem uses the shared placeholder until a portrait is supplied. The legacy Chassis group link resolves to Aero & Composites.
 
-The current group order is Board, Business, Marketing, Logistics, Aero & Composites, Mechanical, Electrical, Software, then Technical advisor. The homepage and recruitment page use the same order.
+The current group order is Board, Business, Marketing, Logistics, Aero & Composites, Mechanical, Electrical, Software, then Technical advisors. The homepage and recruitment page use the same order.
 
 Advisor portraits now use the official NTNU profile photos in `/members/advisors/`, with source links and photo credits on the advisor cards. See `docs/small-fixes-sources.md` for the original URLs and concept-review source.
