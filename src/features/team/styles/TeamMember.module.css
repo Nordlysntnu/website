@@ -1,9 +1,8 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 240px;
-    height: 350px;
+    min-height: 380px;
     max-width: 200px;
     cursor: pointer;
     transition: 250ms all ease;
@@ -27,6 +26,14 @@
 .textContainer {
     padding-top: 1em;
     text-align: center;
+}
+
+/* Contact row and Join button sit at the bottom, so they line up across a row of cards. */
+.bottom {
+    margin-top: auto;
+    padding-top: 0.5em;
+    display: flex;
+    justify-content: center;
 }
 
 .name {
