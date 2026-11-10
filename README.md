@@ -168,3 +168,7 @@ After deploying, check the affected live pages, navigation, images and forms. Me
 ## Automated checks
 
 `npm test` checks team data, recruitment, content and scroll behaviour. After `npm run build`, run `npm run test:export` to check the generated home, team, About, Join and blog pages. The Website checks workflow runs these on pull requests to main and on the small-fixes branch. Its page-preview artifact contains HTML, Next.js assets and the new article/advisor photos; it is not a complete archive of every existing public image. The existing deploy workflow remains unchanged and runs after a push or merge to main.
+
+## CMS development (issue #78)
+
+The CMS source is in [cms/](cms/README.md), with its own dependencies and accounts. It has a local website+CMS preview and a proposed separate service on the existing VM. See [production preparation](cms/docs/production.md) for account bootstrap, persistent storage and backups. It does not yet publish articles to the production website.

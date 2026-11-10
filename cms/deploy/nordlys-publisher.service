@@ -1,0 +1,33 @@
+[Unit]
+Description=Nordlys static website publisher
+After=network-online.target nordlys-cms.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nordlys-cms
+Group=nordlys-cms
+WorkingDirectory=/opt/nordlys/website/cms
+Environment=NODE_ENV=production
+Environment=CMS_ENV=production
+# Dedicated Node 24.22+ in /opt/nordlys/node; the system Node is left alone.
+Environment=PATH=/opt/nordlys/node/bin:/usr/bin:/bin
+Environment=HOME=/var/cache/nordlys-cms-npm
+Environment=npm_config_cache=/var/cache/nordlys-cms-npm
+EnvironmentFile=/etc/nordlys-cms.env
+ExecStart=/opt/nordlys/node/bin/npm run publish:worker
+Restart=on-failure
+RestartSec=15
+TimeoutStopSec=45
+KillMode=control-group
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/nordlys-cms /var/www/nordlys /var/cache/nordlys-cms-npm
+# The source checkout and its installed dependencies stay read-only to this service.
+# /var/www/nordlys contains only generated public releases and the current symlink.
+
+[Install]
+WantedBy=multi-user.target

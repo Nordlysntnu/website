@@ -64,6 +64,13 @@ jobs:
 
           echo "Starting Nordlys deployment run..."
 
+          # After CMS cutover this path is an immutable-release symlink.
+          # A legacy artifact must never overwrite a CMS-built release.
+          if [ -L /var/www/nextapp ] || [ -f /var/www/nextapp/publication.json ]; then
+            echo "CMS website publication is active. Use the dedicated publisher service."
+            exit 1
+          fi
+
           rsync -a --delete-delay --delay-updates \
           site/ /var/www/nextapp/
 

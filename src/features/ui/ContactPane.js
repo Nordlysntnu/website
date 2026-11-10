@@ -48,6 +48,10 @@ export default function ContactPane() {
             return
         }
 
+        if (process.env.NEXT_PUBLIC_LOCAL_PREVIEW === 'true') {
+            setShow('local');
+            return;
+        }
         setLoading(true)
         setShow("none")
 
@@ -117,6 +121,7 @@ export default function ContactPane() {
                 )}
                 <button className={styles.submit}>{loading ? "Loading..." : "Submit"}</button>
                 <label className={styles.error} style={{display: (show === "error")? "inline-block" : "none"}}><span className={styles.icon}>!</span>Something went wrong. Please try again</label>
+                <p role="status" style={{display: show === "local" ? "block" : "none"}}>Local test complete — nothing was sent.</p>
                 <label className={styles.success} style={{display: (show === "success")? "inline-block" : "none"}}><span className={styles.icon}>&#10003;</span>Success</label>
             </form>
         </div>
