@@ -5,7 +5,7 @@ import ThemeToggle from './ThemeToggle';
 import { useState, useEffect } from 'react';
 
 export default function NavBar({ current }) {
-    const pages = [["Home", "/"], ["About", "/about"], ["Team", "/team"], ["Partners", "/partners"], ["Blog", "/blog"], ["Wiki", "https://wiki.nordlysntnu.no"]]
+    const pages = [["Home", "/"], ["About", "/about"], ["Team", "/team"], ["Partners", "/partners"], ["Blog", "/blog"]]
     const [clicked, setClicked] = useState(false);
     const [displayState, setDisplayState] = useState('none')
     const [topLine, setTopLine] = useState(`${styles.topLine}`)

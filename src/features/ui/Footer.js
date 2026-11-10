@@ -37,7 +37,10 @@ export default function Footer() {
                     <p><Link href="tel:+4747884360">+47 478 84 360</Link></p>
                 </div>
             </div>
-            <center>Created by and for students.</center>
+            <p className={styles.bottomLine}>
+                <span>Created by and for students.</span>
+                <a href="https://wiki.nordlysntnu.no" target="_blank" rel="noopener noreferrer" className={styles.wikiLink}>Member wiki ↗</a>
+            </p>
         </Content>
         </>
     )

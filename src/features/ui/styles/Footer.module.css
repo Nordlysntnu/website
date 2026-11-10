@@ -50,6 +50,25 @@
     min-width: 200px;
 }
 
+.bottomLine {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4em 1.5em;
+    font-size: 0.9em;
+}
+
+.wikiLink {
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    opacity: 0.75;
+    transition: 250ms ease opacity;
+}
+
+.wikiLink:hover {
+    opacity: 1;
+}
+
 /* Dark mode */
 :global(html[data-theme="dark"]) .topRibbon { background-color: var(--dk-surface); }
 :global(html[data-theme="dark"]) .innerContainer { background-color: var(--dk-card); box-shadow: 0 0 0 1px var(--dk-border); }
