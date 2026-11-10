@@ -1,74 +1,227 @@
-.topRibbon {
-    margin-top: 1em;
-    padding: 0.5em 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    color: white;
+/* ---------- Contact section ---------- */
+.contact {
+    padding: clamp(3rem, 6vw, 5rem) var(--content-padding-inline, clamp(1.25rem, 4vw, 4rem));
+    color: #152242;
+    background: #f3f5f8;
+    scroll-margin-top: 5rem;
+}
+
+.contactInner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    max-width: var(--content-max-width, 82rem);
+    margin: 0 auto;
+}
+
+.eyebrow {
+    margin-bottom: 0.75rem;
+    color: #b20b3a;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.title {
+    margin-bottom: 1rem;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 600;
+    line-height: 1.05;
+}
+
+.lead {
+    max-width: 38ch;
+    color: #414b60;
+    line-height: 1.7;
+}
+
+.person {
     display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid #ff1053;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background: #ffffff;
+}
+
+.personRole {
+    color: #5c6577;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.personName {
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+.person a {
+    width: fit-content;
+    color: #b20b3a;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.25em;
+    transition: 150ms ease text-decoration-color;
+    overflow-wrap: anywhere;
+}
+
+.person a:hover {
+    text-decoration-color: currentColor;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    padding: 0 var(--content-padding-inline, clamp(1.25rem, 4vw, 4rem));
+    color: #ced6e9;
+    background: #0e1833;
+}
+
+.footerInner {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    max-width: var(--content-max-width, 82rem);
+    margin: 0 auto;
+    padding: clamp(3rem, 5vw, 4rem) 0 2.5rem;
+}
+
+.brand p {
+    max-width: 28ch;
+    margin: 0.9rem 0 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #ffffff;
+    font-size: 1.5rem;
+}
+
+.logo img {
+    height: 2rem;
+}
+
+.socials {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.socials a {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    transition: 150ms ease all;
 }
 
-.innerContainer {
-    padding: 0.2em 3em;
-    border-radius: 100px;
+.socials a:hover {
+    border-color: #ff1053;
+    background: #ff1053;
+}
+
+.socials img {
+    height: 1.05rem;
+    width: auto;
+}
+
+.column h3 {
+    margin-bottom: 0.9rem;
+    color: #ffffff;
+    font-family: var(--font-rubik), sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.column address {
+    font-size: 0.9rem;
+    font-style: normal;
+    line-height: 1.7;
+}
+
+.column ul {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    font-size: inherit;
-    border: none;
-    background-color: rgba(21, 34, 66, 1);
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    list-style: none;
 }
 
-.innerContainer span {
-    transform: scale(0.9);
-    transition: 250ms ease all;
-}
-
-.innerContainer:hover span {
-    transform: scale(1);
-}
-
-.header {
-    font-weight: normal;
-    font-size: 1.5em;
-    margin-bottom: 1em;
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1em;
-    margin-bottom: 3em;
-}
-
-.textContainer {
-    width: 32%;
-    min-width: 200px;
-}
-
-.bottomLine {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.4em 1.5em;
-    font-size: 0.9em;
-}
-
-.wikiLink {
+.column a:hover {
+    color: #ffffff;
     text-decoration: underline;
     text-underline-offset: 0.25em;
-    opacity: 0.75;
-    transition: 250ms ease opacity;
 }
 
-.wikiLink:hover {
-    opacity: 1;
+.bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    max-width: var(--content-max-width, 82rem);
+    margin: 0 auto;
+    padding: 1.25rem 0 1.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+}
+
+.toTop {
+    padding: 0.4rem 0;
+    border: 0;
+    color: inherit;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+.toTop:hover {
+    color: #ffffff;
+}
+
+.footer a:focus-visible,
+.toTop:focus-visible {
+    outline: 2px solid #ff1053;
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .contactInner {
+        grid-template-columns: 1fr;
+    }
+
+    .footerInner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .footerInner {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Dark mode */
-:global(html[data-theme="dark"]) .topRibbon { background-color: var(--dk-surface); }
-:global(html[data-theme="dark"]) .innerContainer { background-color: var(--dk-card); box-shadow: 0 0 0 1px var(--dk-border); }
+:global(html[data-theme="dark"]) .contact { color: var(--dk-text); background: var(--dk-surface-2); }
+:global(html[data-theme="dark"]) .eyebrow { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .title { color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .lead,
+:global(html[data-theme="dark"]) .personRole { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .person { background: var(--dk-card); }
+:global(html[data-theme="dark"]) .person a { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .footer { background: #070d1d; }

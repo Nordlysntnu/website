@@ -101,29 +101,40 @@ export default function ContactPane() {
     }
 
     return (
-        <div className={styles.container}>
-            <p className={styles.textContainer}>Do you want to come in contact with us? The easiest way is to fill in the form!</p>
-            <div className={styles.vertLine}></div>
-            <form className={styles.formContainer} ref={formRef} onSubmit={handleSubmit}>
-                <label className={styles.labelRequired} htmlFor="from">From:</label>
-                <input className={styles.input} type="text" id={styles.email} name="email" placeholder='example@example.com' />
-                {errors.email && (
-                    <div className={styles.errorText}>{errors.email}</div>
-                    )}
-                <input className={styles.input} type="text" id={styles.first} name="first" placeholder='Ola' />
-                <input className={styles.input} type="text" id={styles.last} name="last" placeholder='Nordmann' />
-                <label className={styles.label} htmlFor="topic">Topic:</label>
-                <input className={styles.input} type="text" id={styles.topic} name="topic" placeholder='Topic' />
-                <label className={styles.labelRequired} htmlFor="message">Message:</label>
-                <textarea className={styles.input} id={styles.message} name="message" placeholder="Write your message here" />
-                {errors.message && (
-                    <div className={styles.errorText}>{errors.message}</div>
-                )}
-                <button className={styles.submit}>{loading ? "Loading..." : "Submit"}</button>
-                <label className={styles.error} style={{display: (show === "error")? "inline-block" : "none"}}><span className={styles.icon}>!</span>Something went wrong. Please try again</label>
-                <p role="status" style={{display: show === "local" ? "block" : "none"}}>Local test complete — nothing was sent.</p>
-                <label className={styles.success} style={{display: (show === "success")? "inline-block" : "none"}}><span className={styles.icon}>&#10003;</span>Success</label>
-            </form>
-        </div>
+        <form className={styles.form} ref={formRef} onSubmit={handleSubmit} noValidate>
+            <div className={`${styles.field} ${styles.wide}`}>
+                <label className={styles.labelRequired} htmlFor="contact-email">Email</label>
+                <input className={styles.input} type="email" id="contact-email" name="email" placeholder="ola.nordmann@example.com" autoComplete="email"
+                    aria-invalid={errors.email ? true : undefined} aria-describedby={errors.email ? 'contact-email-error' : undefined} />
+                {errors.email && <div id="contact-email-error" className={styles.errorText}>{errors.email}</div>}
+            </div>
+            <div className={styles.field}>
+                <label className={styles.label} htmlFor="contact-first">First name</label>
+                <input className={styles.input} type="text" id="contact-first" name="first" placeholder="Ola" autoComplete="given-name" />
+            </div>
+            <div className={styles.field}>
+                <label className={styles.label} htmlFor="contact-last">Last name</label>
+                <input className={styles.input} type="text" id="contact-last" name="last" placeholder="Nordmann" autoComplete="family-name" />
+            </div>
+            <div className={`${styles.field} ${styles.wide}`}>
+                <label className={styles.label} htmlFor="contact-topic">Topic</label>
+                <input className={styles.input} type="text" id="contact-topic" name="topic" placeholder="Sponsorship, joining, press …" />
+            </div>
+            <div className={`${styles.field} ${styles.wide}`}>
+                <label className={styles.labelRequired} htmlFor="contact-message">Message</label>
+                <textarea className={`${styles.input} ${styles.message}`} id="contact-message" name="message" placeholder="Write your message here"
+                    aria-invalid={errors.message ? true : undefined} aria-describedby={errors.message ? 'contact-message-error' : undefined} />
+                {errors.message && <div id="contact-message-error" className={styles.errorText}>{errors.message}</div>}
+            </div>
+            <div className={`${styles.actions} ${styles.wide}`}>
+                <button className={styles.submit} disabled={loading}>{loading ? 'Sending…' : 'Send message'}</button>
+                <div role="status" aria-live="polite">
+                    {show === 'error' && <p className={styles.error}><span className={styles.icon}>!</span>Something went wrong. Please try again.</p>}
+                    {show === 'success' && <p className={styles.success}><span className={styles.icon}>&#10003;</span>Thanks! Your message was sent.</p>}
+                    {show === 'local' && <p className={styles.note}>Local test complete — nothing was sent.</p>}
+                    {formError && <p className={styles.errorText}>{formError}</p>}
+                </div>
+            </div>
+        </form>
     )
 }
