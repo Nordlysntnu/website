@@ -1,7 +1,7 @@
 name: CMS checks
 on:
   push:
-    branches: [cms]
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:

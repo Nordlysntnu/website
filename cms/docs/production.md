@@ -76,12 +76,14 @@ deploy/nordlys-cms-backup.service + .timer run deploy/backup-run.sh at 03:30 Osl
 
 Off-VM copies: on the administrator PC, with the Nordlys SSH key loaded, run `bash cms/scripts/pull-backup.sh` in Git Bash. It downloads the newest backup, encrypts it with your passphrase (AES-256, PBKDF2), proves it decrypts, and keeps 30 copies in ~/NordlysBackups/cms (outside the synced vault). Store the passphrase in the password manager. Run it at least weekly.
 
+Updating the VM: the checkout in /opt/nordlys/website tracks main (since 10 Nov 2026; it used the retired cms branch before). Take a backup, `git pull --ff-only` as nordlys-cms, run `npm ci` only if cms/package-lock.json changed and `npm run db:migrate` only if cms/src/migrations changed, then `npm run build` in cms/ with /etc/nordlys-cms.env loaded and `systemctl restart nordlys-cms`.
+
 To use an off-VM copy: `openssl enc -d -aes-256-cbc -pbkdf2 -iter 600000 -in FILE.tar.gz.enc | tar -xzf -`, copy the folder to the VM, then restore as below.
 
 Restore while both services are stopped: npm run restore -- /backup/location /new/data/location --stopped. It checks all listed checksums and database integrity and refuses to overwrite an existing directory. Review ownership and point CMS_DATA_DIR (and DATABASE_URL, if explicitly configured) at the restored location before starting. Test this procedure on the VM before launch. Restoring the DB and uploads does not restore DNS, certificates, application code or secrets.
 
 ## Publishing and remaining rollout gates
 
-The durable publisher, nine-article import, status feedback and retained releases are implemented on the cms branch. They remain disabled on the VM until a separately authorized cutover. Read [website-publication.md](website-publication.md) before enabling NORDLYS_PUBLISH_ENABLED. It covers the clean-main source requirement, public/private paths, old rsync guard, first build, Nginx switch and rollback. A successful CMS save is distinct from a successful static website update; use the publication status.
+The durable publisher, nine-article import, status feedback and retained releases are implemented on main. They remain disabled on the VM until a separately authorized cutover. Read [website-publication.md](website-publication.md) before enabling NORDLYS_PUBLISH_ENABLED. It covers the clean-main source requirement, public/private paths, old rsync guard, first build, Nginx switch and rollback. A successful CMS save is distinct from a successful static website update; use the publication status.
 
 Remaining gates: approved SMTP delivery, a VM restore drill and actual live publishing validation (cutover from the old rsync deploy). Source/SQLite/browser tests do not prove those external services. No team/sponsor editing or LinkedIn integration is included.
