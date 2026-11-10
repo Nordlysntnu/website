@@ -5,3 +5,7 @@
 .lightColor {
     color: rgb(178, 11, 58);
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .darkColor { color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .lightColor { color: var(--dk-accent); }

@@ -49,3 +49,7 @@
     width: 32%;
     min-width: 200px;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .topRibbon { background-color: var(--dk-surface); }
+:global(html[data-theme="dark"]) .innerContainer { background-color: var(--dk-card); box-shadow: 0 0 0 1px var(--dk-border); }

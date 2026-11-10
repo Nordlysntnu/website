@@ -63,3 +63,6 @@
         height: 48px;
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .link { color: var(--dk-accent); }

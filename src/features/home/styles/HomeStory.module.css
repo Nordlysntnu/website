@@ -65,3 +65,9 @@
         gap: 1.5rem;
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .caption,
+:global(html[data-theme="dark"]) .text { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .eyebrow,
+:global(html[data-theme="dark"]) .link { color: var(--dk-accent); }

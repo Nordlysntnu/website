@@ -18,3 +18,7 @@
     margin-left: auto; 
     margin-right: auto;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .container,
+:global(html[data-theme="dark"]) .memberContainer { background-color: var(--dk-surface); }

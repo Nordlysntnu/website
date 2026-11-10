@@ -202,3 +202,11 @@
         width: 100%;
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .vertLine { background-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .label,
+:global(html[data-theme="dark"]) .labelRequired { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .input { color: var(--dk-text); background-color: var(--dk-card); border-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .input:focus { border-color: rgba(255, 16, 83, 0.6); }
+:global(html[data-theme="dark"]) .input::placeholder { color: #8591aa; }

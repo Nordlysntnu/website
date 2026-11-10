@@ -22,3 +22,7 @@
 .link:hover.link::before {
     margin-right: 0.2em;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .link { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .link:hover { color: var(--dk-accent-hover); }

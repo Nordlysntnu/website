@@ -145,3 +145,9 @@
   justify-content: center;
   border-radius: 8px;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .blogEntry { border-color: var(--dk-border); background-color: var(--dk-card); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); }
+:global(html[data-theme="dark"]) .preadmore,
+:global(html[data-theme="dark"]) .blogEntry h1 { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .uncroppedImages { background: var(--dk-card); }

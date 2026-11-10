@@ -36,3 +36,7 @@
         padding: var(--content-padding-block, 1em) var(--content-padding-inline, 1em);
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .container { background-color: var(--dk-surface); }
+:global(html[data-theme="dark"]) .darkContainer { background-color: var(--dk-surface-2); }

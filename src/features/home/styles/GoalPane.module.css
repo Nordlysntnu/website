@@ -42,3 +42,7 @@
         max-width: none;
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .text { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .image { background-color: var(--dk-tile); border-radius: 50%; padding: 0.5rem; }

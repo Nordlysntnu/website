@@ -37,3 +37,6 @@
 .icon:last-of-type {
     margin: 0;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .innerContainer { background-color: var(--dk-band); }

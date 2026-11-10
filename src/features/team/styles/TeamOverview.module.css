@@ -211,3 +211,17 @@
     }
 }
 
+/* Dark mode */
+:global(html[data-theme="dark"]) .groupInfo,
+:global(html[data-theme="dark"]) .images img,
+:global(html[data-theme="dark"]) .body,
+:global(html[data-theme="dark"]) .headerSection { background-color: var(--dk-surface); }
+:global(html[data-theme="dark"]) .description { color: var(--dk-text); }
+:global(html[data-theme="dark"]) .groupTitle,
+:global(html[data-theme="dark"]) .yearNav button,
+:global(html[data-theme="dark"]) .yearTitle,
+:global(html[data-theme="dark"]) .emptyState { color: var(--dk-heading-soft); }
+/* Same color as the page behind it, so the group menu reads as one full-width bar. */
+:global(html[data-theme="dark"]) .navbar ul,
+:global(html[data-theme="dark"]) .mobileToggle,
+:global(html[data-theme="dark"]) .mobileNav { background-color: var(--dk-band); }
