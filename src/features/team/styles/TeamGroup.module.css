@@ -4,9 +4,11 @@
 }
 
 .memberContainer {
-    display: flex;
+    /* Equal-height rows, so name, title and contact icons line up on every card. */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    grid-auto-rows: 1fr;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 1em;
     background-color: rgba(255, 255, 255, 0.9);
     margin-top: 0%;
