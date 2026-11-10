@@ -32,6 +32,7 @@ export default buildConfig({
       actions: ['/components/AdminThemeToggle#AdminThemeToggle'],
       beforeDashboard: ['/components/DemoGuide#DemoGuide'],
       beforeLogin: ['/components/LoginNote#LoginNote'],
+      providers: ['/components/TwoFactorGate#TwoFactorGate'],
       graphics: { Logo: '/components/Logo#Logo', Icon: '/components/Logo#Icon' },
     },
   },

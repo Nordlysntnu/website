@@ -29,7 +29,9 @@
     "test:publication": "tsx --test tests/publication.test.ts",
     "test:browser": "node scripts/test-browser.mjs",
     "publish:preview": "tsx scripts/publish-preview.ts",
-    "publish:rollback": "tsx scripts/publish-rollback.ts"
+    "publish:rollback": "tsx scripts/publish-rollback.ts",
+    "2fa:reset": "tsx scripts/reset-2fa.ts",
+    "test:mfa": "tsx --test tests/mfa.test.ts"
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "3.92.1",
@@ -42,6 +44,7 @@
     "next": "16.4.3",
     "payload": "3.92.1",
     "proper-lockfile": "4.1.2",
+    "qrcode": "1.5.4",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "sharp": "0.35.5",
@@ -51,6 +54,7 @@
     "@playwright/test": "1.65.0",
     "@types/node": "^24.0.0",
     "@types/proper-lockfile": "4.1.4",
+    "@types/qrcode": "1.5.5",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "cross-env": "10.1.0",

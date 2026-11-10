@@ -1,11 +1,14 @@
 import { APIError, type CollectionConfig } from 'payload'
-import { administratorField, isAdministrator, isEditor } from '../access'
+import { administratorField, isAdministrator, isEditor, isSignedInMember } from '../access'
 import { editorialEndpoints } from '../lib/editorial-endpoints'
 import { accountEndpoints } from '../lib/account-endpoints'
+import { mfaEndpoints } from '../lib/mfa-endpoints'
+
+const secretField = { access: { read: () => false, create: () => false, update: () => false }, admin: { hidden: true } }
 
 export const Users: CollectionConfig = {
   slug: 'users',
-  endpoints: [...editorialEndpoints, ...accountEndpoints],
+  endpoints: [...editorialEndpoints, ...accountEndpoints, ...mfaEndpoints],
   labels: { singular: 'Account', plural: 'Accounts' },
   admin: {
     useAsTitle: 'name', group: 'Administration',
@@ -28,9 +31,10 @@ export const Users: CollectionConfig = {
     },
   },
   access: {
-    admin: ({ req }) => isEditor(req),
+    // Members reach the admin UI before 2FA so the two-factor screen can load; content access still requires 2FA.
+    admin: ({ req }) => isSignedInMember(req.user),
     create: () => false, // Only the controlled invitation endpoint / offline bootstrap can provision users.
-    read: ({ req }) => isAdministrator(req.user) ? true : isEditor(req) ? { id: { equals: req.user!.id } } : false,
+    read: ({ req }) => isAdministrator(req.user) ? true : isSignedInMember(req.user) ? { id: { equals: req.user!.id } } : false,
     update: ({ req }) => isAdministrator(req.user) ? true : isEditor(req) ? { id: { equals: req.user!.id } } : false,
     delete: () => false, // Deactivation preserves authorship and audit history.
   },
@@ -55,7 +59,7 @@ export const Users: CollectionConfig = {
           where: { and: [{ role: { equals: 'admin' } }, { active: { not_equals: false } }] } })
         if (admins.totalDocs <= 1) throw new APIError('Keep at least one active administrator.', 400)
       }
-      if (data.active === false || (data.role && data.role !== originalDoc.role)) data.sessions = []
+      if (data.active === false || (data.role && data.role !== originalDoc.role)) { data.sessions = []; data.mfaSessionIds = [] }
       return data
     }],
   },
@@ -73,6 +77,15 @@ export const Users: CollectionConfig = {
         { label: 'Administrator — accounts and publishing', value: 'admin' }],
       access: { create: administratorField, update: administratorField },
     },
+    { name: 'twoFactor', type: 'ui', admin: { components: { Field: '/components/AccountTwoFactor#AccountTwoFactor' } } },
+    { name: 'totpEnabledAt', type: 'date', label: 'Two-factor enabled',
+      access: { read: ({ req, doc }) => isAdministrator(req.user) || (!!req.user && doc?.id === req.user.id), create: () => false, update: () => false },
+      admin: { readOnly: true, position: 'sidebar', description: 'Set up with an authenticator app at first sign-in.' } },
+    // Two-factor internals: never readable or writable through the API; only server code changes them.
+    ...(['totpSecret', 'totpPendingSecret'] as const).map(name => ({ name, type: 'text' as const, ...secretField })),
+    ...(['totpLastStep', 'totpFailures'] as const).map(name => ({ name, type: 'number' as const, ...secretField })),
+    { name: 'totpLockedUntil', type: 'date', ...secretField },
+    { name: 'mfaSessionIds', type: 'json', ...secretField },
     { name: 'password', type: 'text', hidden: true,
       validate: (value: unknown) => !value || (typeof value === 'string' && value.length >= 12) || 'Use at least 12 characters for your password.' },
   ],

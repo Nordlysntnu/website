@@ -1,3 +1,4 @@
+import { prepareTwoFactorSchema } from './prepare-mfa-schema'
 import { legacyKeyFor } from '../../src/features/cms/legacy-posts.mjs'
 import { preparePublicationSchema } from './prepare-publication-schema'
 import { readFileSync } from 'node:fs'
@@ -11,6 +12,7 @@ process.loadEnvFile('.env.local')
 if (process.env.CMS_ENV === 'production') throw new Error('Demo seeding is disabled in production.')
 prepareLocalSchema()
 await preparePublicationSchema()
+await prepareTwoFactorSchema()
 const { default: config } = await import('../src/payload.config')
 const { blogs } = await import('../../src/shared/data/blog')
 const payload = await getPayload({ config })

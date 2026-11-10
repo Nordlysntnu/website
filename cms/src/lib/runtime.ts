@@ -19,6 +19,10 @@ export function cmsRuntime(env: Record<string, string | undefined> = process.env
   const expectedDatabase = 'file:' + path.join(dataDir, 'cms.db').replaceAll('\\', '/')
   if (production && databaseURL !== expectedDatabase) throw new Error('Production DATABASE_URL must point to cms.db inside CMS_DATA_DIR.')
   if (production && env.CMS_SCHEMA_PUSH === 'true') throw new Error('Production requires explicit migrations, never schema push.')
-  if (production && !env.SMTP_HOST) throw new Error('Configure SMTP before enabling production accounts.')
-  return { production, serverURL: url.origin, dataDir, databaseURL }
+  if (env.CMS_EMAIL_MODE && !['smtp', 'manual'].includes(env.CMS_EMAIL_MODE)) throw new Error('CMS_EMAIL_MODE must be smtp or manual.')
+  // manual: no mail is sent; administrators receive one-time setup links to pass on themselves.
+  // outbox (local default): messages are saved to the private local outbox.
+  const emailMode: 'smtp' | 'manual' | 'outbox' = env.CMS_EMAIL_MODE === 'manual' ? 'manual' : production ? 'smtp' : 'outbox'
+  if (production && emailMode === 'smtp' && !env.SMTP_HOST) throw new Error('Configure SMTP, or set CMS_EMAIL_MODE=manual until a relay is approved.')
+  return { production, serverURL: url.origin, dataDir, databaseURL, emailMode }
 }

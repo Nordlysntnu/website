@@ -149,6 +149,24 @@ export interface User {
   invitedAt?: string | null;
   notificationsReadAt?: string | null;
   role: 'marketing' | 'publisher' | 'admin';
+  /**
+   * Set up with an authenticator app at first sign-in.
+   */
+  totpEnabledAt?: string | null;
+  totpSecret?: string | null;
+  totpPendingSecret?: string | null;
+  totpLastStep?: number | null;
+  totpFailures?: number | null;
+  totpLockedUntil?: string | null;
+  mfaSessionIds?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   password?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -496,6 +514,13 @@ export interface UsersSelect<T extends boolean = true> {
   invitedAt?: T;
   notificationsReadAt?: T;
   role?: T;
+  totpEnabledAt?: T;
+  totpSecret?: T;
+  totpPendingSecret?: T;
+  totpLastStep?: T;
+  totpFailures?: T;
+  totpLockedUntil?: T;
+  mfaSessionIds?: T;
   password?: T;
   updatedAt?: T;
   createdAt?: T;

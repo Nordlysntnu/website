@@ -18,7 +18,13 @@ try {
       context: { accountProvisioning: true }, data: {
         name: account.name.trim(), email, role: 'admin', active: true, password: randomBytes(48).toString('base64url'),
       } })
-    await payload.forgotPassword({ collection: 'users', data: { email } })
-    console.log('Password setup email requested for ' + email)
+    if (process.env.CMS_EMAIL_MODE === 'manual') {
+      // No mail relay yet: print the one-hour link for the operator to deliver privately. Do not save this output.
+      const token = await payload.forgotPassword({ collection: 'users', data: { email }, disableEmail: true })
+      console.log('Setup link for ' + email + ' (valid one hour): ' + new URL('/admin/reset/' + encodeURIComponent(String(token)), process.env.CMS_URL).href)
+    } else {
+      await payload.forgotPassword({ collection: 'users', data: { email } })
+      console.log('Password setup email requested for ' + email)
+    }
   }
 } finally { await payload.destroy() }

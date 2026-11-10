@@ -6,6 +6,8 @@ import type { Post } from '../payload-types'
 import { ArticleStarters } from './ArticleStarters'
 import { editorialDate, reviewLabel } from '../lib/editorial'
 import { NotificationInbox } from './NotificationInbox'
+import { headers } from 'next/headers'
+import { mfaSatisfied } from '../lib/mfa'
 
 function Queue({ title, posts, empty, kind, total }: { title: string; posts: Post[]; empty: string; kind: string; total: number }) {
   return <section className="editorial-queue" aria-label={title}>
@@ -24,8 +26,10 @@ function Queue({ title, posts, empty, kind, total }: { title: string; posts: Pos
   </section>
 }
 
-export async function DemoGuide({ payload, user }: ServerProps) {
-  if (!user || !['marketing', 'publisher', 'admin'].includes(user.role) || user.active === false) return null
+export async function DemoGuide({ payload }: ServerProps) {
+  // Re-read the session so the user carries its session id, which the two-factor access rules need.
+  const { user } = await payload.auth({ headers: await headers() })
+  if (!user || !['marketing', 'publisher', 'admin'].includes(user.role) || user.active === false || !mfaSatisfied(user)) return null
   const publisher = ['publisher', 'admin'].includes(user.role)
   const local = process.env.CMS_ENV !== 'production'
   const connected = publicationConfig().enabled

@@ -7,7 +7,7 @@ import { cmsRuntime } from './runtime'
 
 export async function cmsEmail(env: Record<string, string | undefined> = process.env): Promise<EmailAdapter> {
   const runtime = cmsRuntime(env)
-  if (runtime.production) {
+  if (runtime.production && runtime.emailMode === 'smtp') {
     const port = Number(env.SMTP_PORT || '587')
     if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Set a valid SMTP_PORT.')
     if (!env.SMTP_FROM || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(env.SMTP_FROM)) throw new Error('Set SMTP_FROM to an approved sender address.')
@@ -22,7 +22,7 @@ export async function cmsEmail(env: Record<string, string | undefined> = process
       },
     })
   }
-  // Local tests/previews never send mail. Reset links are private local files.
+  // Local tests/previews and production manual mode never send mail. Messages are private local files.
   return () => ({
     name: 'local-outbox', defaultFromAddress: 'cms@example.test', defaultFromName: 'Nordlys CMS',
     sendEmail: async (message) => {

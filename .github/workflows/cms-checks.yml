@@ -31,6 +31,8 @@ jobs:
         run: npm --prefix cms run setup
       - name: Account and access tests
         run: npm --prefix cms run test:accounts
+      - name: Two-factor sign-in tests
+        run: npm --prefix cms run test:mfa
       - name: Editorial workflow tests
         run: npm --prefix cms run test:api
       - name: Runtime and theme tests

@@ -32,7 +32,7 @@ Can Arif Oraz and Tobias Johnsen Skånseng are the approved first production adm
 
 Administrators open Accounts to invite a member. The member receives a one-hour password setup link. The account page can resend it; Forgot password supports recovery. Passwords require at least 12 characters. Role changes and deactivation revoke current sessions. There is no public registration, including for an empty database. Deactivation preserves authored content; the database atomically protects the last active administrator.
 
-Local email is saved to .local/outbox/*.json instead of being sent. These private files contain reset links; do not serve or commit them. Production uses an explicitly configured SMTP relay with TLS. SMTP delivery and 2FA still need completion/verification before public rollout. Google Workspace login remains deferred.
+Local email is saved to .local/outbox/*.json instead of being sent. These private files contain reset links; do not serve or commit them. Production uses an explicitly configured SMTP relay with TLS. Production requires two-factor sign-in with an authenticator app (see docs/production.md). Without an approved SMTP relay, CMS_EMAIL_MODE=manual gives administrators setup links to pass on instead of sending mail. Google Workspace login remains deferred.
 
 Writers can create an article, choose a responsible reviewer or the shared queue, preview, and send for review. A selected reviewer does not prevent other publishers from helping. Publishers request changes with a private note or publish. The author receives in-app feedback/publication notifications. Autosaves do not repeatedly notify.
 
@@ -66,6 +66,7 @@ See [website-publication.md](docs/website-publication.md) for local port-4178 te
 npm run test:accounts
 npm run test:api
 npm run test:runtime
+npm run test:mfa
 npm run test:storage
 npm run test:publication
 npm run test:browser
@@ -79,10 +80,9 @@ The older npm test suite additionally requires a running local Next.js server an
 
 ## Remaining launch work
 
-- SSH capacity inspection, DNS/HTTPS, SMTP delivery and first real accounts.
-- 2FA required by issue #78; current password sign-in is not 2FA.
-- Off-VM backup destination/schedule/retention and a VM restore drill.
-- Inspect and authorize the VM publishing cutover, including disabling the old rsync deployment.
-- Review dependency advisories and record the production access/security checks.
+- SMTP relay (until then CMS_EMAIL_MODE=manual).
+- A restore drill on the VM using a pulled off-VM copy.
+- Authorize the VM publishing cutover, including disabling the old rsync deployment.
+- Dependency advisories (reviewed 10 Nov): remaining low/moderate items are inside Payload's own dependencies (drizzle-kit's esbuild dev server, which is never run in production, and deepmerge); no non-breaking fix exists. Recheck when upgrading Payload.
 
 Team/sponsor editing, Google Workspace SSO, scheduled articles and LinkedIn publication are not implemented in this increment.

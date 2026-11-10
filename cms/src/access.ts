@@ -1,8 +1,13 @@
 import type { Access, FieldAccess, PayloadRequest, Where } from 'payload'
-type Account = { role?: string; active?: boolean | null } | null | undefined
-export const isAdministrator = (user: Account) => user?.role === 'admin' && user.active !== false
-export const isPublisher = (user: Account) => user?.active !== false && ['publisher', 'admin'].includes(user?.role || '')
-export const isEditor = (req: Pick<PayloadRequest, 'user'>) => req.user?.active !== false && ['marketing', 'publisher', 'admin'].includes(req.user?.role || '')
+import { mfaSatisfied, type MfaAccount } from './lib/mfa'
+type Account = ({ role?: string; active?: boolean | null } & NonNullable<MfaAccount>) | null | undefined
+const roles = ['marketing', 'publisher', 'admin']
+/** An active CMS member, before the second factor is checked. Only for sign-in/2FA flows. */
+export const isSignedInMember = (user: Account) => !!user && user.active !== false && roles.includes(user.role || '')
+const verified = (user: Account) => isSignedInMember(user) && mfaSatisfied(user)
+export const isAdministrator = (user: Account) => verified(user) && user!.role === 'admin'
+export const isPublisher = (user: Account) => verified(user) && ['publisher', 'admin'].includes(user!.role || '')
+export const isEditor = (req: Pick<PayloadRequest, 'user'>) => verified(req.user as Account)
 export const editorsOnly: Access = ({ req }) => isEditor(req)
 export const publishersOnly: Access = ({ req }) => isPublisher(req.user)
 export const publishField: FieldAccess = ({ req }) => isPublisher(req.user)

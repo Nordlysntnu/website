@@ -1,3 +1,4 @@
+import { prepareTwoFactorSchema } from './prepare-mfa-schema'
 import { preparePublicationSchema } from './prepare-publication-schema'
 import { getPayload } from 'payload'
 import { prepareLocalSchema, prepareAccountGuards } from './prepare-local-schema'
@@ -7,6 +8,7 @@ import { prepareLocalSchema, prepareAccountGuards } from './prepare-local-schema
 process.loadEnvFile('.env.local')
 prepareLocalSchema()
 await preparePublicationSchema()
+await prepareTwoFactorSchema()
 const { default: config } = await import('../src/payload.config')
 const payload = await getPayload({ config })
 await payload.destroy()

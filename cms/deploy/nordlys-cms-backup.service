@@ -1,0 +1,25 @@
+[Unit]
+Description=Nordlys CMS nightly backup (database + uploads)
+After=nordlys-cms.service
+
+[Service]
+Type=oneshot
+User=nordlys-cms
+Group=nordlys-cms
+WorkingDirectory=/opt/nordlys/website/cms
+Environment=NODE_ENV=production
+Environment=CMS_ENV=production
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+EnvironmentFile=/etc/nordlys-cms.env
+UMask=0077
+# Stop the CMS and publisher so the database and uploads are one consistent state (a few seconds).
+ExecStartPre=+/usr/bin/systemctl stop nordlys-publisher.service nordlys-cms.service
+ExecStart=/opt/nordlys/website/cms/deploy/backup-run.sh
+# Always bring the services back, also when the backup fails.
+ExecStopPost=+/usr/bin/systemctl start nordlys-cms.service
+ExecStopPost=+/bin/sh -c 'systemctl is-enabled --quiet nordlys-publisher.service && systemctl start nordlys-publisher.service || true'
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/backups/nordlys-cms /var/lib/nordlys-cms
