@@ -2,9 +2,9 @@
 
 This runs both applications on the laptop. It works on a different network from the current computer and from NTNU OpenStack. No push, main-branch update, remote server access, VPN, port forwarding or deployment is needed.
 
-## Get the cms branch or a portable source copy
+## Get the source or a portable source copy
 
-For the latest pushed source, use a normal Git clone/checkout of the cms branch of Nordlysntnu/website. Keep main unchanged.
+For the latest pushed source, use a normal Git clone/checkout of the main branch of Nordlysntnu/website. The CMS lives in cms/ on main.
 
 For a portable copy, on the computer holding this checkout run npm run local:package from the repository root. Copy .local/portable/nordlys-local-test.zip to the laptop and extract it into a new folder.
 
@@ -66,4 +66,4 @@ npm --prefix cms run test:api
 npm --prefix cms run typecheck
 ~~~
 
-The cms branch also includes isolated account, publication and Chromium browser suites. See cms/README.md and cms/docs/website-publication.md for commands and the current evidence boundary. Local checks do not validate VM hosting, real email or form delivery.
+The repository also includes isolated account, publication and Chromium browser suites. See cms/README.md and cms/docs/website-publication.md for commands and the current evidence boundary. Local checks do not validate VM hosting, real email or form delivery.
