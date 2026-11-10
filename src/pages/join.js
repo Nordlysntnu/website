@@ -15,10 +15,11 @@ import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.p
 import Marketing from '@assets/symbols-and-logos/Marketing.png';
 import Logistics from '@assets/symbols-and-logos/Logistics.png';
 import Management from '@assets/symbols-and-logos/Management.png';
+import Board from '@assets/symbols-and-logos/Board.png';
 
 export async function getStaticProps() {
   const imageMap = {
-    board: Management.src,
+    board: Board.src,
     business: Management.src,
     marketing: Marketing.src,
     logistics: Logistics.src,
