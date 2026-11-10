@@ -1,6 +1,7 @@
 import styles from './styles/NavBar.module.css';
 import Logo from '@assets/symbols-and-logos/Logo.png';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 import { useState, useEffect } from 'react';
 
 export default function NavBar({ current }) {
@@ -60,6 +61,7 @@ export default function NavBar({ current }) {
                             })
                         }
                         <Link className={`${styles.menuLink} ${styles.joinLink}`} href="/join">Join</Link>
+                        <ThemeToggle />
                         <button type="button" className={styles.hamburgerContainer} onClick={openMenu} aria-label={clicked ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={clicked} aria-controls="mobile-main-menu">
                             <svg className={styles.hamburger} viewBox="-150 -150 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                 <rect className={topLine} x="-150" y="-150" width="300" height="30" fill="white"/>

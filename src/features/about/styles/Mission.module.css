@@ -35,3 +35,7 @@
 .markdown p {
     margin-bottom: 1em;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .markdown a { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .markdown a:hover { color: var(--dk-accent-hover); }

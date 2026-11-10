@@ -165,3 +165,12 @@
     text-decoration: underline;
     text-underline-offset: 0.15em;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .container { background-color: var(--dk-card); }
+:global(html[data-theme="dark"]) .container:hover { background-color: var(--dk-card-hover); }
+:global(html[data-theme="dark"]) .name { color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .position,
+:global(html[data-theme="dark"]) .photoCredit { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .link { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .link:hover { color: var(--dk-accent-hover); }

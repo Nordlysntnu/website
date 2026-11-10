@@ -34,3 +34,7 @@
 .icon:last-of-type {
     margin: 0;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .container { background-color: var(--dk-surface); }
+:global(html[data-theme="dark"]) .innerContainer { background-color: var(--dk-card); box-shadow: 0 0 0 1px var(--dk-border); }

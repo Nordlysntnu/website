@@ -148,3 +148,8 @@
         margin-top: 1em;
     }
 }
+
+.menu {
+    display: flex;
+    align-items: center;
+}

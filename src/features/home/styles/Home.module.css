@@ -29,3 +29,6 @@
     outline: 3px solid #ff1053;
     outline-offset: 5px;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .home { color: var(--dk-text); }

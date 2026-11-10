@@ -1,0 +1,31 @@
+.toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-left: 0.75em;
+    padding: 0;
+    border: 0;
+    border-radius: 100px;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: 250ms ease all;
+}
+
+.toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.toggle:hover {
+    opacity: 1;
+    color: rgb(255, 16, 83);
+}
+
+.toggle:focus-visible {
+    outline: 3px solid #ff1053;
+    outline-offset: 2px;
+}

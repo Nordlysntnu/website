@@ -100,3 +100,9 @@
     display: inline-block;
     margin-top: 1em;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .group { background-color: var(--dk-card); }
+:global(html[data-theme="dark"]) .openIcon,
+:global(html[data-theme="dark"]) .closeIcon { fill: var(--dk-heading); }
+:global(html[data-theme="dark"]) .titleImage { background-color: var(--dk-tile); border-radius: 0.6rem; padding: 0.25rem; }

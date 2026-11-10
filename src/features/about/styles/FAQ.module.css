@@ -119,3 +119,16 @@
 .accordionContent a:hover::after {
     margin-left: 0.2em;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .accordionItem { background: var(--dk-card); border-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .accordionTitle { color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .accordionHeader:hover .accordionTitle,
+:global(html[data-theme="dark"]) .accordionItem.active .accordionTitle { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .accordionIcon::after,
+:global(html[data-theme="dark"]) .accordionIcon::before { background-color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .accordionItem.active .accordionIcon::after,
+:global(html[data-theme="dark"]) .accordionItem.active .accordionIcon::before { background-color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .accordionContent > div { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .accordionContent a { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .accordionContent a:hover { color: var(--dk-accent-hover); }
