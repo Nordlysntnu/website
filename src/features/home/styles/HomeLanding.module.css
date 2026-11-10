@@ -1,40 +1,49 @@
+/* Full-width hero: the car photo fills the section, text sits on a dark fade on the left. */
 .container {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: clamp(2.5rem, 4vw, 3.5rem) var(--content-padding-inline, 1.5rem);
+    display: flex;
+    align-items: center;
+    min-height: clamp(34rem, 82vh, 48rem);
+    padding: clamp(3rem, 6vw, 5rem) var(--content-padding-inline, 1.5rem);
     color: #ffffff;
     background: #152242;
     scroll-margin-top: 6rem;
 }
 
-.background {
+.image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    /* Photo fills the right side so the car never sits behind the headline. */
+    width: 78%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% 55%;
+    animation: settle 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.shade {
     position: absolute;
     inset: 0;
     z-index: -1;
-    opacity: 0.16;
-    pointer-events: none;
-    background: url('/posters/compressed/Ribbon.jpg') center / cover;
-}
-
-.background video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background:
+        linear-gradient(90deg, #152242 0%, #152242 22%, rgba(21, 34, 66, 0.7) 36%, rgba(21, 34, 66, 0.15) 52%, rgba(21, 34, 66, 0) 62%),
+        linear-gradient(0deg, rgba(21, 34, 66, 0.85) 0%, rgba(21, 34, 66, 0) 28%);
 }
 
 .innerContainer {
-    display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    align-items: center;
-    gap: clamp(2rem, 4vw, 4rem);
+    width: 100%;
     max-width: var(--content-max-width, 82rem);
     margin: 0 auto;
 }
 
-.copy,
-.figure {
-    min-width: 0;
+.copy {
+    max-width: 34rem;
+    animation: rise 0.9s 150ms ease-out both;
 }
 
 .eyebrow {
@@ -49,17 +58,18 @@
 .title {
     margin-bottom: 1.25rem;
     color: #ffffff;
-    font-size: clamp(3rem, 5.1vw, 4.75rem);
+    font-size: clamp(3rem, 6vw, 5.5rem);
     font-weight: 600;
-    line-height: 1.02;
+    line-height: 1;
     letter-spacing: -0.025em;
+    text-wrap: balance;
 }
 
 .text {
-    max-width: 42ch;
+    max-width: 38ch;
     color: #e0e5f0;
-    font-size: clamp(1rem, 1.25vw, 1.125rem);
-    line-height: 1.75;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    line-height: 1.7;
 }
 
 .actions {
@@ -67,7 +77,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem 1.75rem;
-    margin-top: 1.75rem;
+    margin-top: 2rem;
 }
 
 .primaryLink,
@@ -82,15 +92,17 @@
 }
 
 .primaryLink {
-    padding: 0.75rem 1.25rem;
+    padding: 0.75rem 1.4rem;
     border-radius: 0.25rem;
     color: #ffffff;
     background: #ce1046;
-    transition: background-color 150ms ease;
+    box-shadow: 0 10px 30px -10px rgba(206, 16, 70, 0.7);
+    transition: background-color 150ms ease, transform 150ms ease;
 }
 
 .primaryLink:hover {
     background: #b20b3a;
+    transform: translateY(-1px);
 }
 
 .secondaryLink {
@@ -103,51 +115,93 @@
     text-decoration-color: #ffffff;
 }
 
-.image {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-radius: 0.5rem;
-}
-
 .caption {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.25rem 1rem;
-    margin-top: 0.75rem;
+    position: absolute;
+    right: var(--content-padding-inline, 1.5rem);
+    bottom: 1.25rem;
     color: #cad2e3;
     font-size: 0.75rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-.caption span:first-child {
+.caption span {
+    margin-right: 0.5rem;
     color: #ffffff;
     font-weight: 500;
 }
 
+@keyframes settle {
+    from { transform: scale(1.06); }
+    to { transform: scale(1); }
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+    .image {
+        width: 70%;
+    }
+
+    .shade {
+        background:
+            linear-gradient(90deg, #152242 0%, #152242 30%, rgba(21, 34, 66, 0.7) 42%, rgba(21, 34, 66, 0.15) 56%, rgba(21, 34, 66, 0) 66%),
+            linear-gradient(0deg, rgba(21, 34, 66, 0.85) 0%, rgba(21, 34, 66, 0) 28%);
+    }
+}
+
+/* Phones and small tablets: photo on top at full width, text below it. */
 @media (max-width: 899px) {
-    .innerContainer {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .copy {
-        max-width: 36rem;
-    }
-
-    .title {
-        font-size: clamp(2.75rem, 7vw, 4rem);
+    .container {
+        display: block;
+        min-height: 0;
+        padding: 0 0 2.5rem;
     }
 
     .image {
-        aspect-ratio: 16 / 9;
+        position: relative;
+        z-index: 0;
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-height: 70vh;
+        object-position: 88% 62%;
+    }
+
+    .shade {
+        inset: auto 0 auto 0;
+        top: 0;
+        z-index: 1;
+        aspect-ratio: 1 / 1;
+        max-height: 70vh;
+        background: linear-gradient(0deg, #152242 0%, rgba(21, 34, 66, 0) 35%);
+    }
+
+    .innerContainer {
+        position: relative;
+        z-index: 2;
+        margin-top: -2.5rem;
+        padding: 0 var(--content-padding-inline, 1.25rem);
+    }
+
+    .caption {
+        position: absolute;
+        top: -1.5rem;
+        bottom: auto;
+        right: var(--content-padding-inline, 1.25rem);
+    }
+
+    .title {
+        font-size: clamp(2.6rem, 10vw, 4rem);
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .background video {
-        display: none;
+    .image,
+    .copy {
+        animation: none;
     }
 }

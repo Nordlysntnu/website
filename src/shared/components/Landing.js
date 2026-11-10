@@ -1,15 +1,20 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '@features/home/styles/HomeLanding.module.css';
 
 export default function Landing() {
     return (
         <section id="home-content" className={styles.container} aria-labelledby="home-title">
-            <div className={styles.background} aria-hidden="true">
-                <video autoPlay muted loop playsInline preload="none" poster="/posters/compressed/Ribbon.jpg">
-                    <source src="/videos/compressed/Stars.webm" type="video/webm" />
-                </video>
-            </div>
+            <img
+                className={styles.image}
+                src="/home/lumholtz-1600.webp"
+                srcSet="/home/lumholtz-960.webp 960w, /home/lumholtz-1600.webp 1600w"
+                sizes="100vw"
+                width={1600}
+                height={1067}
+                alt="Lumholtz, Nordlys NTNU's solar race car, on the road at Dragvoll"
+                fetchPriority="high"
+            />
+            <div className={styles.shade} aria-hidden="true" />
             <div className={styles.innerContainer}>
                 <div className={styles.copy}>
                     <p className={styles.eyebrow}>Nordlys NTNU · Solar racing</p>
@@ -28,21 +33,9 @@ export default function Landing() {
                         </Link>
                     </div>
                 </div>
-                <figure className={styles.figure}>
-                    <Image
-                        src="/blog/compressed/dragvoll1.webp"
-                        alt="Lumholtz, Nordlys NTNU's solar race car, during testing at Dragvoll"
-                        width={750}
-                        height={500}
-                        sizes="(min-width: 1440px) 680px, (min-width: 900px) 50vw, 100vw"
-                        priority
-                        className={styles.image}
-                    />
-                    <figcaption className={styles.caption}>
-                        <span>Lumholtz</span>
-                        <span>Our first solar race car</span>
-                    </figcaption>
-                </figure>
+                <p className={styles.caption}>
+                    <span>Lumholtz</span> Our first solar race car
+                </p>
             </div>
         </section>
     );
