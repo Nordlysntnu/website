@@ -44,3 +44,14 @@ test('an explicit light or dark preference is preserved without resetting it', (
     assert.equal(response.headers.get('x-middleware-request-cookie'), null)
   }
 })
+test('photos inside a photo row count as article photos for access and publishing', async () => {
+  const { postPhotoIDs, coverPhoto } = await import('../src/lib/blog')
+  const post = { coverImage: null, gallery: [], content: { root: { children: [
+    { type: 'paragraph', children: [{ type: 'text', text: 'Intro' }] },
+    { type: 'block', fields: { blockType: 'photoRow', photos: [{ image: 7 }, { image: { id: 8, url: '/api/media/file/8.webp', alt: 'Eight' } }] } },
+    { type: 'upload', relationTo: 'media', value: 9, fields: { layout: 'wide' } },
+    { type: 'block', fields: { blockType: 'somethingElse', photos: [{ image: 99 }] } },
+  ] } } } as never
+  assert.deepEqual(postPhotoIDs(post).sort(), [7, 8, 9])
+  assert.equal(coverPhoto(post)?.id, 8)
+})

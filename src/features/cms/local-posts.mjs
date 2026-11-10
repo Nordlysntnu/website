@@ -18,6 +18,11 @@ export function publicPhoto(value) {
         return { url: url.href, alt: String(value.alt || ''), width: value.width || null, height: value.height || null };
     } catch { return null; }
 }
+// How an inline photo sits in the article. Anything unknown falls back to the text column.
+export const photoLayouts = ['normal', 'wide', 'full', 'left', 'right'];
+export function photoLayout(value) {
+    return photoLayouts.includes(value) ? value : 'normal';
+}
 export function publicNodes(value, depth = 0, options = {}) {
     if (!Array.isArray(value) || depth > 30) return [];
     return value.flatMap((node) => {
@@ -26,7 +31,14 @@ export function publicNodes(value, depth = 0, options = {}) {
         if (node.type === 'linebreak') return [{ type: 'linebreak' }];
         if (node.type === 'upload' && node.relationTo === 'media') {
             const photo = (options.photo || publicPhoto)(node.value);
-            return photo ? [{ type: 'photo', photo, caption: String(node.fields?.caption || '') }] : [];
+            return photo ? [{ type: 'photo', photo, caption: String(node.fields?.caption || ''), layout: photoLayout(node.fields?.layout) }] : [];
+        }
+        if (node.type === 'block') {
+            if (node.fields?.blockType !== 'photoRow') return [];
+            const photos = (Array.isArray(node.fields.photos) ? node.fields.photos : [])
+                .map((row) => (options.photo || publicPhoto)(row?.image)).filter(Boolean).slice(0, 4);
+            if (!photos.length) return [];
+            return [{ type: 'photoRow', photos, caption: String(node.fields.caption || '') }];
         }
         const children = publicNodes(node.children, depth + 1, options);
         if (node.type === 'link' || node.type === 'autolink') {
@@ -48,7 +60,7 @@ export function publicPost(doc, options = {}) {
     if (doc?._status !== 'published' || !Number.isSafeInteger(doc.id) || doc.id <= 0) throw new Error('Expected a published article.');
     const nodes = publicNodes(doc.content?.root?.children, 0, options);
     const gallery = (Array.isArray(doc.gallery) ? doc.gallery : []).map((row) => (options.photo || publicPhoto)(row.image)).filter(Boolean);
-    const inlinePhoto = (items) => items.reduce((found, item) => found || item.photo || inlinePhoto(item.children || []), null);
+    const inlinePhoto = (items) => items.reduce((found, item) => found || item.photo || item.photos?.[0] || inlinePhoto(item.children || []), null);
     return { id: doc.id, legacyKey: doc.legacyKey || null, slug: doc.legacyKey || String(doc.id), title: String(doc.title || ''), summary: String(doc.summary || ''), author: String(doc.authorName || ''),
         department: String(doc.department || 'Team'), publishedAt: String(doc.publishedAt || ''), nodes,
         cover: (options.photo || publicPhoto)(doc.coverImage) || gallery[0] || inlinePhoto(nodes), gallery,

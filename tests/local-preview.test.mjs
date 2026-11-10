@@ -63,3 +63,33 @@ test('production config cannot enable the laptop preview and local build artifac
         else process.env.NEXT_PUBLIC_LOCAL_PREVIEW = previous;
     }
 });
+test('photo layouts and photo rows survive the public projection and the snapshot check', async () => {
+    const { validateSnapshot } = await import('../src/features/cms/snapshot-posts.mjs');
+    const photo = (name) => ({ url: `/api/media/file/${name}.webp`, alt: name });
+    const post = publicPost({ ...fixture, content: { root: { children: [
+        { type: 'upload', relationTo: 'media', value: photo('wide'), fields: { caption: 'Wide', layout: 'wide' } },
+        { type: 'upload', relationTo: 'media', value: photo('odd'), fields: { layout: 'sideways' } },
+        { type: 'block', fields: { blockType: 'photoRow', caption: 'Two at once', photos: [{ image: photo('a') }, { image: photo('b') }, { image: { url: 'https://evil.test/x.webp' } }] } },
+        { type: 'block', fields: { blockType: 'unknownBlock', secret: 'PRIVATE' } },
+    ] } } });
+    assert.equal(post.nodes[0].layout, 'wide');
+    assert.equal(post.nodes[1].layout, 'normal');
+    assert.equal(post.nodes[2].type, 'photoRow');
+    assert.deepEqual(post.nodes[2].photos.map((item) => item.alt), ['a', 'b']);
+    assert.equal(post.nodes[2].caption, 'Two at once');
+    assert.equal(post.nodes.length, 3);
+    assert.equal(JSON.stringify(post).includes('PRIVATE'), false);
+
+    const file = (name) => ({ url: `/cms-media/${'a'.repeat(63)}${name}.webp`, alt: name });
+    const snapshot = (nodes) => ({ schema: 1, managedLegacyKeys: [], posts: [{ id: 1, title: 'T', publishedAt: '2026-11-02T12:00:00.000Z', nodes }] });
+    const valid = validateSnapshot(snapshot([
+        { type: 'photo', photo: file('1'), caption: '', layout: 'left' },
+        { type: 'photo', photo: file('2'), caption: '', layout: '<script>' },
+        { type: 'photoRow', photos: [file('3'), file('4')], caption: 'Row', extra: 'PRIVATE' },
+    ]));
+    assert.deepEqual(valid.posts[0].nodes.map((node) => node.layout ?? node.type), ['left', 'normal', 'photoRow']);
+    assert.equal(JSON.stringify(valid).includes('PRIVATE'), false);
+    assert.throws(() => validateSnapshot(snapshot([{ type: 'photoRow', photos: [] }])), /photo row/);
+    assert.throws(() => validateSnapshot(snapshot([{ type: 'photoRow', photos: [file('5'), null] }])), /photo row/);
+    assert.throws(() => validateSnapshot(snapshot([{ type: 'photoRow', photos: [{ url: 'https://evil.test/x.webp' }] }])), /image/);
+});
