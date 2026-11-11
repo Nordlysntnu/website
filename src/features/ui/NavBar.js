@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function NavBar({ current }) {
-    const pages = [["Home", "/"], ["About", "/about"], ["Team", "/team"], ["Partners", "/partners"], ["Blog", "/blog"], ["Wiki", "https://wiki.nordlysntnu.no"]]
+    const pages = [["Home", "/"], ["About", "/about"], ["Team", "/team"], ["Partners", "/partners"], ["Blog", "/blog"], ["Wiki", "https://wiki.nordlysntnu.no"], ["Partner Login", "/cv"]]
     const [clicked, setClicked] = useState(false);
     const [displayState, setDisplayState] = useState('none')
     const [topLine, setTopLine] = useState(`${styles.topLine}`)
@@ -38,8 +38,9 @@ export default function NavBar({ current }) {
                 setClicked(false)
             }
         }
-        window.addEventListener('resize', handleResize)
-    })
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <div className={styles.navbar}>
@@ -52,9 +53,9 @@ export default function NavBar({ current }) {
                         {
                             pages.map((page) => {
                                 if (current == page[0]) {
-                                    return <Link className={`${styles.menuLink} ${styles.currentLink}`} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[1]} className={`${styles.menuLink} ${styles.currentLink}`} href={page[1]}>{page[0]}</Link>
                                 } else {
-                                    return <Link className={styles.menuLink} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[1]} className={styles.menuLink} href={page[1]}>{page[0]}</Link>
                                 }
                             })
                         }
@@ -71,9 +72,9 @@ export default function NavBar({ current }) {
                         {
                             pages.map((page) => {
                                 if (current == page[0]) {
-                                    return <Link className={`${styles.menuLink} ${styles.currentLink}`} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[1]} className={`${styles.menuLink} ${styles.currentLink}`} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
                                 } else {
-                                    return <Link className={styles.menuLink} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
+                                    return <Link key={page[1]} className={styles.menuLink} style={{display: 'inline-block'}} href={page[1]}>{page[0]}</Link>
                                 }
                             })
                         }

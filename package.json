@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "partner:reset": "node --env-file=.env.local scripts/reset-partner-password.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.3",
