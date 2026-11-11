@@ -2,19 +2,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "test": "node --test tests/*.test.mjs",
+    "test:export": "node --test tests/export-smoke.mjs",
     "build": "next build",
     "test:team": "node --test tests/team-data.test.mjs",
     "start": "next start",
     "export": "next export",
-    "local:setup": "npm --prefix cms run setup",
-    "local:check": "node scripts/local-dev.mjs --check",
-    "local:dev": "node scripts/local-dev.mjs",
-    "local:package": "node scripts/package-local.mjs",
-    "test:local": "node --test tests/local-preview.test.mjs",
-    "test": "node --test tests/*.test.mjs",
-    "test:export": "node --test tests/export-smoke.mjs"
+    "partner:reset": "node --env-file=.env.local scripts/reset-partner-password.mjs"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.3",
     "animate.css": "^4.1.1",
     "framer-motion": "^12.33.0",
     "next": "^16.4.1",

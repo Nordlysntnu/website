@@ -46,7 +46,15 @@ jobs:
       - name: Typecheck
         run: npm --prefix cms run typecheck
       - name: Website production build
-        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] || [ -z "$NEXT_PUBLIC_SUPABASE_ANON_KEY" ]; then
+            echo "::error::Set repository Actions secrets NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY. Both are required for the website build."
+            exit 1
+          fi
+          npm run build
       - name: Website regression tests
         run: npm test
       - name: Website export smoke tests
@@ -55,6 +63,9 @@ jobs:
         working-directory: cms
         run: npx playwright install --with-deps chromium
       - name: Browser editorial and static publication tests
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: npm --prefix cms run test:browser
       - name: Save browser screenshots
         if: always()
