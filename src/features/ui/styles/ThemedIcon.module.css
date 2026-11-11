@@ -1,0 +1,4 @@
+/* Show one version per theme.
+   !important: the icon's own class sets display, and module order is not fixed. */
+:global(html:not([data-theme="dark"])) .dark,
+:global(html[data-theme="dark"]) .light { display: none !important; }

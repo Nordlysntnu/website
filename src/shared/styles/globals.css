@@ -54,8 +54,6 @@ h1, h2, h3, h4, h5, h6 {
   --dk-heading-soft: #c7d0e3;
   --dk-accent: #ff6a93;
   --dk-accent-hover: #ff9db8;
-  /* Light tile behind navy line icons and sponsor logos. */
-  --dk-tile: #e9edf5;
 }
 
 html[data-theme="dark"] {
