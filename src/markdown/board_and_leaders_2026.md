@@ -159,14 +159,14 @@ The Group Leader Mechanical is responsible for all moving parts on the car. The 
 - Extensive contact with various companies in the mechanical engineering world
 - Strong leadership experience
 
-# Chassis
-## Group Leader Chassis
+# Aero & Composites
+## Group Leader Aero & Composites
 
-The Group Leader Chassis is responsible for the shell and internal structure of the car. This entails making and designing the shape of the car, designing and producing the rollcage, and interfacing with the electrical and mechanical components
+The Group Leader Aero & Composites is responsible for the shell and internal structure of the car. This entails making and designing the shape of the car, designing and producing the rollcage, and interfacing with the electrical and mechanical components
 
 *Areas of responsibility*
 - Lead the group responsible for shell, rollcage and high-level design of the vehicle
-- Ensuring that the chassis group produces reliable, safe designs in accordance with competition regulations
+- Ensuring that the Aero & Composites group produces reliable, safe designs in accordance with competition regulations
 - Maintaining contact with sponsors and vendors of mechanical components
 
 *What do you get out of being Group Leader Electrical?*

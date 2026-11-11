@@ -33,6 +33,11 @@
   color: #b20b3a;
 }
 
+.pcollapsed,
+.pexpanded {
+  white-space: pre-line;
+}
+
 .blogEntry h1 {
   color: #b20b3a;
   margin-top: 0pc;
@@ -119,6 +124,15 @@
   transition: opacity 0.2s ease;
 }
 
+.uncroppedImages {
+  aspect-ratio: 4 / 3;
+  background: #fff;
+}
+
+.uncroppedImages img {
+  object-fit: contain;
+}
+
 .moreOverlay {
   position: absolute;
   inset: 0;
@@ -131,3 +145,9 @@
   justify-content: center;
   border-radius: 8px;
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .blogEntry { border-color: var(--dk-border); background-color: var(--dk-card); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35); }
+:global(html[data-theme="dark"]) .preadmore,
+:global(html[data-theme="dark"]) .blogEntry h1 { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .uncroppedImages { background: var(--dk-card); }

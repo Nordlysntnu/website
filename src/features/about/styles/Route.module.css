@@ -109,3 +109,7 @@
         padding: 0;
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .container { border-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .path { stroke: var(--dk-heading-soft); }

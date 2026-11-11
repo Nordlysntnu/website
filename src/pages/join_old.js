@@ -5,6 +5,7 @@ import JoinForm from '@features/join/JoinForm';
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import PartHeader from '@shared/components/PartHeader';
+import Management from '@assets/symbols-and-logos/Management.png';
 
 export default function Join() {
   const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>
@@ -12,7 +13,7 @@ export default function Join() {
     
     'board': {
       'name': 'Board',
-      'image': 'Management.png',
+      'image': Management.src,
       //'projectManager': {name: 'Project Manager', text: <><br/>
       //The Project Manager is the leader of Nordlys NTNU and Project 2026. Your responsibility will be to set the overall direction of the organization and coordinate the technical and non-technical efforts of the project. Together with the rest of the Board you oversee the progress of the car, make sure that the organization is financially stable, and that the members is motivated. In addition, the project manager is the leader of the Board, both leading the board meetings and developing the Board as a well-functioning team.
       //<br/>

@@ -1,0 +1,105 @@
+{
+  "before": {
+    "desktop": {
+      "width": 1440,
+      "height": 900,
+      "pageHeight": 3826,
+      "contentWidth": 1000
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "pageHeight": 5917,
+      "clientWidth": 375
+    }
+  },
+  "after": [
+    {
+      "clientWidth": 1425,
+      "contentWidth": 1310,
+      "h1Count": 1,
+      "height": 900,
+      "heroImageRatio": "16 / 9",
+      "pageHeight": 2820,
+      "pageWidth": 1425,
+      "width": 1440
+    },
+    {
+      "clientWidth": 305,
+      "contentWidth": 265,
+      "h1Count": 1,
+      "height": 800,
+      "menuVisible": true,
+      "overflow": [],
+      "pageHeight": 4264,
+      "pageWidth": 305,
+      "width": 320
+    },
+    {
+      "clientWidth": 375,
+      "contentWidth": 335,
+      "h1Count": 1,
+      "height": 844,
+      "menuVisible": true,
+      "overflow": [],
+      "pageHeight": 4106,
+      "pageWidth": 375,
+      "width": 390
+    },
+    {
+      "clientWidth": 753,
+      "contentWidth": 692,
+      "h1Count": 1,
+      "height": 1024,
+      "menuVisible": false,
+      "overflow": [],
+      "pageHeight": 3725,
+      "pageWidth": 753,
+      "width": 768
+    },
+    {
+      "clientWidth": 885,
+      "contentWidth": 813,
+      "h1Count": 1,
+      "height": 900,
+      "menuVisible": false,
+      "overflow": [],
+      "pageHeight": 2718,
+      "pageWidth": 885,
+      "width": 900
+    },
+    {
+      "clientWidth": 1085,
+      "contentWidth": 997,
+      "h1Count": 1,
+      "height": 900,
+      "menuVisible": false,
+      "overflow": [],
+      "pageHeight": 2489,
+      "pageWidth": 1085,
+      "width": 1100
+    },
+    {
+      "clientWidth": 1265,
+      "contentWidth": 1163,
+      "h1Count": 1,
+      "height": 800,
+      "menuVisible": false,
+      "overflow": [],
+      "pageHeight": 2658,
+      "pageWidth": 1265,
+      "width": 1280
+    },
+    {
+      "clientWidth": 1905,
+      "contentWidth": 1312,
+      "h1Count": 1,
+      "height": 1080,
+      "menuVisible": false,
+      "overflow": [],
+      "pageHeight": 2816,
+      "pageWidth": 1905,
+      "width": 1920
+    }
+  ]
+}

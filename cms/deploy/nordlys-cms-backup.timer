@@ -1,0 +1,10 @@
+[Unit]
+Description=Nightly Nordlys CMS backup
+
+[Timer]
+OnCalendar=*-*-* 03:30:00 Europe/Oslo
+RandomizedDelaySec=10min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

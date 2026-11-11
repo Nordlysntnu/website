@@ -1,0 +1,46 @@
+# Installed on the VM as /etc/nginx/sites-available/nordlys-cms (symlinked in sites-enabled).
+# Separate from the public website's server blocks. Certificate: certbot certonly --nginx -d cms.nordlysntnu.no
+limit_req_zone $binary_remote_addr zone=nordlys_cms_auth:10m rate=10r/m;
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name cms.nordlysntnu.no;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl http2;  # nginx 1.24 on the VM; use 'http2 on;' from 1.25.1
+    server_name cms.nordlysntnu.no;
+    ssl_certificate /etc/letsencrypt/live/cms.nordlysntnu.no/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/cms.nordlysntnu.no/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy same-origin always;
+    add_header X-Frame-Options SAMEORIGIN always;
+
+    # 8 MB image limit plus multipart overhead; Payload still enforces 8 MB.
+    client_max_body_size 10m;
+
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Connection "";
+    proxy_read_timeout 60s;
+
+    # Slow down password and code guessing on top of Payload's own lockouts.
+    location ~ ^/api/users/(login|forgot-password|reset-password|2fa/verify)$ {
+        limit_req zone=nordlys_cms_auth burst=10 nodelay;
+        limit_req_status 429;
+        proxy_pass http://127.0.0.1:3010;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:3010;
+    }
+}

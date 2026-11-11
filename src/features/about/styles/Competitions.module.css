@@ -77,3 +77,9 @@
         height: auto;
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .intro a { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .intro a:hover { color: var(--dk-accent-hover); }
+/* Competition logos are made for white backgrounds. */
+:global(html[data-theme="dark"]) .imageContainer img { background-color: #ffffff; border-radius: 0.75rem; padding: 1rem; }

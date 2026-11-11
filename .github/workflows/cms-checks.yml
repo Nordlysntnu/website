@@ -1,0 +1,68 @@
+name: CMS checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cms:
+    name: CMS accounts, workflow and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.1'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            cms/package-lock.json
+      - name: Install website dependencies
+        run: npm ci
+      - name: Install CMS dependencies
+        run: npm --prefix cms ci
+      - name: Prepare isolated local CMS
+        run: npm --prefix cms run setup
+      - name: Account and access tests
+        run: npm --prefix cms run test:accounts
+      - name: Two-factor sign-in tests
+        run: npm --prefix cms run test:mfa
+      - name: Editorial workflow tests
+        run: npm --prefix cms run test:api
+      - name: Runtime and theme tests
+        run: npm --prefix cms run test:runtime
+      - name: Backup and restore tests
+        run: npm --prefix cms run test:storage
+      - name: Publication, import and recovery tests
+        run: npm --prefix cms run test:publication
+      - name: CMS production build
+        run: npm --prefix cms run build
+      - name: Typecheck
+        run: npm --prefix cms run typecheck
+      - name: Website production build
+        run: npm run build
+      - name: Website regression tests
+        run: npm test
+      - name: Website export smoke tests
+        run: npm run test:export
+      - name: Install Chromium
+        working-directory: cms
+        run: npx playwright install --with-deps chromium
+      - name: Browser editorial and static publication tests
+        run: npm --prefix cms run test:browser
+      - name: Save browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cms-browser-screenshots
+          path: |
+            cms/.local/browser/run-*/screenshots/*.png
+            cms/.local/browser/run-*/results/**/test-failed-*.png
+          if-no-files-found: ignore
+          retention-days: 7

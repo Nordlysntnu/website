@@ -1,5 +1,5 @@
 ## Do you get school credits for being a member of Nordlys?
-Yes, members of Nordlys qualify for the subjects [TPK4141](https://www.ntnu.no/studier/emner/TPK4141#tab=omEmnet) and [TPK4142](https://www.ntnu.no/studier/emner/TPK4142#tab=omEmnet) where the work you do for Nordlys makes up the assignment of the subject. In addition, leadership roles in Nordlys can qualify you for [IØ1003](https://www.ntnu.no/studier/emner/I%C3%981003) and [IØ1004](https://www.ntnu.no/studier/emner/I%C3%981004#tab=omEmnet) and roles in the Finance group can qualify you for [BINT3005](https://www.ntnu.no/studier/emner/BINT3005#tab=omEmnet) if you study Economics and Administration. In addition, a year in an organization such as Nordlys can be a game-changer for you CV, as well as being extremely fun!
+Yes, members of Nordlys qualify for the subjects [TPK4141](https://www.ntnu.no/studier/emner/TPK4141#tab=omEmnet) and [TPK4142](https://www.ntnu.no/studier/emner/TPK4142#tab=omEmnet) where the work you do for Nordlys makes up the assignment of the subject. In addition, leadership roles in Nordlys can qualify you for [IØ1003](https://www.ntnu.no/studier/emner/I%C3%981003) and [IØ1004](https://www.ntnu.no/studier/emner/I%C3%981004#tab=omEmnet) and finance roles in the Business group can qualify you for [BINT3005](https://www.ntnu.no/studier/emner/BINT3005#tab=omEmnet) if you study Economics and Administration. In addition, a year in an organization such as Nordlys can be a game-changer for your CV, as well as being extremely fun!
 
 ## How many hours is a Nordlys member expected to contribute per week?
 The time commitment varies throughout the year depending on the project phase.
@@ -16,19 +16,19 @@ No, you do not need to have any prior experience to join Nordlys. We encourage s
 We provide onboarding, training and continuous support from experienced team members. While relevant experience is a bonus, motivation and willingness to learn are the most important qualities you need to join the team.
 
 ## How is the team funded?
-Nordlys is funded through financial support and in-kind contributions from our sponsors. These partnerships are essential for enabling the development and prduction of our solar cars. You can learn more about our partners on our [partners page](/partners). 
+Nordlys is funded through financial support and in-kind contributions from our sponsors. These partnerships are essential for enabling the development and production of our solar cars. You can learn more about our partners on our [partners page](/partners). 
 
 ## How is the organization structured?
 Nordlys is governed by three main bodies:
 - *The Annual Meeting* - the highest authority within the organization, the annual meeting is attended by all members of Nordlys
 - *The Board* - responsible for day-to-day management of the team and projects
-- *The Alumnni Board* - (being set into motion in August 2026) provides continuity and strategic support for Nordlys' long term goals
+- *The Alumni Board* - provides continuity and strategic support for Nordlys' long term goals
 
 ## Have you built any cars so far?
-Yes. We have built one solar car so far, Lumholtz, which is currently being updated to meet the regulations of the [iLumen European Solar Challenge](https://europeansolarchallenge.eu/). We have also already started designing some systems for our next-generation car, which we intend to have completed in summer 2027.
+Yes. Our first solar car, Lumholtz, was built in 2025. In September 2026 it took us through our first competition, the [iLumen European Solar Challenge](https://europeansolarchallenge.eu/) in Belgium, where we drove 120 laps and 480 km. We have started designing our next-generation car, planned for completion in summer 2027, and our next goal is the world championships in Australia in 2027.
 
 ## What is the purpose of solar racing?
-Solar racing is an exiting and innovative field focused on advancing sustainable transportation. Solar racing events higlight and promote innovation in electric vehicles, energy efficiency, and sustainable technology. 
+Solar racing is an exciting and innovative field focused on advancing sustainable transportation. Solar racing events highlight and promote innovation in electric vehicles, energy efficiency, and sustainable technology. 
 
 ## Why should I join Nordlys?
 Being a member of Nordlys gives you the opportunity to gain hands-on experience in a real engineering project, develop technical and teamwork skills, work in a multidisciplinary environment, and contribute to a meaningful and innovative product. And on top of all that, it's great fun!

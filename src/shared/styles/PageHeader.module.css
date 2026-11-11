@@ -146,3 +146,9 @@
         }
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .container { background-color: var(--dk-surface); }
+:global(html[data-theme="dark"]) .innerContainer::after { background-color: var(--dk-heading-soft); border-color: var(--dk-surface); }
+:global(html[data-theme="dark"]) .front { fill: var(--dk-heading); stroke: var(--dk-heading); }
+:global(html[data-theme="dark"]) .middle { fill: var(--dk-surface); stroke: var(--dk-surface); }

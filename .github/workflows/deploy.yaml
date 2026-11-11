@@ -1,14 +1,13 @@
-
-name: Deploy Nordlys Website
-
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: nordlys-production
+  group: nordlys-deployment-test
   cancel-in-progress: false
 
 jobs:
@@ -45,10 +44,7 @@ jobs:
   deploy:
     name: Test Deployment on Nordlys Server
     needs: build
-    if: github.ref == 'refs/heads/main'
-
     runs-on: [self-hosted, Linux, X64]
-    environment: production
 
     steps:
       - name: Download build
@@ -57,13 +53,26 @@ jobs:
           name: nordlys-build
           path: site/
 
+      - name: Verify downloaded files
+        run: |
+          test -f site/index.html
+          echo "Website build received!"
+
       - name: Test website deployment
         run: |
           set -euo pipefail
 
-          test -f site/index.html
+          echo "Starting Nordlys deployment run..."
 
-          rsync -avhn --delete \
-            site/ /var/www/nextapp/
+          # After CMS cutover this path is an immutable-release symlink.
+          # A legacy artifact must never overwrite a CMS-built release.
+          if [ -L /var/www/nextapp ] || [ -f /var/www/nextapp/publication.json ]; then
+            echo "CMS website publication is active. Use the dedicated publisher service."
+            exit 1
+          fi
 
-          echo "✅ Deployment dry run successful!"
+          rsync -a --delete-delay --delay-updates \
+          site/ /var/www/nextapp/
+
+          echo "Deployment run successful!"
+          echo "Commit: $GITHUB_SHA"

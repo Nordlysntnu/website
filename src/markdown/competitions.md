@@ -1,5 +1,5 @@
 # Competitions
-Competitions are where solar racing teams can show off the cars they have built. Nordlys currently have two competitions we are aiming to compete in, these being [The iLumen European Solar Challenge](https://europeansolarchallenge.eu/) and [The Bridgestone World Solar Challenge](https://worldsolarchallenge.org/).
+Competitions are where solar racing teams put their cars to the test. Nordlys made its competition debut with Lumholtz at [the iLumen European Solar Challenge](https://europeansolarchallenge.eu/) in Belgium in September 2026. We are now preparing for [the Bridgestone World Solar Challenge](https://worldsolarchallenge.org/) in Australia in 2027.
 
 ---
 
@@ -9,7 +9,9 @@ The iLumen European Solar Challenge (iESC) is the largest solar race in Europe, 
 
 iESC is held biannually at the former Formula 1 track in Zolder, Belgium, and challenges teams to travel the greatest distance possible in 24 hours, often under cloudy and rainy skies. The track contains 10 corners as well as significant elevation changes, thus adding another layer of complexity to the challenge and encouraging teams to build cars that can withstand real world driving conditions. 
 
-*Next competition: 19 & 20 September 2026*
+Nordlys participated in iESC in September 2026, completing 120 laps and 480 km with Lumholtz.
+
+*Nordlys competition debut: September 2026*
 
 ---
 

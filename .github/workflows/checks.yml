@@ -1,0 +1,45 @@
+name: Website checks
+
+on:
+  push:
+    branches: [small-fixes]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: website-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  website:
+    name: Test and build website
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:export
+      - name: Save pages for preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-preview
+          retention-days: 3
+          if-no-files-found: error
+          path: |
+            out/index.html
+            out/team.html
+            out/about.html
+            out/join.html
+            out/blog.html
+            out/_next/
+            out/blog/concept-review-2026/
+            out/members/advisors/

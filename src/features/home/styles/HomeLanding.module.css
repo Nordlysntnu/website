@@ -1,0 +1,207 @@
+/* Full-width hero: the car photo fills the section, text sits on a dark fade on the left. */
+.container {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: clamp(34rem, 82vh, 48rem);
+    padding: clamp(3rem, 6vw, 5rem) var(--content-padding-inline, 1.5rem);
+    color: #ffffff;
+    background: #152242;
+    scroll-margin-top: 6rem;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    /* Photo fills the right side so the car never sits behind the headline. */
+    width: 78%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 60% 55%;
+    animation: settle 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(90deg, #152242 0%, #152242 22%, rgba(21, 34, 66, 0.7) 36%, rgba(21, 34, 66, 0.15) 52%, rgba(21, 34, 66, 0) 62%),
+        linear-gradient(0deg, rgba(21, 34, 66, 0.85) 0%, rgba(21, 34, 66, 0) 28%);
+}
+
+.innerContainer {
+    width: 100%;
+    max-width: var(--content-max-width, 82rem);
+    margin: 0 auto;
+}
+
+.copy {
+    max-width: 34rem;
+    animation: rise 0.9s 150ms ease-out both;
+}
+
+.eyebrow {
+    margin-bottom: 1rem;
+    color: #ced6e9;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.title {
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.text {
+    max-width: 38ch;
+    color: #e0e5f0;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    line-height: 1.7;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.75rem;
+    margin-top: 2rem;
+}
+
+.primaryLink,
+.secondaryLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    min-height: 48px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.primaryLink {
+    padding: 0.75rem 1.4rem;
+    border-radius: 0.25rem;
+    color: #ffffff;
+    background: #ce1046;
+    box-shadow: 0 10px 30px -10px rgba(206, 16, 70, 0.7);
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.primaryLink:hover {
+    background: #b20b3a;
+    transform: translateY(-1px);
+}
+
+.secondaryLink {
+    text-decoration: underline;
+    text-underline-offset: 0.35em;
+    text-decoration-color: #7d8ba8;
+}
+
+.secondaryLink:hover {
+    text-decoration-color: #ffffff;
+}
+
+.caption {
+    position: absolute;
+    right: var(--content-padding-inline, 1.5rem);
+    bottom: 1.25rem;
+    color: #cad2e3;
+    font-size: 0.75rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.caption span {
+    margin-right: 0.5rem;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+@keyframes settle {
+    from { transform: scale(1.06); }
+    to { transform: scale(1); }
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+    .image {
+        width: 70%;
+    }
+
+    .shade {
+        background:
+            linear-gradient(90deg, #152242 0%, #152242 30%, rgba(21, 34, 66, 0.7) 42%, rgba(21, 34, 66, 0.15) 56%, rgba(21, 34, 66, 0) 66%),
+            linear-gradient(0deg, rgba(21, 34, 66, 0.85) 0%, rgba(21, 34, 66, 0) 28%);
+    }
+}
+
+/* Phones and small tablets: photo on top at full width, text below it. */
+@media (max-width: 899px) {
+    .container {
+        display: block;
+        min-height: 0;
+        padding: 0 0 2.5rem;
+    }
+
+    .image {
+        position: relative;
+        z-index: 0;
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-height: 70vh;
+        object-position: 88% 62%;
+    }
+
+    .shade {
+        inset: auto 0 auto 0;
+        top: 0;
+        z-index: 1;
+        aspect-ratio: 1 / 1;
+        max-height: 70vh;
+        background: linear-gradient(0deg, #152242 0%, rgba(21, 34, 66, 0) 35%);
+    }
+
+    .innerContainer {
+        position: relative;
+        z-index: 2;
+        margin-top: -2.5rem;
+        padding: 0 var(--content-padding-inline, 1.25rem);
+    }
+
+    .caption {
+        position: absolute;
+        top: -1.5rem;
+        bottom: auto;
+        right: var(--content-padding-inline, 1.25rem);
+    }
+
+    .title {
+        font-size: clamp(2.6rem, 10vw, 4rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image,
+    .copy {
+        animation: none;
+    }
+}

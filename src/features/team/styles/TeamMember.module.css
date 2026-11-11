@@ -1,9 +1,8 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 240px;
-    height: 350px;
+    min-height: 380px;
     max-width: 200px;
     cursor: pointer;
     transition: 250ms all ease;
@@ -27,6 +26,14 @@
 .textContainer {
     padding-top: 1em;
     text-align: center;
+}
+
+/* Contact row and Join button sit at the bottom, so they line up across a row of cards. */
+.bottom {
+    margin-top: auto;
+    padding-top: 0.5em;
+    display: flex;
+    justify-content: center;
 }
 
 .name {
@@ -154,3 +161,23 @@
 .joinButton:hover {
     background-color: rgba(255, 16, 83, 1);
 }
+.photoCredit {
+    margin: 0.35rem 0 0;
+    font-size: 0.7rem;
+    line-height: 1.35;
+}
+
+.photoCredit a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .container { background-color: var(--dk-card); }
+:global(html[data-theme="dark"]) .container:hover { background-color: var(--dk-card-hover); }
+:global(html[data-theme="dark"]) .name { color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .position,
+:global(html[data-theme="dark"]) .photoCredit { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .link { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .link:hover { color: var(--dk-accent-hover); }

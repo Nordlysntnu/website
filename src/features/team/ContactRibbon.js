@@ -4,12 +4,16 @@ import Phone from '@assets/symbols-and-logos/Phone.svg'
 import styles from './styles/ContactRibbon.module.css'
 
 export default function ContactRibbon( {email, linkedin, phone}) {
+    if (!email && !linkedin && !phone) return null;
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
-                <a className={styles.icon} href={`mailto:${email}`}>
-                <img src={Email.src} alt="Email" />
-                </a>
+                {email && (
+                    <a className={styles.icon} href={`mailto:${email}`}>
+                    <img src={Email.src} alt="Email" />
+                    </a>
+                )}
 
                 {linkedin && (
                     <a className={styles.icon} href={linkedin.startsWith('http') ? linkedin : `https://${linkedin}`} target="_blank" rel="noopener noreferrer" >

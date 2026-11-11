@@ -8,7 +8,7 @@ function textField(text) {
 
 }
 
-const BlogEntry = ({ text, images = [], date }) => {
+const BlogEntry = ({ text, images = [], imageAlts = [], imageFit = 'cover', date }) => {
 	const [lightboxOpen, setLightboxOpen] = useState(false);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -58,12 +58,12 @@ const BlogEntry = ({ text, images = [], date }) => {
 		{/* Image thumbnails */}
 		<div className={styles.imageGrid} data-count={Math.min(images.length, 4)}>
 			{images.slice(0, 4).map((imgSrc, idx) => (
-				<div key={idx} className={styles.thumbnailWrapper} onClick={() => {
+				<div key={idx} className={[styles.thumbnailWrapper, imageFit === 'contain' ? styles.uncroppedImages : ''].join(' ')} onClick={() => {
 					setCurrentIndex(idx);
 					setLightboxOpen(true);
 				}}
 				>
-					<Image src={imgSrc} alt={`Blog image ${idx + 1}`} width={800} height={600} className={styles.image}
+					<Image src={imgSrc} alt={imageAlts[idx] || `Blog image ${idx + 1}`} width={800} height={600} className={styles.image}
 					/>
 					{idx == 3 && images.length > 4 && (
 						<div className={styles.moreOverlay}>+{images.length - 4}</div>
@@ -77,7 +77,7 @@ const BlogEntry = ({ text, images = [], date }) => {
 			<Lightbox open={lightboxOpen} close={() =>
 				setLightboxOpen(false)}
 				index={currentIndex}
-				slides={images.map((src) => ({ src }))}
+					slides={images.map((src, idx) => ({ src, alt: imageAlts[idx] || `Blog image ${idx + 1}` }))}
 				/>
 			)}
 	</div>

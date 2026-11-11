@@ -1,74 +1,158 @@
 .container {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  min-height: 80vh;
-  background-color: rgba(21, 34, 66, 1);
+    padding: var(--content-padding-block, 3.5rem) var(--content-padding-inline, 1.5rem);
+    color: #ffffff;
+    background: #152242;
 }
 
-.ribbonContainer {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 62vh;
-  max-height: 600px;
-  overflow: hidden;
-  background-color: rgba(21, 34, 66, 1);
-  transform: translateY(-50%);
+.innerContainer {
+    display: grid;
+    grid-template-columns: minmax(0, 0.65fr) minmax(0, 2fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4rem);
+    max-width: var(--content-max-width, 82rem);
+    margin: 0 auto;
 }
 
-.ribbon {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1000px;
-  padding: 5vh 1rem;
-  box-sizing: border-box;
-  min-height: 80vh;
+.eyebrow {
+    margin-bottom: 0.75rem;
+    color: #b9c5dd;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 .headline {
-  font-size: 50px;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 2vh;
+    max-width: 10ch;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.1;
 }
 
-.blogWrapper {
-  width: 100%;
-  background: rgba(238, 238, 238, 0.95);
-  border: 0.1px solid #ccc;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  padding: 0.1rem;
-  box-sizing: border-box;
-  margin: 2vh 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+.link,
+.readLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: #7384a7;
+    text-underline-offset: 0.35em;
 }
 
-.linkContainer {
-  margin-top: 2vh;
-  text-align: center;
+.link:hover,
+.readLink:hover {
+    text-decoration-color: #ffffff;
 }
 
-.link {
-  font-size: 25px;
-  color: #ffffff;
-  text-decoration: none;
-  display: inline-block;
+.post {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+    min-width: 0;
+}
+
+.textOnly {
+    grid-template-columns: 1fr;
+}
+
+.imageLink {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    transition: transform 200ms ease;
+}
+
+.imageLink:hover .image {
+    transform: scale(1.025);
+}
+
+.imageCount {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.25rem;
+    background: #152242;
+    color: #ffffff;
+    font-size: 0.75rem;
+}
+
+.postText {
+    min-width: 0;
+}
+
+.date {
+    margin-bottom: 0.75rem;
+    color: #ced6e9;
+    font-size: 0.8125rem;
+}
+
+.excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
+    line-height: 1.8;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.readLink {
+    margin-top: 0.75rem;
+}
+
+@media (max-width: 1099px) {
+    .innerContainer {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .headline {
+        max-width: none;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 649px) {
+    .post {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .image {
+        aspect-ratio: 16 / 9;
+    }
+
+    .excerpt {
+        -webkit-line-clamp: 5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .image {
+        transition: none;
+    }
 }

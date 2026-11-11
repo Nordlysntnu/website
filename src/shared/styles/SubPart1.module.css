@@ -68,3 +68,8 @@
         padding-top: 2rem;
     }
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .title,
+:global(html[data-theme="dark"]) .link { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .link:hover { color: var(--dk-accent-hover); }

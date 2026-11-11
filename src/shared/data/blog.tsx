@@ -1,20 +1,60 @@
 export const blogs = [
+{
+    legacyKey: "legacy-bbcacfcd17380541660e",
+  "text": "This week we held our first concept review. The concept review is an important part of the project period, as it gives every group the opportunity to present their ideas for the project, both technical and non-technical groups such as Logistics, Business and Board. Getting feedback on your work is important in a large organisation, and everyone got the chance to present their ideas and receive feedback.\n\nThanks to everyone who showed up and gave feedback on the presentations, especially the alumni who took the time to share their thoughts. And a big thanks to Rafael, Shivaraj and Steve, our technical advisors, who gave valuable insights afterwards.",
+  "images": [
+    "/blog/concept-review-2026/01-concept-review.jpg",
+    "/blog/concept-review-2026/02-presentations.jpg"
+  ],
+  "imageAlts": [
+    "Nordlys members attending the first concept review, with a presentation about the 2027 solar racing competition.",
+    "Presenters discussing lessons from Project 2026 during the Nordlys concept review."
+  ],
+  "imageFit": "contain",
+  "date": "October 2026"
+},
 	{
+    legacyKey: "legacy-b27a449967689c4b7762",
+		text: "Last week we competed in our first competition, the ilumen European Solar Challenge. We completed 120 laps throughout the race, totaling 480 km, powered only by solar energy. This is a huge milestone for us. We have learned a lot and are excited to continue to get better. With Belgium behind us, we now set our sights on the Bridgestone World Solar Challenge in Australia next year.\n\nWe would like to thank our sponsors and partners for their invaluable support during this project, and NTNU for backing us along the way. Their belief in us made it possible to take Nordlys from the drawing board to the racetrack. We also want to thank every team member for the long hours and hard work that went into the car and the race.",
+		images: [
+			"/blog/iesc-2026/01-team-belgium.webp",
+			"/blog/iesc-2026/02-sponsors.webp",
+			"/blog/iesc-2026/03-daytime.webp",
+			"/blog/iesc-2026/04-lumholtz-open.webp",
+			"/blog/iesc-2026/05-nighttime.webp",
+			"/blog/iesc-2026/06-passed-scrutineering.webp"
+		],
+		imageAlts: [
+			"Nordlys NTNU celebrating with Lumholtz at the ilumen European Solar Challenge in Belgium",
+			"Project 2026 sponsors and collaboration partners",
+			"Lumholtz racing on the circuit during the day",
+			"Lumholtz with its canopy open in the pit lane",
+			"Lumholtz racing on the circuit at night",
+			"Nordlys NTNU team with Lumholtz after passing scrutineering"
+		],
+		imageFit: "contain",
+		date: "September 2026"
+	},
+	{
+    legacyKey: "legacy-94208e298d3811c4963b",
 		text: "Some shots of Lumholtz from our test drive at Dragvoll NTNU ☀️ #SolarRacing #NordlysNTNU",
 		images: ["/blog/compressed/dragvoll5.webp", "/blog/compressed/dragvoll1.webp", "/blog/compressed/dragvoll2.webp", "/blog/compressed/dragvoll3.webp", "/blog/compressed/dragvoll4.webp"],
 		date: "October 2025"
 	},
 	{
+    legacyKey: "legacy-69ee18c75e4e04187380",
 		text: "[Advertisement] 3Dconnexion's Space and CAD mouse have served a crucial role in the development of our car. Nordlys NTNU is incredibly satisfied with the ergonomic design, and versatile functionality. Thank you to the wonderful people at 3D-connexion.",
 		images: ["/blog/compressed/3d1.webp", "/blog/compressed/3d2.webp", "/blog/compressed/3d3.webp"],
 		date: "September 2025"
 	},
 	{
+    legacyKey: "legacy-f79b7c09567df08cbc54",
 		text: "We've completed the very first test of Lumholtz at Rudskogen!💫 The first time we have driven our solar racing car is a huge milestone for us. While we faced some challenges along the way, our two test days was a great success. We gained valuable insights that bring us one step closer to a competition-ready car!We want to give a big thank you to Rudskogen Motorsenter for welcoming us and letting us use their facilities! We wouldn't be able to test our car in a safe environment without their support, and we look forward to a continued collaboration.🏎️🙏🏼",
 		images: ["/blog/compressed/rudskogen.webp"],
 		date: "July 2025"
 	},
 	{
+    legacyKey: "legacy-3797f3cdff7119645628",
 		text: `We are excited to announce our collaboration with Melbye AS! 📣
 
 			🔧 With over 100 years of experience, Melbye is a trusted provider of technical solutions for infrastructure in energy, fiber networks, installation, and construction. As a family-owned company, they bring deep expertise and a long-term perspective on innovation and development.
@@ -26,6 +66,7 @@ export const blogs = [
 		date: "July 2025"
 	},
 	{
+    legacyKey: "legacy-99305af48228418f23f3",
 		text: `We are excited to announce our collaboration with Kongsberg Maritime! 📣 
 
 ⚡ As part of the Kongsberg Group, they develop advanced systems for navigation, automation, and more. Their long-standing experience and commitment to innovation make them a true inspiration for our own project.
@@ -37,6 +78,7 @@ Thank you for championing sustainable technology! ☀️ 🏎️`,
 		date: "June 2025"
 	},
 	{
+    legacyKey: "legacy-80bec4264f8b0fa24e49",
 		text: "After two years of hard work and dedication, we´re incredibly proud to finally uveil Lumholtz - our and Norway´s first ever solar race car! ⚡ 🎉 The unveiling on Monday was a great success, and we’re thankful for everyone who joined us to celebrate this milestone. A special thank you to Steve Völler and Geir Egil Dahle Øien for sharing some inspiring words during the event. Especially thank you to all our sponsors who have enabled us to execute the project! ✨ Now we are setting aim for this Summer and actually driving the car. Look out for a future update when we present where you can see us this Summer! ☀️",
 		images: [
 			"/blog/compressed/unveiling.webp",
@@ -47,6 +89,7 @@ Thank you for championing sustainable technology! ☀️ 🏎️`,
 		date: "April 2025"
 	},
 	{
+    legacyKey: "legacy-e0dbe114f3624b4ad5c5",
 		text: `Thank you to our sponsor! 📣 
 We would like to thank Bryn Aarflot for an informative and engaging lecture on IP and intellectual property rights
 Sebastian Stigar and Georgios Pantazidis provided us with valuable insights into topics such as:

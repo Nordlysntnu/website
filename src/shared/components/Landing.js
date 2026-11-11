@@ -1,20 +1,42 @@
-import styles from '../styles/Landing.module.css';
-import { useRef, useState } from 'react';
 import Link from 'next/link';
+import styles from '@features/home/styles/HomeLanding.module.css';
 
-export default function Landing() {    
+export default function Landing() {
     return (
-        <div className={styles.container}>
-            <div className={styles.imageContainer}>
-                <video autoPlay muted loop playsInline poster="/posters/compressed/Ribbon.png" className={styles.ribbon}>
-                    <source src="/videos/compressed/Stars.webm" type="video/webm" />
-                </video>
+        <section id="home-content" className={styles.container} aria-labelledby="home-title">
+            <img
+                className={styles.image}
+                src="/home/lumholtz-1600.webp"
+                srcSet="/home/lumholtz-960.webp 960w, /home/lumholtz-1600.webp 1600w"
+                sizes="100vw"
+                width={1600}
+                height={1067}
+                alt="Lumholtz, Nordlys NTNU's solar race car, on the road at Dragvoll"
+                fetchPriority="high"
+            />
+            <div className={styles.shade} aria-hidden="true" />
+            <div className={styles.innerContainer}>
+                <div className={styles.copy}>
+                    <p className={styles.eyebrow}>Nordlys NTNU · Solar racing</p>
+                    <h1 id="home-title" className={styles.title}>
+                        Fueled by solar,<br />driven by passion
+                    </h1>
+                    <p className={styles.text}>
+                        Push the limits of technology with the first ever solar racing team from Norway.
+                    </p>
+                    <div className={styles.actions}>
+                        <Link href="/join" className={styles.primaryLink}>
+                            Join Nordlys <span aria-hidden="true">↗</span>
+                        </Link>
+                        <Link href="/team" className={styles.secondaryLink}>
+                            Meet the team <span aria-hidden="true">→</span>
+                        </Link>
+                    </div>
+                </div>
+                <p className={styles.caption}>
+                    <span>Lumholtz</span> Our first solar race car
+                </p>
             </div>
-            <div className={styles.textContainer}>
-                <h1 className={styles.title}>Fueled by solar, driven by passion</h1>
-                <div className={styles.text}>Push the limits of technology with the first ever solar racing team from Norway.</div>
-                <Link href="/join" className={styles.button}>Join</Link>
-            </div>
-        </div>
-    )
+        </section>
+    );
 }

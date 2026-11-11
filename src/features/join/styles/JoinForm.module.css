@@ -367,3 +367,22 @@
 .otherText:focus {
     border: 2px solid rgba(255, 16, 83, 0.4);
 }
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .around { border-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .title { color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .label,
+:global(html[data-theme="dark"]) .labelRequired,
+:global(html[data-theme="dark"]) .chooseContainer,
+:global(html[data-theme="dark"]) .choice { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .choice:hover { color: var(--dk-text); }
+:global(html[data-theme="dark"]) .container { background-color: rgba(255, 255, 255, 0.04); }
+:global(html[data-theme="dark"]) .chosen,
+:global(html[data-theme="dark"]) .formContainer { background-color: rgba(255, 255, 255, 0.07); }
+:global(html[data-theme="dark"]) .input,
+:global(html[data-theme="dark"]) .otherText { color: var(--dk-text); background-color: var(--dk-card); border-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .input:focus,
+:global(html[data-theme="dark"]) .otherText:focus { border-color: rgba(255, 16, 83, 0.6); }
+:global(html[data-theme="dark"]) .input::placeholder,
+:global(html[data-theme="dark"]) .otherText::placeholder { color: #8591aa; }
+:global(html[data-theme="dark"]) .disButton { background-color: rgba(255, 255, 255, 0.15); }

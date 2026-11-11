@@ -5,38 +5,20 @@ import JoinForm from '@features/join/JoinForm';
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import PartHeader from '@shared/components/PartHeader';
-import AlertPane from '@features/alert/AlertPane';
 
 import { MarkdownGroupParser } from '@features/join/MarkdownGroupParser';
 
-import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
-import Chassis from '@assets/symbols-and-logos/Chassis.png';
-import Software from '@assets/symbols-and-logos/Software.png';
-import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.png';
-import Marketing from '@assets/symbols-and-logos/Marketing.png';
-import Logistics from '@assets/symbols-and-logos/Logistics.png';
-import Management from '@assets/symbols-and-logos/Management.png';
+import { groupIcons } from '@features/ui/groupIcons';
 
 export async function getStaticProps() {
-  const imageMap = {
-    electrical: EmbeddedElectronics.src,
-    mechanical: Mechanical.src,
-    chassis: Chassis.src,
-    software: Software.src,
-    marketing: Marketing.src,
-    logistics: Logistics.src,
-    finance: Management.src,
-    board: Management.src
-  };
-
-  const groups = await MarkdownGroupParser("src/markdown/join.md", imageMap);
+  const groups = await MarkdownGroupParser("src/markdown/join.md", groupIcons);
 
   return { props: { groups } };
 }
 
 
 export default function Join({ groups }) {
-  const text = <>Do you want to join Nordlys and take part in the development of Norways first Solar Racing Car and drive the world towards a sustainable future? We accept both normal students, and students who want to write their thesis on the project. See our suggested project subjects under, or suggest your own thesis. <br /><br />NB! <em>You have to apply for your bachelor's or master's thesis through NTNU as well, but by applying here, you may reserve a subject.</em></>;
+  const text = <>Do you want to join Nordlys and help develop Norway's solar racing cars? We welcome students with different backgrounds and interests. Choose a group below and apply as a member; you do not need to choose a specialist position. Tell us what interests you and what you would like to learn. <br /><br />If you would like to explore a bachelor's or master's thesis with Nordlys, describe your idea in the application. <em>You must also apply for your thesis through NTNU.</em></>;
 
   return (
     <>

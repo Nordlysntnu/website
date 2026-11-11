@@ -35,3 +35,41 @@ h1, h2, h3, h4, h5, h6 {
   background-color: 	#FF1053;
   color: #ffffff
 }
+/* ---------- Dark mode ----------
+   The theme is set on <html data-theme> by the script in _document.js.
+   Light mode keeps the original colors; every dark rule is scoped to
+   html[data-theme="dark"] so light mode cannot change by accident. */
+:root {
+  color-scheme: light;
+  --dk-page: #0b1328;
+  --dk-surface: #0f1830;
+  --dk-surface-2: #131f3d;
+  --dk-card: #192750;
+  --dk-card-hover: #1f305f;
+  --dk-band: #0b1328;
+  --dk-border: rgba(255, 255, 255, 0.14);
+  --dk-text: #e3e8f2;
+  --dk-muted: #aeb8cc;
+  --dk-heading: #f1f4fa;
+  --dk-heading-soft: #c7d0e3;
+  --dk-accent: #ff6a93;
+  --dk-accent-hover: #ff9db8;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background-color: var(--dk-page);
+}
+
+/* :where() keeps these as weak as the light rules above, so component colors still win. */
+:where(html[data-theme="dark"]) main {
+  color: var(--dk-text);
+}
+
+:where(html[data-theme="dark"]) :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--dk-heading);
+}

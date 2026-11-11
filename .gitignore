@@ -32,3 +32,6 @@ yarn-error.log*
 
 # vscode
 .vscode
+# Isolated laptop preview and portable source archives
+/.local/
+/.next-local/
