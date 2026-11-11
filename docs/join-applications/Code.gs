@@ -1,3 +1,7 @@
+/** @OnlyCurrentDoc */
+// The line above limits the script's access to this one spreadsheet,
+// not all of the owner's spreadsheets.
+
 /**
  * Receives applications from nordlysntnu.no/join and adds one row per
  * application to the "Søknader" tab of the spreadsheet this script belongs to.
@@ -5,9 +9,6 @@
  * Setup: see README.md in this folder. Deploy as a web app that runs as the
  * spreadsheet owner and that anyone can call. The spreadsheet itself stays
  * private: share it with Board members only.
- *
- * @OnlyCurrentDoc  Limits the script's access to this one spreadsheet,
- *                  not all of the owner's spreadsheets.
  */
 
 const SHEET_NAME = 'Søknader';
@@ -28,6 +29,16 @@ const FIELDS = [
 const MAX_LENGTH = 5000;
 const KEEP_MONTHS = 6; // The Join page promises applications are kept no longer than six months.
 
+// Run this once from the editor. It is the first function, so the Run button
+// picks it by default. It creates the "Søknader" tab and its headers.
+function setup() {
+  const sheet = getSheet();
+  sheet.activate();
+  SpreadsheetApp.getActiveSpreadsheet().toast('The "' + SHEET_NAME + '" tab is ready.', 'Nordlys');
+  console.log('Ready: the "%s" tab has %s columns.', SHEET_NAME, sheet.getLastColumn());
+}
+
+// Called by the website. Running it by hand does nothing.
 function doPost(e) {
   const data = (e && e.parameter) || {};
 
@@ -49,11 +60,6 @@ function doPost(e) {
   return reply({ result: 'success' });
 }
 
-// Run once from the editor to create the tab and headers.
-function setup() {
-  getSheet();
-}
-
 // Optional: add a daily time-driven trigger for this function to delete
 // applications older than KEEP_MONTHS.
 function removeOldApplications() {
@@ -69,6 +75,9 @@ function removeOldApplications() {
 
 function getSheet() {
   const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  if (!spreadsheet) {
+    throw new Error('This script is not attached to a spreadsheet. Open the sheet and use Extensions → Apps Script.');
+  }
   const sheet = spreadsheet.getSheetByName(SHEET_NAME) || spreadsheet.insertSheet(SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(HEADERS);
