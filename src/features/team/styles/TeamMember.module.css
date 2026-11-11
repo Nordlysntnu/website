@@ -1,16 +1,15 @@
+/* The card fills its grid cell; the grid in TeamGroup decides the width. */
 .container {
     display: flex;
     flex-direction: column;
-    width: 240px;
-    min-height: 380px;
-    max-width: 200px;
+    width: 100%;
+    min-width: 0;
     cursor: pointer;
     transition: 250ms all ease;
     padding: 1.5em;
     border-radius: 1em;
     position: relative;
     background-color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1.5em;
 }
 
 
@@ -40,6 +39,7 @@
     font-weight: bold;
     margin-bottom: 0.2em;
     color: #3a486a;
+    overflow-wrap: break-word;
 }
 
 .position {
@@ -171,6 +171,34 @@
     color: inherit;
     text-decoration: underline;
     text-underline-offset: 0.15em;
+}
+
+/* Phones: two cards per row, so less padding and slightly smaller text. */
+@media (max-width: 600px) {
+    .container {
+        padding: 0.75em;
+        border-radius: 0.75em;
+    }
+
+    .image {
+        border-radius: 0.6em;
+    }
+
+    .textContainer {
+        padding-top: 0.6em;
+    }
+
+    .name {
+        font-size: 0.95em;
+    }
+
+    .position {
+        font-size: 0.75em;
+    }
+
+    .container:hover {
+        transform: none;
+    }
 }
 
 /* Dark mode */

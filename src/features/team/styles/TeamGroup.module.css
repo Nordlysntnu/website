@@ -3,20 +3,36 @@
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+/* As many 190px cards per row as fit, centred, and every row the same
+   height so name, title and contact icons line up. A fixed track width is
+   used because auto-fit counts columns by the largest track size. */
 .memberContainer {
-    /* Equal-height rows, so name, title and contact icons line up on every card. */
     display: grid;
-    grid-template-columns: repeat(auto-fit, 200px);
+    grid-template-columns: repeat(auto-fit, 190px);
     grid-auto-rows: 1fr;
     justify-content: center;
-    gap: 1em;
+    gap: 1.5em 1.25em;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1em clamp(1rem, 4vw, 3rem) 2.5em;
     background-color: rgba(255, 255, 255, 0.9);
-    margin-top: 0%;
-    margin-bottom: 0%;
-    padding-left: 20%;
-    padding-right: 20%;
-    margin-left: auto; 
-    margin-right: auto;
+}
+
+/* Phones: two cards per row. */
+@media (max-width: 600px) {
+    .memberContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75em;
+        padding-inline: 0.75rem;
+    }
+}
+
+/* Very narrow screens: one card per row. */
+@media (max-width: 300px) {
+    .memberContainer {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 /* Dark mode */
