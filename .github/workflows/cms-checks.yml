@@ -63,6 +63,9 @@ jobs:
         working-directory: cms
         run: npx playwright install --with-deps chromium
       - name: Browser editorial and static publication tests
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: npm --prefix cms run test:browser
       - name: Save browser screenshots
         if: always()

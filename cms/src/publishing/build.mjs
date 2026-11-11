@@ -5,7 +5,7 @@ import { spawn, execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { createHash } from 'node:crypto'
 const exec=promisify(execFile)
-const roots=['src','components','public','package.json','package-lock.json','next.config.js','tsconfig.json','next-env.d.ts']
+const roots=['src','lib','components','public','package.json','package-lock.json','next.config.js','tsconfig.json','next-env.d.ts']
 export async function sourceRevision(config) {
   const git=async args=>(await exec('git',args,{cwd:config.sourceDir,windowsHide:true,maxBuffer:8*1024*1024})).stdout.trim()
   const commit=await git(['rev-parse','HEAD'])
@@ -46,7 +46,7 @@ export async function buildWebsite(config,workspace,snapshotFile,assetDir,logFil
   await mkdir(path.join(workspace,'public','cms-media'),{recursive:true})
   await cp(assetDir,path.join(workspace,'public','cms-media'),{recursive:true})
   const env={}
-  for(const key of ['PATH','Path','SystemRoot','WINDIR','COMSPEC','TEMP','TMP','HOME','LANG','LC_ALL'])if(process.env[key])env[key]=process.env[key]
+  for(const key of ['PATH','Path','SystemRoot','WINDIR','COMSPEC','TEMP','TMP','HOME','LANG','LC_ALL','NEXT_PUBLIC_SUPABASE_URL','NEXT_PUBLIC_SUPABASE_ANON_KEY'])if(process.env[key])env[key]=process.env[key]
   Object.assign(env,{NODE_ENV:'production',CI:'1',NEXT_TELEMETRY_DISABLED:'1',NORDLYS_CMS_SNAPSHOT:snapshotFile,NEXT_PUBLIC_LOCAL_PREVIEW:'false'})
   const log=await open(logFile,'a',0o600)
   try {
