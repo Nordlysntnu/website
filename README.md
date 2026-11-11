@@ -159,7 +159,7 @@ Resolve any conflicts, repeat the relevant checks and push the updated branch.
 
 ## Forms and deployment
 
-The contact and recruitment forms send data to external Google Apps Script services. The browser code is in [ContactPane.js](src/features/ui/ContactPane.js) and [JoinForm.js](src/features/join/JoinForm.js); the Apps Script server code is not included here. A successful local build does not verify form delivery.
+The contact and recruitment forms send data to external Google Apps Script services. The browser code is in [ContactPane.js](src/features/ui/ContactPane.js) and [JoinForm.js](src/features/join/JoinForm.js). Applications go to a Board-only sheet; its script and setup steps are in [docs/join-applications](docs/join-applications/README.md). The contact form's script is not included here. Local preview never sends either form, and a successful build does not verify form delivery.
 
 Production hosting must serve the contents of `out/` and resolve page URLs such as `/about` to their generated HTML files. The production destination, deployment method and rollback procedure still need to be documented. Keep credentials and server access details in Nordlys' internal documentation and link to the deployment instructions once confirmed.
 

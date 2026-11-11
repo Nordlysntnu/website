@@ -1,0 +1,172 @@
+/* Room for the fixed navbar when jumping here from a link. */
+.container {
+    scroll-margin-top: 6rem;
+}
+
+.header {
+    max-width: 60ch;
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    margin-bottom: 0.75rem;
+    color: #b20b3a;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.lead {
+    margin-top: 0.75rem;
+    color: #414b60;
+    line-height: 1.8;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14.5rem), 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(21, 34, 66, 0.06), 0 12px 32px -20px rgba(21, 34, 66, 0.3);
+    transition: 150ms ease box-shadow;
+}
+
+.chosen {
+    box-shadow: 0 0 0 2px #ce1046, 0 12px 32px -20px rgba(21, 34, 66, 0.3);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.icon {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+
+.name {
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.description {
+    color: #152242;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.role {
+    color: #5a6378;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.choose {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    margin-top: auto;
+    padding: 0.6rem 1rem;
+    border: 1px solid #c3cad8;
+    border-radius: 0.3rem;
+    color: #152242;
+    background: transparent;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 150ms ease background-color, 150ms ease border-color, 150ms ease color;
+}
+
+.choose:hover {
+    border-color: #152242;
+}
+
+.choose[aria-pressed="true"] {
+    justify-content: space-between;
+    border-color: #ce1046;
+    color: #ffffff;
+    background: #ce1046;
+}
+
+.choose[aria-pressed="true"]:hover {
+    background: #b20b3a;
+}
+
+.choose:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.choose:focus-visible {
+    outline: 3px solid #ff1053;
+    outline-offset: 3px;
+}
+
+.remove {
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.status {
+    min-height: 1.5em;
+    margin-top: 1rem;
+    color: #414b60;
+    font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .choose {
+        transition: none;
+    }
+}
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .eyebrow { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .lead,
+:global(html[data-theme="dark"]) .status { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .card { background: var(--dk-card); box-shadow: 0 0 0 1px var(--dk-border); }
+:global(html[data-theme="dark"]) .chosen { box-shadow: 0 0 0 2px var(--dk-accent); }
+:global(html[data-theme="dark"]) .description { color: var(--dk-text); }
+:global(html[data-theme="dark"]) .role { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .choose { border-color: var(--dk-border); color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .choose:hover { border-color: var(--dk-heading-soft); }
+:global(html[data-theme="dark"]) .choose[aria-pressed="true"] { border-color: #ce1046; color: #ffffff; background: #ce1046; }
+:global(html[data-theme="dark"]) .choose[aria-pressed="true"]:hover { background: #b20b3a; }

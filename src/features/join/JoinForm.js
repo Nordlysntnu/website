@@ -1,478 +1,247 @@
 import { useRef, useState } from 'react';
+import ThemedIcon from '@features/ui/ThemedIcon';
+import { MAX_CHOICES, ordinal } from './choices';
 import styles from './styles/JoinForm.module.css';
 
-export default function JoinForm({ groups }) {
-    const formRef = useRef(null)
+// Apps Script web app that adds each application to the Board-only sheet.
+// Setup and script: docs/join-applications.
+export const APPLICATION_ENDPOINT = '';
 
-    const [show, setShow] = useState("form")
+const YEARS = ['1st year', '2nd year', '3rd year', '4th year', '5th year', 'PhD or other'];
+const SOURCES = ['Stand on campus', 'Posters', 'Social media', 'Friends', 'A lecture', 'Other'];
 
-    const [isThesis, setIsThesis] = useState(false);
-    const [normalStyle, setNormalStyle] = useState(`${styles.choice} ${styles.chosen}`);
-    const [thesisStyle, setThesisStyle] = useState(styles.choice);
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phonePattern = /^\+?\d{8,15}$/;
 
-    const [normalDisplay, setNormalDisplay] = useState("block")
-    const [thesisDisplay, setThesisDisplay] = useState("none")
+function validate(values, choices, consent) {
+    const errors = {};
+    if (!values.first) errors.first = 'First name is required';
+    if (!values.last) errors.last = 'Last name is required';
+    if (!values.email) errors.email = 'Email is required';
+    else if (!emailPattern.test(values.email)) errors.email = 'Please enter a valid email address';
+    if (!values.phone) errors.phone = 'Phone number is required';
+    else if (!phonePattern.test(values.phone.replace(/[\s-]/g, ''))) errors.phone = 'Please enter a valid phone number';
+    if (!values.study) errors.study = 'Field of study is required';
+    if (choices.length === 0) errors.groups = 'Choose at least one group';
+    if (!values.about) errors.about = 'Please tell us a little about yourself';
+    if (!consent) errors.consent = 'We need your consent to process the application';
+    return errors;
+}
 
-    const [chosen1, setChosen1] = useState("none")
-    const [chosen2, setChosen2] = useState("none")
-    const [chosen3, setChosen3] = useState("none")
-    const [chosen4, setChosen4] = useState("none")
+export default function JoinForm({ groups, choices, onToggle, onReset }) {
+    const formRef = useRef(null);
+    const [errors, setErrors] = useState({});
+    const [status, setStatus] = useState('idle');
+    const [thesis, setThesis] = useState(false);
+    const [source, setSource] = useState('');
+    const [consent, setConsent] = useState(false);
+    const [firstName, setFirstName] = useState('');
 
-    const [thesisEditable, setThesisEditable] = useState(false)
-    const thesisTextArea = useRef(null);
-    const thesisChoiceArea = useRef(null);
+    const full = choices.length >= MAX_CHOICES;
 
-    const [currentPage, setCurrentPage] = useState(0);
-    const pageStyles = [`${styles.innerContainer} ${styles.subForm1}`, `${styles.innerContainer} ${styles.subForm2}`, `${styles.innerContainer} ${styles.subForm3}`, `${styles.innerContainer} ${styles.subForm4}`]
-    const [backButton, setBackButton] = useState(`${styles.disButton} ${styles.button}`)
-    const [forwardButton, setForwardButton] = useState(`${styles.actButton} ${styles.button}`)
-    const [lightOne, setLightOne] = useState(`${styles.light} ${styles.current}`)
-    const [lightTwo, setLightTwo] = useState(`${styles.light}`)
-    const [lightThree, setLightThree] = useState(`${styles.light}`)
-    const [lightFour, setLightFour] = useState(`${styles.light}`)
+    const fieldProps = name => ({
+        id: `join-${name}`,
+        name,
+        'aria-invalid': errors[name] ? true : undefined,
+        'aria-describedby': errors[name] ? `join-${name}-error` : undefined,
+    });
+    const errorFor = name => errors[name] && <p id={`join-${name}-error`} className={styles.errorText}>{errors[name]}</p>;
 
-    const [selectOther, setSelectOther] = useState(false)
-    const activeOtherRef = useRef(null)
-    const [otherValue, setOtherValue] = useState("")
-    const [marketing, setMarketing] = useState("On stand")
+    function handleSubmit(event) {
+        event.preventDefault();
+        const form = formRef.current;
+        const read = name => (form.elements[name]?.value ?? '').trim();
+        const values = {
+            first: read('first'), last: read('last'), email: read('email'), phone: read('phone'),
+            study: read('study'), year: read('year'), about: read('about'),
+        };
 
-    function getGroups() {
+        const nextErrors = validate(values, choices, consent);
+        setErrors(nextErrors);
+        const firstInvalid = Object.keys(nextErrors)[0];
+        if (firstInvalid) {
+            setStatus('invalid');
+            const target = firstInvalid === 'groups' ? form.querySelector('[data-group-picker] button') : form.elements[firstInvalid];
+            target?.focus();
+            return;
+        }
+
+        const idea = read('thesisIdea');
+        const other = read('sourceOther');
+        const data = {
+            ...values,
+            group1: groups[choices[0]]?.name ?? '',
+            group2: groups[choices[1]]?.name ?? '',
+            group3: groups[choices[2]]?.name ?? '',
+            thesis: thesis ? (idea ? `Yes: ${idea}` : 'Yes') : 'No',
+            source: source === 'Other' && other ? `Other: ${other}` : source,
+            website: read('website'),
+        };
+
+        if (process.env.NEXT_PUBLIC_LOCAL_PREVIEW === 'true') {
+            setStatus('local');
+            return;
+        }
+
+        const body = new FormData();
+        Object.entries(data).forEach(([key, value]) => body.append(key, value));
+
+        setStatus('sending');
+        fetch(APPLICATION_ENDPOINT, { method: 'POST', body })
+            .then(response => response.json())
+            .then(result => {
+                if (result?.result !== 'success') throw new Error('Application was not saved');
+                setFirstName(values.first);
+                form.reset();
+                setThesis(false);
+                setSource('');
+                setConsent(false);
+                onReset();
+                setStatus('success');
+            })
+            .catch(() => setStatus('error'));
+    }
+
+    if (status === 'success') {
         return (
-            <>
-                <option value="none">None</option>
-                {
-                    Object.keys(groups).map((groupName, i) => (
-                        <option value={groupName}>{groups[groupName].name}</option>
-                    ))
-                }
-            </>
-        )
-    }
-
-    function getChoices(groupChoice) {
-        const theses = groups[groupChoice]
-
-        if (!groupChoice || groupChoice === 'none' || groupChoice === 'suggest') {
-            return <option value='none'>-</option>
-        }
-
-        return (
-            <>
-                <option value="any">Any</option>
-                {
-                    Object.keys(theses).map((thesisName, i) => {
-                        if (thesisName != 'image' && thesisName != 'name' && thesisName != 'description') {
-                            return <option value={thesisName}>{theses[thesisName].name}</option>
-                        }
-                    })
-                }
-            </>
-        )
-    }
-
-    function chooseNormal() {
-        if (isThesis) {
-            setNormalStyle(`${styles.choice} ${styles.chosen}`)
-            setThesisStyle(styles.choice)
-            setThesisDisplay("none")
-            setNormalDisplay("block")
-            setIsThesis(false)
-        }
-    }
-
-    function chooseThesis() {
-        if (!isThesis) {
-            setThesisStyle(`${styles.choice} ${styles.chosen}`)
-            setNormalStyle(styles.choice)
-            setNormalDisplay("none")
-            setThesisDisplay("block")
-            setIsThesis(true)
-        }
-    }
-
-    function setThesisText(thesisChoice) {
-        setThesisEditable(false)
-        if (thesisChoice === "suggest" || thesisChoice === "any") {
-            setThesisEditable(true)
-            return ""
-        } else if (thesisChoice === "none") {
-            return ""
-        } else {
-            return groups[chosen4][thesisChoice].text + "\n\n" + "Supervisor: " + groups[chosen4][thesisChoice].supervisor
-        }
-    }
-
-    function handleBack() {
-        if (currentPage != 0) {
-            setCurrentPage(currentPage - 1)
-            setForwardButton(`${styles.actButton} ${styles.button}`)
-        }
-
-        if (currentPage - 1 == 0) {
-            setBackButton(`${styles.disButton} ${styles.button}`)
-        }
-
-        handleChange(currentPage - 1)
-    }
-
-    function handleForward() {
-
-        if (currentPage != 3) {
-            setCurrentPage(currentPage + 1)
-            setBackButton(`${styles.actButton} ${styles.button}`)
-        }
-
-        if (currentPage + 1 == 3) {
-            setForwardButton(`${styles.disButton} ${styles.button}`)
-        }
-
-        handleChange(currentPage + 1)
-    }
-
-    function handleChange(index) {
-        if (index == 0) {
-            setLightOne(`${styles.light} ${styles.current}`)
-            setLightTwo(`${styles.light}`)
-            setLightThree(`${styles.light}`)
-            setLightFour(`${styles.light}`)
-        } else if (index == 1) {
-            setLightTwo(`${styles.light} ${styles.current}`)
-            setLightOne(`${styles.light}`)
-            setLightThree(`${styles.light}`)
-            setLightFour(`${styles.light}`)
-        } else if (index == 2) {
-            setLightThree(`${styles.light} ${styles.current}`)
-            setLightOne(`${styles.light}`)
-            setLightTwo(`${styles.light}`)
-            setLightFour(`${styles.light}`)
-        } else if (index == 3) {
-            setLightFour(`${styles.light} ${styles.current}`)
-            setLightOne(`${styles.light}`)
-            setLightTwo(`${styles.light}`)
-            setLightThree(`${styles.light}`)
-        }
-    }
-
-    const [errors, setErrors] = useState({})
-    const [formError, setFormError] = useState("")
-
-    function handleValidation() {
-       const form = formRef.current
-       let newErrors = {}
-
-       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-       const phoneRegex = /^\+\d[\d\s]{6,14}$/;
-
-       if (!form.first?.value?.trim()) {
-        newErrors.first = "First name is required"
-       }
-
-       if (!form.last?.value?.trim()) {
-        newErrors.last = "Last name is required"
-       }
-
-       if (!form.email?.value?.trim()) {
-        newErrors.email = "Email is required"
-       } else if (!emailRegex.test(form.email?.value?.trim())) {
-        newErrors.email = "Please input a valid email address"
-       }
-
-       if (!form.phone?.value?.trim()) {
-        newErrors.phone = "Phone number is required"
-       } else if (!phoneRegex.test(form.phone?.value?.trim())) {
-        newErrors.phone = "Please enter a valid phone number"
-       }
-
-       if (!form.study?.value?.trim()) {
-        newErrors.study = "Field of study is required"
-       }
-
-       if (form.group1 && form.group1.value === "none") {
-        newErrors.group1 = "You must select at least one group"
-       }
-
-       if (!form.description?.value?.trim()) {
-        newErrors.description = "Description is required"
-       }
-
-       setErrors(newErrors)
-
-       if (Object.keys(newErrors).length > 0) {
-        setFormError("");
-        setTimeout(() => setFormError("Please fill in all required fields"))
-        return false
-       }
-
-       setFormError("")
-
-       return true
-    }
-
-    function toForm() {
-        setShow('form')
-        setLightOne(`${styles.light} ${styles.current}`)
-        setLightTwo(`${styles.light}`)
-        setLightThree(`${styles.light}`)
-        setLightFour(`${styles.light}`)
-        setForwardButton(`${styles.actButton} ${styles.button}`)
-        setBackButton(`${styles.disButton} ${styles.button}`)
-        setCurrentPage(0)
-    }
-
-    const [loading, setLoading] = useState(false)
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbzm0Ryc5dT9xYkFd-MVEz2a2YugQOfV9UVGm3n9UjxTSEZMK2iJiIXnqt0YRlLKhBxHUA/exec"
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        if (!handleValidation()) {
-            return
-        }
-
-        setLoading(true)
-
-        const today = new Date()
-
-        const year = today.getFullYear()
-        const month = today.getMonth() + 1
-        const date = today.getDate()
-        const hours = today.getHours()
-        const minutes = today.getMinutes()
-
-        const currentDate = date + "." + month + "." + year
-        const currentTime = "kl. " + hours + "." + minutes
-        const currentDateTime = currentDate + " " + currentTime
-
-        const rawData = {
-            first: formRef.current.first.value,
-            last: formRef.current.last.value,
-            phone: formRef.current.phone.value,
-            email: formRef.current.email.value,
-            study: formRef.current.study.value,
-            year: formRef.current.year.value,
-            isThesis: isThesis? "Yes" : "No",
-            group1: formRef.current.group1.value,
-            position1: formRef.current.position1.value,
-            group2: formRef.current.group2.value,
-            position2: formRef.current.position2.value,
-            group3: formRef.current.group3.value,
-            position3: formRef.current.position3.value,
-            // group4: formRef.current.group4.value,
-            // position4: formRef.current.position4.value,
-            // thesis: formRef.current.thesis.value,
-            marketing: formRef.current.marketing.value,
-            description: formRef.current.description.value,
-            time: currentDateTime
-        }
-
-        const formData = new FormData()
-
-        Object.keys(rawData).forEach(key => formData.append(key, rawData[key]));
-
-        fetch(scriptUrl, {method: 'POST', body: formData})
-        .then(res => res.json()).then(data => {
-            console.log("Successfully submitted")
-            formRef.current.reset()
-            setMarketing("Stand")
-            setLoading(false)
-            setShow('success')
-        })
-        .catch(err => {
-            console.log(err)
-            setLoading(false)
-            setShow('error')
-        })
+            <div className={styles.done} role="status">
+                <span className={styles.doneIcon} aria-hidden="true">&#10003;</span>
+                <h3 className={styles.doneTitle}>Thanks, {firstName}!</h3>
+                <p>Your application has been sent. We will contact you by email with more information.</p>
+                <button type="button" className={styles.secondary} onClick={() => setStatus('idle')}>Send another application</button>
+            </div>
+        );
     }
 
     return (
-        <center>
-            <div className={styles.around}>
-                <form className={styles.container} ref={formRef} onSubmit={handleSubmit} style={{display: (show === "form")? "block" : "none"}}>
-                    <h2 className={styles.title}>Application form</h2>
-                    <div className={pageStyles[currentPage]}>
-                        <div className={styles.subForm}>
-                            <label className={styles.labelRequired} htmlFor="first">First name:</label>
-                            <input className={styles.input} type="text" id={styles.first} name="first" placeholder='Ola'/>
-                            {errors.first && (
-                                <div className={styles.errorText}>{errors.first}</div>
-                            )}
-                            <label className={styles.labelRequired} htmlFor="last">Last name:</label>
-                            <input className={styles.input} type="text" id={styles.last} name="last" placeholder='Nordmann'/>
-                            {errors.last && (
-                                <div className={styles.errorText}>{errors.last}</div>
-                            )}
-                            <label className={styles.labelRequired} htmlFor="contact">Contact information:</label>
-                            <div style={{ display: "flex", gap: "5px" }}>
-                                <div style={{ flex: "0 0 40%" }}>
-                                <input className={styles.input} type="text" id={styles.phone} name="phone" placeholder='+47 123 45 678' />
-                                {errors.phone && (
-                                    <div className={styles.errorText}>{errors.phone}</div>
-                                )}
-                            </div>
-                            <div style={{ flex: "0 0 60%" }}>
-                                <input className={styles.input} type="text" id={styles.email} name="email" placeholder='example@example.com' />
-                                {errors.email && (
-                                    <div className={styles.errorText}>{errors.email}</div>
-                                )}
-                            </div>
-                            </div>
-                            
-                            <label className={styles.labelRequired} htmlFor="study">Field of study:</label>
-                            <input className={styles.input} type="text" id={styles.study} name="study" placeholder='Energi og Miljø' />
-                            <select className={styles.input} name="year" id={styles.year}>
-                                <option value="1">1st</option>
-                                <option value="2">2nd</option>
-                                <option value="3">3rd</option>
-                                <option value="4">4th</option>
-                                <option value="5">5th</option>
-                            </select>
-                            {errors.study && (
-                                <div className={styles.errorText}>{errors.study}</div>
-                            )}
-                        </div>
-                        <div className={styles.subForm}>
-                            {/* <div className={styles.chooseContainer}>
-                                <div>
-                                    <div className={normalStyle} onClick={chooseNormal}>
-                                        Normal
-                                    </div>
-                                    <div className={thesisStyle} onClick={chooseThesis}>
-                                        Thesis
-                                    </div>
-                                </div>
-                                <div className={styles.formContainer}>
-                                    <div style={{display: normalDisplay}}>
-                                        <label className={styles.label} htmlFor="field">First choice:</label>
-                                        <select className={styles.input} name="group1" onChange={(e) => {setChosen1(e.target.value)}} id={styles.group}>
-                                            {getGroups()}
-                                        </select>
-                                        <select className={styles.input} name="position1" id={styles.position}>
-                                            {getChoices(chosen1)}
-                                        </select>
-                                        <label className={styles.label} htmlFor="field">Second choice:</label>
-                                        <select className={styles.input} name="group2" onChange={(e) => {setChosen2(e.target.value)}} id={styles.group}>
-                                            {getGroups()}
-                                        </select>
-                                        <select className={styles.input} name="position2" id={styles.position}>
-                                            {getChoices(chosen2)}
-                                        </select>
-                                        <label className={styles.label} htmlFor="field">Third choice:</label>
-                                        <select className={styles.input} name="group3" onChange={(e) => {setChosen3(e.target.value)}} id={styles.group}>
-                                            {getGroups()}
-                                        </select>
-                                        <select className={styles.input} name="position3" id={styles.position}>
-                                            {getChoices(chosen3)}
-                                        </select>
-                                    </div>
-                                    <div style={{display: thesisDisplay}}>
-                                        <label className={styles.label} htmlFor="field">Choose project thesis:</label>
-                                        <select className={styles.input} name="group4" onChange={(e) => {setChosen4(e.target.value); thesisChoiceArea.current.selectedIndex = 0; thesisTextArea.current.value = ""; if (e.target.value === 'none') {thesisTextArea.current.value = setThesisText('none')} else if (e.target.value === 'suggest') {thesisTextArea.current.calue = setThesisText('suggest')} else {thesisTextArea.current.calue = setThesisText('any')}}} id={styles.group}>
-                                            {getGroups()}
-                                            <option value="suggest">Suggest</option>
-                                        </select>
-                                        <select className={styles.input} name="position4" ref={thesisChoiceArea} onChange={(e) => {thesisTextArea.current.value = setThesisText(e.target.value)}} id={styles.position}>
-                                            {getChoices(chosen4)}
-                                        </select>
-                                        <textarea className={styles.input} ref={thesisTextArea} disabled={!thesisEditable} id={styles.thesis} name="thesis" placeholder='Suggest thesis' />
-                                    </div>
+        <form className={styles.form} ref={formRef} onSubmit={handleSubmit} noValidate>
+            <div className={styles.field}>
+                <label className={styles.labelRequired} htmlFor="join-first">First name</label>
+                <input className={styles.input} type="text" placeholder="Ola" autoComplete="given-name" {...fieldProps('first')} />
+                {errorFor('first')}
+            </div>
+            <div className={styles.field}>
+                <label className={styles.labelRequired} htmlFor="join-last">Last name</label>
+                <input className={styles.input} type="text" placeholder="Nordmann" autoComplete="family-name" {...fieldProps('last')} />
+                {errorFor('last')}
+            </div>
+            <div className={styles.field}>
+                <label className={styles.labelRequired} htmlFor="join-email">Email</label>
+                <input className={styles.input} type="email" placeholder="ola.nordmann@example.com" autoComplete="email" {...fieldProps('email')} />
+                {errorFor('email')}
+            </div>
+            <div className={styles.field}>
+                <label className={styles.labelRequired} htmlFor="join-phone">Phone</label>
+                <input className={styles.input} type="tel" placeholder="+47 123 45 678" autoComplete="tel" {...fieldProps('phone')} />
+                {errorFor('phone')}
+            </div>
+            <div className={styles.field}>
+                <label className={styles.labelRequired} htmlFor="join-study">Field of study</label>
+                <input className={styles.input} type="text" placeholder="Mechanical Engineering" {...fieldProps('study')} />
+                {errorFor('study')}
+            </div>
+            <div className={styles.field}>
+                <label className={styles.label} htmlFor="join-year">Year</label>
+                <select className={styles.input} id="join-year" name="year" defaultValue={YEARS[0]}>
+                    {YEARS.map(year => <option key={year}>{year}</option>)}
+                </select>
+            </div>
 
-                                </div>
-                            </div> */}
-                            <div style={{display: normalDisplay}}>
-                                <label className={styles.labelRequired} htmlFor="field">First choice:</label>
-                                <select className={styles.input} name="group1" onChange={(e) => {setChosen1(e.target.value)}} id={styles.group}>
-                                    {getGroups()}
-                                </select>
-                                <select className={styles.input} name="position1" id={styles.position}>
-                                    {getChoices(chosen1)}
-                                </select>
-                                {errors.group1 && (
-                                <div className={styles.errorText}>{errors.group1}</div>
-                                )}
-
-                                <label className={styles.label} htmlFor="field">Second choice:</label>
-                                <select className={styles.input} name="group2" onChange={(e) => {setChosen2(e.target.value)}} id={styles.group}>
-                                    {getGroups()}
-                                </select>
-                                <select className={styles.input} name="position2" id={styles.position}>
-                                    {getChoices(chosen2)}
-                                </select>
-                                <label className={styles.label} htmlFor="field">Third choice:</label>
-                                <select className={styles.input} name="group3" onChange={(e) => {setChosen3(e.target.value)}} id={styles.group}>
-                                    {getGroups()}
-                                </select>
-                                <select className={styles.input} name="position3" id={styles.position}>
-                                    {getChoices(chosen3)}
-                                </select>
-                            </div>
-                        </div>
-                        <div className={styles.subForm}>
-                            <label className={styles.label} htmlFor="field">Were did you here about us? Choose the field you most relate to.</label>
-                            <div className={styles.marketingContainer}>
-                                <div className={styles.marketingOption}>
-                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("On Stand") }} defaultChecked type="radio" id="stand" name="marketing" value="On stand"/>
-                                    <label className={styles.marketingLabel} for="stand">On stand</label>
-                                </div>
-                                <div className={styles.marketingOption}>
-                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("Posters") }} type="radio" id="posters" name="marketing" value="Posters"/>
-                                    <label className={styles.marketingLabel} for="posters">Posters</label>
-                                </div>
-                                <div className={styles.marketingOption}>
-                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("Social Media") }} type="radio" id="socialmedia" name="marketing" value="Social Media"/>
-                                    <label className={styles.marketingLabel} for="socialmedia">Social Media</label>
-                                </div>
-                                <div className={styles.marketingOption}>
-                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("Through friends") }} type="radio" id="friends" name="marketing" value="Through friends"/>
-                                    <label className={styles.marketingLabel} for="friends">Through friends</label>
-                                </div>
-                                <div className={styles.marketingOption}>
-                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(false); setMarketing("At a lecture") }} type="radio" id="lecture" name="marketing" value="At a lecture"/>
-                                    <label className={styles.marketingLabel} for="lecture">At a lecture</label>
-                                </div>
-                                <div className={styles.marketingOption}>
-                                    <input className={styles.marketingInput} onClick={() => { setSelectOther(true); activeOtherRef.current.focus(); setMarketing(otherValue) }} type="radio" id="other" checked={selectOther} name="marketing" value={ otherValue }/>
-                                    <input className={styles.otherText} onClick={() => { setSelectOther(true); activeOtherRef.current.focus() }} onChange={() => {setOtherValue(activeOtherRef.current.value); setMarketing(otherValue)}} ref={activeOtherRef} type="text" id="other" name="marketing" placeholder='Other' />
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles.subForm}>
-                            <label className={styles.labelRequired} htmlFor="field">Tell us about yourself in a few words:</label>
-                            <textarea className={styles.input} id={styles.description} name="description" placeholder="Something about yourself" />
-                            {errors.description && (
-                                    <div className={styles.errorText}>{errors.description}</div>
-                                )}
-                            <center><button className={styles.submit} type="submit">{loading ? "Loading..." : "Submit"}</button></center>
-                            {formError && (
-                                <div className={styles.formError}>{formError}</div>
-                            )}
-                        </div>
-                    </div>
-                    <center>
-                        <div className={`${styles.bottomContainer}`}>
-                            <div className={backButton} onClick={handleBack}>
-                                &#60;
-                            </div>
-                            <div className={lightOne}></div>
-                            <div className={lightTwo}></div>
-                            <div className={lightThree}></div>
-                            <div className={lightFour}></div>
-                            <div className={forwardButton} onClick={handleForward}>
-                                &#62;
-                            </div>
-                        </div>
-                    </center>
-                </form>
-                <div className={styles.error} style={{display: (show === "error")? "block" : "none"}}>
-                    <div className={styles.errorIcon}>!</div>
-                    <div className={styles.text}>Something went wrong. Please try again later.</div>
-                    <button className={styles.submit} onClick={toForm}>Back to form</button>
+            <fieldset className={`${styles.wide} ${styles.fieldset}`} aria-describedby={errors.groups ? 'join-groups-error' : 'join-groups-hint'}>
+                <legend className={styles.labelRequired}>Groups</legend>
+                <p id="join-groups-hint" className={styles.hint}>Choose up to {MAX_CHOICES}, in order of preference.</p>
+                <div className={styles.picker} data-group-picker>
+                    {Object.entries(groups).map(([key, group]) => {
+                        const rank = choices.indexOf(key);
+                        return (
+                            <button
+                                key={key}
+                                type="button"
+                                className={styles.pill}
+                                aria-pressed={rank >= 0}
+                                disabled={rank < 0 && full}
+                                onClick={() => onToggle(key)}
+                            >
+                                <ThemedIcon className={styles.pillIcon} width={22} height={22} light={group.image?.light ?? group.image} dark={group.image?.dark} />
+                                {group.name}
+                                {rank >= 0 && <span className={styles.rank} aria-hidden="true">{rank + 1}</span>}
+                            </button>
+                        );
+                    })}
                 </div>
-                <div className={styles.success} style={{display: (show === "success")? "block" : "none"}}>
-                    <div className={styles.successIcon}>&#10003;</div>
-                    <div className={styles.text}>Success! Your application has been delivered. You will be contacted in a few days with further information.</div>
-                    <button className={styles.submit} onClick={toForm}>Back to form</button>
+                <p className={styles.summary} aria-live="polite">
+                    {choices.length > 0 && choices.map((key, index) => `${ordinal(index)}: ${groups[key]?.name}`).join(' · ')}
+                </p>
+                {errorFor('groups')}
+            </fieldset>
+
+            <div className={`${styles.field} ${styles.wide}`}>
+                <label className={styles.labelRequired} htmlFor="join-about">Why do you want to join Nordlys?</label>
+                <p className={styles.hint}>What interests you, what you would like to learn and any experience you want to mention.</p>
+                <textarea className={`${styles.input} ${styles.textarea}`} placeholder="Tell us about yourself" {...fieldProps('about')} />
+                {errorFor('about')}
+            </div>
+
+            <div className={`${styles.field} ${styles.wide}`}>
+                <label className={styles.check}>
+                    <input type="checkbox" checked={thesis} onChange={event => setThesis(event.target.checked)} />
+                    <span>I would like to write my bachelor&apos;s or master&apos;s thesis with Nordlys</span>
+                </label>
+                {thesis && (
+                    <div className={styles.indent}>
+                        <label className={styles.label} htmlFor="join-thesisIdea">Your thesis idea (optional)</label>
+                        <textarea className={`${styles.input} ${styles.textareaSmall}`} id="join-thesisIdea" name="thesisIdea" placeholder="Describe your idea" />
+                        <p className={styles.hint}>You must also apply for your thesis through NTNU.</p>
+                    </div>
+                )}
+            </div>
+
+            <div className={styles.field}>
+                <label className={styles.label} htmlFor="join-source">Where did you hear about us?</label>
+                <select className={styles.input} id="join-source" name="source" value={source} onChange={event => setSource(event.target.value)}>
+                    <option value="">Choose one</option>
+                    {SOURCES.map(option => <option key={option}>{option}</option>)}
+                </select>
+            </div>
+            {source === 'Other' && (
+                <div className={styles.field}>
+                    <label className={styles.label} htmlFor="join-sourceOther">Where?</label>
+                    <input className={styles.input} type="text" id="join-sourceOther" name="sourceOther" />
+                </div>
+            )}
+
+            <div className={`${styles.field} ${styles.wide}`}>
+                <label className={styles.check}>
+                    <input
+                        type="checkbox"
+                        name="consent"
+                        checked={consent}
+                        onChange={event => setConsent(event.target.checked)}
+                        aria-invalid={errors.consent ? true : undefined}
+                        aria-describedby={errors.consent ? 'join-consent-error' : undefined}
+                    />
+                    <span className={styles.required}>
+                        I agree that Nordlys stores my application until it has been processed, and no longer than six months.
+                    </span>
+                </label>
+                {errorFor('consent')}
+            </div>
+
+            <div className={styles.trap} aria-hidden="true">
+                <label htmlFor="join-website">Website</label>
+                <input type="text" id="join-website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
+
+            <div className={`${styles.actions} ${styles.wide}`}>
+                <button className={styles.submit} disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Sending…' : 'Send application'}
+                </button>
+                <div role="status" aria-live="polite">
+                    {status === 'invalid' && <p className={styles.errorText}>Please check the fields marked in red.</p>}
+                    {status === 'error' && <p className={styles.error}><span aria-hidden="true">!</span> Something went wrong. Please try again later, or use the contact form below.</p>}
+                    {status === 'local' && <p className={styles.note}>Local test complete — nothing was sent.</p>}
                 </div>
             </div>
-        </center>
-    )
+        </form>
+    );
 }
