@@ -5,6 +5,9 @@
  * Setup: see README.md in this folder. Deploy as a web app that runs as the
  * spreadsheet owner and that anyone can call. The spreadsheet itself stays
  * private: share it with Board members only.
+ *
+ * @OnlyCurrentDoc  Limits the script's access to this one spreadsheet,
+ *                  not all of the owner's spreadsheets.
  */
 
 const SHEET_NAME = 'Søknader';
