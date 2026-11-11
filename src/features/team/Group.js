@@ -2,7 +2,7 @@ import styles from './styles/Group.module.css'
 import { useState, useRef, useEffect } from "react";
 import ScrollReveal from '@shared/components/ScrollReveal';
 import "animate.css/animate.min.css";
-import Image from 'next/image';
+import ThemedIcon from '@features/ui/ThemedIcon';
 
 export default function Group({ image, groupName, theses, description }) {
     const [open, setOpen] = useState(false)
@@ -27,7 +27,7 @@ export default function Group({ image, groupName, theses, description }) {
         <ScrollReveal animateIn="animate__fadeInUp" offset={50}>
         <div className={styles.group} onClick={handleClick}>
             <h2 className={styles.titleContainer}>
-                <Image className={styles.titleImage} width={50} height={50} src={image} />
+                <ThemedIcon className={styles.titleImage} width={50} height={50} light={image?.light ?? image} dark={image?.dark} />
                 {groupName}
                 <div className={styles.fillContainer}></div>
                 <svg className={styles.icon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" fill="none">

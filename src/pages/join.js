@@ -8,28 +8,10 @@ import PartHeader from '@shared/components/PartHeader';
 
 import { MarkdownGroupParser } from '@features/join/MarkdownGroupParser';
 
-import Mechanical from '@assets/symbols-and-logos/Mechanical.png';
-import AeroAndComposites from '@assets/symbols-and-logos/Chassis.png';
-import Software from '@assets/symbols-and-logos/Software.png';
-import EmbeddedElectronics from '@assets/symbols-and-logos/EmbeddedElectronics.png';
-import Marketing from '@assets/symbols-and-logos/Marketing.png';
-import Logistics from '@assets/symbols-and-logos/Logistics.png';
-import Management from '@assets/symbols-and-logos/Management.png';
-import Board from '@assets/symbols-and-logos/Board.png';
+import { groupIcons } from '@features/ui/groupIcons';
 
 export async function getStaticProps() {
-  const imageMap = {
-    board: Board.src,
-    business: Management.src,
-    marketing: Marketing.src,
-    logistics: Logistics.src,
-    'aero-&-composites': AeroAndComposites.src,
-    mechanical: Mechanical.src,
-    electrical: EmbeddedElectronics.src,
-    software: Software.src
-  };
-
-  const groups = await MarkdownGroupParser("src/markdown/join.md", imageMap);
+  const groups = await MarkdownGroupParser("src/markdown/join.md", groupIcons);
 
   return { props: { groups } };
 }

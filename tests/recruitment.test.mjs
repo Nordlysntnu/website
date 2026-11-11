@@ -1,9 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const markdown = readFileSync(new URL('../src/markdown/join.md', import.meta.url), 'utf8');
 const joinPage = readFileSync(new URL('../src/pages/join.js', import.meta.url), 'utf8');
+const groupIconsSource = readFileSync(new URL('../src/features/ui/groupIcons.js', import.meta.url), 'utf8');
 const project = JSON.parse(readFileSync(new URL('../src/features/team/data/projects/2027.json', import.meta.url), 'utf8'));
 const expectedGroups = ['Board', 'Business', 'Marketing', 'Logistics', 'Aero & Composites', 'Mechanical', 'Electrical', 'Software'];
 const sections = markdown.split(/^# /m).filter(Boolean).map(section => ({
@@ -23,15 +24,21 @@ test('each group offers one general Member choice rather than specialist vacanci
   assert.doesNotMatch(markdown, /Chassis|Finance Member|Group Leader|Battery Electrical Engineer|Embedded Engineer|Structural and Safety|Body Mechanisms|Software Developer|Web Developer|Key Account Manager|Content Creator|Event Manager/i);
 });
 
-test('all recruitment groups have matching image-map keys and imported image bindings', () => {
-  const block = joinPage.match(/const imageMap = \{([\s\S]*?)\n  \};/);
-  assert.ok(block, 'join page must provide the parser image map');
-  const mappings = [...block[1].matchAll(/^\s*(?:'([^']+)'|([a-z]+)):\s*([A-Za-z]+)\.src,?$/gm)];
+test('all recruitment groups have a light and a dark icon in the shared icon map', () => {
+  assert.match(joinPage, /MarkdownGroupParser\("src\/markdown\/join\.md", groupIcons\)/, 'join page must pass the shared icon map to the parser');
+  const block = groupIconsSource.match(/export const groupIcons = \{([\s\S]*?)\r?\n\};/);
+  assert.ok(block, 'groupIcons.js must export the icon map');
+  const mappings = [...block[1].matchAll(/^\s*(?:'([^']+)'|([a-z]+)):\s*icon\(([A-Za-z]+), ([A-Za-z]+)\),?$/gm)];
   const actualKeys = mappings.map(match => match[1] || match[2]);
   const expectedKeys = expectedGroups.map(name => name.toLowerCase().replace(/\s+/g, '-'));
   assert.deepEqual(actualKeys, expectedKeys);
   for (const match of mappings) {
-    assert.ok(joinPage.includes('import ' + match[3] + ' from '), 'missing imported image for ' + (match[1] || match[2]));
+    for (const binding of [match[3], match[4]]) {
+      const imported = groupIconsSource.match(new RegExp('import ' + binding + " from '@assets/(.+?)';"));
+      assert.ok(imported, 'missing imported icon ' + binding);
+      assert.ok(existsSync(new URL('../src/assets/' + imported[1], import.meta.url)), 'missing icon file ' + imported[1]);
+    }
+    assert.equal(match[4], match[3] + 'Dark', 'dark icon must be the generated version of ' + match[3]);
   }
 });
 

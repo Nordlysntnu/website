@@ -40,4 +40,3 @@
 :global(html[data-theme="dark"]) .container { border-color: var(--dk-border); background: var(--dk-card); }
 :global(html[data-theme="dark"]) .title { color: var(--dk-heading); }
 :global(html[data-theme="dark"]) .container:hover { border-color: var(--dk-accent); background: var(--dk-card-hover); }
-:global(html[data-theme="dark"]) .image { background-color: var(--dk-tile); border-radius: 0.75rem; padding: 0.35rem; }
