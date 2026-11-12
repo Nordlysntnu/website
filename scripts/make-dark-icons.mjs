@@ -6,7 +6,7 @@ import sharp from 'sharp';
 const dir = 'src/assets/symbols-and-logos/';
 const icons = [
     '2025Goal', 'TeamGoal', 'NorwayGoal',
-    'Board', 'Management', 'Marketing', 'Logistics',
+    'Management', 'Business', 'Marketing', 'Logistics',
     'Chassis', 'Mechanical', 'EmbeddedElectronics', 'Software',
 ];
 
