@@ -55,6 +55,11 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
 
     steps:
+      # The self-hosted runner keeps its workspace between runs. Without this,
+      # files removed from the site stay in site/ and rsync keeps serving them.
+      - name: Empty the build folder
+        run: rm -rf site
+
       - name: Download build
         uses: actions/download-artifact@v4
         with:
@@ -79,8 +84,9 @@ jobs:
             exit 1
           fi
 
-          rsync -a --delete-delay --delay-updates \
-          site/ /var/www/nextapp/
+          # List the files removed from the live site in the job log.
+          rsync -a --delete-delay --delay-updates --itemize-changes \
+          site/ /var/www/nextapp/ | { grep '^\*deleting' || true; }
 
           echo "Deployment run successful!"
           echo "Commit: $GITHUB_SHA"
