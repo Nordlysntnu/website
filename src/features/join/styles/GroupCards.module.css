@@ -84,6 +84,15 @@
     line-height: 1.6;
 }
 
+.roleName {
+    margin-bottom: 0.15rem;
+    color: #b20b3a;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .choose {
     display: flex;
     align-items: center;
@@ -166,6 +175,7 @@
 :global(html[data-theme="dark"]) .chosen { box-shadow: 0 0 0 2px var(--dk-accent); }
 :global(html[data-theme="dark"]) .description { color: var(--dk-text); }
 :global(html[data-theme="dark"]) .role { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .roleName { color: var(--dk-accent); }
 :global(html[data-theme="dark"]) .choose { border-color: var(--dk-border); color: var(--dk-heading); }
 :global(html[data-theme="dark"]) .choose:hover { border-color: var(--dk-heading-soft); }
 :global(html[data-theme="dark"]) .choose[aria-pressed="true"] { border-color: #ce1046; color: #ffffff; background: #ce1046; }

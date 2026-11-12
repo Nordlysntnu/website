@@ -27,7 +27,12 @@ export default function GroupCards({ groups, choices, onToggle }) {
                                 <h3 className={styles.name}>{group.name}</h3>
                             </div>
                             <div className={styles.description} dangerouslySetInnerHTML={{ __html: group.description }} />
-                            {role && <div className={styles.role} dangerouslySetInnerHTML={{ __html: role.text }} />}
+                            {role && (
+                                <div className={styles.role}>
+                                    <p className={styles.roleName}>{role.name}</p>
+                                    <div dangerouslySetInnerHTML={{ __html: role.text }} />
+                                </div>
+                            )}
                             <button
                                 type="button"
                                 className={styles.choose}
