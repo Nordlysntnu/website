@@ -1,0 +1,58 @@
+/* Short info on the left, the form on the right. */
+.container {
+    scroll-margin-top: 6rem;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: start;
+    gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.eyebrow {
+    margin-bottom: 0.75rem;
+    color: #b20b3a;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.text {
+    margin-top: 1rem;
+    color: #414b60;
+    line-height: 1.8;
+}
+
+.note {
+    margin-top: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #ce1046;
+    color: #414b60;
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.noteTitle {
+    color: #152242;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+@media (max-width: 860px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .eyebrow { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .text,
+:global(html[data-theme="dark"]) .note { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .note { border-left-color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .noteTitle { color: var(--dk-heading); }

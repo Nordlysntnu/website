@@ -65,3 +65,36 @@ test('the actual recruitment parser returns usable member choices and images for
     assert.ok(group[roles[0]].text.trim());
   }
 });
+
+const joinForm = readFileSync(new URL('../src/features/join/JoinForm.js', import.meta.url), 'utf8');
+const appsScript = readFileSync(new URL('../docs/join-applications/Code.gs', import.meta.url), 'utf8');
+const scriptLists = Object.fromEntries([...appsScript.matchAll(/^const ([A-Z]+) = (\[[\s\S]*?\]);/gm)]
+  .map(([, name, list]) => [name, JSON.parse(list.replace(/'/g, '"').replace(/,\s*\]/, ']'))]));
+const scriptList = name => scriptLists[name];
+
+test('the form sends every field the Board sheet script stores', () => {
+  const fields = scriptList('FIELDS');
+  const headers = scriptList('HEADERS');
+  assert.equal(headers.length, fields.length + 3, 'one column per field, plus Mottatt, Status and Notater');
+  for (const field of fields) {
+    const sent = joinForm.includes(`read('${field}')`) || new RegExp(`\\b${field}: `).test(joinForm);
+    assert.ok(sent, 'form does not send ' + field);
+  }
+  assert.match(joinForm, /website: read\('website'\)/, 'form sends the spam trap field');
+  assert.match(appsScript, /if \(data\.website\)/, 'script ignores submissions with the spam trap filled in');
+});
+
+test('applications go to the Board-only sheet, not the old one', () => {
+  const endpoint = joinForm.match(/export const APPLICATION_ENDPOINT = '([^']*)';/)?.[1];
+  assert.match(endpoint ?? '', /^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/, 'set APPLICATION_ENDPOINT to the /exec URL from docs/join-applications');
+  assert.doesNotMatch(endpoint, /AKfycbzm0Ryc5dT9xYkFd/, 'still the old applications sheet');
+});
+
+test('group choices keep their order, stop at three and can be removed', async () => {
+  const { toggleChoice, MAX_CHOICES } = await import('../src/features/join/choices.js');
+  let choices = [];
+  for (const key of ['software', 'board', 'marketing', 'logistics']) choices = toggleChoice(choices, key);
+  assert.equal(MAX_CHOICES, 3);
+  assert.deepEqual(choices, ['software', 'board', 'marketing']);
+  assert.deepEqual(toggleChoice(choices, 'board'), ['software', 'marketing']);
+});

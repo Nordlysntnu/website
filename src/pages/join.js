@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import Content from '@shared/components/Content';
-import Groups from '@features/team/Groups';
-import JoinForm from '@features/join/JoinForm';
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
-import PartHeader from '@shared/components/PartHeader';
+import JoinIntro from '@features/join/JoinIntro';
+import GroupCards from '@features/join/GroupCards';
+import ApplySection from '@features/join/ApplySection';
+import { toggleChoice } from '@features/join/choices';
 
 import { MarkdownGroupParser } from '@features/join/MarkdownGroupParser';
 
@@ -16,32 +18,32 @@ export async function getStaticProps() {
   return { props: { groups } };
 }
 
-
 export default function Join({ groups }) {
-  const text = <>Do you want to join Nordlys and help develop Norway's solar racing cars? We welcome students with different backgrounds and interests. Choose a group below and apply as a member; you do not need to choose a specialist position. Tell us what interests you and what you would like to learn. <br /><br />If you would like to explore a bachelor's or master's thesis with Nordlys, describe your idea in the application. <em>You must also apply for your thesis through NTNU.</em></>;
+  // Chosen group keys in order of preference, shared by the group cards and the form.
+  const [choices, setChoices] = useState([]);
+  const onToggle = key => setChoices(current => toggleChoice(current, key));
+  const onReset = () => setChoices([]);
 
   return (
     <>
       <Head>
-        <title>Nordlys</title>
+        <title>Join · Nordlys</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Layout current="Join">
         <></>
-        
         <PageHeader title="Join" />
-
         <Content dark={true}>
-              <div id="applicationForm">
-                <PartHeader darkColor={false} title="Apply" text={text} />
-                <JoinForm groups={groups} />
-              </div>
-              <br></br>
-              * The data you submit will be stored by Nordlys until the application is processed. The data will be stored no longer than six months.
-          </Content>
-      <Groups dark={false} groups={groups}/>
-    </Layout>
-        </>
+          <JoinIntro />
+        </Content>
+        <Content dark={false}>
+          <GroupCards groups={groups} choices={choices} onToggle={onToggle} />
+        </Content>
+        <Content dark={true}>
+          <ApplySection groups={groups} choices={choices} onToggle={onToggle} onReset={onReset} />
+        </Content>
+      </Layout>
+    </>
   );
 }

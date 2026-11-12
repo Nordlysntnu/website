@@ -2,11 +2,8 @@ import Head from 'next/head';
 import { websiteBlogProps } from '@features/cms/snapshot-posts.mjs';
 import { CmsPostList } from '@features/cms/CmsBlog';
 import Content from '@shared/components/Content';
-import Groups from '@features/team/Groups';
-import JoinForm from '@features/join/JoinForm';
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
-import PartHeader from '@shared/components/PartHeader';
 import BlogEntry from '@shared/components/BlogEntry';
 import React from 'react'
 import { blogs } from '@shared/data/blog';
