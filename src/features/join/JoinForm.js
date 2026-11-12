@@ -5,7 +5,7 @@ import styles from './styles/JoinForm.module.css';
 
 // Apps Script web app that adds each application to the Board-only sheet.
 // Setup and script: docs/join-applications.
-export const APPLICATION_ENDPOINT = '';
+export const APPLICATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxSqToQlCxCciod-4KXk-pdR2KeIKYr1Eq1NgQVLyrsktXrVQ1SKJkqCpBizrXsCmLEqw/exec';
 
 const YEARS = ['1st year', '2nd year', '3rd year', '4th year', '5th year', 'PhD or other'];
 const SOURCES = ['Stand on campus', 'Posters', 'Social media', 'Friends', 'A lecture', 'Other'];
