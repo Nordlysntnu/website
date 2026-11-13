@@ -1,0 +1,84 @@
+/* Heading and intro side by side, like the other section intros. */
+.intro {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: end;
+    gap: 1.5rem clamp(2rem, 4vw, 4rem);
+}
+
+.eyebrow {
+    margin-bottom: 0.75rem;
+    color: #b20b3a;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.lead {
+    max-width: 60ch;
+    color: #414b60;
+    line-height: 1.8;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.1rem 1.25rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(21, 34, 66, 0.06), 0 12px 32px -20px rgba(21, 34, 66, 0.3);
+}
+
+.number {
+    flex: none;
+    width: 1.75rem;
+    color: #ce1046;
+    font-family: var(--font-khand), sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.stepTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.stepText {
+    margin-top: 0.2rem;
+    color: #414b60;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+    .intro,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .eyebrow { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .lead,
+:global(html[data-theme="dark"]) .stepText { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .step { background: var(--dk-card); box-shadow: 0 0 0 1px var(--dk-border); }
+:global(html[data-theme="dark"]) .number { color: var(--dk-accent); }

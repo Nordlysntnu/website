@@ -1,0 +1,143 @@
+.figure {
+    margin: 0;
+}
+
+.car {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+@media (max-width: 600px) {
+    .car {
+        max-width: 22rem;
+        margin: 0 auto;
+    }
+}
+
+.body {
+    fill: #ffffff;
+    stroke: #c3cad8;
+    stroke-width: 2;
+    filter: drop-shadow(0 18px 28px rgba(21, 34, 66, 0.18));
+}
+
+.canopy {
+    stroke: #152242;
+    stroke-width: 2;
+}
+
+.shine {
+    fill: rgba(255, 255, 255, 0.35);
+    pointer-events: none;
+}
+
+.panel {
+    stroke: rgba(255, 255, 255, 0.18);
+    stroke-width: 1;
+    cursor: pointer;
+    transition: 120ms ease fill, 120ms ease opacity;
+}
+
+.panel:focus {
+    outline: none;
+}
+
+.panel:focus-visible {
+    stroke: #ff1053;
+    stroke-width: 4;
+}
+
+.free {
+    fill: url(#adopt-cell);
+}
+
+.free:hover {
+    fill: #3a4f8a;
+}
+
+.chosen {
+    fill: #ce1046;
+}
+
+.chosen:hover {
+    fill: #b20b3a;
+}
+
+.adopted {
+    fill: #f6b8ca;
+    cursor: default;
+}
+
+.held {
+    fill: #aeb6c7;
+    cursor: default;
+}
+
+.caption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+    margin-top: 1.25rem;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    color: #414b60;
+    font-size: 0.85rem;
+    list-style: none;
+}
+
+.legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.swatch {
+    display: inline-block;
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 0.2rem;
+}
+
+.swatch.free {
+    background: #22356a;
+}
+
+.swatch.chosen {
+    background: #ce1046;
+}
+
+.swatch.adopted {
+    background: #f6b8ca;
+}
+
+.info {
+    color: #152242;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .panel {
+        transition: none;
+    }
+}
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .body { fill: var(--dk-card); stroke: var(--dk-border); filter: none; }
+:global(html[data-theme="dark"]) .canopy { stroke: var(--dk-border); }
+:global(html[data-theme="dark"]) .panel { stroke: rgba(255, 255, 255, 0.1); }
+:global(html[data-theme="dark"]) .free { fill: #0b1328; }
+:global(html[data-theme="dark"]) .free:hover { fill: #22356a; }
+:global(html[data-theme="dark"]) .swatch.free { background: #0b1328; box-shadow: 0 0 0 1px var(--dk-border); }
+:global(html[data-theme="dark"]) .legend { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .info { color: var(--dk-text); }
