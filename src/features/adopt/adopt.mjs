@@ -48,53 +48,66 @@ export function cleanName(value) {
         .slice(0, NAME_MAX);
 }
 
-// Placeholder car seen from above. Replace with the new car shape when it is ready;
-// keep the panel ids stable once panels have been adopted.
-export const CAR = { width: 1000, height: 440 };
+// The car seen from above, as in the team's drawing of the solar array: standing up, rear at the top
+// and nose at the bottom. Each module is a block of solar cells, and each cell is one panel to adopt.
+// A normal cell lies across the car; in modules marked turned the cells are turned 90 degrees.
+// Panel ids are the module letter and the cell number, for example C17. Keep them stable once panels are adopted.
+const CELL = { across: 38, along: 20 };
+const MODULES = [
+    // letter, left and top (measured from the rear left corner of the array), rows, columns, turned
+    ['A', 0, 0, 12, 4], ['B', 152, 0, 12, 4],
+    ['C', 0, 240, 12, 4], ['D', 152, 240, 12, 4],
+    ['E', 0, 480, 9, 4], ['F', 152, 480, 9, 4],
+    ['G', 0, 660, 1, 5, true], ['H', 204, 660, 1, 5, true],
+    ['J', 12, 698, 12, 2], ['K', 214, 698, 10, 1], ['L', 252, 698, 12, 1],
+    ['M', 34, 951, 2, 3, true], ['N', 210, 951, 2, 3, true],
+    ['P', 99, 1007, 1, 1], ['Q', 167, 1007, 1, 1],
+    ['R', 75, 1031, 3, 1], ['S', 114, 1031, 5, 2], ['T', 191, 1031, 3, 1],
+];
 
-function superellipse(cx, cy, rx, ry, exponent, x, y) {
-    return Math.abs((x - cx) / rx) ** exponent + Math.abs((y - cy) / ry) ** exponent <= 1;
+const pad = 10; // Body around the array.
+const arrayWidth = 8 * CELL.across;
+export const CAR = { width: arrayWidth + 2 * pad, length: 1160 + pad };
+export const CANOPY = { cx: pad + arrayWidth / 2, cy: pad + 832, rx: 61, ry: 172 };
+
+function cubic(from, c1, c2, to, steps = 40) {
+    return Array.from({ length: steps }, (_, i) => {
+        const t = (i + 1) / steps;
+        const u = 1 - t;
+        return [0, 1].map(k => u ** 3 * from[k] + 3 * u * u * t * c1[k] + 3 * u * t * t * c2[k] + t ** 3 * to[k]);
+    });
 }
 
-function superellipsePath(cx, cy, rx, ry, exponent, steps = 144) {
-    const points = [];
-    for (let i = 0; i < steps; i++) {
-        const t = (i / steps) * 2 * Math.PI;
-        const cos = Math.cos(t);
-        const sin = Math.sin(t);
-        const x = cx + rx * Math.sign(cos) * Math.abs(cos) ** (2 / exponent);
-        const y = cy + ry * Math.sign(sin) * Math.abs(sin) ** (2 / exponent);
-        points.push(`${x.toFixed(1)} ${y.toFixed(1)}`);
-    }
-    return `M${points.join(' L')} Z`;
+function corner(cx, cy, from, radius = 18, steps = 8) {
+    return Array.from({ length: steps + 1 }, (_, i) => {
+        const angle = from + (Math.PI / 2) * (i / steps);
+        return [cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)];
+    });
 }
 
-const body = { cx: 500, cy: 220, rx: 470, ry: 200, exponent: 3.2 };
-const array = { cx: 515, cy: 220, rx: 420, ry: 168, exponent: 4 };
-export const CANOPY = { cx: 250, cy: 220, rx: 78, ry: 58 };
+// Outline of the body as points, clockwise from the rear left corner: straight sides, then the nose.
+const middle = CAR.width / 2;
+const noseStart = pad + 760;
+const tip = [middle, CAR.length];
+export const BODY_POINTS = [
+    ...corner(18, 18, Math.PI),
+    ...corner(CAR.width - 18, 18, 1.5 * Math.PI),
+    [CAR.width, noseStart],
+    ...cubic([CAR.width, noseStart], [CAR.width, pad + 1040], [middle + 92, pad + 1138], tip),
+    ...cubic(tip, [middle - 92, pad + 1138], [0, pad + 1040], [0, noseStart]),
+];
+export const BODY_PATH = `M${BODY_POINTS.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join(' L')} Z`;
 
-const cell = 38;
-const gap = 4;
-const cols = 21;
-const rows = 8;
-const x0 = array.cx - (cols * cell) / 2;
-const y0 = array.cy - (rows * cell) / 2;
-
-function insideArray(x, y) {
-    const corners = [[x, y], [x + cell - gap, y], [x, y + cell - gap], [x + cell - gap, y + cell - gap]];
-    return corners.every(([px, py]) => superellipse(array.cx, array.cy, array.rx, array.ry, array.exponent, px, py))
-        && !corners.some(([px, py]) => superellipse(CANOPY.cx, CANOPY.cy, CANOPY.rx + 10, CANOPY.ry + 10, 2, px, py));
-}
-
-export const BODY_PATH = superellipsePath(body.cx, body.cy, body.rx, body.ry, body.exponent);
-
+export const MODULE_FRAMES = [];
 export const PANELS = [];
-for (let row = 0; row < rows; row++) {
-    for (let col = 0; col < cols; col++) {
-        const x = x0 + col * cell;
-        const y = y0 + row * cell;
-        if (insideArray(x, y)) {
-            PANELS.push({ id: `${String.fromCharCode(65 + row)}${col + 1}`, row, col, x, y, size: cell - gap });
+for (const [letter, left, top, rows, columns, turned = false] of MODULES) {
+    const w = turned ? CELL.along : CELL.across;
+    const h = turned ? CELL.across : CELL.along;
+    MODULE_FRAMES.push({ id: letter, x: pad + left, y: pad + top, w: columns * w, h: rows * h });
+    for (let row = 0; row < rows; row++) {
+        for (let column = 0; column < columns; column++) {
+            const id = `${letter}${row * columns + column + 1}`;
+            PANELS.push({ id, module: letter, x: pad + left + column * w, y: pad + top + row * h, w, h });
         }
     }
 }

@@ -9,10 +9,13 @@
     overflow: visible;
 }
 
+/* Upright on phones. The car may use some of the page margin so the panels are bigger to tap,
+   but stays narrow enough to see a good part of it at once. */
 @media (max-width: 600px) {
     .car {
-        max-width: 22rem;
-        margin: 0 auto;
+        width: min(21rem, calc(100% + 4rem));
+        margin-left: 50%;
+        transform: translateX(-50%);
     }
 }
 
@@ -21,6 +24,10 @@
     stroke: #c3cad8;
     stroke-width: 2;
     filter: drop-shadow(0 18px 28px rgba(21, 34, 66, 0.18));
+}
+
+.module {
+    fill: #0b1430;
 }
 
 .canopy {
@@ -134,10 +141,11 @@
 
 /* Dark mode */
 :global(html[data-theme="dark"]) .body { fill: var(--dk-card); stroke: var(--dk-border); filter: none; }
+:global(html[data-theme="dark"]) .module { fill: #050a17; }
 :global(html[data-theme="dark"]) .canopy { stroke: var(--dk-border); }
 :global(html[data-theme="dark"]) .panel { stroke: rgba(255, 255, 255, 0.1); }
-:global(html[data-theme="dark"]) .free { fill: #0b1328; }
-:global(html[data-theme="dark"]) .free:hover { fill: #22356a; }
-:global(html[data-theme="dark"]) .swatch.free { background: #0b1328; box-shadow: 0 0 0 1px var(--dk-border); }
+:global(html[data-theme="dark"]) .free { fill: #1d2c58; }
+:global(html[data-theme="dark"]) .free:hover { fill: #2f4486; }
+:global(html[data-theme="dark"]) .swatch.free { background: #1d2c58; box-shadow: 0 0 0 1px var(--dk-border); }
 :global(html[data-theme="dark"]) .legend { color: var(--dk-muted); }
 :global(html[data-theme="dark"]) .info { color: var(--dk-text); }
