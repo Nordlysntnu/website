@@ -71,6 +71,7 @@ export interface Config {
     posts: Post;
     media: Media;
     'legacy-imports': LegacyImport;
+    'panel-adoptions': PanelAdoption;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
@@ -83,6 +84,7 @@ export interface Config {
     posts: PostsSelect<false> | PostsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'legacy-imports': LegacyImportsSelect<false> | LegacyImportsSelect<true>;
+    'panel-adoptions': PanelAdoptionsSelect<false> | PanelAdoptionsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -327,6 +329,48 @@ export interface LegacyImport {
   createdAt: string;
 }
 /**
+ * Solar panels adopted on the website. Vipps updates the status automatically. Untick "Show name" to hide a name from the website.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "panel-adoptions".
+ */
+export interface PanelAdoption {
+  id: number;
+  reference: string;
+  status: 'pending' | 'authorized' | 'paid' | 'cancelled' | 'failed';
+  panels:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  panelCount: number;
+  /**
+   * Whole kroner.
+   */
+  amount: number;
+  /**
+   * Name the buyer chose for the panels.
+   */
+  displayName?: string | null;
+  /**
+   * Untick to hide the name on the website.
+   */
+  showName?: boolean | null;
+  vippsState?: string | null;
+  /**
+   * The panels are held until this time while the buyer pays.
+   */
+  expiresAt: string;
+  paidAt?: string | null;
+  client?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -461,6 +505,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'legacy-imports';
         value: number | LegacyImport;
+      } | null)
+    | ({
+        relationTo: 'panel-adoptions';
+        value: number | PanelAdoption;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -617,6 +665,25 @@ export interface MediaSelect<T extends boolean = true> {
 export interface LegacyImportsSelect<T extends boolean = true> {
   key?: T;
   postId?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "panel-adoptions_select".
+ */
+export interface PanelAdoptionsSelect<T extends boolean = true> {
+  reference?: T;
+  status?: T;
+  panels?: T;
+  panelCount?: T;
+  amount?: T;
+  displayName?: T;
+  showName?: T;
+  vippsState?: T;
+  expiresAt?: T;
+  paidAt?: T;
+  client?: T;
   updatedAt?: T;
   createdAt?: T;
 }

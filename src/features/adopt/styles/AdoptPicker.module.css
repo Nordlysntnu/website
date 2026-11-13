@@ -1,0 +1,309 @@
+.container {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.heading {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+/* Prices */
+.bundleList {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bundle {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.2rem 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(21, 34, 66, 0.06), 0 12px 32px -20px rgba(21, 34, 66, 0.3);
+}
+
+.bundleCount {
+    color: #152242;
+    font-family: var(--font-khand), sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.bundlePrice {
+    color: #ce1046;
+    font-family: var(--font-khand), sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-align: right;
+}
+
+.bundleSave {
+    color: #5a6378;
+    font-size: 0.8rem;
+}
+
+.pick {
+    grid-column: 2;
+    justify-self: end;
+    padding: 0.35rem 0;
+    border: 0;
+    color: #152242;
+    background: none;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.bundle .pick:only-of-type {
+    grid-row: 2;
+}
+
+.pick:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.note {
+    margin-top: 1rem;
+    color: #5a6378;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Summary */
+.summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-radius: 0.75rem;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(21, 34, 66, 0.06), 0 12px 32px -16px rgba(21, 34, 66, 0.25);
+}
+
+.summary .heading {
+    margin-bottom: 0.25rem;
+}
+
+.empty {
+    color: #5a6378;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 32px;
+    padding: 0.2rem 0.65rem;
+    border: 0;
+    border-radius: 100px;
+    color: #ffffff;
+    background: #ce1046;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.chip:hover {
+    background: #b20b3a;
+}
+
+.lines {
+    width: 100%;
+    margin: 0.5rem 0 0;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid #e3e7ef;
+    color: #414b60;
+}
+
+.line dd {
+    margin: 0;
+}
+
+.total {
+    border-bottom: 0;
+    color: #152242;
+    font-weight: 600;
+}
+
+.saved {
+    color: #14662a;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.deal {
+    padding: 0.6rem 0.85rem;
+    border-radius: 0.5rem;
+    color: #152242;
+    background: rgba(255, 16, 83, 0.08);
+    font-size: 0.9rem;
+}
+
+.link {
+    padding: 0;
+    border: 0;
+    color: #152242;
+    background: none;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.label {
+    margin-top: 0.75rem;
+    color: #414b60;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid #d5dbe6;
+    border-radius: 0.4rem;
+    color: #152242;
+    background: #f8f9fb;
+    font: inherit;
+    font-size: 0.95rem;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #ff1053;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(255, 16, 83, 0.15);
+}
+
+.hint {
+    color: #6b7488;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+/* Vipps orange; swap for the official Vipps button before launch. */
+.vipps {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 0.75rem;
+    padding: 0.8rem 1.5rem;
+    border: 0;
+    border-radius: 0.4rem;
+    color: #ffffff;
+    background: #ff5b24;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.vipps:hover {
+    background: #e64a17;
+}
+
+.vipps:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pick:focus-visible,
+.chip:focus-visible,
+.link:focus-visible,
+.vipps:focus-visible {
+    outline: 3px solid #ff1053;
+    outline-offset: 3px;
+}
+
+.error {
+    color: #ce1046;
+    font-size: 0.85rem;
+}
+
+/* Result after returning from Vipps */
+.result {
+    display: grid;
+    justify-items: start;
+    gap: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid #8b93a5;
+    border-radius: 0.5rem;
+    color: #152242;
+    background: #ffffff;
+    box-shadow: 0 12px 32px -20px rgba(21, 34, 66, 0.3);
+}
+
+.resultPaid {
+    border-left-color: #2db036;
+}
+
+.resultTitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+@media (max-width: 860px) {
+    .columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dark mode */
+:global(html[data-theme="dark"]) .bundle,
+:global(html[data-theme="dark"]) .summary,
+:global(html[data-theme="dark"]) .result { background: var(--dk-card); box-shadow: 0 0 0 1px var(--dk-border); }
+:global(html[data-theme="dark"]) .bundleCount,
+:global(html[data-theme="dark"]) .total,
+:global(html[data-theme="dark"]) .result,
+:global(html[data-theme="dark"]) .pick,
+:global(html[data-theme="dark"]) .link,
+:global(html[data-theme="dark"]) .deal { color: var(--dk-heading); }
+:global(html[data-theme="dark"]) .bundlePrice { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .bundleSave,
+:global(html[data-theme="dark"]) .note,
+:global(html[data-theme="dark"]) .empty,
+:global(html[data-theme="dark"]) .line,
+:global(html[data-theme="dark"]) .label { color: var(--dk-muted); }
+:global(html[data-theme="dark"]) .line { border-bottom-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .hint { color: #97a2b8; }
+:global(html[data-theme="dark"]) .saved { color: #8ee6a0; }
+:global(html[data-theme="dark"]) .deal { background: rgba(255, 16, 83, 0.16); }
+:global(html[data-theme="dark"]) .input { color: var(--dk-text); background: var(--dk-surface); border-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .error { color: var(--dk-accent); }
