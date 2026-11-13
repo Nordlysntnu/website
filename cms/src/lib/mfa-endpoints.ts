@@ -1,7 +1,7 @@
 import QRCode from 'qrcode'
 import { APIError, type Endpoint, type PayloadRequest } from 'payload'
 import { isAdministrator, isSignedInMember } from '../access'
-import { mfaRequired, mfaSatisfied } from './mfa'
+import { forgetBrowserCookie, mfaRequired, mfaSatisfied, trustedBrowserCookie, verifiedSessions } from './mfa'
 import { generateTotpSecret, openSecret, otpauthURI, sealSecret, verifyTotp } from './totp'
 
 type MfaUser = {
@@ -58,13 +58,17 @@ export const mfaEndpoints: Endpoint[] = [
         : { totpFailures: failures })
       throw new APIError('That code is not valid. Check the time on your phone and use a new code.', 400)
     }
-    const live = new Set((user.sessions || []).map(session => session.id))
-    const previous = Array.isArray(user.mfaSessionIds) ? user.mfaSessionIds.filter((id): id is string => typeof id === 'string' && live.has(id)) : []
+    const totpEnabledAt = user.totpEnabledAt || new Date().toISOString()
     await save(req, user.id, {
-      ...(user.totpEnabledAt ? {} : { totpSecret: user.totpPendingSecret, totpPendingSecret: null, totpEnabledAt: new Date().toISOString() }),
-      totpLastStep: step, totpFailures: 0, totpLockedUntil: null, mfaSessionIds: [...new Set([...previous, user._sid!])],
+      ...(user.totpEnabledAt ? {} : { totpSecret: user.totpPendingSecret, totpPendingSecret: null, totpEnabledAt }),
+      totpLastStep: step, totpFailures: 0, totpLockedUntil: null, mfaSessionIds: verifiedSessions(user, user._sid!),
     })
-    return Response.json({ message: 'Two-factor authentication verified.' }, { headers: noStore })
+    // "Remember this browser" lets the next sign-ins here skip the code; unticking it forgets the browser.
+    const secure = process.env.CMS_ENV === 'production'
+    const cookie = body?.remember === true
+      ? trustedBrowserCookie({ id: user.id, role: user.role, totpEnabledAt }, req.payload.secret, secure)
+      : forgetBrowserCookie(secure)
+    return Response.json({ message: 'Two-factor authentication verified.' }, { headers: { ...noStore, 'Set-Cookie': cookie } })
   } },
 
   { path: '/2fa/reset', method: 'post', handler: async (req) => {

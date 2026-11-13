@@ -19,16 +19,17 @@ const { default: config } = await import('../src/payload.config')
 const payload = await getPayload({ config })
 payload.logger.level = 'fatal'
 const base = 'http://127.0.0.1:3010'
-async function request(url: string, token?: string, method = 'GET', body?: unknown) {
+async function request(url: string, token?: string, method = 'GET', body?: unknown, cookie?: string) {
   const headers: Record<string, string> = { Origin: base }
   if (token) headers.Authorization = 'JWT ' + token
   if (body) headers['Content-Type'] = 'application/json'
+  if (cookie) headers.Cookie = cookie
   return handleEndpoints({ config, path: new URL(url, base).pathname, request: new Request(base + url,
     { method, headers, body: body ? JSON.stringify(body) : undefined }) })
 }
 const password = 'A long disposable test password ' + randomUUID()
-async function login(email: string) {
-  const response = await request('/api/users/login', undefined, 'POST', { email, password })
+async function login(email: string, cookie?: string) {
+  const response = await request('/api/users/login', undefined, 'POST', { email, password }, cookie)
   assert.equal(response.status, 200, await response.clone().text())
   const body = await response.json()
   for (const field of ['totpSecret', 'totpPendingSecret', 'totpLastStep', 'totpFailures', 'totpLockedUntil', 'mfaSessionIds']) {
@@ -144,6 +145,44 @@ test('two-factor sign-in through real Payload REST handlers', async (t) => {
       const status = await (await request('/api/users/2fa/status', fresh)).json()
       assert.equal(status.enabled, false)
       assert.equal((await request('/api/users/2fa/setup', fresh, 'POST')).status, 200)
+    })
+
+    await t.test('a remembered browser skips the code until 2FA is reset or the role changes', async () => {
+      const member = await account('publisher', 'MFA remembered browser')
+      const verifiedNow = async (token: string) => (await (await request('/api/users/2fa/status', token)).json()).verified
+      const enrol = async (token: string) => {
+        const setup = await (await request('/api/users/2fa/setup', token, 'POST')).json()
+        const verified = await request('/api/users/2fa/verify', token, 'POST', { code: totpCode(setup.secret, currentStep()), remember: true })
+        assert.equal(verified.status, 200, await verified.clone().text())
+        return { secret: setup.secret as string, setCookie: verified.headers.get('set-cookie') ?? '' }
+      }
+
+      const first = await enrol(member.token)
+      assert.match(first.setCookie, /^nordlys-cms-trusted-browser=v1\.\d+\.\d+\.[\w-]+;/)
+      for (const attribute of ['Max-Age=2592000', 'Path=/', 'HttpOnly', 'SameSite=Strict']) assert.ok(first.setCookie.includes(attribute), attribute)
+      const cookie = first.setCookie.split(';')[0]
+
+      const remembered = await login(member.email, cookie)
+      assert.equal(await verifiedNow(remembered), true, 'the remembered browser needs no code')
+      assert.equal((await newPost(remembered)).status, 201)
+      const elsewhere = await login(member.email)
+      assert.equal(await verifiedNow(elsewhere), false, 'another browser still needs a code')
+      const changed = cookie.slice(0, -1) + (cookie.endsWith('A') ? 'B' : 'A')
+      assert.equal(await verifiedNow(await login(member.email, changed)), false, 'a changed cookie is refused')
+      assert.equal(await verifiedNow(await login(admin.email, cookie)), false, "one member's cookie does not work for another account")
+
+      const unticked = await request('/api/users/2fa/verify', elsewhere, 'POST', { code: totpCode(first.secret, currentStep() + 1), remember: false })
+      assert.equal(unticked.status, 200, await unticked.clone().text())
+      assert.match(unticked.headers.get('set-cookie') ?? '', /^nordlys-cms-trusted-browser=; Max-Age=0;/, 'unticking forgets the browser')
+
+      assert.equal((await request('/api/users/2fa/reset', admin.token, 'POST', { id: member.id })).status, 200)
+      const second = await enrol(await login(member.email))
+      assert.equal(await verifiedNow(await login(member.email, cookie)), false, 'resetting 2FA ends the old trust')
+      const newCookie = second.setCookie.split(';')[0]
+      assert.equal(await verifiedNow(await login(member.email, newCookie)), true)
+
+      await payload.update({ collection: 'users', id: member.id, data: { role: 'marketing' }, overrideAccess: true })
+      assert.equal(await verifiedNow(await login(member.email, newCookie)), false, 'changing the role ends the trust')
     })
 
     await t.test('without a mail relay, invitations return a one-time setup link to the administrator', async () => {
