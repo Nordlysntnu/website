@@ -34,6 +34,7 @@ export const PanelAdoptions: CollectionConfig = {
     { name: 'amount', type: 'number', required: true, access: serverOnly, admin: { readOnly: true, description: 'Whole kroner.' } },
     { name: 'displayName', type: 'text', maxLength: 40, admin: { description: 'Name the buyer chose for the panels.' } },
     { name: 'showName', type: 'checkbox', defaultValue: true, admin: { description: 'Untick to hide the name on the website.' } },
+    { name: 'email', type: 'email', admin: { description: 'Optional. Only to thank the buyer and send news about the car; never shown on the website. Clear it if the buyer asks.' } },
     { name: 'vippsState', type: 'text', access: serverOnly, admin: { readOnly: true } },
     { name: 'expiresAt', type: 'date', required: true, index: true, access: serverOnly,
       admin: { readOnly: true, date: { pickerAppearance: 'dayAndTime' }, description: 'The panels are held until this time while the buyer pays.' } },

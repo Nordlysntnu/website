@@ -111,12 +111,13 @@ test('webhook signatures are checked against the body, path, host and date', () 
 test('checkout holds the panels, sets the price on the server and captures after approval', async () => {
   const { store, rows } = memoryStore()
   const { vipps, calls } = scriptedVipps('CREATED')
-  const result = await checkout(store, vipps, { panels: ids(10), name: '  Ola\u0000 Nordmann ', price: 1 })
+  const result = await checkout(store, vipps, { panels: ids(10), name: '  Ola\u0000 Nordmann ', email: ' ola@example.com ', price: 1 })
   assert.match(result.reference, /^nordlys-adopt-[0-9a-f]{20}$/)
   assert.match(result.redirectUrl, /return=https%3A%2F%2Fnordlysntnu\.no%2Fadopt%3Freference%3Dnordlys-adopt-/)
   assert.equal(rows[0].amount, priceFor(10).total)
   assert.equal(rows[0].amount, 699)
   assert.equal(rows[0].displayName, 'Ola Nordmann')
+  assert.equal(rows[0].email, 'ola@example.com')
 
   let taken = await publicPanels(store)
   assert.equal(taken.length, 10)
@@ -129,6 +130,7 @@ test('checkout holds the panels, sets the price on the server and captures after
   assert.deepEqual(calls, ['create', 'get', 'capture'])
   taken = await publicPanels(store)
   assert.ok(taken.every(panel => !panel.held && panel.name === 'Ola Nordmann'))
+  assert.ok(!JSON.stringify(taken).includes('ola@example.com'), 'the email is never public')
   assert.equal(await syncAdoption(store, vipps, paid).then(row => row.status), 'paid', 'a paid adoption is final')
   assert.equal(calls.length, 3)
 })
@@ -158,7 +160,7 @@ test('cancelled, expired and failed payments free the panels again', async () =>
 test('checkout rejects bad input and limits how many panels one person can hold', async () => {
   const { store } = memoryStore()
   const vipps = mockVipps()
-  for (const body of [{}, { panels: [] }, { panels: ['Z99'] }, { panels: [ids(1)[0], ids(1)[0]] }, { panels: ids(51) }, null]) {
+  for (const body of [{}, { panels: [] }, { panels: ['Z99'] }, { panels: [ids(1)[0], ids(1)[0]] }, { panels: ids(51) }, { panels: ids(1), email: 'ola@example' }, null]) {
     await assert.rejects(checkout(store, vipps, body), (error: AdoptError) => error.status === 400, JSON.stringify(body))
   }
   await checkout(store, vipps, { panels: ids(50) })
@@ -190,7 +192,7 @@ test('the adoption endpoints work end to end with the mock Vipps and real Payloa
   assert.equal(response.headers.get('access-control-allow-origin'), null, 'other sites get no CORS access')
 
   response = await call('/api/adopt/checkout', { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-    body: JSON.stringify({ panels: ids(5), name: 'Kari' }) })
+    body: JSON.stringify({ panels: ids(5), name: 'Kari', email: 'kari@example.com' }) })
   assert.equal(response.status, 201, await response.clone().text())
   const { reference, redirectUrl } = await response.json()
   assert.equal(redirectUrl, `https://nordlysntnu.no/adopt?reference=${reference}`)
@@ -205,6 +207,7 @@ test('the adoption endpoints work end to end with the mock Vipps and real Payloa
   const stored = await payload.find({ collection: 'panel-adoptions', overrideAccess: true })
   assert.equal(stored.docs[0].amount, 399)
   assert.equal(stored.docs[0].status, 'paid')
+  assert.equal(stored.docs[0].email, 'kari@example.com')
 
   response = await call('/api/panel-adoptions')
   assert.notEqual(response.status, 200, 'anonymous visitors cannot list adoptions')

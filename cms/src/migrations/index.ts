@@ -3,6 +3,7 @@ import * as migration_20261105_230846_administrator_guards from './20261105_2308
 import * as migration_20261106_142318_website_publication from './20261106_142318_website_publication';
 import * as migration_20261110_024053_two_factor from './20261110_024053_two_factor';
 import * as migration_20261113_001604_panel_adoptions from './20261113_001604_panel_adoptions';
+import * as migration_20261119_201034_panel_adoption_email from './20261119_201034_panel_adoption_email';
 
 export const migrations = [
   {
@@ -28,6 +29,11 @@ export const migrations = [
   {
     up: migration_20261113_001604_panel_adoptions.up,
     down: migration_20261113_001604_panel_adoptions.down,
-    name: '20261113_001604_panel_adoptions'
+    name: '20261113_001604_panel_adoptions',
+  },
+  {
+    up: migration_20261119_201034_panel_adoption_email.up,
+    down: migration_20261119_201034_panel_adoption_email.down,
+    name: '20261119_201034_panel_adoption_email'
   },
 ];

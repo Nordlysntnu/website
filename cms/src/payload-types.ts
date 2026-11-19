@@ -360,6 +360,10 @@ export interface PanelAdoption {
    * Untick to hide the name on the website.
    */
   showName?: boolean | null;
+  /**
+   * Optional. Only to thank the buyer and send news about the car; never shown on the website. Clear it if the buyer asks.
+   */
+  email?: string | null;
   vippsState?: string | null;
   /**
    * The panels are held until this time while the buyer pays.
@@ -680,6 +684,7 @@ export interface PanelAdoptionsSelect<T extends boolean = true> {
   amount?: T;
   displayName?: T;
   showName?: T;
+  email?: T;
   vippsState?: T;
   expiresAt?: T;
   paidAt?: T;

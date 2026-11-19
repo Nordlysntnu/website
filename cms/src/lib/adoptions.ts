@@ -1,5 +1,5 @@
 import { createHash, randomBytes } from 'node:crypto'
-import { HOLD_MINUTES, MAX_PANELS_PER_ORDER, cleanName, priceFor, validPanelSelection } from '../../../src/features/adopt/adopt.mjs'
+import { HOLD_MINUTES, MAX_PANELS_PER_ORDER, cleanEmail, cleanName, priceFor, validPanelSelection } from '../../../src/features/adopt/adopt.mjs'
 import type { Vipps } from './vipps'
 
 export type AdoptionStatus = 'pending' | 'authorized' | 'paid' | 'cancelled' | 'failed'
@@ -12,6 +12,7 @@ export type Adoption = {
   amount: number // whole kroner
   displayName?: string | null
   showName?: boolean | null
+  email?: string | null
   vippsState?: string | null
   expiresAt: string
   paidAt?: string | null
@@ -107,6 +108,8 @@ export async function startCheckout(options: {
   if (problem) throw new AdoptError(problem, 400)
   const chosen = panels as string[]
   const name = cleanName(body.name)
+  const email = cleanEmail(body.email)
+  if (email === null) throw new AdoptError('Check the email address, or leave it empty.', 400)
 
   const adoption = await exclusive(async () => {
     await settleStale(store, vipps, now)
@@ -127,6 +130,7 @@ export async function startCheckout(options: {
       amount: total,
       displayName: name || null,
       showName: Boolean(name) && body.showName !== false,
+      email: email || null,
       expiresAt: new Date(now.getTime() + HOLD_MINUTES * 60_000).toISOString(),
       client,
     })
