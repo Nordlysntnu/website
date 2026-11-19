@@ -257,6 +257,12 @@
     font-size: 0.85rem;
 }
 
+.inlineLink {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
 .notice {
     padding: 0.6rem 0.8rem;
     border-radius: 0.5rem;

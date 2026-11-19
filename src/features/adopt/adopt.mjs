@@ -10,6 +10,7 @@ export const BUNDLES = [
 export const MAX_PANELS_PER_ORDER = 50;
 export const HOLD_MINUTES = 15; // A chosen panel is held this long while the buyer pays.
 export const NAME_MAX = 40;
+export const EMAIL_MAX = 254;
 
 const single = BUNDLES.find(bundle => bundle.panels === 1).price;
 
@@ -46,6 +47,14 @@ export function cleanName(value) {
         .replace(/\s+/g, ' ')
         .trim()
         .slice(0, NAME_MAX);
+}
+
+// The buyer's email is optional and never shown on the page. Returns '' when it is left empty,
+// the trimmed address when it looks valid, and null when it does not.
+export function cleanEmail(value) {
+    const email = String(value ?? '').trim();
+    if (!email) return '';
+    return email.length <= EMAIL_MAX && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : null;
 }
 
 // The car seen from above, as in the team's drawing of the solar array: standing up, rear at the top

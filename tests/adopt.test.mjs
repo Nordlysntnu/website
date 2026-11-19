@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { BODY_POINTS, BUNDLES, CANOPY, MAX_PANELS_PER_ORDER, MODULE_FRAMES, PANELS, cleanName, priceFor, validPanelSelection } from '../src/features/adopt/adopt.mjs';
+import { BODY_POINTS, BUNDLES, CANOPY, MAX_PANELS_PER_ORDER, MODULE_FRAMES, PANELS, cleanEmail, cleanName, priceFor, validPanelSelection } from '../src/features/adopt/adopt.mjs';
 import { DIRECTIONS, neighbour } from '../src/features/adopt/keyboard.mjs';
 
 test('one panel costs 100 kr and bundles give the cheapest combination', () => {
@@ -83,4 +83,14 @@ test('panel choices and names from buyers are checked', () => {
   assert.equal(cleanName('  Kari ‮ Nordmann\u0007 '), 'Kari Nordmann');
   assert.equal(cleanName('x'.repeat(80)).length, 40);
   assert.equal(cleanName(undefined), '');
+});
+
+test('the email is optional, and checked when it is given', () => {
+  assert.equal(cleanEmail(''), '');
+  assert.equal(cleanEmail('   '), '');
+  assert.equal(cleanEmail(undefined), '');
+  assert.equal(cleanEmail(' kari@example.com '), 'kari@example.com');
+  assert.equal(cleanEmail('kari@example'), null);
+  assert.equal(cleanEmail('kari example@x.no'), null);
+  assert.equal(cleanEmail(`${'x'.repeat(250)}@x.no`), null);
 });

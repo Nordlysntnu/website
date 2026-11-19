@@ -150,6 +150,20 @@
     line-height: 1.7;
 }
 
+.orgNumber {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+}
+
+.terms {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.terms:hover {
+    color: #ffffff;
+}
+
 .column ul {
     display: flex;
     flex-direction: column;
@@ -191,7 +205,8 @@
 }
 
 .footer a:focus-visible,
-.toTop:focus-visible {
+.toTop:focus-visible,
+.terms:focus-visible {
     outline: 2px solid #ff1053;
     outline-offset: 3px;
 }
