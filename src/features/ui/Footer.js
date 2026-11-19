@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './styles/Footer.module.css';
 import ContactPane from './ContactPane';
+import { ORGANIZATION } from './organization';
 import Logo from '@assets/symbols-and-logos/Logo.png';
 import Instagram from '@assets/symbols-and-logos/Instagram.svg';
 import Facebook from '@assets/symbols-and-logos/Facebook.svg';
@@ -28,10 +29,10 @@ export default function Footer() {
                             Questions about the team, sponsorships or joining? Send us a message and we&apos;ll get back to you.
                         </p>
                         <div className={styles.person}>
-                            <p className={styles.personRole}>Project Leader</p>
-                            <p className={styles.personName}>Tobias Johnsen Skånseng</p>
-                            <a href="mailto:tobias.skanseng@nordlysntnu.no">tobias.skanseng@nordlysntnu.no</a>
-                            <a href="tel:+4747884360">+47 478 84 360</a>
+                            <p className={styles.personRole}>{ORGANIZATION.contact.role}</p>
+                            <p className={styles.personName}>{ORGANIZATION.contact.name}</p>
+                            <a href={`mailto:${ORGANIZATION.contact.email}`}>{ORGANIZATION.contact.email}</a>
+                            <a href={`tel:${ORGANIZATION.contact.tel}`}>{ORGANIZATION.contact.phone}</a>
                         </div>
                     </div>
                     <ContactPane />
@@ -58,10 +59,10 @@ export default function Footer() {
                     <div className={styles.column}>
                         <h3>Visit us</h3>
                         <address>
-                            Nordlys NTNU<br />
-                            Klæbuveien 153<br />
-                            7031 Trondheim
+                            {ORGANIZATION.name}<br />
+                            {ORGANIZATION.address.map(line => <span key={line}>{line}<br /></span>)}
                         </address>
+                        <p className={styles.orgNumber}>Org. no. {ORGANIZATION.orgNumber}</p>
                     </div>
 
                     <div className={styles.column}>
@@ -80,7 +81,9 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.bottom}>
-                    <span suppressHydrationWarning>© {new Date().getFullYear()} Nordlys NTNU · Created by and for students.</span>
+                    <span suppressHydrationWarning>
+                        © {new Date().getFullYear()} {ORGANIZATION.name} · Created by and for students · <Link href="/terms" className={styles.terms}>Terms of sale and privacy</Link>
+                    </span>
                     <button type="button" className={styles.toTop} onClick={toTop}>Back to top ↑</button>
                 </div>
             </footer>
