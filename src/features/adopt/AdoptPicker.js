@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import CarPanels from './CarPanels';
-import { BUNDLES, MAX_PANELS_PER_ORDER, NAME_MAX, PANELS, priceFor } from './adopt.mjs';
+import Link from 'next/link';
+import { BUNDLES, EMAIL_MAX, MAX_PANELS_PER_ORDER, NAME_MAX, PANELS, cleanEmail, priceFor } from './adopt.mjs';
 import { PREVIEW, checkStatus, loadPanels, startCheckout } from './api';
 import styles from './styles/AdoptPicker.module.css';
 
@@ -24,6 +25,7 @@ export default function AdoptPicker() {
     const [service, setService] = useState('loading'); // loading | open | closed | offline | preview
     const [notice, setNotice] = useState('');
     const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [sending, setSending] = useState(false);
     const [error, setError] = useState('');
     const [payment, setPayment] = useState(null); // { state: checking | paid | cancelled | failed, panels }
@@ -101,13 +103,19 @@ export default function AdoptPicker() {
 
     async function pay() {
         setError('');
+        setNotice('');
+        const buyerEmail = cleanEmail(email);
+        if (buyerEmail === null) {
+            setError('Check the email address, or leave it empty.');
+            return;
+        }
         if (PREVIEW) {
             setNotice('This is only a preview, so Vipps does not open and nothing is charged. When adoption opens, this button takes you to Vipps.');
             return;
         }
         setSending(true);
         try {
-            const { redirectUrl } = await startCheckout({ panels: selected, name, showName: true });
+            const { redirectUrl } = await startCheckout({ panels: selected, name, showName: true, email: buyerEmail });
             window.location.assign(redirectUrl);
         } catch (problem) {
             setError(problem.message);
@@ -212,6 +220,19 @@ export default function AdoptPicker() {
                     />
                     <p className={styles.hint}>Shown when someone points at your panels. Leave it empty to adopt anonymously.</p>
 
+                    <label className={styles.label} htmlFor="adopt-email">Your email (optional)</label>
+                    <input
+                        id="adopt-email"
+                        className={styles.input}
+                        type="email"
+                        maxLength={EMAIL_MAX}
+                        value={email}
+                        onChange={event => { setEmail(event.target.value); setError(''); }}
+                        placeholder="ola@example.com, or leave empty"
+                        autoComplete="email"
+                    />
+                    <p className={styles.hint}>If you want a thank-you from us and news about the car. It is never shown on the page.</p>
+
                     <button
                         type="button"
                         className={styles.vipps}
@@ -226,6 +247,9 @@ export default function AdoptPicker() {
                         {closedText && !notice && <p className={styles.hint}>{closedText}</p>}
                     </div>
                     {!PREVIEW && <p className={styles.hint}>Your panels are held for you while you pay in Vipps.</p>}
+                    <p className={styles.hint}>
+                        By paying you accept our <Link href="/terms" className={styles.inlineLink}>terms of sale</Link>, which also explain what we do with your name and email.
+                    </p>
                 </section>
             </div>
         </div>

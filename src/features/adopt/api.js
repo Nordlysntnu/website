@@ -18,10 +18,10 @@ async function call(path, options) {
 export const loadPanels = () => call('panels');
 
 // { reference, redirectUrl }
-export const startCheckout = ({ panels, name, showName }) => call('checkout', {
+export const startCheckout = ({ panels, name, showName, email }) => call('checkout', {
     method: 'POST',
     headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-    body: JSON.stringify({ panels, name, showName }),
+    body: JSON.stringify({ panels, name, showName, email }),
 });
 
 // { status: 'pending' | 'paid' | 'cancelled' | 'failed', panels }
