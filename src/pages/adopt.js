@@ -3,54 +3,60 @@ import Content from '@shared/components/Content';
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
 import AdoptPicker from '@features/adopt/AdoptPicker';
+import { PREVIEW } from '@features/adopt/api';
+import { TEXT } from '@features/adopt/text.mjs';
+import useAdoptLanguage from '@features/adopt/useAdoptLanguage';
 import styles from '@features/adopt/styles/AdoptPage.module.css';
 
-const steps = [
-    ['Choose your panels', 'Click the panels you like on the car, or let us pick them for you.'],
-    ['Pay with Vipps', 'One panel costs 100 kr, and bundles give you more panels for less.'],
-    ['See your name on the car', 'Your name, if you add one, appears on your panels on this page.'],
-];
-
 export default function Adopt() {
+    // Norwegian for Norwegian browsers, English for everyone else; see text.mjs.
+    const [language, setLanguage] = useAdoptLanguage();
+    const text = TEXT[language];
+    const other = language === 'nb' ? 'en' : 'nb';
+
     return (
         <>
             <Head>
-                <title>Adopt a solar panel · Nordlys</title>
+                <title>{text.page.title}</title>
                 <link rel="icon" href="/favicon.ico" />
                 {/* Preview page: not linked from the site and kept out of search engines until launch. */}
-                <meta name="robots" content="noindex, nofollow" />
+                {PREVIEW && <meta name="robots" content="noindex, nofollow" />}
             </Head>
             <Layout current="Adopt">
                 <></>
-                <PageHeader title="Adopt" />
+                <PageHeader title={text.page.header} />
                 <Content dark={true}>
-                    <p className={styles.preview}>
-                        <strong>Preview</strong> This page is still being built. You can try choosing panels, but payment is not open yet.
-                    </p>
+                    <div className={styles.toolbar}>
+                        {PREVIEW && (
+                            <p className={styles.preview}>
+                                <strong>{text.page.previewLabel}</strong> {text.page.previewText}
+                            </p>
+                        )}
+                        <button type="button" className={styles.language} lang={other} aria-label={text.page.switchLabel} onClick={() => setLanguage(other)}>
+                            {text.page.switchTo}
+                        </button>
+                    </div>
                     <div className={styles.intro}>
                         <div>
-                            <p className={styles.eyebrow}>Support Nordlys</p>
-                            <h2 className={styles.title}>Adopt a solar panel on our car</h2>
+                            <p className={styles.eyebrow}>{text.page.eyebrow}</p>
+                            <h2 className={styles.title}>{text.page.heading}</h2>
                         </div>
-                        <p className={styles.lead}>
-                            Every solar panel on the car can be adopted. Choose your panels, add your name if you like,
-                            and pay with Vipps. Your support helps us build Norway&apos;s next solar race car.
-                        </p>
+                        <p className={styles.lead}>{text.page.lead}</p>
                     </div>
                     <ol className={styles.steps}>
-                        {steps.map(([title, text], index) => (
-                            <li key={title} className={styles.step}>
+                        {text.page.steps.map(([title, body], index) => (
+                            <li key={index} className={styles.step}>
                                 <span className={styles.number} aria-hidden="true">{index + 1}</span>
                                 <div>
                                     <h3 className={styles.stepTitle}>{title}</h3>
-                                    <p className={styles.stepText}>{text}</p>
+                                    <p className={styles.stepText}>{body}</p>
                                 </div>
                             </li>
                         ))}
                     </ol>
                 </Content>
                 <Content dark={false}>
-                    <AdoptPicker />
+                    <AdoptPicker text={text} />
                 </Content>
             </Layout>
         </>

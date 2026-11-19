@@ -77,12 +77,56 @@
 }
 
 /* Banner while the page is a preview */
+/* Preview banner and language switch above the intro */
+.toolbar {
+    display: flex;
+    gap: 0.75rem 1rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.language {
+    flex: none;
+    margin-left: auto;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid #c9d1e1;
+    border-radius: 999px;
+    color: #152242;
+    background: transparent;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.language:hover {
+    border-color: #ce1046;
+}
+
+.language:focus-visible {
+    outline: 3px solid #ff1053;
+    outline-offset: 2px;
+}
+
+/* On phones the switch sits above the banner, so the banner keeps the full width. */
+@media (max-width: 600px) {
+    .toolbar {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .language {
+        align-self: flex-end;
+    }
+}
+
 .preview {
     display: flex;
+    flex: 1;
     flex-wrap: wrap;
     gap: 0.35rem 0.75rem;
     align-items: baseline;
-    margin-bottom: 2rem;
+    margin: 0;
     padding: 0.75rem 1rem;
     border: 1px dashed #ce1046;
     border-radius: 0.75rem;
@@ -101,6 +145,8 @@
 
 /* Dark mode */
 :global(html[data-theme="dark"]) .preview { color: var(--dk-muted); border-color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .language { color: var(--dk-text); border-color: var(--dk-border); }
+:global(html[data-theme="dark"]) .language:hover { border-color: var(--dk-accent); }
 :global(html[data-theme="dark"]) .preview strong { color: var(--dk-accent); }
 :global(html[data-theme="dark"]) .eyebrow { color: var(--dk-accent); }
 :global(html[data-theme="dark"]) .lead,
