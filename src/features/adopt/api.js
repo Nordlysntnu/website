@@ -10,7 +10,12 @@ export const CMS_URL = local ? 'http://127.0.0.1:3010' : 'https://cms.nordlysntn
 async function call(path, options) {
     const response = await fetch(`${CMS_URL}/api/adopt/${path}`, { cache: 'no-store', ...options });
     const body = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(body.error || 'The adoption service is not available right now.');
+    if (!response.ok) {
+        // The page shows its own text for the status, in the visitor's language.
+        const error = new Error(body.error || 'The adoption service is not available right now.');
+        error.status = response.status;
+        throw error;
+    }
     return body;
 }
 

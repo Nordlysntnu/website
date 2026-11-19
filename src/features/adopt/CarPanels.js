@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
 import { BODY_PATH, CANOPY, CAR, MODULE_FRAMES, PANELS } from './adopt.mjs';
 import { DIRECTIONS, neighbour } from './keyboard.mjs';
+import { TEXT } from './text.mjs';
 import styles from './styles/CarPanels.module.css';
 
-export function describePanel(panel, selected, taken) {
+export function describePanel(panel, selected, taken, text = TEXT.en.car) {
     const owner = taken.get(panel.id);
-    if (owner?.held) return `Panel ${panel.id} · someone is paying for it right now`;
-    if (owner) return owner.name ? `Panel ${panel.id} · adopted by ${owner.name}` : `Panel ${panel.id} · adopted`;
-    return selected.has(panel.id) ? `Panel ${panel.id} · your choice` : `Panel ${panel.id} · available`;
+    if (owner?.held) return text.held(panel.id);
+    if (owner) return owner.name ? text.adoptedBy(panel.id, owner.name) : text.adopted(panel.id);
+    return selected.has(panel.id) ? text.chosen(panel.id) : text.free(panel.id);
 }
 
-export default function CarPanels({ selected, taken, onToggle, disabled }) {
+export default function CarPanels({ selected, taken, onToggle, disabled, text = TEXT.en.car }) {
     const [focusId, setFocusId] = useState(PANELS[0].id);
     const [infoId, setInfoId] = useState(null);
     const info = useMemo(() => PANELS.find(panel => panel.id === infoId), [infoId]);
@@ -43,7 +44,7 @@ export default function CarPanels({ selected, taken, onToggle, disabled }) {
                 className={styles.car}
                 viewBox={upright ? `0 0 ${CAR.width} ${CAR.length}` : `0 0 ${CAR.length} ${CAR.width}`}
                 role="group"
-                aria-label="Solar panels on the car. Use the arrow keys to move and Enter to choose."
+                aria-label={text.groupLabel}
             >
                 <defs>
                     <linearGradient id="adopt-cell" x1="0" y1="0" x2="1" y2="1">
@@ -79,7 +80,7 @@ export default function CarPanels({ selected, taken, onToggle, disabled }) {
                                 role="checkbox"
                                 aria-checked={chosen}
                                 aria-disabled={!!owner || disabled}
-                                aria-label={describePanel(panel, selected, taken)}
+                                aria-label={describePanel(panel, selected, taken, text)}
                                 tabIndex={panel.id === focusId ? 0 : -1}
                                 onClick={() => { setFocusId(panel.id); if (!owner && !disabled) onToggle(panel.id); }}
                                 onKeyDown={event => handleKey(event, panel)}
@@ -93,12 +94,12 @@ export default function CarPanels({ selected, taken, onToggle, disabled }) {
             </svg>
             <figcaption className={styles.caption}>
                 <ul className={styles.legend}>
-                    <li><span className={`${styles.swatch} ${styles.free}`} />Available</li>
-                    <li><span className={`${styles.swatch} ${styles.chosen}`} />Your choice</li>
-                    <li><span className={`${styles.swatch} ${styles.adopted}`} />Adopted</li>
+                    <li><span className={`${styles.swatch} ${styles.free}`} />{text.legend[0]}</li>
+                    <li><span className={`${styles.swatch} ${styles.chosen}`} />{text.legend[1]}</li>
+                    <li><span className={`${styles.swatch} ${styles.adopted}`} />{text.legend[2]}</li>
                 </ul>
                 <p className={styles.info} aria-live="polite">
-                    {info ? describePanel(info, selected, taken) : 'Point at a panel to see who adopted it.'}
+                    {info ? describePanel(info, selected, taken, text) : text.pointAt}
                 </p>
             </figcaption>
         </figure>
