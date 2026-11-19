@@ -15,6 +15,7 @@ export function TwoFactorGate({ children }: { children?: ReactNode }) {
   const [status, setStatus] = useState<Status | null>(null)
   const [setup, setSetup] = useState<Setup | null>(null)
   const [code, setCode] = useState('')
+  const [remember, setRemember] = useState(true)
   const [message, setMessage] = useState('')
   const [busy, setBusy] = useState(false)
 
@@ -44,7 +45,7 @@ export function TwoFactorGate({ children }: { children?: ReactNode }) {
     <section className="two-factor-gate__card">
       <h1 id="two-factor-title">Two-factor sign-in</h1>
       {!status.enabled && !setup && <>
-        <p>Nordlys CMS needs a code from an authenticator app (for example Google Authenticator, Microsoft Authenticator, 1Password or Bitwarden) each time you sign in.</p>
+        <p>Nordlys CMS needs a code from an authenticator app (for example Google Authenticator, Microsoft Authenticator, 1Password or Bitwarden) when you sign in. You can let a browser remember the code for 30 days.</p>
         <button type="button" onClick={startSetup} disabled={busy}>{busy ? 'Preparing…' : 'Set up authenticator'}</button>
       </>}
       {setup && <>
@@ -58,7 +59,7 @@ export function TwoFactorGate({ children }: { children?: ReactNode }) {
         event.preventDefault(); setBusy(true); setMessage('')
         try {
           const response = await fetch('/api/users/2fa/verify', { method: 'POST', credentials: 'same-origin',
-            headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code }) })
+            headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code, remember }) })
           if (!response.ok) throw new Error(await errorText(response, 'That code is not valid.'))
           window.location.reload()
         } catch (error) { setMessage(error instanceof Error ? error.message : 'That code is not valid.'); setCode('') }
@@ -69,6 +70,10 @@ export function TwoFactorGate({ children }: { children?: ReactNode }) {
             inputMode="numeric" autoComplete="one-time-code" pattern="\d{6}" required autoFocus />
         </label>
         <button type="submit" disabled={busy || code.length !== 6}>{busy ? 'Checking…' : 'Verify'}</button>
+        <label className="two-factor-gate__remember">
+          <input type="checkbox" checked={remember} onChange={event => setRemember(event.target.checked)} />
+          <span>Remember this browser for 30 days. Leave this off on a shared computer.</span>
+        </label>
       </form>}
       <p role="status" className="two-factor-gate__message">{message}</p>
       <p className="two-factor-gate__help">Lost your phone? Ask a CMS administrator to reset two-factor sign-in. <a href="/admin/logout">Sign out</a></p>

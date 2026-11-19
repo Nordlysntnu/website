@@ -17,11 +17,16 @@ export default function Adopt() {
             <Head>
                 <title>Adopt a solar panel · Nordlys</title>
                 <link rel="icon" href="/favicon.ico" />
+                {/* Preview page: not linked from the site and kept out of search engines until launch. */}
+                <meta name="robots" content="noindex, nofollow" />
             </Head>
             <Layout current="Adopt">
                 <></>
                 <PageHeader title="Adopt" />
                 <Content dark={true}>
+                    <p className={styles.preview}>
+                        <strong>Preview</strong> This page is still being built. You can try choosing panels, but payment is not open yet.
+                    </p>
                     <div className={styles.intro}>
                         <div>
                             <p className={styles.eyebrow}>Support Nordlys</p>

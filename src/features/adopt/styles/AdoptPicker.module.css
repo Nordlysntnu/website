@@ -257,6 +257,15 @@
     font-size: 0.85rem;
 }
 
+.notice {
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    color: #152242;
+    background: #eef1f8;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
 /* Result after returning from Vipps */
 .result {
     display: grid;
@@ -307,3 +316,4 @@
 :global(html[data-theme="dark"]) .deal { background: rgba(255, 16, 83, 0.16); }
 :global(html[data-theme="dark"]) .input { color: var(--dk-text); background: var(--dk-surface); border-color: var(--dk-border); }
 :global(html[data-theme="dark"]) .error { color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .notice { color: var(--dk-text); background: var(--dk-surface); }

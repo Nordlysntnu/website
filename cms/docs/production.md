@@ -35,10 +35,12 @@ Google Workspace sign-in is deferred.
 
 ### Two-factor sign-in (2FA)
 
-Production always requires an authenticator-app code (TOTP, RFC 6238) for every sign-in session. After the password, members see a two-factor screen: first time they scan a QR code (or type the key) into an authenticator app, then they enter a six-digit code. Until a session passes, it cannot read or change any content, accounts or publishing; it can only load its own account and the 2FA endpoints.
+Production always requires an authenticator-app code (TOTP, RFC 6238) for every sign-in session, unless the browser was remembered (see below). After the password, members see a two-factor screen: first time they scan a QR code (or type the key) into an authenticator app, then they enter a six-digit code. Until a session passes, it cannot read or change any content, accounts or publishing; it can only load its own account and the 2FA endpoints.
 
 - Secrets are encrypted at rest (AES-256-GCM, key derived from PAYLOAD_SECRET) and never returned by the API. Changing PAYLOAD_SECRET invalidates all enrolled authenticators.
 - Codes are single-use within their 30-second window. Five wrong codes lock verification for five minutes.
+- A sign-in lasts 7 days, and the admin refreshes it while the member works. Signing out, deactivating the account, changing its role or resetting 2FA ends it at once.
+- With **Remember this browser for 30 days** ticked (the default) on the code screen, the browser gets a signed, HttpOnly, Secure, SameSite=Strict cookie. The next sign-ins in that browser need only the password until the 30 days run out. The cookie is tied to the account, its role and when its authenticator was set up, so resetting 2FA or changing the role ends the trust in every browser. Unticking the box makes the browser forget it.
 - A member cannot replace an enrolled authenticator themselves. An administrator uses **Reset two-factor sign-in** on the account page; this also signs the member out.
 - If the last administrator loses their phone, an operator runs `npm run 2fa:reset -- address@example.org` on the VM with the production environment loaded.
 - Locally, 2FA is off unless CMS_REQUIRE_2FA=true. `npm run test:mfa` covers the flow.

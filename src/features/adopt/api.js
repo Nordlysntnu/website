@@ -1,6 +1,10 @@
 // Talks to the CMS, which keeps the adopted panels and starts Vipps payments.
 // Requests are "simple" (GET, or POST with text/plain) so browsers send them without a preflight.
 const local = process.env.NEXT_PUBLIC_LOCAL_PREVIEW === 'true';
+
+// The CMS part (adopted panels and Vipps) is not live yet, see #139. While this is true the page
+// is a preview: it does not call the CMS, every panel is free, and the pay button only explains that.
+export const PREVIEW = true;
 export const CMS_URL = local ? 'http://127.0.0.1:3010' : 'https://cms.nordlysntnu.no';
 
 async function call(path, options) {

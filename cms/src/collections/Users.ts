@@ -3,8 +3,12 @@ import { administratorField, isAdministrator, isEditor, isSignedInMember } from 
 import { editorialEndpoints } from '../lib/editorial-endpoints'
 import { accountEndpoints } from '../lib/account-endpoints'
 import { mfaEndpoints } from '../lib/mfa-endpoints'
+import { isTrustedBrowser, mfaRequired, sessionIdOf, verifiedSessions } from '../lib/mfa'
 
 const secretField = { access: { read: () => false, create: () => false, update: () => false }, admin: { hidden: true } }
+// A sign-in lasts a week. The admin refreshes it while you work; signing out, deactivation,
+// a role change or a 2FA reset still ends it at once.
+const SIGN_IN_SECONDS = 7 * 24 * 60 * 60
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -18,7 +22,7 @@ export const Users: CollectionConfig = {
     description: 'Invite members and manage their roles. Deactivate accounts when members leave.',
   },
   auth: {
-    tokenExpiration: 7200, maxLoginAttempts: 5, lockTime: 5 * 60 * 1000, useSessions: true,
+    tokenExpiration: SIGN_IN_SECONDS, maxLoginAttempts: 5, lockTime: 5 * 60 * 1000, useSessions: true,
     cookies: { sameSite: 'Strict', secure: process.env.CMS_ENV === 'production' },
     forgotPassword: {
       expiration: 60 * 60 * 1000,
@@ -47,6 +51,14 @@ export const Users: CollectionConfig = {
     }],
     beforeLogin: [({ user }) => {
       if (user.active === false) throw new APIError('This account is inactive. Contact a CMS administrator.', 403)
+      return user
+    }],
+    afterLogin: [async ({ req, token, user }) => {
+      // A browser remembered after an authenticator code skips the code for this new session.
+      const sid = sessionIdOf(token)
+      if (!mfaRequired() || !sid || !isTrustedBrowser(req.headers.get('cookie'), user, req.payload.secret)) return user
+      await req.payload.update({ collection: 'users', id: user.id, data: { mfaSessionIds: verifiedSessions(user, sid) } as never,
+        overrideAccess: true, req, context: { mfa: true } })
       return user
     }],
     beforeChange: [async ({ data, originalDoc, req }) => {

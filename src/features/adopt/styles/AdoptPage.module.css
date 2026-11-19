@@ -76,7 +76,32 @@
     }
 }
 
+/* Banner while the page is a preview */
+.preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    align-items: baseline;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px dashed #ce1046;
+    border-radius: 0.75rem;
+    color: #414b60;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.preview strong {
+    color: #ce1046;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 /* Dark mode */
+:global(html[data-theme="dark"]) .preview { color: var(--dk-muted); border-color: var(--dk-accent); }
+:global(html[data-theme="dark"]) .preview strong { color: var(--dk-accent); }
 :global(html[data-theme="dark"]) .eyebrow { color: var(--dk-accent); }
 :global(html[data-theme="dark"]) .lead,
 :global(html[data-theme="dark"]) .stepText { color: var(--dk-muted); }

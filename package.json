@@ -8,6 +8,11 @@
     "test:team": "node --test tests/team-data.test.mjs",
     "start": "next start",
     "export": "next export",
+    "local:setup": "npm --prefix cms run setup",
+    "local:check": "node scripts/local-dev.mjs --check",
+    "local:dev": "node scripts/local-dev.mjs",
+    "local:package": "node scripts/package-local.mjs",
+    "test:local": "node --test tests/local-preview.test.mjs",
     "partner:reset": "node --env-file=.env.local scripts/reset-partner-password.mjs"
   },
   "dependencies": {

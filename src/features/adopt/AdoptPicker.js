@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import CarPanels from './CarPanels';
 import { BUNDLES, MAX_PANELS_PER_ORDER, NAME_MAX, PANELS, priceFor } from './adopt.mjs';
-import { checkStatus, loadPanels, startCheckout } from './api';
+import { PREVIEW, checkStatus, loadPanels, startCheckout } from './api';
 import styles from './styles/AdoptPicker.module.css';
 
 const kr = value => `${value.toLocaleString('nb-NO')} kr`;
@@ -21,7 +21,8 @@ export default function AdoptPicker() {
     const router = useRouter();
     const [selected, setSelected] = useState([]);
     const [taken, setTaken] = useState(new Map());
-    const [service, setService] = useState('loading'); // loading | open | closed | offline
+    const [service, setService] = useState('loading'); // loading | open | closed | offline | preview
+    const [notice, setNotice] = useState('');
     const [name, setName] = useState('');
     const [sending, setSending] = useState(false);
     const [error, setError] = useState('');
@@ -33,6 +34,7 @@ export default function AdoptPicker() {
     const free = PANELS.filter(panel => !taken.has(panel.id));
 
     async function refresh() {
+        if (PREVIEW) { setService('preview'); return; }
         try {
             const data = await loadPanels();
             setTaken(new Map(data.taken.map(panel => [panel.id, panel])));
@@ -48,7 +50,7 @@ export default function AdoptPicker() {
     // Back from Vipps: check the payment until it is settled.
     useEffect(() => {
         const reference = router.query.reference;
-        if (!router.isReady || typeof reference !== 'string') return;
+        if (PREVIEW || !router.isReady || typeof reference !== 'string') return;
         let stopped = false;
         setPayment({ state: 'checking' });
         (async () => {
@@ -73,6 +75,7 @@ export default function AdoptPicker() {
 
     const toggle = id => {
         setError('');
+        setNotice('');
         setSelected(current => {
             if (current.includes(id)) return current.filter(other => other !== id);
             if (current.length >= MAX_PANELS_PER_ORDER) {
@@ -98,6 +101,10 @@ export default function AdoptPicker() {
 
     async function pay() {
         setError('');
+        if (PREVIEW) {
+            setNotice('This is only a preview, so Vipps does not open and nothing is charged. When adoption opens, this button takes you to Vipps.');
+            return;
+        }
         setSending(true);
         try {
             const { redirectUrl } = await startCheckout({ panels: selected, name, showName: true });
@@ -113,6 +120,7 @@ export default function AdoptPicker() {
         loading: 'Loading the car …',
         closed: 'Adoption opens soon. You can already look around and choose panels.',
         offline: 'The adoption service is not available right now. Please try again later.',
+        preview: 'Preview: you can choose panels and see the price, but payment is not open yet.',
     }[service];
 
     return (
@@ -208,15 +216,16 @@ export default function AdoptPicker() {
                         type="button"
                         className={styles.vipps}
                         onClick={pay}
-                        disabled={selected.length === 0 || service !== 'open' || sending}
+                        disabled={selected.length === 0 || !['open', 'preview'].includes(service) || sending}
                     >
                         {sending ? 'Opening Vipps …' : selected.length > 0 ? `Pay ${kr(price.total)} with Vipps` : 'Pay with Vipps'}
                     </button>
                     <div aria-live="polite">
                         {error && <p className={styles.error}>{error}</p>}
-                        {closedText && <p className={styles.hint}>{closedText}</p>}
+                        {notice && <p className={styles.notice}>{notice}</p>}
+                        {closedText && !notice && <p className={styles.hint}>{closedText}</p>}
                     </div>
-                    <p className={styles.hint}>Your panels are held for you while you pay in Vipps.</p>
+                    {!PREVIEW && <p className={styles.hint}>Your panels are held for you while you pay in Vipps.</p>}
                 </section>
             </div>
         </div>
