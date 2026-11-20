@@ -1,4 +1,4 @@
-// Nordlys' legal and contact details. Used by the footer, the contact section and the terms of sale,
+// Nordlys' legal and contact details. Used by the footer, the contact section and the terms,
 // so a new project leader or address only needs changing here. Org. no. from Brønnøysundregistrene.
 export const ORGANIZATION = {
     name: 'Nordlys NTNU',
@@ -11,4 +11,7 @@ export const ORGANIZATION = {
         phone: '+47 478 84 360',
         tel: '+4747884360',
     },
+    // Questions about adopted panels: refunds, names, receipts. An alias that forwards to finance,
+    // so these do not go to the project leader.
+    adoptEmail: 'adopt@nordlysntnu.no',
 };

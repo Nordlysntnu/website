@@ -7,19 +7,19 @@ import { ORGANIZATION } from '@features/ui/organization';
 import { BUNDLES } from '@features/adopt/adopt.mjs';
 import styles from '@features/legal/styles/Terms.module.css';
 
-// Terms of sale for "Adopt a solar panel", with the points Vipps MobilePay asks for
-// (parties, payment, delivery, right of withdrawal, returns, complaints, disputes) and a short privacy note.
-// The Board approves changes to this text.
-const UPDATED = '19 November 2026';
+// Terms for "Adopt a solar panel". Adopting is a gift to Nordlys, and the name on the panel is a thank-you.
+// The sections cover the points Vipps MobilePay asks for (parties, payment, delivery, withdrawal,
+// returns, complaints, disputes) and end with a short privacy note. The Board approves changes to this text.
+const UPDATED = '20 November 2026';
 const { contact } = ORGANIZATION;
-const email = <a href={`mailto:${contact.email}`}>{contact.email}</a>;
+const email = <a href={`mailto:${ORGANIZATION.adoptEmail}`}>{ORGANIZATION.adoptEmail}</a>;
 const kr = value => `${value.toLocaleString('nb-NO')} kr`;
 
 export default function Terms() {
     return (
         <>
             <Head>
-                <title>Terms of sale and privacy · Nordlys</title>
+                <title>Terms and privacy · Nordlys</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Layout current="Terms">
@@ -28,46 +28,47 @@ export default function Terms() {
                 <Content dark={false}>
                     <article className={styles.terms}>
                         <p className={styles.eyebrow}>Adopt a solar panel</p>
-                        <h2 className={styles.title}>Terms of sale and privacy</h2>
+                        <h2 className={styles.title}>Terms and privacy</h2>
                         <p className={styles.lead}>
-                            These terms apply when you adopt solar panels on our car at <Link href="/adopt">nordlysntnu.no/adopt</Link>.
-                            Updated {UPDATED}.
+                            When you adopt solar panels on our car at <Link href="/adopt">nordlysntnu.no/adopt</Link>, you give
+                            a gift to {ORGANIZATION.name}. These terms explain how it works. Updated {UPDATED}.
                         </p>
 
                         <section>
                             <h3>1. Who we are</h3>
-                            <p>The seller is {ORGANIZATION.name}, a student organisation at NTNU.</p>
+                            <p>The gift goes to {ORGANIZATION.name}, a student organisation at NTNU.</p>
                             <dl className={styles.facts}>
                                 <div><dt>Organisation number</dt><dd>{ORGANIZATION.orgNumber}</dd></div>
                                 <div><dt>Address</dt><dd>{ORGANIZATION.address.join(', ')}</dd></div>
                                 <div><dt>Email</dt><dd>{email}</dd></div>
                                 <div><dt>Phone</dt><dd><a href={`tel:${contact.tel}`}>{contact.phone}</a></dd></div>
                             </dl>
-                            <p>The buyer is the person who pays with Vipps.</p>
+                            <p>The giver is the person who pays with Vipps.</p>
                         </section>
 
                         <section>
-                            <h3>2. What you get</h3>
+                            <h3>2. Your gift</h3>
                             <p>
-                                Each panel is one solar cell on our car, as the car is shown on the adopt page. When you adopt a panel,
-                                it is marked as adopted on the page, with your name if you add one. Your support goes to building
-                                and racing the car.
+                                Adopting a panel is a gift to Nordlys. The money goes to building and racing our solar car.
+                                Each panel is one solar cell on the car, as the car is shown on the adopt page.
                             </p>
                             <p>
-                                The adoption is a symbol of your support. You do not own the solar cell or any part of the car, and
-                                you get no other rights. Your panels stay marked on the page for as long as the car is shown there.
+                                As a thank-you, the panels you choose are marked as adopted on the page, with your name if you
+                                add one. You do not buy the solar cell or any part of the car, and you get nothing else in return.
+                                The panels stay marked for as long as the car is shown on the page.
                             </p>
                             <p>
                                 We can refuse or remove a name that is offensive, advertises something or belongs to someone else.
-                                If we do, we refund you in full.
+                                If we do, we give you your money back. Companies that want to be seen as sponsors can contact us
+                                about a sponsorship agreement instead.
                             </p>
                         </section>
 
                         <section>
-                            <h3>3. Prices and payment</h3>
+                            <h3>3. Amounts and payment</h3>
                             <p>
-                                The prices are {BUNDLES.map(bundle => `${kr(bundle.price)} for ${bundle.panels} panel${bundle.panels === 1 ? '' : 's'}`).join(', ')}.
-                                Larger orders get the cheapest combination. The price shown before you pay is the total price, with no other fees.
+                                The amounts are {BUNDLES.map(bundle => `${kr(bundle.price)} for ${bundle.panels} panel${bundle.panels === 1 ? '' : 's'}`).join(', ')}.
+                                Larger gifts get the lowest combination. The amount shown before you pay is the total, with no fees.
                             </p>
                             <p>
                                 You pay with Vipps. The amount is charged when you approve the payment in the Vipps app. The panels
@@ -77,7 +78,7 @@ export default function Terms() {
                         </section>
 
                         <section>
-                            <h3>4. Delivery</h3>
+                            <h3>4. After you give</h3>
                             <p>
                                 Your panels are marked as adopted on the page as soon as Vipps confirms the payment, usually within
                                 a minute. Nothing is sent by post.
@@ -85,35 +86,34 @@ export default function Terms() {
                         </section>
 
                         <section>
-                            <h3>5. Right of withdrawal</h3>
+                            <h3>5. Changing your mind</h3>
                             <p>
-                                You can cancel the adoption within 14 days after you paid, without giving a reason. Send us an email
-                                at {email} with the panel numbers or the Vipps receipt. You can use the standard cancellation form
-                                (angreskjema), but an email is enough.
+                                The right of withdrawal in the Norwegian Cancellation Act (angrerettloven) applies to purchases, not
+                                to gifts. You can still change your mind within 14 days after you paid. Send us an email at {email} with
+                                the panel numbers or the Vipps receipt.
                             </p>
                             <p>We refund the full amount to you through Vipps within 14 days after we hear from you, and remove your name from the panels.</p>
                         </section>
 
                         <section>
                             <h3>6. Returns and refunds</h3>
-                            <p>There is nothing physical to return. If you cancel, you get your money back as described in section 5.</p>
+                            <p>There is nothing physical to return. Refunds are made as described in section 5.</p>
                         </section>
 
                         <section>
-                            <h3>7. Complaints</h3>
+                            <h3>7. Mistakes</h3>
                             <p>
                                 If something is wrong, for example your name is missing or misspelt, the wrong panels are marked, or
-                                you were charged twice, tell us at {email} within a reasonable time after you noticed it. We fix the
-                                mistake or refund you.
+                                you were charged twice, tell us at {email}. We fix the mistake or refund you.
                             </p>
                         </section>
 
                         <section>
-                            <h3>8. Disputes</h3>
+                            <h3>8. Disagreements</h3>
                             <p>
                                 Contact us first, and we will try to find a good solution. If we do not agree, you can ask
-                                Forbrukerrådet for help (<a href="https://www.forbrukerradet.no" target="_blank" rel="noopener noreferrer">forbrukerradet.no</a>).
-                                Cases that are not solved there can go to Forbrukerklageutvalget. Norwegian law applies.
+                                Forbrukerrådet for advice (<a href="https://www.forbrukerradet.no" target="_blank" rel="noopener noreferrer">forbrukerradet.no</a>).
+                                Norwegian law applies.
                             </p>
                         </section>
 
@@ -133,9 +133,9 @@ export default function Terms() {
                                 the car. We do not sell or share the data. Vipps MobilePay handles the payment under its own terms.
                             </p>
                             <p>
-                                Payment records are kept as long as the accounting rules require. You can ask us at any time to see,
-                                correct or delete your name and email. If you think we handle your data wrongly, you can complain
-                                to Datatilsynet.
+                                Payment records are kept as long as the accounting rules require. You can ask us at {email} at any time
+                                to see, correct or delete your name and email. If you think we handle your data wrongly, you can
+                                complain to Datatilsynet.
                             </p>
                         </section>
                     </article>
