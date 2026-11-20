@@ -13,5 +13,5 @@ export const ORGANIZATION = {
     },
     // Questions about adopted panels: refunds, names, receipts. An alias that forwards to finance,
     // so these do not go to the project leader.
-    adoptEmail: 'adopt@nordlysntnu.no',
+    adoptEmail: 'sales@nordlysntnu.no',
 };
