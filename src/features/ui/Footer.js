@@ -82,7 +82,7 @@ export default function Footer() {
 
                 <div className={styles.bottom}>
                     <span suppressHydrationWarning>
-                        © {new Date().getFullYear()} {ORGANIZATION.name} · Created by and for students · <Link href="/terms" className={styles.terms}>Terms of sale and privacy</Link>
+                        © {new Date().getFullYear()} {ORGANIZATION.name} · Created by and for students · <Link href="/terms" className={styles.terms}>Terms and privacy</Link>
                     </span>
                     <button type="button" className={styles.toTop} onClick={toTop}>Back to top ↑</button>
                 </div>
