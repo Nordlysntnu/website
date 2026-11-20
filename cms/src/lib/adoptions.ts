@@ -141,7 +141,8 @@ export async function startCheckout(options: {
     const { redirectUrl } = await vipps.createPayment({
       reference: adoption.reference,
       amountOre: adoption.amount * 100,
-      description: `Adopt ${count} solar panel${count === 1 ? '' : 's'} – Nordlys NTNU`,
+      // Shown in the Vipps app. Adopting is a gift to Nordlys, with the name on the panel as a thank-you.
+      description: `Gave til Nordlys NTNU – ${count} solcellepanel${count === 1 ? '' : 'er'}`,
       returnUrl: `${websiteURL}/adopt?reference=${adoption.reference}`,
     })
     return { reference: adoption.reference, redirectUrl }

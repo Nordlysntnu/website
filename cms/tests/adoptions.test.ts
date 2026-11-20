@@ -30,9 +30,9 @@ function memoryStore() {
 // A Vipps stand-in whose answers the test controls.
 function scriptedVipps(state: PaymentInfo['state']) {
   const calls: string[] = []
-  const vipps: Vipps & { state: string } = {
+  const vipps: Vipps & { state: string; description?: string } = {
     state,
-    async createPayment({ returnUrl }) { calls.push('create'); return { redirectUrl: 'https://vipps.example/pay?return=' + encodeURIComponent(returnUrl) } },
+    async createPayment({ returnUrl, description }) { calls.push('create'); vipps.description = description; return { redirectUrl: 'https://vipps.example/pay?return=' + encodeURIComponent(returnUrl) } },
     async getPayment() { calls.push('get'); return { state: vipps.state, authorizedOre: 0, capturedOre: 0 } },
     async capture(_reference, amountOre) { calls.push('capture'); return { state: 'AUTHORIZED', authorizedOre: amountOre, capturedOre: amountOre } },
     async cancel() { calls.push('cancel') },
@@ -118,6 +118,7 @@ test('checkout holds the panels, sets the price on the server and captures after
   assert.equal(rows[0].amount, 699)
   assert.equal(rows[0].displayName, 'Ola Nordmann')
   assert.equal(rows[0].email, 'ola@example.com')
+  assert.equal(vipps.description, 'Gave til Nordlys NTNU – 10 solcellepaneler', 'Vipps shows the payment as a gift')
 
   let taken = await publicPanels(store)
   assert.equal(taken.length, 10)
