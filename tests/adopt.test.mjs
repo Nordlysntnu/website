@@ -114,7 +114,7 @@ test('the English and Norwegian texts have the same entries', async () => {
   assert.deepEqual(shape(TEXT.nb), shape(TEXT.en));
   assert.equal(TEXT.nb.picker.panels(1), '1 panel');
   assert.equal(TEXT.nb.picker.panels(5), '5 paneler');
-  assert.equal(TEXT.nb.picker.payAmount(1098), 'Betal 1 098 kr med Vipps');
-  assert.match(TEXT.nb.picker.paid(['C17']), /^Panel C17 er nå ditt\./);
-  assert.match(TEXT.en.picker.paid(['C17', 'C18']), /^Panels C17, C18 are now yours\./);
+  assert.equal(TEXT.nb.picker.payAmount(1098), 'Gi 1 098 kr med Vipps');
+  assert.match(TEXT.nb.picker.paid(['C17']), /^Panel C17 er nå adoptert av deg\./);
+  assert.match(TEXT.en.picker.paid(['C17', 'C18']), /^Panels C17, C18 are now adopted by you\./);
 });
