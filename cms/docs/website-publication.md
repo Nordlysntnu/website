@@ -42,7 +42,16 @@ Keep one CMS HTTP instance and one publishing worker on the same host. The worke
 4. Pause the legacy GitHub deployment workflow during cutover. Its current rsync targets /var/www/nextapp. It must not write into generated releases. The branch adds a guard refusing rsync when that path is a symlink or contains a publication manifest; older workflow runs must also be stopped.
 5. Keep Nginx serving the old site while running the first live build with NORDLYS_PUBLISH_ACTIVE=/var/www/nordlys/current. Inspect the generated /blog, home page, article aliases and images. The worker refuses to replace an existing directory or an unknown symlink.
 6. Review and change the existing Nginx root to /var/www/nordlys/current, keeping the old /var/www/nextapp directory for rollback. Keep the static-export try_files rule ($uri $uri.html $uri/ =404). Test nginx -t before reloading. Add a guard/disable the old rsync deployment before resuming any automation.
-7. Install the reviewed nordlys-publisher.service alongside nordlys-cms.service. Enable automatic publication only after validation and explicit deployment approval. Website source updates are a separate reviewed main checkout/install operation; the worker never pulls, commits, pushes or merges Git. A clean main revision change triggers a new export on the next reconciliation.
+7. Install the reviewed nordlys-publisher.service alongside nordlys-cms.service. Enable automatic publication only after validation and explicit deployment approval. The worker never pulls, commits, pushes or merges Git. A clean main revision change triggers a new export on the next reconciliation (the worker checks every 5 seconds).
+
+### Website source after the cutover
+
+The publisher builds from its own checkout, /opt/nordlys/site-source (NORDLYS_PUBLISH_SOURCE), not from the CMS checkout in /opt/nordlys/website. The two are updated separately:
+
+- **Website changes** keep deploying on merge to main. The GitHub deploy job sees the /var/www/nordlys/current symlink, fast-forwards /opt/nordlys/site-source to origin/main as the runner user (nordlysdeploy) and runs npm ci when package-lock.json changed. The publisher then builds and activates the new site. Before the cutover the same job still copies the GitHub build to /var/www/nextapp.
+- **CMS changes** (cms/) still need the reviewed CMS update on the VM: backup, pull in /opt/nordlys/website, npm ci/db:migrate when needed, build, restart nordlys-cms and nordlys-publisher.
+
+The checkout is owned by nordlysdeploy and read-only to the publisher. /etc/gitconfig marks it as a safe directory so the publisher (nordlys-cms) can read its Git revision. /etc/nordlys-cms.env holds NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY, the same public values as the GitHub build.
 8. Run the full acceptance flow against the VM, verify build failures preserve the site, and rehearse restoration of a retained release. Record the final Nginx paths and ownership for the next team.
 
 The VM template requires path/permissions review. Nothing here changes repository protection or directly deploys a branch.
