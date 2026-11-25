@@ -55,23 +55,61 @@ jobs:
     runs-on: [self-hosted, Linux, X64]
 
     steps:
+      # After the CMS publishing cutover (#94) the CMS publisher builds the website and nginx
+      # serves /var/www/nordlys/current. This job then only moves the publisher's website source
+      # (/opt/nordlys/site-source) to the new main; the publisher builds and activates it within
+      # seconds. Before the cutover the job copies the GitHub build to /var/www/nextapp as before.
+      - name: Choose how to deploy
+        id: mode
+        run: |
+          if [ -L /var/www/nordlys/current ]; then
+            echo "mode=cms" >> "$GITHUB_OUTPUT"
+            echo "CMS publication is active: updating the website source for the publisher."
+          else
+            echo "mode=rsync" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update the website source for the CMS publisher
+        if: steps.mode.outputs.mode == 'cms'
+        run: |
+          set -euo pipefail
+          cd /opt/nordlys/site-source
+          git fetch --quiet origin main
+          git checkout --quiet main
+          git merge --ff-only --quiet origin/main
+          # The publisher only builds a clean main that matches origin/main.
+          test -z "$(git status --porcelain --untracked-files=normal)"
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          # Reinstall dependencies only when the lock file changed. A build that starts while
+          # npm ci runs fails without touching the live site, and the publisher retries it.
+          lock=$(sha256sum package-lock.json | cut -d' ' -f1)
+          if [ ! -d node_modules ] || [ "$(cat .git/nordlys-installed-lock 2>/dev/null)" != "$lock" ]; then
+            npm ci --no-audit --no-fund
+            echo "$lock" > .git/nordlys-installed-lock
+          fi
+          echo "Website source is at $(git rev-parse --short HEAD). The CMS publisher builds and activates it."
+
       # The self-hosted runner keeps its workspace between runs. Without this,
       # files removed from the site stay in site/ and rsync keeps serving them.
       - name: Empty the build folder
+        if: steps.mode.outputs.mode == 'rsync'
         run: rm -rf site
 
       - name: Download build
+        if: steps.mode.outputs.mode == 'rsync'
         uses: actions/download-artifact@v4
         with:
           name: nordlys-build
           path: site/
 
       - name: Verify downloaded files
+        if: steps.mode.outputs.mode == 'rsync'
         run: |
           test -f site/index.html
           echo "Website build received!"
 
       - name: Test website deployment
+        if: steps.mode.outputs.mode == 'rsync'
         run: |
           set -euo pipefail
 
