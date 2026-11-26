@@ -1,8 +1,8 @@
 # Nordlys CMS — v0.1 development (issue #78)
 
-Payload CMS for writing articles, review and publication. This branch includes invitation-managed accounts, private drafts/review, dark/light mode and a durable CMS-to-static-website publisher. It is not deployed.
+Payload CMS for writing articles, review and publication. This branch includes invitation-managed accounts, private drafts/review, dark/light mode and a durable CMS-to-static-website publisher.
 
-The CMS is kept in the website repository. The agreed destination is a separate service on the same NTNU OpenStack VM, proposed at https://cms.nordlysntnu.no/admin. The existing public website remains static. The publisher is disabled until the reviewed VM cutover. Local preview mode cannot change the public website.
+The CMS is kept in the website repository and runs as a separate service on the NTNU OpenStack VM at https://cms.nordlysntnu.no/admin. The public website remains static: since 26 Nov 2026 the publisher builds it and Nginx serves its active release (docs/website-publication.md). Local preview mode cannot change the public website.
 
 ## Local setup
 
