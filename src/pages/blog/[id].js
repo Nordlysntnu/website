@@ -14,5 +14,5 @@ export async function getStaticProps({ params }) {
     return post ? { props: { post } } : { notFound: true };
 }
 export default function Article({ post }) {
-    return <Layout><Head><title>{post.title} · Nordlys</title></Head><CmsArticle post={post} /></Layout>;
+    return <Layout><Head><title>{`${post.title} · Nordlys`}</title></Head><CmsArticle post={post} /></Layout>;
 }
