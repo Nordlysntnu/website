@@ -19,7 +19,8 @@ export NORDLYS_BACKUP_PASSPHRASE
 ssh -o BatchMode=yes "$host" "sudo tar -C /var/backups/nordlys-cms -czf - '$latest'" \
   | openssl enc -aes-256-cbc -pbkdf2 -iter 600000 -salt -pass env:NORDLYS_BACKUP_PASSPHRASE -out "$file.part"
 # Prove the copy decrypts and is a complete archive before keeping it.
-openssl enc -d -aes-256-cbc -pbkdf2 -iter 600000 -pass env:NORDLYS_BACKUP_PASSPHRASE -in "$file.part" | tar -tzf - | grep -q 'manifest.json'
+# grep reads the whole list: with -q it would stop early, tar would get SIGPIPE and pipefail would end the script silently.
+openssl enc -d -aes-256-cbc -pbkdf2 -iter 600000 -pass env:NORDLYS_BACKUP_PASSPHRASE -in "$file.part" | tar -tzf - | grep 'manifest.json' >/dev/null
 mv "$file.part" "$file"
 ls -1 "$out"/nordlys-cms-*.tar.gz.enc | sort | head -n "-$keep" | xargs -r rm -f --
 echo "Saved $file"
