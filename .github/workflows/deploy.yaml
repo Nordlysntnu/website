@@ -82,6 +82,8 @@ jobs:
           test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
           # Reinstall dependencies only when the lock file changed. A build that starts while
           # npm ci runs fails without touching the live site, and the publisher retries it.
+          # Use the publisher's Node, not the runner's older /usr/local/bin/node.
+          export PATH=/opt/nordlys/node/bin:$PATH
           lock=$(sha256sum package-lock.json | cut -d' ' -f1)
           if [ ! -d node_modules ] || [ "$(cat .git/nordlys-installed-lock 2>/dev/null)" != "$lock" ]; then
             npm ci --no-audit --no-fund
