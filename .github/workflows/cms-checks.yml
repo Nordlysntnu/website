@@ -41,6 +41,8 @@ jobs:
         run: npm --prefix cms run test:storage
       - name: Publication, import and recovery tests
         run: npm --prefix cms run test:publication
+      - name: Adopt a solar panel (Vipps) tests
+        run: npm --prefix cms run test:adopt
       - name: CMS production build
         run: npm --prefix cms run build
       - name: Typecheck

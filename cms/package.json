@@ -31,7 +31,9 @@
     "publish:preview": "tsx scripts/publish-preview.ts",
     "publish:rollback": "tsx scripts/publish-rollback.ts",
     "2fa:reset": "tsx scripts/reset-2fa.ts",
-    "test:mfa": "tsx --test tests/mfa.test.ts"
+    "test:mfa": "tsx --test tests/mfa.test.ts",
+    "test:adopt": "tsx --test tests/adoptions.test.ts",
+    "vipps:webhook": "tsx scripts/vipps-webhook.ts"
   },
   "dependencies": {
     "@payloadcms/db-sqlite": "3.92.1",

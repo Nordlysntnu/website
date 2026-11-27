@@ -2,6 +2,9 @@ import * as migration_20261105_230845_initial_v01 from './20261105_230845_initia
 import * as migration_20261105_230846_administrator_guards from './20261105_230846_administrator_guards';
 import * as migration_20261106_142318_website_publication from './20261106_142318_website_publication';
 import * as migration_20261110_024053_two_factor from './20261110_024053_two_factor';
+import * as migration_20261113_001604_panel_adoptions from './20261113_001604_panel_adoptions';
+import * as migration_20261119_201034_panel_adoption_email from './20261119_201034_panel_adoption_email';
+import * as migration_20261127_230000_panel_adoption_name_review from './20261127_230000_panel_adoption_name_review';
 
 export const migrations = [
   {
@@ -22,6 +25,21 @@ export const migrations = [
   {
     up: migration_20261110_024053_two_factor.up,
     down: migration_20261110_024053_two_factor.down,
-    name: '20261110_024053_two_factor'
+    name: '20261110_024053_two_factor',
+  },
+  {
+    up: migration_20261113_001604_panel_adoptions.up,
+    down: migration_20261113_001604_panel_adoptions.down,
+    name: '20261113_001604_panel_adoptions',
+  },
+  {
+    up: migration_20261119_201034_panel_adoption_email.up,
+    down: migration_20261119_201034_panel_adoption_email.down,
+    name: '20261119_201034_panel_adoption_email',
+  },
+  {
+    up: migration_20261127_230000_panel_adoption_name_review.up,
+    down: migration_20261127_230000_panel_adoption_name_review.down,
+    name: '20261127_230000_panel_adoption_name_review'
   },
 ];
