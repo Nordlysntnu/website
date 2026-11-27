@@ -93,3 +93,20 @@ test('photo layouts and photo rows survive the public projection and the snapsho
     assert.throws(() => validateSnapshot(snapshot([{ type: 'photoRow', photos: [file('5'), null] }])), /photo row/);
     assert.throws(() => validateSnapshot(snapshot([{ type: 'photoRow', photos: [{ url: 'https://evil.test/x.webp' }] }])), /image/);
 });
+test('photos keep their small version and focal point, and older snapshots still work', async () => {
+    const { validateSnapshot } = await import('../src/features/cms/snapshot-posts.mjs');
+    const { imageProps } = await import('../src/features/cms/photos.mjs');
+    const url = (name) => `/cms-media/${'b'.repeat(63)}${name}.jpg`;
+    const snapshot = (cover) => validateSnapshot({ schema: 1, managedLegacyKeys: [], posts: [{ id: 1, title: 'T', publishedAt: '2026-11-02T12:00:00.000Z', nodes: [], cover }] });
+    const cover = snapshot({ url: url('1'), small: url('2'), alt: 'Car', width: 2000, height: 1500, focalX: 30, focalY: 70 }).posts[0].cover;
+    assert.deepEqual(cover, { url: url('1'), small: url('2'), alt: 'Car', width: 2000, height: 1500, focalX: 30, focalY: 70 });
+    assert.deepEqual(imageProps(cover, 'card'), { src: url('1'), srcSet: `${url('2')} 800w, ${url('1')} 2000w`,
+        sizes: '(max-width: 640px) 100vw, 420px', style: { objectPosition: '30% 70%' } });
+    const portrait = imageProps({ ...cover, width: 1500, height: 2000 }, 'gallery');
+    assert.match(portrait.srcSet, / 600w, /, 'a portrait photo has a narrower small version');
+
+    const old = snapshot({ url: url('3'), alt: 'Old', width: 4000, height: 3000 }).posts[0].cover;
+    assert.deepEqual(imageProps(old, 'card'), { src: url('3') }, 'no small version, no focal point: the photo as before');
+    assert.equal(snapshot({ url: url('4'), alt: '', focalX: 120, focalY: 10 }).posts[0].cover.focalX, undefined, 'focal points outside 0–100 are dropped');
+    assert.throws(() => snapshot({ url: url('5'), small: 'https://evil.test/x.jpg' }), /image/);
+});

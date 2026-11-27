@@ -15,7 +15,9 @@ export function publicPhoto(value) {
     try {
         const url = new URL(value.url, localCMSOrigin);
         if (url.origin !== localCMSOrigin || url.username || url.password || !url.pathname.startsWith('/api/media/file/')) return null;
-        return { url: url.href, alt: String(value.alt || ''), width: value.width || null, height: value.height || null };
+        const percent = number => typeof number === 'number' && number >= 0 && number <= 100;
+        const focal = percent(value.focalX) && percent(value.focalY) ? { focalX: value.focalX, focalY: value.focalY } : {};
+        return { url: url.href, alt: String(value.alt || ''), width: value.width || null, height: value.height || null, small: null, ...focal };
     } catch { return null; }
 }
 // How an inline photo sits in the article. Anything unknown falls back to the text column.
