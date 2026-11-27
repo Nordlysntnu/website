@@ -27,7 +27,7 @@ export const TEXT = {
             steps: [
                 ['Choose your panels', 'Click the panels you like on the car, or let us pick them for you.'],
                 ['Give with Vipps', 'One panel is a gift of 100 kr, and bundles let you adopt more panels for less.'],
-                ['See your name on the car', 'As a thank-you, your name appears on your panels on this page, if you add one.'],
+                ['See your name on the car', 'As a thank-you, your name appears on your panels on this page if you add one. We check each name first.'],
             ],
         },
         car: {
@@ -61,8 +61,8 @@ export const TEXT = {
             checking: 'Checking your payment with Vipps …',
             thanks: 'Thank you!',
             paid: ids => ids?.length === 1
-                ? `Panel ${list(ids)} is now adopted by you. You can find it on the car below.`
-                : `Panels ${list(ids)} are now adopted by you. You can find them on the car below.`,
+                ? `Panel ${list(ids)} is now adopted by you. You can find it on the car below. If you added a name, it appears once we have checked it.`
+                : `Panels ${list(ids)} are now adopted by you. You can find them on the car below. If you added a name, it appears once we have checked it.`,
             cancelled: 'The payment was cancelled, so the panels are free again. Nothing was charged.',
             failed: 'Something went wrong with the payment. Nothing was charged. Please try again.',
             unknown: 'We could not confirm the payment yet. If Vipps shows it as paid, your panels will appear on the car shortly.',
@@ -81,7 +81,7 @@ export const TEXT = {
             clearAll: 'Clear all',
             nameLabel: 'Name on your panels (optional)',
             namePlaceholder: 'Ola Nordmann, or leave empty',
-            nameHint: 'Shown as a thank-you when someone points at your panels. Leave it empty to adopt anonymously.',
+            nameHint: 'Shown as a thank-you when someone points at your panels, after we have checked it. No company names or ads. Leave it empty to adopt anonymously.',
             emailLabel: 'Your email (optional)',
             emailPlaceholder: 'ola@example.com, or leave empty',
             emailHint: 'If you want a thank-you from us and news about the car. It is never shown on the page.',
@@ -106,7 +106,7 @@ export const TEXT = {
             steps: [
                 ['Velg panelene dine', 'Klikk på panelene du liker på bilen, eller la oss velge for deg.'],
                 ['Gi med Vipps', 'Ett panel er en gave på 100 kr, og med pakkene adopterer du flere paneler for mindre.'],
-                ['Se navnet ditt på bilen', 'Som takk vises navnet ditt på panelene dine på denne siden, hvis du legger det til.'],
+                ['Se navnet ditt på bilen', 'Som takk vises navnet ditt på panelene dine på denne siden hvis du legger det til. Vi ser over hvert navn først.'],
             ],
         },
         car: {
@@ -140,8 +140,8 @@ export const TEXT = {
             checking: 'Sjekker betalingen med Vipps …',
             thanks: 'Tusen takk!',
             paid: ids => ids?.length === 1
-                ? `Panel ${list(ids)} er nå adoptert av deg. Du finner det på bilen under.`
-                : `Panelene ${list(ids)} er nå adoptert av deg. Du finner dem på bilen under.`,
+                ? `Panel ${list(ids)} er nå adoptert av deg. Du finner det på bilen under. Hvis du la til et navn, vises det når vi har sett over det.`
+                : `Panelene ${list(ids)} er nå adoptert av deg. Du finner dem på bilen under. Hvis du la til et navn, vises det når vi har sett over det.`,
             cancelled: 'Betalingen ble avbrutt, så panelene er ledige igjen. Ingenting ble trukket.',
             failed: 'Noe gikk galt med betalingen. Ingenting ble trukket. Prøv igjen.',
             unknown: 'Vi kunne ikke bekrefte betalingen ennå. Hvis Vipps viser den som betalt, dukker panelene dine opp på bilen om litt.',
@@ -160,7 +160,7 @@ export const TEXT = {
             clearAll: 'Fjern alle',
             nameLabel: 'Navn på panelene dine (valgfritt)',
             namePlaceholder: 'Ola Nordmann, eller la stå tomt',
-            nameHint: 'Vises som takk når noen peker på panelene dine. La feltet stå tomt for å adoptere anonymt.',
+            nameHint: 'Vises som takk når noen peker på panelene dine, etter at vi har sett over det. Ikke firmanavn eller reklame. La feltet stå tomt for å adoptere anonymt.',
             emailLabel: 'E-postadressen din (valgfritt)',
             emailPlaceholder: 'ola@eksempel.no, eller la stå tomt',
             emailHint: 'Hvis du vil ha en takk fra oss og nyheter om bilen. Den vises aldri på siden.',
