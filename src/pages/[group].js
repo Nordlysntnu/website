@@ -71,7 +71,7 @@ const TeamGroupPage = () => {
   return (
     <>
       <Head>
-        <title>{group ? group.charAt(0).toUpperCase() + group.slice(1) : 'Team'} - Nordlys</title>
+        <title>{`${group ? group.charAt(0).toUpperCase() + group.slice(1) : 'Team'} - Nordlys`}</title>
       </Head>
       <Layout>
         <PageHeader current="Team" />
