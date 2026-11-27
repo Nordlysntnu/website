@@ -7,6 +7,7 @@ import { getPayload, handleEndpoints } from 'payload'
 import { PANELS, priceFor } from '../../src/features/adopt/adopt.mjs'
 import { AdoptError, publicPanels, startCheckout, syncAdoption, type Adoption, type AdoptionStore, type NewAdoption } from '../src/lib/adoptions'
 import { mockVipps, verifyWebhook, vippsClient, vippsConfig, type PaymentInfo, type Vipps } from '../src/lib/vipps'
+import { nameFlags } from '../src/lib/name-review'
 
 const ids = (count: number, from = 0) => PANELS.slice(from, from + count).map(panel => panel.id)
 
@@ -117,6 +118,8 @@ test('checkout holds the panels, sets the price on the server and captures after
   assert.equal(rows[0].amount, priceFor(10).total)
   assert.equal(rows[0].amount, 699)
   assert.equal(rows[0].displayName, 'Ola Nordmann')
+  assert.equal(rows[0].nameReview, 'pending', 'every name waits for review')
+  assert.equal(rows[0].nameFlags, null, 'an ordinary name is not marked')
   assert.equal(rows[0].email, 'ola@example.com')
   assert.equal(vipps.description, 'Gave til Nordlys NTNU – 10 solcellepaneler', 'Vipps shows the payment as a gift')
 
@@ -130,10 +133,39 @@ test('checkout holds the panels, sets the price on the server and captures after
   assert.equal(paid.status, 'paid')
   assert.deepEqual(calls, ['create', 'get', 'capture'])
   taken = await publicPanels(store)
+  assert.ok(taken.every(panel => !panel.held && panel.name === null), 'a paid adoption shows no name before review')
+  await store.update(rows[0].id, { nameReview: 'hidden' })
+  assert.ok((await publicPanels(store)).every(panel => panel.name === null), 'a hidden name stays off the page')
+  await store.update(rows[0].id, { nameReview: 'approved' })
+  taken = await publicPanels(store)
   assert.ok(taken.every(panel => !panel.held && panel.name === 'Ola Nordmann'))
   assert.ok(!JSON.stringify(taken).includes('ola@example.com'), 'the email is never public')
   assert.equal(await syncAdoption(store, vipps, paid).then(row => row.status), 'paid', 'a paid adoption is final')
   assert.equal(calls.length, 3)
+})
+
+test('names that look like a company, a link or a rude word are marked for the reviewer', async () => {
+  for (const name of ['Ola Nordmann', 'Kari Thoresen', 'Nazir Ahmed', 'Familien Ås', 'Faggruppen elkraft', 'Åse og Jon', 'Klasse 3B']) {
+    assert.deepEqual(nameFlags(name), [], name)
+  }
+  assert.deepEqual(nameFlags('Org 931575953'), ['Company?', 'Link or contact details'], 'an organisation number')
+  for (const name of ['Nordmann Bygg AS', 'Equinor ASA', 'Acme Ltd', 'Hansen Holding', 'Brand™']) {
+    assert.deepEqual(nameFlags(name), ['Company?'], name)
+  }
+  for (const name of ['www.example.no', 'Ola Nordmann.com', 'ola@example.com', 'Ring 987 65 432']) {
+    assert.deepEqual(nameFlags(name), ['Link or contact details'], name)
+  }
+  for (const name of ['F4en heller', 'shit happens', 'Jævla bil', 'Kiss my ass']) {
+    assert.deepEqual(nameFlags(name), ['Rude word?'], name)
+  }
+  assert.deepEqual(nameFlags('Faen AS'), ['Company?', 'Rude word?'])
+
+  const { store, rows } = memoryStore()
+  const { vipps } = scriptedVipps('CREATED')
+  await checkout(store, vipps, { panels: ids(1) })
+  await checkout(store, vipps, { panels: ids(1, 1), name: 'Bygg AS' }, 'client-b')
+  assert.equal(rows[0].nameReview, 'none', 'an adoption without a name has nothing to review')
+  assert.deepEqual([rows[1].nameReview, rows[1].nameFlags], ['pending', 'Company?'])
 })
 
 test('cancelled, expired and failed payments free the panels again', async () => {
@@ -201,11 +233,20 @@ test('the adoption endpoints work end to end with the mock Vipps and real Payloa
   response = await call('/api/adopt/status?reference=' + reference)
   assert.deepEqual(await response.json(), { status: 'paid', panels: ids(5) })
   response = await call('/api/adopt/panels')
-  const { taken } = await response.json()
+  let { taken } = await response.json()
   assert.deepEqual(taken.map((panel: { id: string }) => panel.id), ids(5))
+  assert.ok(taken.every((panel: { name: string | null; held: boolean }) => panel.name === null && !panel.held), 'the name waits for review')
+
+  const [order] = (await payload.find({ collection: 'panel-adoptions', overrideAccess: true })).docs
+  assert.equal(order.nameReview, 'pending')
+  const renamed = await payload.update({ collection: 'panel-adoptions', id: order.id, data: { displayName: 'Kari Bygg AS' }, overrideAccess: true })
+  assert.equal(renamed.nameFlags, 'Company?', 'the flags follow an edited name')
+  await payload.update({ collection: 'panel-adoptions', id: order.id, data: { displayName: 'Kari', nameReview: 'approved' }, overrideAccess: true })
+  ;({ taken } = await (await call('/api/adopt/panels')).json())
   assert.ok(taken.every((panel: { name: string; held: boolean }) => panel.name === 'Kari' && !panel.held))
 
   const stored = await payload.find({ collection: 'panel-adoptions', overrideAccess: true })
+  assert.equal(stored.docs[0].nameFlags, null)
   assert.equal(stored.docs[0].amount, 399)
   assert.equal(stored.docs[0].status, 'paid')
   assert.equal(stored.docs[0].email, 'kari@example.com')
