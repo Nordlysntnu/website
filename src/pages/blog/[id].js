@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Layout from '@shared/components/Layout';
 import { CmsArticle } from '@features/cms/CmsBlog';
 import { readWebsitePosts } from '@features/cms/snapshot-posts.mjs';
+import { ShareHead } from '@features/cms/ShareHead';
+import { articleShare } from '@features/cms/share.mjs';
 import { blogs } from '@shared/data/blog';
 
 export async function getStaticPaths() {
@@ -14,5 +16,5 @@ export async function getStaticProps({ params }) {
     return post ? { props: { post } } : { notFound: true };
 }
 export default function Article({ post }) {
-    return <Layout><Head><title>{`${post.title} · Nordlys`}</title></Head><CmsArticle post={post} /></Layout>;
+    return <Layout><Head><title>{`${post.title} · Nordlys`}</title></Head><ShareHead share={articleShare(post)} /><CmsArticle post={post} /></Layout>;
 }
