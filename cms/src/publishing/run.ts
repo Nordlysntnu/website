@@ -30,7 +30,7 @@ export async function publishWebsite(payload: Payload,options:{build?:typeof bui
   const logDir=path.join(config.dataDir,'publishing/logs')
   await mkdir(logDir,{recursive:true})
   try{
-    const exported=await writePublicSnapshot(desired.content,config.uploadDir,path.join(work,'content'))
+    const exported=await writePublicSnapshot(desired.content,config.uploadDir,path.join(work,'content'),path.join(config.dataDir,'publishing/image-cache'))
     const out=await(options.build||buildWebsite)(config,path.join(work,'site'),exported.file,path.join(work,'content/cms-media'),path.join(logDir,id+'.log'))
     if(await sourceRevision(config)!==desired.revision)throw new Error('Website source changed during the build; refusing mixed code.')
     if((await publishedContent(payload)).contentHash!==desired.content.contentHash)throw new Error('Approved CMS content changed during the build; a new export is required.')

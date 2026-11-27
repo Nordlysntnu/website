@@ -5,6 +5,7 @@ import type { Payload } from 'payload'
 import { publicPost } from '../../../src/features/cms/local-posts.mjs'
 import { postPhotoIDs } from '../lib/blog'
 import type { Media } from '../payload-types'
+import { WEB_IMAGE_VERSION, cachedWebImage } from './web-images'
 
 export const hash = (value: string | Buffer) => createHash('sha256').update(value).digest('hex')
 export async function publishedContent(payload: Payload) {
@@ -27,26 +28,40 @@ export async function publishedContent(payload: Payload) {
   }))
   const logicalPosts = project(photo => ({ url:'media:' + photo.id + ':' + photo.filename + ':' + photo.updatedAt,
     alt:photo.alt, width:photo.width || null, height:photo.height || null }))
-  const contentHash = hash(JSON.stringify({ posts:logicalPosts, managedLegacyKeys }))
+  // The image settings are part of the content: changing them rebuilds the website once.
+  const contentHash = hash(JSON.stringify({ posts:logicalPosts, managedLegacyKeys, webImages:WEB_IMAGE_VERSION }))
   return { posts, media, managedLegacyKeys, contentHash, project }
 }
-export async function writePublicSnapshot(content: Awaited<ReturnType<typeof publishedContent>>, uploadDir: string, target: string) {
+export type PublicPhoto = { url:string; alt:string; width:number|null; height:number|null; small?:string; focalX?:number; focalY?:number }
+const focal = (value: unknown) => typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 100 ? Math.round(value * 10) / 10 : undefined
+
+/** Writes the public snapshot. Photos are web versions of the private originals (see web-images.ts). */
+export async function writePublicSnapshot(content: Awaited<ReturnType<typeof publishedContent>>, uploadDir: string, target: string, imageCacheDir?: string) {
   await mkdir(path.join(target,'cms-media'),{recursive:true})
-  const photos = new Map<number,{url:string;alt:string;width:number|null;height:number|null}>()
+  const photos = new Map<number,PublicPhoto>()
   const assets: {path:string;sha256:string;bytes:number}[] = []
+  const publish = async (data: Buffer, format: string) => {
+    const digest = hash(data)
+    const relative = 'cms-media/' + digest + '.' + format
+    if (!assets.some(a=>a.path===relative)) {
+      await writeFile(path.join(target,relative),data,{mode:0o600})
+      assets.push({path:relative,sha256:digest,bytes:data.length})
+    }
+    return '/' + relative
+  }
   for (const photo of content.media) {
     const filename = photo.filename
     if (!filename || filename !== path.basename(filename) || /[\\/\x00]/.test(filename)) throw new Error('Invalid published image filename.')
     const source = path.join(uploadDir,filename)
     if ((await lstat(source)).isSymbolicLink()) throw new Error('Published images cannot be symlinks.')
     const data = await readFile(source)
-    const extension = { 'image/jpeg':'jpg', 'image/png':'png', 'image/webp':'webp' }[photo.mimeType || '']
-    if (!extension) throw new Error('Unsupported published image type.')
-    const digest = hash(data)
-    const relative = 'cms-media/' + digest + '.' + extension
-    await writeFile(path.join(target,relative),data,{mode:0o600})
-    if (!assets.some(a=>a.path===relative)) assets.push({path:relative,sha256:digest,bytes:data.length})
-    photos.set(photo.id,{url:'/'+relative,alt:photo.alt,width:photo.width||null,height:photo.height||null})
+    const large = await cachedWebImage(data, photo.mimeType || '', 'large', imageCacheDir)
+    const small = await cachedWebImage(data, photo.mimeType || '', 'small', imageCacheDir)
+    const url = await publish(large.data, large.format)
+    const smallURL = await publish(small.data, small.format)
+    photos.set(photo.id,{url,alt:photo.alt,width:large.width,height:large.height,
+      ...(smallURL !== url ? { small:smallURL } : {}),
+      ...(focal(photo.focalX) !== undefined && focal(photo.focalY) !== undefined ? { focalX:focal(photo.focalX), focalY:focal(photo.focalY) } : {})})
   }
   const snapshot = { schema:1, posts:content.project(photo=>photos.get(photo.id)!), managedLegacyKeys:content.managedLegacyKeys }
   const file = path.join(target,'snapshot.json')
