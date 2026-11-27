@@ -8,6 +8,7 @@ import { editorialDate, reviewLabel } from '../lib/editorial'
 import { NotificationInbox } from './NotificationInbox'
 import { headers } from 'next/headers'
 import { mfaSatisfied } from '../lib/mfa'
+import { NAMES_TO_REVIEW_URL } from '../lib/name-review'
 
 function Queue({ title, posts, empty, kind, total }: { title: string; posts: Post[]; empty: string; kind: string; total: number }) {
   return <section className="editorial-queue" aria-label={title}>
@@ -40,6 +41,9 @@ export async function DemoGuide({ payload }: ServerProps) {
     queue('ready'), queue('changes'), queue('writing'),
     payload.find({ collection: 'posts', overrideAccess: false, user, draft: false, depth: 0, where: publishedWhere, limit: 1 }),
   ])
+  // Names from "Adopt a solar panel" that wait for an administrator before they are shown.
+  const namesToReview = user.role === 'admin' ? await payload.count({ collection: 'panel-adoptions', overrideAccess: false, user,
+    where: { and: [{ status: { equals: 'paid' } }, { nameReview: { equals: 'pending' } }] } }).then(({ totalDocs }) => totalDocs, () => null) : null
   const assigned = publisher ? await payload.find({ collection: 'posts', overrideAccess: false, user, draft: true, depth: 0,
     where: { and: [{ _status: { equals: 'draft' } }, { review: { equals: 'ready' } }, { reviewerId: { equals: user.id } }] },
     limit: 4, sort: '-updatedAt' }) : null
@@ -59,6 +63,7 @@ export async function DemoGuide({ payload }: ServerProps) {
           href={`/admin/collections/posts?where[and][0][_status][equals]=draft&where[and][1][review][equals]=${stat.value}`}>
           <strong>{stat.count}</strong><span>{stat.label}</span></Link>)}
       <Link href="/blog" target="_blank" rel="noreferrer"><strong>{published.totalDocs}</strong><span>Published in CMS ↗</span></Link>
+      {namesToReview !== null && <Link href={NAMES_TO_REVIEW_URL}><strong>{namesToReview}</strong><span>Adopt names to review</span></Link>}
     </nav>
     <NotificationInbox />
     <PublicationStatus />

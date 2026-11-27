@@ -1,6 +1,7 @@
 import { createHash, randomBytes } from 'node:crypto'
 import { HOLD_MINUTES, MAX_PANELS_PER_ORDER, cleanEmail, cleanName, priceFor, validPanelSelection } from '../../../src/features/adopt/adopt.mjs'
 import type { Vipps } from './vipps'
+import { nameFlagText, type NameReview } from './name-review'
 
 export type AdoptionStatus = 'pending' | 'authorized' | 'paid' | 'cancelled' | 'failed'
 export type Adoption = {
@@ -12,6 +13,8 @@ export type Adoption = {
   amount: number // whole kroner
   displayName?: string | null
   showName?: boolean | null
+  nameReview?: NameReview
+  nameFlags?: string | null
   email?: string | null
   vippsState?: string | null
   expiresAt: string
@@ -46,12 +49,13 @@ function exclusive<T>(task: () => Promise<T>): Promise<T> {
 const MAX_HELD_PER_CLIENT = MAX_PANELS_PER_ORDER
 const final: AdoptionStatus[] = ['paid', 'cancelled', 'failed']
 
-/** Taken panels for the website: name only for paid adoptions that show it. */
+/** Taken panels for the website: a name only for paid adoptions whose name an administrator approved. */
 export async function publicPanels(store: AdoptionStore, now = new Date()) {
   const taken: { id: string; name: string | null; held: boolean }[] = []
   for (const adoption of await store.holding(now)) {
     const paid = adoption.status === 'paid'
-    const name = paid && adoption.showName !== false && adoption.displayName ? adoption.displayName : null
+    const approved = adoption.nameReview === 'approved' && adoption.showName !== false
+    const name = paid && approved && adoption.displayName ? adoption.displayName : null
     for (const id of adoption.panels) taken.push({ id, name, held: !paid })
   }
   return taken
@@ -130,6 +134,9 @@ export async function startCheckout(options: {
       amount: total,
       displayName: name || null,
       showName: Boolean(name) && body.showName !== false,
+      // Every name waits for an administrator before it is shown on the website.
+      nameReview: name ? 'pending' : 'none',
+      nameFlags: nameFlagText(name),
       email: email || null,
       expiresAt: new Date(now.getTime() + HOLD_MINUTES * 60_000).toISOString(),
       client,

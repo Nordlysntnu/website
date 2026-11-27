@@ -21,7 +21,7 @@ function payloadStore(req: PayloadRequest): AdoptionStore {
     ] }),
     stale: (now, limit) => find({ and: [{ status: { equals: 'pending' } }, { expiresAt: { less_than_equal: now.toISOString() } }] }, limit),
     byReference: async reference => (await find({ reference: { equals: reference } }, 1))[0] ?? null,
-    create: data => payload.create({ collection, data, overrideAccess: true }) as unknown as Promise<Adoption>,
+    create: data => payload.create({ collection, data: { nameReview: 'pending', ...data }, overrideAccess: true }) as unknown as Promise<Adoption>,
     update: (id, data) => payload.update({ collection, id, data, overrideAccess: true }) as unknown as Promise<Adoption>,
   }
 }
