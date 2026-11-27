@@ -205,7 +205,7 @@ export interface Post {
    */
   summary?: string | null;
   /**
-   * Shown above the article and on its blog card. If empty, the first gallery or body photo is used.
+   * Shown above the article and on its blog card. If empty, the first gallery or body photo is used. Blog cards crop the photo: open it (pencil icon) and drag the focal point onto what must stay visible. The website gets a lighter copy of every photo, so upload the best original you have.
    */
   coverImage?: (number | null) | Media;
   /**
