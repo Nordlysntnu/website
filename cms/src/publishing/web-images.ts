@@ -25,12 +25,13 @@ export async function webImage(source: Buffer, mimeType: string, size: WebImageS
     : format === 'webp' ? image.webp({ quality: 80 })
     : image.png({ compressionLevel: 9, adaptiveFiltering: true })
   const { data, info } = await image.toBuffer({ resolveWithObject: true })
-  // A photo that is already small and well compressed is published as it is, unless it carries
-  // metadata such as camera details or a location, which the re-encoded version leaves out.
+  // A photo that is already small and well compressed is published as it is (encoding it again
+  // would cost quality for little gain), unless it carries metadata such as camera details or a
+  // location, which the re-encoded version leaves out.
   const upright = (original.orientation ?? 1) <= 1
   const fits = (original.width ?? Infinity) <= max && (original.height ?? Infinity) <= max
   const bare = !original.exif && !original.xmp && !original.iptc
-  if (upright && fits && bare && data.length >= source.length) {
+  if (upright && fits && bare && data.length > source.length * 0.9) {
     return { data: source, format, width: original.width!, height: original.height! }
   }
   return { data, format, width: info.width, height: info.height }
