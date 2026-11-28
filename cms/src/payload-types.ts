@@ -258,6 +258,12 @@ export interface Post {
   publishedAt: string;
   imageFit: 'contain' | 'cover';
   review: 'writing' | 'ready' | 'changes';
+  /**
+   * Publishers: pick a time and use Save draft. The article is published then, as it is at that moment. Clear the time and save to cancel. If a writer changes the draft, the time is removed and you are told.
+   */
+  publishAt?: string | null;
+  scheduledBy?: number | null;
+  scheduledByName?: string | null;
   reviewNote?: string | null;
   ownerId?: number | null;
   ownerName?: string | null;
@@ -561,6 +567,9 @@ export interface PostsSelect<T extends boolean = true> {
   publishedAt?: T;
   imageFit?: T;
   review?: T;
+  publishAt?: T;
+  scheduledBy?: T;
+  scheduledByName?: T;
   reviewNote?: T;
   ownerId?: T;
   ownerName?: T;
