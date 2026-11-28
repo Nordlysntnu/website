@@ -2,7 +2,8 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { BlocksFeature, FixedToolbarFeature, HeadingFeature, lexicalEditor, LinkFeature, UploadFeature } from '@payloadcms/richtext-lexical'
-import { PhotoRowBlock, VideoBlock, photoLayoutField } from './lib/article-blocks'
+import { PhotoBlock, PhotoRowBlock, VideoBlock, photoLayoutField } from './lib/article-blocks'
+import { PhotoBlocksFeature } from './lib/photo-blocks-feature'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { cmsRuntime } from './lib/runtime'
@@ -56,7 +57,8 @@ export default buildConfig({
         { name: 'caption', type: 'text', label: 'Photo caption', admin: { description: 'Optional text below this photo in the article.' } },
         photoLayoutField,
       ] } } }),
-      BlocksFeature({ blocks: [PhotoRowBlock, VideoBlock] }),
+      BlocksFeature({ blocks: [PhotoBlock, PhotoRowBlock, VideoBlock] }),
+      PhotoBlocksFeature(),
       FixedToolbarFeature(),
     ],
   }),
