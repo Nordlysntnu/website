@@ -1,7 +1,29 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './CmsBlog.module.css';
 import { imageProps } from './photos.mjs';
+import { youtubeEmbedURL } from './video.mjs';
+
+// The YouTube player is only loaded after the reader presses play, so nothing is sent to YouTube
+// just by opening the article (as on the About page).
+function Video({ node }) {
+    const [playing, setPlaying] = useState(false);
+    const frame = useRef(null);
+    useEffect(() => { if (playing) frame.current?.focus(); }, [playing]);
+    const title = node.caption || 'Video';
+    return <figure className={styles.video}>
+        <div className={styles.videoFrame}>
+            {playing
+                ? <iframe ref={frame} src={youtubeEmbedURL(node.youtubeId)} title={title}
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerPolicy="strict-origin-when-cross-origin" />
+                : <button type="button" className={styles.videoStart} onClick={() => setPlaying(true)} aria-label={`Play video: ${title}`}>
+                    <span className={styles.videoPlay} aria-hidden="true" />
+                    <span className={styles.videoText}>Play video<small>From YouTube</small></span>
+                </button>}
+        </div>
+        {node.caption && <figcaption>{node.caption}</figcaption>}
+    </figure>;
+}
 
 const href = (post) => '/blog/' + (post.slug || post.id);
 
@@ -76,6 +98,7 @@ function Nodes({ nodes }) {
         if (node.type === 'photo') return <figure key={index} className={`${styles.figure} ${styles[node.layout] || ''}`}>
             <Photo photo={node.photo} sizes={node.layout} />{node.caption && <figcaption>{node.caption}</figcaption>}
         </figure>;
+        if (node.type === 'video') return <Video key={index} node={node} />;
         if (node.type === 'photoRow') return <figure key={index} className={styles.row} style={{ '--row-count': node.photos.length }}>
             <div className={styles.rowPhotos}>{node.photos.map((photo, i) => <Photo key={i} photo={photo} sizes="row" />)}</div>
             {node.caption && <figcaption>{node.caption}</figcaption>}

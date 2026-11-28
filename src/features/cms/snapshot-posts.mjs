@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import { combinePosts } from './legacy-posts.mjs'
 import { readLocalPosts, safeLink, localPreviewEnabled, localBlogProps, photoLayout } from './local-posts.mjs'
+import { isYoutubeId } from './video.mjs'
 
 const safeId = value => Number.isSafeInteger(value) && value > 0
 const safeKey = value => typeof value === 'string' && /^legacy-[a-f0-9]{20}$/.test(value)
@@ -26,6 +27,10 @@ function nodes(value, depth=0) {
             const photos = node.photos.map(photo)
             if (photos.some(item => !item)) throw new Error('Invalid snapshot photo row.')
             return [{ type:'photoRow', photos, caption:String(node.caption || '') }]
+        }
+        if (node.type === 'video') {
+            if (!isYoutubeId(node.youtubeId)) throw new Error('Invalid snapshot video.')
+            return [{ type:'video', youtubeId:node.youtubeId, caption:String(node.caption || '') }]
         }
         if (!['paragraph','heading','quote','list','listitem','link'].includes(node.type)) throw new Error('Unsupported snapshot node.')
         return [{ type:node.type, tag:node.tag === 'h3' ? 'h3' : node.tag === 'ol' ? 'ol' : null,

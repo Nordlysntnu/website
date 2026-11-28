@@ -524,3 +524,93 @@
 :global(html[data-theme="dark"]) .tag {
     background: rgba(255, 106, 147, 0.14);
 }
+
+/* YouTube video in an article: a play button until the reader asks for the player. */
+.video {
+    margin: 2.25rem 0;
+}
+
+.videoFrame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: #0f1630;
+}
+
+.videoFrame iframe,
+.videoStart {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.videoStart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+    background: radial-gradient(circle at 30% 20%, rgba(226, 25, 75, 0.35), transparent 55%), linear-gradient(135deg, #18224a, #0b1024);
+}
+
+.videoPlay {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: var(--blog-accent, #e2194b);
+    position: relative;
+    flex: none;
+    transition: transform 0.2s ease;
+}
+
+.videoPlay::after {
+    content: '';
+    position: absolute;
+    left: 1.6rem;
+    top: 1.25rem;
+    border-style: solid;
+    border-width: 0.75rem 0 0.75rem 1.2rem;
+    border-color: transparent transparent transparent #fff;
+}
+
+.videoStart:hover .videoPlay,
+.videoStart:focus-visible .videoPlay {
+    transform: scale(1.08);
+}
+
+.videoStart:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -6px;
+}
+
+.videoText {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-align: left;
+}
+
+.videoText small {
+    font-weight: 400;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.video figcaption {
+    margin-top: 0.6rem;
+    color: var(--blog-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .videoPlay {
+        transition: none;
+    }
+}

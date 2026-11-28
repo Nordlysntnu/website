@@ -1,4 +1,5 @@
 import type { Block, Field } from 'payload'
+import { youtubeId } from '../../../src/features/cms/video.mjs'
 
 /** Where an inline photo sits in the article. Keep in sync with photoLayouts in src/features/cms/local-posts.mjs. */
 export const photoLayoutField: Field = {
@@ -26,5 +27,18 @@ export const PhotoRowBlock: Block = {
       fields: [{ name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Photo' }],
     },
     { name: 'caption', type: 'text', label: 'Caption', maxLength: 300, admin: { description: 'Optional text below the row.' } },
+  ],
+}
+
+/** A YouTube video inside the article body. The website loads it only when a reader presses play. */
+export const VideoBlock: Block = {
+  slug: 'video',
+  labels: { singular: 'Video', plural: 'Videos' },
+  fields: [
+    { name: 'url', type: 'text', required: true, label: 'YouTube link',
+      validate: (value: string | null | undefined) => youtubeId(value) ? true : 'Paste a link to a YouTube video, for example https://youtu.be/…',
+      admin: { description: 'In YouTube, press Share and copy the link. Shorts and live videos work too. Nothing is sent to YouTube until a reader presses play.' } },
+    { name: 'caption', type: 'text', label: 'Caption', maxLength: 300,
+      admin: { description: 'Optional text below the video. Screen readers also use it as the video title.' } },
   ],
 }

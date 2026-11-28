@@ -157,3 +157,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 .demo-lightbox, .demo-close, .demo-lightbox-controls button { color: #fff; }
 .blog-card-placeholder { background: #152242; color: #fff; }
+.article-video { margin: 2.25rem 0; }
+.article-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 8px; background: #0f1630; }
+.article-video figcaption { margin-top: .6rem; font-size: .85rem; line-height: 1.5; opacity: .75; }

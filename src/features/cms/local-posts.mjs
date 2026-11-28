@@ -1,4 +1,5 @@
 // Server-side reader for the explicit laptop preview. Never receives login cookies.
+import { youtubeId } from './video.mjs';
 export const localCMSOrigin = 'http://127.0.0.1:3010';
 export function localPreviewEnabled(env = process.env) {
     return env.NODE_ENV === 'development' && env.NEXT_PUBLIC_LOCAL_PREVIEW === 'true';
@@ -36,6 +37,10 @@ export function publicNodes(value, depth = 0, options = {}) {
             return photo ? [{ type: 'photo', photo, caption: String(node.fields?.caption || ''), layout: photoLayout(node.fields?.layout) }] : [];
         }
         if (node.type === 'block') {
+            if (node.fields?.blockType === 'video') {
+                const id = youtubeId(node.fields.url);
+                return id ? [{ type: 'video', youtubeId: id, caption: String(node.fields.caption || '') }] : [];
+            }
             if (node.fields?.blockType !== 'photoRow') return [];
             const photos = (Array.isArray(node.fields.photos) ? node.fields.photos : [])
                 .map((row) => (options.photo || publicPhoto)(row?.image)).filter(Boolean).slice(0, 4);
