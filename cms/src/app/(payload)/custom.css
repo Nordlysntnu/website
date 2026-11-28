@@ -189,3 +189,26 @@
 .article-share__buttons button:hover, .article-share__buttons a:hover { border-color: var(--cms-accent); }
 .article-share__text summary { cursor: pointer; font-size: .75rem; margin-top: .4rem; }
 .article-share__text textarea { width: 100%; margin-top: .5rem; font: inherit; font-size: .75rem; line-height: 1.5; padding: .6rem; border-radius: 4px; border: 1px solid var(--theme-elevation-200); background: var(--theme-elevation-50); color: var(--theme-text); resize: vertical; }
+
+/* Photos in the article editor (#169): real size and position, with the layout buttons on the photo. */
+.LexicalEditorTheme__block:has(> * .nordlys-photo) { margin: 1.25rem 0; }
+.LexicalEditorTheme__block:has(.nordlys-photo--left) { float: left; clear: left; width: 42%; margin: .35rem 1.5rem .75rem 0; }
+.LexicalEditorTheme__block:has(.nordlys-photo--right) { float: right; clear: right; width: 42%; margin: .35rem 0 .75rem 1.5rem; }
+.LexicalEditorTheme__block:has(.nordlys-photo--wide) { margin-left: -4%; margin-right: -4%; }
+.LexicalEditorTheme__block:has(.nordlys-photo--full) { margin-left: -8%; margin-right: -8%; }
+.nordlys-photo { margin: 0; }
+.nordlys-photo__frame { position: relative; border-radius: 8px; overflow: hidden; background: var(--theme-elevation-100); }
+.nordlys-photo__frame img { display: block; width: 100%; height: auto; }
+.nordlys-photo__empty { padding: 3.5rem 1rem; text-align: center; color: var(--theme-elevation-650); font-size: .85rem; }
+.nordlys-photo__toolbar { position: absolute; inset: .5rem .5rem auto .5rem; display: flex; flex-wrap: wrap; gap: .25rem; align-items: center; opacity: 0; transition: opacity .15s; }
+.nordlys-photo:hover .nordlys-photo__toolbar, .nordlys-photo:focus-within .nordlys-photo__toolbar, .nordlys-photo__frame:has(.nordlys-photo__empty) .nordlys-photo__toolbar { opacity: 1; }
+.nordlys-photo__toolbar button { display: inline-flex; gap: .3rem; align-items: center; font: inherit; font-size: .7rem; line-height: 1; padding: .35rem .5rem; border-radius: 4px; border: 0; background: rgba(15, 22, 48, .85); color: #fff; cursor: pointer; }
+.nordlys-photo__toolbar button:hover { background: rgba(15, 22, 48, 1); }
+.nordlys-photo__toolbar button[aria-pressed="true"] { background: var(--cms-accent); }
+.nordlys-photo__toolbar button:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
+.nordlys-photo--left .nordlys-photo__toolbar button > span, .nordlys-photo--right .nordlys-photo__toolbar button > span { display: none; }
+.nordlys-photo__actions { margin-left: auto; display: inline-flex; gap: .15rem; padding: .1rem; border-radius: 4px; background: rgba(15, 22, 48, .85); color: #fff; }
+.nordlys-photo__caption { display: block; width: 100%; border: 0; border-bottom: 1px dashed var(--theme-elevation-250); background: transparent; color: var(--theme-elevation-700); font: inherit; font-size: .8rem; padding: .45rem 0; }
+.nordlys-photo__caption:focus { outline: none; border-bottom-color: var(--cms-accent); color: var(--theme-text); }
+.nordlys-photo__help { font-size: .75rem; color: var(--theme-elevation-650); margin: .35rem 0 0; }
+@media (prefers-reduced-motion: reduce) { .nordlys-photo__toolbar { transition: none; } }

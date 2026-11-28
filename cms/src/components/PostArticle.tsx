@@ -30,6 +30,16 @@ const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
     </figure>
   },
   blocks: {
+    // The editor's in-place photo, shown like an uploaded photo.
+    photo: ({ node }: { node: { fields?: { image?: unknown; caption?: string | null; layout?: string | null } } }) => {
+      const photo = asPhoto(node.fields?.image)
+      if (!photo) return null
+      const layout = typeof node.fields?.layout === 'string' && photoLayouts.includes(node.fields.layout) ? node.fields.layout : 'normal'
+      return <figure className={`article-figure article-figure--${layout}`}>
+        <img src={photo.url!} alt={photo.alt} width={photo.width || undefined} height={photo.height || undefined} />
+        {node.fields?.caption && <figcaption>{node.fields.caption}</figcaption>}
+      </figure>
+    },
     // The private preview shows the player straight away; the website waits for the reader to press play.
     video: ({ node }: { node: { fields?: { url?: string | null; caption?: string | null } } }) => {
       const id = youtubeId(node.fields?.url)
