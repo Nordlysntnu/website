@@ -182,3 +182,10 @@
 .two-factor-gate__help { font-size: .875rem; color: var(--theme-elevation-700); }
 .two-factor-gate__help a { color: var(--cms-accent); }
 .account-two-factor { margin-top: 1rem; }
+.article-share { margin-bottom: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--theme-elevation-200); font-size: .8rem; }
+.article-share__link { display: block; color: var(--cms-accent); word-break: break-all; margin: .5rem 0 .8rem; }
+.article-share__buttons { display: flex; flex-wrap: wrap; gap: .5rem; }
+.article-share__buttons button, .article-share__buttons a { font: inherit; font-size: .75rem; padding: .45rem .7rem; border-radius: 4px; border: 1px solid var(--theme-elevation-250); background: var(--theme-elevation-50); color: var(--theme-text); cursor: pointer; text-decoration: none; }
+.article-share__buttons button:hover, .article-share__buttons a:hover { border-color: var(--cms-accent); }
+.article-share__text summary { cursor: pointer; font-size: .75rem; margin-top: .4rem; }
+.article-share__text textarea { width: 100%; margin-top: .5rem; font: inherit; font-size: .75rem; line-height: 1.5; padding: .6rem; border-radius: 4px; border: 1px solid var(--theme-elevation-200); background: var(--theme-elevation-50); color: var(--theme-text); resize: vertical; }

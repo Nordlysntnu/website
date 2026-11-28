@@ -55,3 +55,13 @@ test('photos inside a photo row count as article photos for access and publishin
   assert.deepEqual(postPhotoIDs(post).sort(), [7, 8, 9])
   assert.equal(coverPhoto(post)?.id, 8)
 })
+
+test('the share panel links to the public article and writes a LinkedIn text', async () => {
+  const { articleURL, linkedInShareURL, linkedInText } = await import('../src/lib/share')
+  assert.equal(articleURL('https://www.nordlysntnu.no/', 'legacy-0123456789abcdef0123', 4), 'https://www.nordlysntnu.no/blog/legacy-0123456789abcdef0123')
+  assert.equal(articleURL(undefined, null, 12), 'https://www.nordlysntnu.no/blog/12')
+  assert.equal(articleURL('https://www.nordlysntnu.no', '../admin', 12), 'https://www.nordlysntnu.no/blog/12', 'only real legacy keys are used')
+  const text = linkedInText({ title: ' First test drive ', summary: '', url: 'https://www.nordlysntnu.no/blog/12' })
+  assert.equal(text, 'First test drive\n\nRead the whole story: https://www.nordlysntnu.no/blog/12\n\n#NordlysNTNU #SolarCar #NTNU')
+  assert.equal(linkedInShareURL('https://www.nordlysntnu.no/blog/12'), 'https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.nordlysntnu.no%2Fblog%2F12')
+})

@@ -8,6 +8,7 @@ import { publicationConfig } from '../src/publishing/config'
 import { prepareStorage, activeRelease } from '../src/publishing/releases.mjs'
 import { recoverInterruptedJobs, reconcilePublication } from '../src/publishing/worker'
 import { websiteQueue } from '../src/publishing/queue'
+import { publishDuePosts } from '../src/lib/schedule'
 
 if(existsSync('.env.local'))process.loadEnvFile('.env.local')
 process.env.NORDLYS_PUBLISH_WORKER='true'
@@ -28,6 +29,8 @@ try{
   await recoverInterruptedJobs(payload)
   do{
     try{
+      // Scheduled articles first, so their website update is part of this round.
+      await publishDuePosts(payload).catch(error=>payload!.logger.error({err:error,msg:'Scheduled publishing check failed.'}))
       const desired=await reconcilePublication(payload,config)
       await payload.jobs.run({queue:websiteQueue,limit:1,overrideAccess:true})
       if(process.argv.includes('--once') && (await activeRelease(config))?.manifest.hash!==desired) process.exitCode=1

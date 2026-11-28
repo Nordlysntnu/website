@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import styles from './CmsBlog.module.css';
+import { imageProps } from './photos.mjs';
 import { youtubeEmbedURL } from './video.mjs';
 
 // The YouTube player is only loaded after the reader presses play, so nothing is sent to YouTube
@@ -55,7 +56,7 @@ export function CmsPostList({ posts, error }) {
             {!error && !shown.length && <p>No published articles yet.</p>}
             {featured && <article className={styles.featured}>
                 <Link href={href(featured)} className={styles.featuredImage} tabIndex={-1} aria-hidden="true">
-                    {featured.cover ? <img src={featured.cover.url} alt="" /> : <span className={styles.placeholder} />}
+                    {featured.cover ? <img {...imageProps(featured.cover, 'featured')} alt="" /> : <span className={styles.placeholder} />}
                 </Link>
                 <div className={styles.featuredText}>
                     <Meta post={featured} />
@@ -66,7 +67,7 @@ export function CmsPostList({ posts, error }) {
             </article>}
             {rest.length > 0 && <div className={styles.grid}>{rest.map((post) => <article key={post.id} className={styles.card}>
                 <Link href={href(post)} className={styles.cardImage} tabIndex={-1} aria-hidden="true">
-                    {post.cover ? <img src={post.cover.url} alt="" loading="lazy" /> : <span className={styles.placeholder} />}
+                    {post.cover ? <img {...imageProps(post.cover, 'card')} alt="" loading="lazy" /> : <span className={styles.placeholder} />}
                 </Link>
                 <div className={styles.cardText}>
                     <Meta post={post} />
@@ -78,8 +79,8 @@ export function CmsPostList({ posts, error }) {
     </div>;
 }
 
-function Photo({ photo, loading = 'lazy' }) {
-    return <img src={photo.url} alt={photo.alt} width={photo.width || undefined} height={photo.height || undefined} loading={loading} />;
+function Photo({ photo, loading = 'lazy', sizes = 'normal' }) {
+    return <img {...imageProps(photo, sizes)} alt={photo.alt} width={photo.width || undefined} height={photo.height || undefined} loading={loading} />;
 }
 
 function Nodes({ nodes }) {
@@ -95,11 +96,11 @@ function Nodes({ nodes }) {
         }
         if (node.type === 'linebreak') return <br key={index} />;
         if (node.type === 'photo') return <figure key={index} className={`${styles.figure} ${styles[node.layout] || ''}`}>
-            <Photo photo={node.photo} />{node.caption && <figcaption>{node.caption}</figcaption>}
+            <Photo photo={node.photo} sizes={node.layout} />{node.caption && <figcaption>{node.caption}</figcaption>}
         </figure>;
         if (node.type === 'video') return <Video key={index} node={node} />;
         if (node.type === 'photoRow') return <figure key={index} className={styles.row} style={{ '--row-count': node.photos.length }}>
-            <div className={styles.rowPhotos}>{node.photos.map((photo, i) => <Photo key={i} photo={photo} />)}</div>
+            <div className={styles.rowPhotos}>{node.photos.map((photo, i) => <Photo key={i} photo={photo} sizes="row" />)}</div>
             {node.caption && <figcaption>{node.caption}</figcaption>}
         </figure>;
         const children = <Nodes nodes={node.children || []} />;
@@ -119,13 +120,13 @@ export function CmsArticle({ post }) {
                 {post.summary && <p className={styles.summary}>{post.summary}</p>}
                 {post.author && <p className={styles.byline}>By {post.author}</p>}
             </header>
-            {post.cover && <figure className={styles.cover}><Photo photo={post.cover} loading="eager" /></figure>}
+            {post.cover && <figure className={styles.cover}><Photo photo={post.cover} loading="eager" sizes="cover" /></figure>}
             <div className={styles.reading}>
                 <Nodes nodes={post.nodes} />
             </div>
             {post.gallery.length > 0 && <section aria-labelledby="gallery-title" className={styles.gallerySection}>
                 <h2 id="gallery-title">More photos</h2>
-                <div className={styles.gallery}>{post.gallery.map((photo, index) => <a key={index} href={photo.url} target="_blank" rel="noreferrer"><Photo photo={photo} /></a>)}</div>
+                <div className={styles.gallery}>{post.gallery.map((photo, index) => <a key={index} href={photo.url} target="_blank" rel="noreferrer"><Photo photo={photo} sizes="gallery" /></a>)}</div>
             </section>}
             <footer className={styles.articleEnd}>
                 <span>Nordlys NTNU</span>

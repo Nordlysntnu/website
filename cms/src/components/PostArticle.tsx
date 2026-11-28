@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { LinkJSXConverter, RichText, type JSXConvertersFunction } from '@payloadcms/richtext-lexical/react'
 import type { SerializedUploadNode } from '@payloadcms/richtext-lexical'
 import type { Post } from '../payload-types'
-import { asPhoto, coverPhoto, monthAndYear } from '../lib/blog'
+import { asPhoto, coverPhoto, focalStyle, monthAndYear } from '../lib/blog'
 import { PhotoGallery } from './PhotoGallery'
 import { youtubeEmbedURL, youtubeId } from '../../../src/features/cms/video.mjs'
 import type React from 'react'
@@ -68,7 +68,7 @@ export function PostArticle({ post }: { post: Post }) {
       {post.authorName?.trim() && <p className="article-byline">By {post.authorName.trim()}</p>}
       {post.summary?.trim() && <p className="article-intro">{post.summary.trim()}</p>}
     </header>
-    {cover && <div className="article-hero"><img src={cover.url!} alt={cover.alt} width={cover.width || undefined} height={cover.height || undefined} /></div>}
+    {cover && <div className="article-hero"><img src={cover.url!} alt={cover.alt} width={cover.width || undefined} height={cover.height || undefined} style={focalStyle(cover)} /></div>}
     <div className="article-reading">
       {post.content && <RichText className="article-body" data={post.content} converters={converters} />}
       <PhotoGallery photos={photos} imageFit={post.imageFit} />

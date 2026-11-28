@@ -97,8 +97,9 @@ test('durable website publication, legacy preservation and failure recovery',asy
       assert.equal((await upgradePublicationDatabase(path.join(dataDir,'cms.db'))).upgraded,false)
       payload=await getPayload({config})
       payload.logger.level='fatal'
-      assert.equal((await payload.findByID({collection:'posts',id:900,draft:true})).title,'A private existing draft')
+      // Later migrations add columns that Payload reads, so apply them before reading the draft.
       await payload.db.migrate()
+      assert.equal((await payload.findByID({collection:'posts',id:900,draft:true})).title,'A private existing draft')
     })
     if(!payload)throw new Error('The stopped-database upgrade fixture failed.')
     await t.test('live builds require clean main matching the fetched origin/main',async()=>{
@@ -286,4 +287,39 @@ test('durable website publication, legacy preservation and failure recovery',asy
       }finally{await new Promise<void>((resolve,reject)=>server.close(e=>e?reject(e):resolve()))}
     })
   }finally{if(payload)await payload.destroy()}
+})
+
+test('website photos are lighter web versions: upright, without metadata, cached and never larger than the original',async()=>{
+  const { webImage, cachedWebImage } = await import('../src/publishing/web-images')
+  const { mkdtemp, rm } = await import('node:fs/promises')
+  const os = await import('node:os')
+  // A noisy 3000×2000 photo, like one from a phone.
+  const pixels=Buffer.alloc(3000*2000*3); let seed=7
+  for(let i=0;i<pixels.length;i++){ seed=(seed*1103515245+12345)&0x7fffffff; pixels[i]=seed>>16 }
+  const raw={ raw:{ width:3000, height:2000, channels:3 as const } }
+  const photo=await sharp(pixels,raw).jpeg({ quality:95 }).toBuffer()
+  const large=await webImage(photo,'image/jpeg','large')
+  assert.deepEqual([large.width,large.height,large.format],[2000,1333,'jpg'])
+  assert.ok(large.data.length<photo.length,'the large version is lighter')
+  const small=await webImage(photo,'image/jpeg','small')
+  assert.deepEqual([small.width,small.height],[800,533])
+
+  const sideways=await sharp(pixels.subarray(0,300*200*3),{ raw:{ width:300, height:200, channels:3 } }).jpeg().withMetadata({ orientation:6 }).toBuffer()
+  const upright=await webImage(sideways,'image/jpeg','large')
+  assert.deepEqual([upright.width,upright.height],[200,300],'turned upright from the camera orientation')
+  assert.equal((await sharp(upright.data).metadata()).exif,undefined,'camera metadata is left out')
+
+  const tiny=await sharp({create:{width:32,height:24,channels:3,background:'#3855a6'}}).png().toBuffer()
+  assert.ok((await webImage(tiny,'image/png','small')).data.length<=tiny.length,'never larger than the original')
+  await assert.rejects(webImage(tiny,'image/gif','small'),/Unsupported/)
+
+  const cacheDir=await mkdtemp(path.join(os.tmpdir(),'nordlys-image-cache-'))
+  try{
+    const first=await cachedWebImage(photo,'image/jpeg','small',cacheDir)
+    const files=await readdir(cacheDir)
+    assert.equal(files.length,2,'one image and its details')
+    assert.ok((await cachedWebImage(photo,'image/jpeg','small',cacheDir)).data.equals(first.data))
+    await writeFile(path.join(cacheDir,files.find(name=>name.endsWith('.jpg'))!),'damaged')
+    assert.ok((await cachedWebImage(photo,'image/jpeg','small',cacheDir)).data.equals(first.data),'a damaged cache entry is made again')
+  }finally{ await rm(cacheDir,{ recursive:true, force:true }) }
 })

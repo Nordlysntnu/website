@@ -36,6 +36,11 @@ function blockPhotos(node: Record<string, unknown>): unknown[] {
   return fields.photos.map((row) => row && typeof row === 'object' && 'image' in row ? row.image : undefined)
 }
 
+/** Keeps the photo's focal point (set on the photo in the CMS) in view when the photo is cropped. */
+export function focalStyle(photo?: Pick<Media, 'focalX' | 'focalY'> | null) {
+  return photo?.focalX != null && photo?.focalY != null ? { objectPosition: `${photo.focalX}% ${photo.focalY}%` } : undefined
+}
+
 export function coverPhoto(post: Post) {
   const chosen = asPhoto(post.coverImage)
   if (chosen) return chosen

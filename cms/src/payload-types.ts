@@ -205,7 +205,7 @@ export interface Post {
    */
   summary?: string | null;
   /**
-   * Shown above the article and on its blog card. If empty, the first gallery or body photo is used.
+   * Shown above the article and on its blog card. If empty, the first gallery or body photo is used. Blog cards crop the photo: open it (pencil icon) and drag the focal point onto what must stay visible. The website gets a lighter copy of every photo, so upload the best original you have.
    */
   coverImage?: (number | null) | Media;
   /**
@@ -258,6 +258,12 @@ export interface Post {
   publishedAt: string;
   imageFit: 'contain' | 'cover';
   review: 'writing' | 'ready' | 'changes';
+  /**
+   * Publishers: pick a time and use Save draft. The article is published then, as it is at that moment. Clear the time and save to cancel. If a writer changes the draft, the time is removed and you are told.
+   */
+  publishAt?: string | null;
+  scheduledBy?: number | null;
+  scheduledByName?: string | null;
   reviewNote?: string | null;
   ownerId?: number | null;
   ownerName?: string | null;
@@ -561,6 +567,9 @@ export interface PostsSelect<T extends boolean = true> {
   publishedAt?: T;
   imageFit?: T;
   review?: T;
+  publishAt?: T;
+  scheduledBy?: T;
+  scheduledByName?: T;
   reviewNote?: T;
   ownerId?: T;
   ownerName?: T;
