@@ -5,6 +5,7 @@ import type { SerializedUploadNode } from '@payloadcms/richtext-lexical'
 import type { Post } from '../payload-types'
 import { asPhoto, coverPhoto, monthAndYear } from '../lib/blog'
 import { PhotoGallery } from './PhotoGallery'
+import { youtubeEmbedURL, youtubeId } from '../../../src/features/cms/video.mjs'
 import type React from 'react'
 
 const photoLayouts = ['normal', 'wide', 'full', 'left', 'right']
@@ -29,6 +30,16 @@ const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
     </figure>
   },
   blocks: {
+    // The private preview shows the player straight away; the website waits for the reader to press play.
+    video: ({ node }: { node: { fields?: { url?: string | null; caption?: string | null } } }) => {
+      const id = youtubeId(node.fields?.url)
+      if (!id) return null
+      return <figure className="article-video">
+        <iframe src={youtubeEmbedURL(id, false)} title={node.fields?.caption || 'Video'} loading="lazy"
+          allow="encrypted-media; picture-in-picture; fullscreen" referrerPolicy="strict-origin-when-cross-origin" />
+        {node.fields?.caption && <figcaption>{node.fields.caption}</figcaption>}
+      </figure>
+    },
     photoRow: ({ node }: { node: { fields?: { photos?: { image?: unknown }[]; caption?: string | null } } }) => {
       const photos = (node.fields?.photos ?? []).flatMap(({ image }) => { const photo = asPhoto(image); return photo ? [photo] : [] })
       if (!photos.length) return null
