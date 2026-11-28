@@ -51,9 +51,14 @@ test('photos inside a photo row count as article photos for access and publishin
     { type: 'block', fields: { blockType: 'photoRow', photos: [{ image: 7 }, { image: { id: 8, url: '/api/media/file/8.webp', alt: 'Eight' } }] } },
     { type: 'upload', relationTo: 'media', value: 9, fields: { layout: 'wide' } },
     { type: 'block', fields: { blockType: 'somethingElse', photos: [{ image: 99 }] } },
+    { type: 'block', fields: { blockType: 'photo', image: 10, layout: 'right', caption: 'In place' } },
   ] } } } as never
-  assert.deepEqual(postPhotoIDs(post).sort(), [7, 8, 9])
+  assert.deepEqual(postPhotoIDs(post).sort((a, b) => a - b), [7, 8, 9, 10], 'photos placed in the editor count too')
   assert.equal(coverPhoto(post)?.id, 8)
+  const photoFirst = { coverImage: null, gallery: [], content: { root: { children: [
+    { type: 'block', fields: { blockType: 'photo', image: { id: 11, url: '/api/media/file/11.webp', alt: 'Eleven' }, layout: 'normal' } },
+  ] } } } as never
+  assert.equal(coverPhoto(photoFirst)?.id, 11, 'a photo block can be the cover when none is chosen')
 })
 
 test('the share panel links to the public article and writes a LinkedIn text', async () => {

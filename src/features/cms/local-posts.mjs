@@ -37,6 +37,11 @@ export function publicNodes(value, depth = 0, options = {}) {
             return photo ? [{ type: 'photo', photo, caption: String(node.fields?.caption || ''), layout: photoLayout(node.fields?.layout) }] : [];
         }
         if (node.type === 'block') {
+            // A Photo block (the editor's in-place photo) is published like an uploaded photo.
+            if (node.fields?.blockType === 'photo') {
+                const photo = (options.photo || publicPhoto)(node.fields.image);
+                return photo ? [{ type: 'photo', photo, caption: String(node.fields.caption || ''), layout: photoLayout(node.fields.layout) }] : [];
+            }
             if (node.fields?.blockType === 'video') {
                 const id = youtubeId(node.fields.url);
                 return id ? [{ type: 'video', youtubeId: id, caption: String(node.fields.caption || '') }] : [];
