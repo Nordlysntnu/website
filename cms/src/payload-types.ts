@@ -209,7 +209,7 @@ export interface Post {
    */
   coverImage?: (number | null) | Media;
   /**
-   * Write the article here. Use the toolbar for headings and links. Type / or click + to insert a photo between paragraphs; photos can have captions.
+   * Write the article here. Use the toolbar for headings and links. To add a photo, paste it, drop it into the text or use + → Upload. Point at a photo to choose its size and position (small left/right photos have text around them), write the caption under it, and drag the handle on the left to move it.
    */
   content: {
     root: {

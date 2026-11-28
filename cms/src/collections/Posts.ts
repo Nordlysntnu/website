@@ -67,7 +67,7 @@ export const Posts: CollectionConfig = {
     { name: 'coverImage', type: 'upload', relationTo: 'media', label: 'Cover photo',
       admin: { description: 'Shown above the article and on its blog card. If empty, the first gallery or body photo is used. Blog cards crop the photo: open it (pencil icon) and drag the focal point onto what must stay visible. The website gets a lighter copy of every photo, so upload the best original you have.' } },
     { name: 'content', type: 'richText', required: true, label: 'Article body',
-      admin: { description: 'Write the article here. Use the toolbar for headings and links. Type / or click + to insert a photo between paragraphs; photos can have captions.' } },
+      admin: { description: 'Write the article here. Use the toolbar for headings and links. To add a photo, paste it, drop it into the text or use + → Upload. Point at a photo to choose its size and position (small left/right photos have text around them), write the caption under it, and drag the handle on the left to move it.' } },
     {
       name: 'gallery', type: 'array', label: 'Photos', labels: { singular: 'Photo', plural: 'Photos' }, maxRows: 12,
       admin: { description: 'Optional photo gallery at the end of the article. Drag rows to change their order.' },

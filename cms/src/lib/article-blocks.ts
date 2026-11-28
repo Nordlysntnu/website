@@ -15,6 +15,21 @@ export const photoLayoutField: Field = {
   admin: { description: 'Wide and full-width photos make a strong break between sections. Small photos sit beside the text.' },
 }
 
+/**
+ * One photo in the article body, shown in the editor at its real size and position (#169).
+ * Photos pasted, dropped or inserted with the Upload button become this block (see PhotoBlocksFeature).
+ */
+export const PhotoBlock: Block = {
+  slug: 'photo',
+  labels: { singular: 'Photo', plural: 'Photos' },
+  admin: { components: { Block: '/components/editor/PhotoBlockView#PhotoBlockView' } },
+  fields: [
+    { name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Photo' },
+    photoLayoutField,
+    { name: 'caption', type: 'text', label: 'Caption', maxLength: 300, admin: { description: 'Optional text below the photo.' } },
+  ],
+}
+
 /** Two to four photos side by side inside the article body. */
 export const PhotoRowBlock: Block = {
   slug: 'photoRow',
