@@ -284,9 +284,9 @@
     font-size: 1.22rem;
 }
 
+/* Headings may sit beside a small left/right photo, as in the CMS editor (#171). */
 .reading h2,
 .reading h3 {
-    clear: both;
     line-height: 1.15;
 }
 
@@ -309,6 +309,8 @@
 
 .reading ul,
 .reading ol {
+    /* Beside a small photo the whole list moves over, so its numbers never sit on the photo. */
+    display: flow-root;
     margin: 0 0 1.4rem 1.4rem;
 }
 
@@ -404,6 +406,16 @@
 .right {
     float: right;
     margin-left: 1.75rem;
+}
+
+/* A heading right after a small photo starts level with the photo. */
+@media (min-width: 601px) {
+    .left + h2,
+    .left + h3,
+    .right + h2,
+    .right + h3 {
+        margin-top: 0.4rem;
+    }
 }
 
 .rowPhotos {

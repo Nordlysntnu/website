@@ -212,3 +212,8 @@
 .nordlys-photo__caption:focus { outline: none; border-bottom-color: var(--cms-accent); color: var(--theme-text); }
 .nordlys-photo__help { font-size: .75rem; color: var(--theme-elevation-650); margin: .35rem 0 0; }
 @media (prefers-reduced-motion: reduce) { .nordlys-photo__toolbar { transition: none; } }
+/* Keep floated photos inside the article body field, and lay text out beside them as the website does (#171). */
+[data-lexical-editor="true"] { display: flow-root; }
+[data-lexical-editor="true"] > :is(ul, ol) { display: flow-root; }
+[data-lexical-editor="true"] > blockquote { clear: both; }
+.LexicalEditorTheme__block:has(.nordlys-photo--left, .nordlys-photo--right) + :is(h2, h3) { margin-top: .35rem; }

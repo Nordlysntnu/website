@@ -71,7 +71,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .article-figure--left, .article-figure--right { clear: both; width: 42%; margin-top: .4rem; margin-bottom: 1rem; }
 .article-figure--left { float: left; margin-right: 1.75rem; }
 .article-figure--right { float: right; margin-left: 1.75rem; }
-.article-body h2, .article-body h3, .article-row, .article-figure--wide, .article-figure--full { clear: both; }
+/* Headings may sit beside a small left/right photo, as in the editor and on the website (#171). */
+.article-row, .article-figure--wide, .article-figure--full, .article-body blockquote, .article-gallery, .article-end { clear: both; }
+.article-body ul, .article-body ol { display: flow-root; }
+@media (min-width: 601px) {
+  .article-figure--left + :is(h2, h3), .article-figure--right + :is(h2, h3) { margin-top: .4rem; }
+}
 .article-row { width: min(100vw - 2rem, 1040px); margin: 2.3rem 0; }
 .article-row__photos { display: grid; grid-template-columns: repeat(var(--row-count, 2), minmax(0, 1fr)); gap: .6rem; }
 .article-row__photos img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
