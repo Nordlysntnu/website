@@ -3,6 +3,7 @@ import { APIError, type CollectionConfig } from 'payload'
 import { isEditor, editorsOnly, editorField, editDraftsOrPublish, publishedOrEditor, publishersOnly, publishField } from '../access'
 import { departments } from '../lib/blog'
 import { applyReviewWorkflow } from '../lib/review-workflow'
+import { applySchedule } from '../lib/schedule'
 
 const internalReceipt = { read: editorField, create: () => false, update: () => false }
 
@@ -12,7 +13,7 @@ export const Posts: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     group: 'Content',
-    defaultColumns: ['title', 'department', 'review', '_status', 'updatedAt'],
+    defaultColumns: ['title', 'department', 'review', '_status', 'publishAt', 'updatedAt'],
     description: 'Write, preview and send for review. Publishers can leave feedback or publish the approved article.',
     components: { beforeList: ['/components/WorkflowLinks#WorkflowLinks'] },
     preview: (data) => `/preview/${data.id ?? 'new'}`,
@@ -52,7 +53,7 @@ export const Posts: CollectionConfig = {
     beforeChange: [({ data, req }) => {
       if (req.user?.role === 'marketing') data._status = 'draft'
       return data
-    }, applyReviewWorkflow],
+    }, applyReviewWorkflow, applySchedule],
   },
   fields: [
     { name:'legacyKey', type:'text', unique:true, access:{ create:()=>false, update:()=>false }, admin:{hidden:true} },
@@ -97,6 +98,13 @@ export const Posts: CollectionConfig = {
       access: { read: editorField },
       admin: { position: 'sidebar', components: { Field: '/components/ReviewAction#ReviewAction', Cell: '/components/ReviewCell#ReviewCell' } },
     },
+    // Scheduled publishing (#96): the website publisher service publishes the latest draft at this time.
+    { name: 'publishAt', type: 'date', label: 'Publish at', index: true,
+      access: { read: editorField, create: publishField, update: publishField },
+      admin: { position: 'sidebar', date: { pickerAppearance: 'dayAndTime', timeIntervals: 15, displayFormat: 'd MMM yyyy, HH:mm' },
+        description: 'Publishers: pick a time and use Save draft. The article is published then, as it is at that moment. Clear the time and save to cancel. If a writer changes the draft, the time is removed and you are told.' } },
+    { name: 'scheduledBy', type: 'number', access: internalReceipt, admin: { hidden: true } },
+    { name: 'scheduledByName', type: 'text', access: internalReceipt, admin: { hidden: true } },
     { name: 'reviewNote', type: 'textarea', maxLength: 2000, access: { read: editorField, create: publishField, update: publishField }, admin: { hidden: true } },
     { name: 'ownerId', type: 'number', access: internalReceipt, admin: { hidden: true } },
     { name: 'ownerName', type: 'text', access: internalReceipt, admin: { hidden: true } },

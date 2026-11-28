@@ -8,6 +8,9 @@ import { editorialDate, reviewLabel } from '../lib/editorial'
 import { NotificationInbox } from './NotificationInbox'
 import { headers } from 'next/headers'
 import { mfaSatisfied } from '../lib/mfa'
+import { scheduledPosts } from '../lib/schedule'
+
+const osloTime = (value?: string | null) => value ? new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Europe/Oslo' }).format(new Date(value)) : ''
 
 function Queue({ title, posts, empty, kind, total }: { title: string; posts: Post[]; empty: string; kind: string; total: number }) {
   return <section className="editorial-queue" aria-label={title}>
@@ -40,6 +43,7 @@ export async function DemoGuide({ payload }: ServerProps) {
     queue('ready'), queue('changes'), queue('writing'),
     payload.find({ collection: 'posts', overrideAccess: false, user, draft: false, depth: 0, where: publishedWhere, limit: 1 }),
   ])
+  const scheduled = await scheduledPosts(payload, user)
   const assigned = publisher ? await payload.find({ collection: 'posts', overrideAccess: false, user, draft: true, depth: 0,
     where: { and: [{ _status: { equals: 'draft' } }, { review: { equals: 'ready' } }, { reviewerId: { equals: user.id } }] },
     limit: 4, sort: '-updatedAt' }) : null
@@ -62,6 +66,17 @@ export async function DemoGuide({ payload }: ServerProps) {
     </nav>
     <NotificationInbox />
     <PublicationStatus />
+    {scheduled.totalDocs > 0 && <section className="editorial-queue" aria-label="Scheduled">
+      <div className="editorial-section-heading"><h2>Scheduled <span className="editorial-count">{scheduled.totalDocs}</span></h2></div>
+      <ul className="editorial-queue__list">{scheduled.docs.map((post) => <li key={post.id}>
+        <Link href={`/admin/collections/posts/${post.id}`} className="editorial-post-link">
+          <span className="editorial-post-link__meta">{osloTime(post.publishAt)}{post.scheduledByName ? ` · scheduled by ${post.scheduledByName}` : ''}</span>
+          <strong>{post.title || 'Untitled article'}</strong>
+          <span className="editorial-post-link__action">{publisher ? 'Open to change or cancel' : 'Open'} →</span>
+        </Link>
+      </li>)}</ul>
+      {scheduled.totalDocs > scheduled.docs.length && <Link className="editorial-link" href="/admin/collections/posts?where[publishAt][exists]=true&sort=publishAt">View all {scheduled.totalDocs} →</Link>}
+    </section>}
     {assigned && <section className="editorial-queue" aria-label="Assigned to you">
       <h2>Assigned to you ({assigned.totalDocs})</h2>
       {assigned.docs.length ? <ul className="editorial-queue__list">{assigned.docs.map((post) => <li key={post.id}>

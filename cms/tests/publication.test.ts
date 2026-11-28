@@ -97,8 +97,9 @@ test('durable website publication, legacy preservation and failure recovery',asy
       assert.equal((await upgradePublicationDatabase(path.join(dataDir,'cms.db'))).upgraded,false)
       payload=await getPayload({config})
       payload.logger.level='fatal'
-      assert.equal((await payload.findByID({collection:'posts',id:900,draft:true})).title,'A private existing draft')
+      // Later migrations add columns that Payload reads, so apply them before reading the draft.
       await payload.db.migrate()
+      assert.equal((await payload.findByID({collection:'posts',id:900,draft:true})).title,'A private existing draft')
     })
     if(!payload)throw new Error('The stopped-database upgrade fixture failed.')
     await t.test('live builds require clean main matching the fetched origin/main',async()=>{
