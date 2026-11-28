@@ -2,13 +2,13 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import type { Post } from '../payload-types'
-import { coverPhoto, departments, excerpt, monthAndYear } from '../lib/blog'
+import { coverPhoto, departments, excerpt, focalStyle, monthAndYear } from '../lib/blog'
 
 export function BlogCard({ post }: { post: Post }) {
   const photo = coverPhoto(post)
   return <Link className="blog-card" href={`/blog/${post.id}`} aria-label={`Read ${post.title}`}>
     <div className={`blog-card-photo ${!photo ? 'blog-card-placeholder' : ''}`}>
-      {photo ? <img src={photo.sizes?.thumbnail?.url || photo.url!} alt={photo.alt} /> : <span aria-hidden="true">Nordlys<span>FROM IDEA TO RACETRACK</span></span>}
+      {photo ? <img src={photo.sizes?.thumbnail?.url || photo.url!} alt={photo.alt} style={focalStyle(photo)} /> :<span aria-hidden="true">Nordlys<span>FROM IDEA TO RACETRACK</span></span>}
     </div>
     <div className="blog-card-body">
       <div className="blog-card-meta"><span>{post.department || 'Team'}</span><time dateTime={post.publishedAt}>{monthAndYear(post.publishedAt)}</time></div>

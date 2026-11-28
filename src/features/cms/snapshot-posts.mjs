@@ -4,10 +4,15 @@ import { readLocalPosts, safeLink, localPreviewEnabled, localBlogProps, photoLay
 
 const safeId = value => Number.isSafeInteger(value) && value > 0
 const safeKey = value => typeof value === 'string' && /^legacy-[a-f0-9]{20}$/.test(value)
+const mediaURL = value => typeof value === 'string' && /^\/cms-media\/[a-f0-9]{64}\.(jpg|png|webp)$/.test(value)
+const percent = value => typeof value === 'number' && value >= 0 && value <= 100 ? value : null
 function photo(value) {
     if (!value) return null
-    if (typeof value.url !== 'string' || !/^\/cms-media\/[a-f0-9]{64}\.(jpg|png|webp)$/.test(value.url)) throw new Error('Invalid snapshot image.')
-    return { url: value.url, alt: String(value.alt || ''), width: Number(value.width) || null, height: Number(value.height) || null }
+    if (!mediaURL(value.url) || (value.small != null && !mediaURL(value.small))) throw new Error('Invalid snapshot image.')
+    // Older snapshots have no small version or focal point; the website then uses the photo itself and the centre.
+    const focal = percent(value.focalX) !== null && percent(value.focalY) !== null ? { focalX: value.focalX, focalY: value.focalY } : {}
+    return { url: value.url, alt: String(value.alt || ''), width: Number(value.width) || null, height: Number(value.height) || null,
+        small: value.small || null, ...focal }
 }
 function nodes(value, depth=0) {
     if (!Array.isArray(value) || depth > 30) throw new Error('Invalid snapshot article body.')

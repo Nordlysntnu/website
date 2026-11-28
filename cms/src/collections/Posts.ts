@@ -64,7 +64,7 @@ export const Posts: CollectionConfig = {
     { name: 'summary', type: 'textarea', label: 'Short introduction', maxLength: 320,
       admin: { description: 'A short introduction for the blog card and the top of the article. Optional.' } },
     { name: 'coverImage', type: 'upload', relationTo: 'media', label: 'Cover photo',
-      admin: { description: 'Shown above the article and on its blog card. If empty, the first gallery or body photo is used.' } },
+      admin: { description: 'Shown above the article and on its blog card. If empty, the first gallery or body photo is used. Blog cards crop the photo: open it (pencil icon) and drag the focal point onto what must stay visible. The website gets a lighter copy of every photo, so upload the best original you have.' } },
     { name: 'content', type: 'richText', required: true, label: 'Article body',
       admin: { description: 'Write the article here. Use the toolbar for headings and links. Type / or click + to insert a photo between paragraphs; photos can have captions.' } },
     {
