@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { websiteBlogProps } from '@features/cms/snapshot-posts.mjs';
 import { CmsPostList } from '@features/cms/CmsBlog';
+import { ShareHead } from '@features/cms/ShareHead';
+import { blogShare } from '@features/cms/share.mjs';
 import Content from '@shared/components/Content';
 import Layout from '@shared/components/Layout';
 import PageHeader from '@shared/components/PageHeader';
@@ -13,7 +15,7 @@ export async function getStaticProps() {
 }
 
 export default function Blog({ cmsPosts = null, cmsError = null }) {
-    if (cmsPosts !== null) return <Layout><Head><title>Blog · Nordlys</title></Head><CmsPostList posts={cmsPosts} error={cmsError} /></Layout>;
+    if (cmsPosts !== null) return <Layout><Head><title>Blog · Nordlys</title></Head><ShareHead share={blogShare(cmsPosts)} /><CmsPostList posts={cmsPosts} error={cmsError} /></Layout>;
 	const pagetext = "Nordlys NTNU never goes on vacation — year round, our members work designing, developing, producing and testing our technology. And beyond the pure technical work, we also travel around Europe, host and attend events, and do many fun social activities together. Here on our blog, you can see a snapshot of these activities.";
 
 	return (

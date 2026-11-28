@@ -87,6 +87,9 @@ export const Posts: CollectionConfig = {
       admin: { hidden: true },
     },
     { name: 'articleChecklist', type: 'ui', admin: { position: 'sidebar', components: { Field: '/components/ArticleChecklist#ArticleChecklist' } } },
+    // Shown once the article is published: its public link, a LinkedIn text and LinkedIn's share window.
+    { name: 'shareArticle', type: 'ui', admin: { position: 'sidebar', components: { Field: {
+      path: '/components/ShareArticle#ShareArticle', clientProps: { websiteURL: process.env.NORDLYS_WEBSITE_URL || 'https://www.nordlysntnu.no' } } } } },
     {
       name: 'review', type: 'select', defaultValue: 'writing', required: true,
       label: 'Review',
